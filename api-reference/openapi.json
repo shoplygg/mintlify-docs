@@ -13083,7 +13083,7 @@
                     "Orders"
                 ],
                 "summary": "Send an order's email again",
-                "description": "Sends the order's delivery email again, with what it delivered, to the order's own email address.\n\nNeeds the `orders.fulfil` permission (Deliver orders). It sends an email, and is counted against a budget of its own: 60 in ten minutes for each key.",
+                "description": "Sends the order's delivery email again, with what it delivered, to the order's own email address. One order's email is sent again at most five times an hour, whoever asks: after that the answer is 429.\n\nNeeds the `orders.fulfil` permission (Deliver orders). It sends an email, and is counted against a budget of its own: 60 in ten minutes for each key.",
                 "x-mint": {
                     "href": "/api-reference/orders/send-an-orders-email-again",
                     "metadata": {
