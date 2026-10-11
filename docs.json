@@ -1,72 +1,523 @@
 {
-  "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mintlify Starter Kit",
-  "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
-  },
-  "favicon": "/favicon.svg",
-  "navigation": {
-    "pages": [
-      {
-        "group": "Getting Started",
-        "pages": [
-          "index",
-          "quickstart"
+    "$schema": "https://mintlify.com/docs.json",
+    "theme": "mint",
+    "name": "Shoply",
+    "description": "Guides for running a Shoply store, and the API, webhooks and SDKs for building on it.",
+    "colors": {
+        "primary": "#6A3CE2",
+        "light": "#A78BFA",
+        "dark": "#6A3CE2"
+    },
+    "favicon": "/favicon.png",
+    "logo": {
+        "light": "/logo/light.webp",
+        "dark": "/logo/dark.webp",
+        "href": "https://shoply.gg"
+    },
+    "navigation": {
+        "tabs": [
+            {
+                "tab": "Guides",
+                "groups": [
+                    {
+                        "group": "Get started",
+                        "pages": [
+                            "index",
+                            "guides/quickstart"
+                        ]
+                    },
+                    {
+                        "group": "Selling",
+                        "pages": [
+                            "guides/products-and-variants",
+                            "guides/delivery",
+                            "guides/dynamic-delivery",
+                            "guides/orders",
+                            "guides/coupons-and-sales",
+                            "guides/customers-and-balance",
+                            "guides/affiliates"
+                        ]
+                    },
+                    {
+                        "group": "Your store",
+                        "pages": [
+                            "guides/storefronts",
+                            "guides/custom-domain",
+                            "guides/payment-methods",
+                            "guides/fraud-protection"
+                        ]
+                    },
+                    {
+                        "group": "Sell on your own site",
+                        "pages": [
+                            "guides/embeds",
+                            "guides/checkout-kit"
+                        ]
+                    },
+                    {
+                        "group": "Automate",
+                        "pages": [
+                            "guides/api-keys",
+                            "guides/webhooks"
+                        ]
+                    }
+                ]
+            },
+            {
+                "tab": "API reference",
+                "groups": [
+                    {
+                        "group": "Overview",
+                        "pages": [
+                            "api-reference/introduction",
+                            "api-reference/quickstart",
+                            "api-reference/authentication",
+                            "api-reference/permissions",
+                            "api-reference/conventions",
+                            "api-reference/errors",
+                            "api-reference/rate-limits",
+                            "api-reference/idempotency"
+                        ]
+                    },
+                    {
+                        "group": "Webhooks",
+                        "pages": [
+                            "api-reference/webhooks",
+                            "api-reference/webhook-events"
+                        ]
+                    },
+                    {
+                        "group": "API key",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /key"
+                        ]
+                    },
+                    {
+                        "group": "Store",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}",
+                            "PUT /stores/{storeId}",
+                            "PUT /stores/{storeId}/url",
+                            "POST /stores/{storeId}/logo",
+                            "POST /stores/{storeId}/favicon",
+                            "GET /stores/{storeId}/email-settings"
+                        ]
+                    },
+                    {
+                        "group": "Domain",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/domain",
+                            "POST /stores/{storeId}/domain",
+                            "DELETE /stores/{storeId}/domain"
+                        ]
+                    },
+                    {
+                        "group": "Payment methods",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/payment-methods",
+                            "PATCH /stores/{storeId}/payment-methods/{provider}/enabled",
+                            "POST /stores/{storeId}/payment-methods/sort",
+                            "PUT /stores/{storeId}/payment-methods/balance"
+                        ]
+                    },
+                    {
+                        "group": "Analytics",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/analytics/overview",
+                            "GET /stores/{storeId}/analytics/report",
+                            "GET /stores/{storeId}/analytics/live",
+                            "GET /stores/{storeId}/analytics/visitors",
+                            "GET /stores/{storeId}/analytics/search"
+                        ]
+                    },
+                    {
+                        "group": "Storefronts",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/storefronts",
+                            "POST /stores/{storeId}/storefronts",
+                            "POST /stores/{storeId}/storefronts/import",
+                            "GET /stores/{storeId}/storefronts/{storefrontId}/export",
+                            "PATCH /stores/{storeId}/storefronts/{storefrontId}",
+                            "POST /stores/{storeId}/storefronts/{storefrontId}/live",
+                            "DELETE /stores/{storeId}/storefronts/{storefrontId}"
+                        ]
+                    },
+                    {
+                        "group": "Products",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/products",
+                            "GET /stores/{storeId}/products/{productId}",
+                            "POST /stores/{storeId}/products",
+                            "PUT /stores/{storeId}/products/{productId}",
+                            "PATCH /stores/{storeId}/products/{productId}/visibility",
+                            "POST /stores/{storeId}/products/sort",
+                            "POST /stores/{storeId}/products/bulk",
+                            "POST /stores/{storeId}/products/bulk-delete",
+                            "DELETE /stores/{storeId}/products/{productId}"
+                        ]
+                    },
+                    {
+                        "group": "Product pictures",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "POST /stores/{storeId}/products/{productId}/images",
+                            "POST /stores/{storeId}/products/{productId}/images/sort",
+                            "DELETE /stores/{storeId}/products/{productId}/images/{imageId}"
+                        ]
+                    },
+                    {
+                        "group": "Stock",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/variants/{variantId}/keys",
+                            "POST /stores/{storeId}/variants/{variantId}/keys",
+                            "PUT /stores/{storeId}/variants/{variantId}/keys",
+                            "POST /stores/{storeId}/variants/{variantId}/keys/delete",
+                            "DELETE /stores/{storeId}/variants/{variantId}/keys/{keyId}",
+                            "GET /stores/{storeId}/variants/{variantId}/files",
+                            "POST /stores/{storeId}/variants/{variantId}/files",
+                            "POST /stores/{storeId}/variants/{variantId}/files/{fileId}/complete",
+                            "DELETE /stores/{storeId}/variants/{variantId}/files/{fileId}"
+                        ]
+                    },
+                    {
+                        "group": "Categories",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/categories",
+                            "POST /stores/{storeId}/categories",
+                            "PUT /stores/{storeId}/categories/{categoryId}",
+                            "POST /stores/{storeId}/categories/sort",
+                            "POST /stores/{storeId}/categories/{categoryId}/image",
+                            "DELETE /stores/{storeId}/categories/{categoryId}/image",
+                            "DELETE /stores/{storeId}/categories/{categoryId}"
+                        ]
+                    },
+                    {
+                        "group": "Orders",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/orders",
+                            "GET /stores/{storeId}/orders/export",
+                            "GET /stores/{storeId}/orders/{orderId}",
+                            "GET /stores/{storeId}/orders/{orderId}/network",
+                            "GET /stores/{storeId}/orders/{orderId}/pdf",
+                            "POST /stores/{storeId}/orders/{orderId}/pay",
+                            "POST /stores/{storeId}/orders/{orderId}/refund",
+                            "POST /stores/{storeId}/orders/{orderId}/redeliver",
+                            "POST /stores/{storeId}/orders/{orderId}/dynamic-retry",
+                            "POST /stores/{storeId}/orders/{orderId}/resend-email",
+                            "POST /stores/{storeId}/orders/{orderId}/note"
+                        ]
+                    },
+                    {
+                        "group": "Invoices",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/invoices",
+                            "POST /stores/{storeId}/invoices",
+                            "POST /stores/{storeId}/invoices/{orderId}/send"
+                        ]
+                    },
+                    {
+                        "group": "Reviews",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/reviews"
+                        ]
+                    },
+                    {
+                        "group": "Coupons",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/coupons",
+                            "POST /stores/{storeId}/coupons",
+                            "PUT /stores/{storeId}/coupons/{couponId}",
+                            "DELETE /stores/{storeId}/coupons/{couponId}",
+                            "POST /stores/{storeId}/coupons/sort"
+                        ]
+                    },
+                    {
+                        "group": "Coupon categories",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/coupon-categories",
+                            "POST /stores/{storeId}/coupon-categories",
+                            "PUT /stores/{storeId}/coupon-categories/{categoryId}",
+                            "DELETE /stores/{storeId}/coupon-categories/{categoryId}",
+                            "POST /stores/{storeId}/coupon-categories/sort"
+                        ]
+                    },
+                    {
+                        "group": "Coupon pop-up",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/coupon-popup",
+                            "PUT /stores/{storeId}/coupon-popup"
+                        ]
+                    },
+                    {
+                        "group": "Sales",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/sales",
+                            "GET /stores/{storeId}/sales/{saleId}",
+                            "POST /stores/{storeId}/sales",
+                            "PUT /stores/{storeId}/sales/{saleId}",
+                            "PATCH /stores/{storeId}/sales/{saleId}/enabled",
+                            "DELETE /stores/{storeId}/sales/{saleId}"
+                        ]
+                    },
+                    {
+                        "group": "Blog",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/blog",
+                            "POST /stores/{storeId}/blog/categories",
+                            "PUT /stores/{storeId}/blog/categories/{categoryId}",
+                            "POST /stores/{storeId}/blog/categories/sort",
+                            "POST /stores/{storeId}/blog/categories/{categoryId}/image",
+                            "DELETE /stores/{storeId}/blog/categories/{categoryId}/image",
+                            "DELETE /stores/{storeId}/blog/categories/{categoryId}",
+                            "POST /stores/{storeId}/blog/posts",
+                            "GET /stores/{storeId}/blog/posts/{postId}",
+                            "PUT /stores/{storeId}/blog/posts/{postId}",
+                            "PUT /stores/{storeId}/blog/posts/{postId}/status",
+                            "POST /stores/{storeId}/blog/posts/sort",
+                            "POST /stores/{storeId}/blog/posts/{postId}/cover",
+                            "DELETE /stores/{storeId}/blog/posts/{postId}/cover",
+                            "POST /stores/{storeId}/blog/posts/{postId}/images",
+                            "DELETE /stores/{storeId}/blog/posts/{postId}"
+                        ]
+                    },
+                    {
+                        "group": "Search settings",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/seo",
+                            "PUT /stores/{storeId}/seo"
+                        ]
+                    },
+                    {
+                        "group": "Redirects",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/redirects",
+                            "POST /stores/{storeId}/redirects",
+                            "PUT /stores/{storeId}/redirects/{redirectId}",
+                            "DELETE /stores/{storeId}/redirects/{redirectId}",
+                            "DELETE /stores/{storeId}/broken-links"
+                        ]
+                    },
+                    {
+                        "group": "Sitemap",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/sitemap",
+                            "PUT /stores/{storeId}/sitemap/kinds/{kind}",
+                            "PUT /stores/{storeId}/sitemap/entries"
+                        ]
+                    },
+                    {
+                        "group": "Customers",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/customers",
+                            "GET /stores/{storeId}/customers/stats",
+                            "GET /stores/{storeId}/customers/{customerId}",
+                            "POST /stores/{storeId}/customers",
+                            "POST /stores/{storeId}/customers/{customerId}/balance",
+                            "POST /stores/{storeId}/customers/{customerId}/blacklist",
+                            "DELETE /stores/{storeId}/customers/{customerId}/blacklist"
+                        ]
+                    },
+                    {
+                        "group": "Affiliates",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/affiliates",
+                            "POST /stores/{storeId}/affiliates",
+                            "PUT /stores/{storeId}/affiliates/{affiliateId}",
+                            "DELETE /stores/{storeId}/affiliates/{affiliateId}",
+                            "POST /stores/{storeId}/affiliates/{affiliateId}/balance",
+                            "GET /stores/{storeId}/affiliates/{affiliateId}/history",
+                            "GET /stores/{storeId}/affiliate-orders",
+                            "GET /stores/{storeId}/affiliate-payouts",
+                            "PUT /stores/{storeId}/affiliate-payouts/{payoutId}",
+                            "GET /stores/{storeId}/affiliate-programme",
+                            "PUT /stores/{storeId}/affiliate-programme"
+                        ]
+                    },
+                    {
+                        "group": "Blacklist",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/blacklist",
+                            "POST /stores/{storeId}/blacklist",
+                            "PUT /stores/{storeId}/blacklist/{ruleId}",
+                            "PATCH /stores/{storeId}/blacklist/{ruleId}/enabled",
+                            "DELETE /stores/{storeId}/blacklist/{ruleId}"
+                        ]
+                    },
+                    {
+                        "group": "Fraud protection",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/fraud-events",
+                            "GET /stores/{storeId}/fraud-events/{eventId}/network",
+                            "GET /stores/{storeId}/fraud-settings",
+                            "PUT /stores/{storeId}/fraud-settings"
+                        ]
+                    },
+                    {
+                        "group": "Finance",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/finance/access",
+                            "GET /stores/{storeId}/finance/profit",
+                            "GET /stores/{storeId}/finance/accounting",
+                            "GET /stores/{storeId}/finance/export/{what}",
+                            "PUT /stores/{storeId}/finance/costs/{variantId}",
+                            "GET /stores/{storeId}/finance/payment-costs",
+                            "PUT /stores/{storeId}/finance/payment-costs"
+                        ]
+                    },
+                    {
+                        "group": "Tax",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/tax",
+                            "PUT /stores/{storeId}/tax",
+                            "POST /stores/{storeId}/tax/rates",
+                            "DELETE /stores/{storeId}/tax/rates"
+                        ]
+                    },
+                    {
+                        "group": "Expenses",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/expenses",
+                            "GET /stores/{storeId}/expenses/summary",
+                            "GET /stores/{storeId}/expenses/setup",
+                            "GET /stores/{storeId}/expenses/export",
+                            "POST /stores/{storeId}/expenses",
+                            "PUT /stores/{storeId}/expenses/{expenseId}",
+                            "DELETE /stores/{storeId}/expenses/{expenseId}",
+                            "GET /stores/{storeId}/expenses/{expenseId}/receipt",
+                            "POST /stores/{storeId}/expenses/{expenseId}/receipt",
+                            "POST /stores/{storeId}/expenses/{expenseId}/receipt/complete",
+                            "DELETE /stores/{storeId}/expenses/{expenseId}/receipt"
+                        ]
+                    },
+                    {
+                        "group": "Expense setup",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/expense-categories",
+                            "POST /stores/{storeId}/expense-categories",
+                            "PUT /stores/{storeId}/expense-categories/{categoryId}",
+                            "POST /stores/{storeId}/expense-categories/sort",
+                            "DELETE /stores/{storeId}/expense-categories/{categoryId}",
+                            "GET /stores/{storeId}/recurring-expenses",
+                            "POST /stores/{storeId}/recurring-expenses",
+                            "PUT /stores/{storeId}/recurring-expenses/{recurringId}",
+                            "POST /stores/{storeId}/recurring-expenses/{recurringId}/paid",
+                            "POST /stores/{storeId}/recurring-expenses/{recurringId}/skip",
+                            "DELETE /stores/{storeId}/recurring-expenses/{recurringId}",
+                            "GET /stores/{storeId}/expense-rules",
+                            "POST /stores/{storeId}/expense-rules",
+                            "DELETE /stores/{storeId}/expense-rules/{ruleId}"
+                        ]
+                    },
+                    {
+                        "group": "API requests",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/api-requests",
+                            "GET /stores/{storeId}/api-requests/{requestId}"
+                        ]
+                    },
+                    {
+                        "group": "Webhook endpoints",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/webhooks",
+                            "POST /stores/{storeId}/webhooks",
+                            "GET /stores/{storeId}/webhooks/{endpointId}",
+                            "PUT /stores/{storeId}/webhooks/{endpointId}",
+                            "POST /stores/{storeId}/webhooks/{endpointId}/secret",
+                            "POST /stores/{storeId}/webhooks/{endpointId}/test",
+                            "DELETE /stores/{storeId}/webhooks/{endpointId}"
+                        ]
+                    },
+                    {
+                        "group": "Webhook deliveries",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/webhook-deliveries",
+                            "GET /stores/{storeId}/webhook-deliveries/{deliveryId}",
+                            "POST /stores/{storeId}/webhook-deliveries/{deliveryId}/resend"
+                        ]
+                    }
+                ]
+            },
+            {
+                "tab": "SDK",
+                "groups": [
+                    {
+                        "group": "Storefront SDK",
+                        "pages": [
+                            "sdk/introduction",
+                            "sdk/reference"
+                        ]
+                    }
+                ]
+            }
         ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+    },
+    "navbar": {
+        "links": [
+            {
+                "label": "Status",
+                "href": "https://status.shoply.gg"
+            }
+        ],
+        "primary": {
+            "type": "button",
+            "label": "Dashboard",
+            "href": "https://dashboard.shoply.gg"
         }
-      ]
+    },
+    "contextual": {
+        "options": [
+            "copy",
+            "view",
+            "chatgpt",
+            "claude"
+        ]
+    },
+    "footer": {
+        "links": [
+            {
+                "header": "Shoply",
+                "items": [
+                    {
+                        "label": "Dashboard",
+                        "href": "https://dashboard.shoply.gg"
+                    },
+                    {
+                        "label": "Status",
+                        "href": "https://status.shoply.gg"
+                    }
+                ]
+            }
+        ]
     }
-  },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:support@mintlify.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
-    }
-  },
-  "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
-    ]
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
-  }
 }

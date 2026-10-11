@@ -1,0 +1,34 @@
+---
+title: "Customers and store balance"
+description: "Who your customers are, the panel they sign in to, and the balance they can spend"
+---
+
+A customer is one email address at one store. An address becomes a customer the first time it places an order, or when you add it yourself. Find them under **Audience**, then **Customers**.
+
+A customer's page shows their orders, what they have spent, their balance and its history, and whether they are an affiliate.
+
+## The customer panel
+
+Every store has a panel for its buyers at `your-store.myshoply.gg/customer-panel`. A buyer signs in with a code sent to the email they bought with, and reads their own orders and what was delivered.
+
+The panel is always at the store's myshoply.gg address, also for a store with a domain of its own.
+
+## Store balance
+
+A customer has a balance at your store, in the store's currency, which they can spend at checkout. A balance gets there three ways:
+
+- You add to it, on the customer's page.
+- You refund an order as store credit.
+- An affiliate moves commission to it, where your affiliate programme allows that.
+
+To spend a balance, the buyer proves the email is theirs with a code sent to it. Whether the checkout offers paying with balance at all is a switch under **Payments**.
+
+Adding to a balance is money leaving your store without a payment, so the store's owner is told by email each time it is done in the dashboard.
+
+## Blacklisting a customer
+
+**Blacklist** on a customer's page stops them buying: their email, and if you choose the IP addresses their orders came from. See [fraud protection](/guides/fraud-protection).
+
+## With the API
+
+See [Customers](/api-reference/customers/list-customers). Changing a balance is a permission of its own, and should be sent with an [`Idempotency-Key`](/api-reference/idempotency).

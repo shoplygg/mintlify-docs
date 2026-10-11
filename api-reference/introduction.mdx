@@ -1,0 +1,62 @@
+---
+title: "Introduction"
+description: "What the Shoply API is, what it reaches, and where to start"
+---
+
+The Shoply API is everything the dashboard does, for a program instead of a person. With a secret API key your own server can manage a store's catalogue and stock, read and complete orders, refund them, look after customers and affiliates, run coupons and sales, keep the books, and be told the moment something happens.
+
+```
+https://api.shoply.gg/v1
+```
+
+<Card title="Make your first request" icon="bolt" href="/api-reference/quickstart">
+  Make a key, ask what it is, and read your products back. Three steps.
+</Card>
+
+## What it is for
+
+<CardGroup cols={2}>
+  <Card title="Keep a catalogue in step" icon="box">
+    Push products, prices and license keys from wherever you already keep them, and pull stock counts back.
+  </Card>
+  <Card title="Act on orders" icon="receipt">
+    Read orders as they are paid, mark one paid yourself, deliver one again, refund one.
+  </Card>
+  <Card title="Sell from a bot" icon="robot">
+    Raise an invoice for a buyer and hand them the page to pay it on, from Discord or anywhere else.
+  </Card>
+  <Card title="Feed your own tools" icon="chart-line">
+    Send orders, customers, expenses and profit to accounting, a CRM or a spreadsheet.
+  </Card>
+</CardGroup>
+
+## How it is shaped
+
+Every route but one begins `/stores/{storeId}`, because everything belongs to a store. A key belongs to one store too, and reaches that store only.
+
+Every answer is the same envelope, whether it worked or not. A key carries permissions, and each route's page says which one it needs. Requests are counted for each key, and every answer says how much of its budget is left.
+
+<CardGroup cols={2}>
+  <Card title="Authentication" icon="key" href="/api-reference/authentication">
+    Keys, the header they go in, and what protects one.
+  </Card>
+  <Card title="Permissions" icon="shield" href="/api-reference/permissions">
+    Everything a key can be allowed to do.
+  </Card>
+  <Card title="Conventions" icon="list-check" href="/api-reference/conventions">
+    The envelope, lists, dates, money and how a save works.
+  </Card>
+  <Card title="Errors" icon="triangle-exclamation" href="/api-reference/errors">
+    What a refusal looks like and what each code means.
+  </Card>
+</CardGroup>
+
+## What it is not for
+
+A browser. A secret key in a page is readable by every visitor of that page, so the API sends no CORS headers and a browser refuses to read its answers. For a storefront of your own, use the [Storefront SDK](/sdk/introduction), the [embed](/guides/embeds) or the [Checkout Kit](/guides/checkout-kit): they need a store ID and no key.
+
+A few things are also left to a person in the dashboard, where it asks them to confirm it is them: a payment method's credentials, the dynamic delivery signing secret, where the store's alerts are sent, and API keys themselves. A key that tries one is refused with `dashboard_only`.
+
+## Being told, instead of asking
+
+If you are asking the API over and over whether an order has been paid, use [webhooks](/api-reference/webhooks). They arrive in the second the thing happens, signed, and are tried again for a day if your server is down.

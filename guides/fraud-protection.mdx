@@ -1,0 +1,40 @@
+---
+title: "Fraud protection"
+description: "Refuse buyers before an order is made: the blacklist, VPNs, countries and disputes"
+---
+
+Fraud protection stops a checkout before it becomes an order. Find it under **Fraud protection**.
+
+## The blacklist
+
+A rule refuses whoever matches it:
+
+| A rule on | Matches |
+| - | - |
+| Email | One address |
+| Domain | Every address at an email domain |
+| IP address | One address, or a range of them |
+| Network | A provider, by its number or its name |
+| City | Buyers in one city |
+
+A rule can be switched off without deleting it, and carries a note of why. A store holds up to 10,000 rules.
+
+## Before an order is made
+
+Under **Fraud protection**, then **Settings**:
+
+- **Block VPNs and proxies**: refuse a checkout from a VPN, a proxy or a data centre.
+- **Blocked countries**: refuse checkouts from the countries you pick.
+- **Blacklist on dispute**: when a buyer disputes a payment, blacklist them.
+
+## What it did
+
+**Activity** lists every checkout that was refused and why, and every change to the rules and settings.
+
+## One customer
+
+**Blacklist** on a customer's page adds their email and, if you choose, the addresses their orders came from.
+
+## With the API
+
+See [Blacklist](/api-reference/blacklist/list-blacklist-rules) and [Fraud protection](/api-reference/fraud-protection/list-fraud-events).

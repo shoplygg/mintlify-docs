@@ -1,0 +1,69 @@
+---
+title: "SDK reference"
+description: "Every call of shoply.js"
+---
+
+Everything hangs off the global `shoply`, after `init()`. Calls that ask the server answer a promise of the [envelope](/sdk/introduction#every-answer-is-an-envelope).
+
+## Starting
+
+| Call | What it does |
+| - | - |
+| `init(storeId, options?)` | Start the script for a store, by its ID or its name. Call it once, before anything else. |
+
+`options` may hold `adaptivePricing: false`, to be handed the store's own prices and not the buyer's, and `timeout`, in milliseconds, for how long to wait for an answer (20 seconds unless set).
+
+## Reading the store
+
+| Call | What it does |
+| - | - |
+| `getStore()` | The store: its name, branding, currency, products and running sales. Kept, and calls made at the same time share one request. |
+| `getProducts()` | The store's products. |
+| `getCategories()` | Its categories. |
+| `getProduct(idOrSlug)` | One product, by its ID or the last part of its address. |
+
+## The basket
+
+Kept in the browser, for each store, so two stores open in one browser never share a cart.
+
+| Call | What it does |
+| - | - |
+| `getBasket()` | What is in it. |
+| `addToBasket(productId, variantId, quantity)` | Add to it. The same variant twice is one line. |
+| `setQuantity(productId, variantId, quantity)` | Change a line. `0` removes it. |
+| `removeFromBasket(productId, variantId)` | Remove a line. |
+| `clearBasket()` | Empty it. |
+| `basketCount()` | How many items are in it. |
+| `basketSubtotal()` | What it comes to. |
+
+## Checking out
+
+| Call | What it does |
+| - | - |
+| `checkout(email, coupon?)` | Send the buyer to the checkout with the basket. The email is needed. The buyer can still change it there. |
+| `createOrder(email, productId, variantId, quantity?)` | The checkout for one item, for a Buy now button. |
+| `validateCoupon(code, subtotal?)` | What a coupon would take off. A preview only: the checkout checks it again. |
+| `settleCheckout()` | Empty the basket once its checkout is paid. `init()` calls it for you. |
+
+## Prices
+
+| Call | What it does |
+| - | - |
+| `getPricing()` | The currency prices are shown in: the buyer's, with adaptive pricing on. |
+| `formatPrice(amount)` | An amount written in that currency, the way the buyer's country writes it. A promise. |
+| `createFormatter()` | A formatter for that currency, to format many prices with. |
+| `lowestPrice(product)` | A product's cheapest variant. |
+| `onSale(product)` / `activeSale()` | Whether a product is on sale, and the sale that is running. |
+
+## Helpers
+
+| Call | What it does |
+| - | - |
+| `imageUrl(name)` | The address of one of the store's pictures. |
+| `parseMetadata(product)` | A product's metadata, read from its JSON. |
+| `visit()` | The visit this page is counted as. The embed and the Checkout Kit read it so that an order says where it came from. |
+| `version` | The script's version. |
+
+## Events on your own site
+
+The [embed](/guides/embeds) and the [Checkout Kit](/guides/checkout-kit) send `shoply:paid` on `window` when an order is paid on your page.

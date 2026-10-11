@@ -1,0 +1,39 @@
+---
+title: "Affiliates"
+description: "Let your customers earn commission on what is bought through their link"
+---
+
+An affiliate is a customer of your store with a link of their own. When somebody buys through it, the affiliate earns a share of the order.
+
+## Switching it on
+
+The programme is off until you switch it on, in **Settings**, under **Affiliates**. There you set:
+
+- The **commission** and the **buyer's discount** a new affiliate gets.
+- Whether a customer may **join by themselves** from the customer panel.
+- Whether an affiliate may **change the code** their link ends in.
+- Whether they may **move commission to their store balance**, and whether they may **ask for a payout**.
+
+While it is off, no link takes anything off or earns anything, and the customer panel says nothing of affiliates.
+
+## How a link works
+
+An affiliate's link is your store's address with their code: `?ref=ada`, `/ref/ada` and `/ref=ada` all work. A click counts for 30 days, and the last link clicked wins. A buyer who comes through a link gets the affiliate's discount, on top of any coupon.
+
+## What an affiliate earns
+
+Commission is a percent of what the buyer paid for the products: after every discount, before a payment method's fee and tax. It lands on the affiliate's balance when the order is paid.
+
+- An affiliate earns nothing on their own orders, and gets no discount from their own link.
+- When an order is refunded or charged back, its commission is taken back, as far as the affiliate's balance still covers it.
+- A switched off affiliate earns nothing new, and keeps what they earned.
+
+## Payouts
+
+Shoply moves no money to affiliates. A payout is a request and a record: the affiliate says how they want to be paid, you pay them yourself, and press **Mark as paid**, or decline with a reason they can read. The amount leaves their balance when they ask, and comes back if you decline.
+
+You are told of a request by email, and in Discord if your store's alerts go there.
+
+## With the API
+
+See [Affiliates](/api-reference/affiliates/list-affiliates). The webhook events `affiliate.created`, `affiliate.payout_requested` and `affiliate.payout_answered` tell your server as it happens.

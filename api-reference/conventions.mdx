@@ -1,0 +1,82 @@
+---
+title: "Conventions"
+description: "The envelope, lists, IDs, dates, money, and how a save works"
+---
+
+These hold on every route.
+
+## The envelope
+
+Every answer has the same four fields, whether it worked or not.
+
+```json
+{
+  "success": true,
+  "message": null,
+  "code": null,
+  "data": { "id": "0b8f9f39-6d0f-4c6b-8f5e-2a8f2f8f3c11", "code": "WELCOME10" }
+}
+```
+
+| Field | What it is |
+| - | - |
+| `success` | Whether the request did what was asked. Branch on this. |
+| `message` | Words for a person. `null` when it worked. They can be reworded. |
+| `code` | Why it was refused, as a word that does not change. `null` when it worked. |
+| `data` | The thing asked for. `null` on a refusal. |
+
+Some answers carry more beside those four. A list has `pages` and `total`. Anything else a route answers that is not the thing itself is under `meta`.
+
+## Lists
+
+`data` is the rows. A paged list says how many pages and rows there are in all, beside it.
+
+```json
+{
+  "success": true,
+  "message": null,
+  "code": null,
+  "data": [{ "id": "...", "code": "WELCOME10" }],
+  "pages": 3,
+  "total": 52,
+  "meta": { "counts": { "active": 40, "inactive": 9, "expired": 3 } }
+}
+```
+
+| Parameter | Default | What it does |
+| - | - | - |
+| `page` | 1 | Which page. The first is 1. |
+| `perPage` | 20 | How many a page holds. The most differs by route, and each page says it. |
+| `search` | | Only what matches this text. What it looks in is on each route's page. |
+
+A few lists are short by nature and are not paged: a store holds 250 products at most, so the list of products is all of them.
+
+## IDs
+
+UUIDs, as text: `8d0a0f6e-3f0b-4c57-9a55-0c1f3f5d7a10`. Do not read meaning into one or make one up. The ID in a checkout's address is its order's ID.
+
+## Dates
+
+ISO 8601 in UTC: `2026-10-11T08:15:44Z`. Where a route takes a day (`from`, `to`, an expiry), it is `YYYY-MM-DD`, and `tz` says which time zone that day is in, as an IANA name such as `Europe/Berlin`. Left out, UTC.
+
+## Money
+
+Plain decimal numbers in the store's own currency: `9.99` is nine ninety-nine. The store's `currencyCode` says which currency. An order also says the currency its buyer was charged in, when that differs.
+
+## Saving
+
+A `PUT` saves a thing **whole**, as the dashboard's forms do. Read it, change what you want changed, and send all of it back. A field left out goes back to its default, unless its description says it stays as it is.
+
+Where only one thing about something changes often, it has a route of its own that takes just that: a product's visibility, whether a sale is on.
+
+### Not overwriting somebody else's change
+
+Things you save whole carry `updatedAt`. Send it back as `expectedUpdatedAt` and the save is refused with `stale_write` if the thing has changed since you read it, with `currentUpdatedAt` beside the refusal. Leave it out and your save is written whatever happened in between.
+
+## Sending a body
+
+JSON, with `Content-Type: application/json`, up to 2 MB. A picture is the exception: it is sent as `multipart/form-data` in a field its route names. Large files (a variant's downloads, an expense's receipt) are not sent to the API at all: the API answers a signed address, and you send the file there.
+
+## Every answer names its request
+
+`X-Request-Id` is the ID of that request in the store's [record of API requests](/api-reference/api-requests/list-api-requests), which keeps what was sent and what came back for 30 days. Quote it when you ask for help.

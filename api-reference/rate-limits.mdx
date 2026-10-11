@@ -1,0 +1,38 @@
+---
+title: "Rate limits"
+description: "How many requests a key may make, and how an answer says where it stands"
+---
+
+Requests are counted for each key, not for each address: two of your servers sharing a key share its budget, and two keys have a budget each.
+
+| What | Each key may make |
+| - | - |
+| Reads (`GET`) | 600 a minute |
+| Changes (everything else) | 300 a minute |
+| Reports and exports | 60 a minute |
+| Requests that send an email | 60 in ten minutes |
+| Requests that make an order | 60 a minute |
+
+These are there to stop a loop, not to be planned around. Ten reads a second, kept up, is more than a sync job needs. A route counted against one of the smaller budgets says so on its page.
+
+## Where a key stands
+
+Every answer says, in its headers:
+
+| Header | What it says |
+| - | - |
+| `X-RateLimit-Limit` | The budget this request was counted against. |
+| `X-RateLimit-Remaining` | How much of it is left. |
+| `X-RateLimit-Reset` | Seconds until it is whole again. |
+
+## When it runs out
+
+The answer is `429` with the code `rate_limited`, and a `Retry-After` header: how many seconds to wait. Wait that long and carry on.
+
+Requests sent while a key is being refused are counted too, so a client that keeps on through a `429` waits longer than one that stops.
+
+## Staying well inside it
+
+- Ask for a list a page at a time with the largest `perPage` the route takes, not a row at a time.
+- Use [webhooks](/api-reference/webhooks) to hear of an order being paid, instead of asking.
+- Keep what does not change often: a store's products change when you change them.

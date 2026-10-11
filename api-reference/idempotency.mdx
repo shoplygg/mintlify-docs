@@ -1,0 +1,40 @@
+---
+title: "Idempotency"
+description: "Send a change again without it being done twice"
+---
+
+A request that times out leaves you not knowing whether it was carried out. Sending it again might refund an order twice, or credit a balance twice. An `Idempotency-Key` makes sending it again safe.
+
+```bash
+curl -X POST https://api.shoply.gg/v1/stores/$STORE_ID/customers/$CUSTOMER_ID/balance \
+  -H "Authorization: Bearer $SHOPLY_KEY" \
+  -H "Content-Type: application/json" \
+  -H "Idempotency-Key: credit-order-1042" \
+  -d '{ "mode": "add", "amount": 5, "note": "Goodwill credit" }'
+```
+
+The key is a word of your own for **this one change**: an order number, a job's ID, a random UUID you keep until the request has been answered. Up to 180 letters, digits, dots, dashes, underscores and colons.
+
+## What happens
+
+<Steps>
+  <Step title="The first time">
+    The request is carried out, and its answer is remembered under the key.
+  </Step>
+  <Step title="Every time after">
+    Nothing is carried out. The first answer comes back, byte for byte, with the header `Idempotent-Replay: true`.
+  </Step>
+</Steps>
+
+## The rules
+
+- **Any change takes one**: every `POST`, `PUT`, `PATCH` and `DELETE`. A `GET` changes nothing and ignores it.
+- **A key is yours alone.** It is remembered for the API key and the route it was sent with. Another of your keys using the same word is a different request.
+- **The same key with a different request is refused**, with `idempotency_key_reused`. That is a mistake in the caller, and answering it with the first request's result would hide it. A new change takes a new key.
+- **Only an answer that worked is remembered.** A refusal changed nothing, so once you have put the request right you may send it under the same key.
+- **A request still being carried out** answers `request_in_progress` to a second one sent under its key. Wait a moment and send it again.
+- **Keys are remembered for seven days.**
+
+## Where it matters most
+
+Refunding an order, changing a balance, marking an order paid, raising an invoice. Send a key with each of those, every time.

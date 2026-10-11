@@ -1,0 +1,100 @@
+---
+title: "Errors"
+description: "What a refusal looks like, and what each code means"
+---
+
+A request that was not carried out answers with `success: false`, a status in the 400s or 500s, and a `code`.
+
+```json
+{
+  "success": false,
+  "message": "This API key does not have the \"coupons.write\" permission. Change the key under Developers in the dashboard.",
+  "code": "missing_scope",
+  "data": null,
+  "requiredScope": "coupons.write"
+}
+```
+
+Read `code`, not `message`. The message is written for a person and can be reworded. The code stays.
+
+## What was wrong with a field
+
+`validation_failed` says what is wrong with each field, under `errors`, by the field's name. A field inside a list is named by its place: `variants.0.price`.
+
+```json
+{
+  "success": false,
+  "message": "Validation failed",
+  "code": "validation_failed",
+  "data": null,
+  "errors": {
+    "code": "Use 3 to 64 letters, numbers, hyphens or underscores.",
+    "value": "Enter a discount above zero."
+  }
+}
+```
+
+Show these to whoever typed the values. Each says which rule was broken.
+
+## Statuses
+
+| Status | What it means |
+| - | - |
+| 400 | The request itself is malformed. |
+| 401 | No key, or not a live one. |
+| 403 | The key is real and may not do this. |
+| 404 | There is no such thing in this store, or no such route. |
+| 405 | The address is right and the method is not. |
+| 409 | It clashes with how things stand: somebody changed it first, or the same request is already under way. |
+| 413 | The body is larger than 2 MB. |
+| 422 | It was understood and refused. The code says why. |
+| 429 | The key has used up its budget for now. |
+| 500 and up | Shoply's fault. |
+
+## Codes on every route
+
+| `code` | Status | What it means |
+| - | - | - |
+| `api_key_required` | 401 | No key was sent. |
+| `invalid_api_key` | 401 | Not a live key: mistyped, revoked or expired. |
+| `missing_scope` | 403 | The key lacks the route's permission, named in `requiredScope`. |
+| `ip_not_allowed` | 403 | The key does not accept requests from this address. |
+| `account_unavailable` | 403 | The store's account cannot use the API. |
+| `dashboard_only` | 403 | Only a person in the dashboard may do this. |
+| `not_found` | 404 | No such thing in this store. A store that is not the key's own answers the same. |
+| `method_not_allowed` | 405 | The route does not take this method. |
+| `validation_failed` | 422 | One or more fields are wrong. See `errors`. |
+| `stale_write` | 409 | The thing changed since the `expectedUpdatedAt` you sent. |
+| `request_in_progress` | 409 | A request with this `Idempotency-Key` is still being carried out. |
+| `idempotency_key_reused` | 422 | This `Idempotency-Key` was already used for a different request. |
+| `invalid_idempotency_key` | 400 | The `Idempotency-Key` has characters it may not, or is too long. |
+| `rate_limited` | 429 | Too many requests. `Retry-After` says how long to wait. |
+| `body_too_large` | 413 | The body is over 2 MB. |
+| `server_error` | 500 | Something went wrong on Shoply's side. |
+
+## Codes of a route's own
+
+A route refuses for reasons of its own with a code of its own, and its page says which. Some you will meet:
+
+| `code` | Where | What it means |
+| - | - | - |
+| `business_details_required` | Finance | The store has not said its business name and country yet. |
+| `invoice_not_payable` | Marking an order paid | The order cannot be completed. `shortfall` lists the lines that are short of stock. |
+| `refund_failed` | Refunding an order | The refund could not be made that way. The message says why. |
+| `redelivery_failed` | Delivering again | The order could not be delivered again. The message says why. |
+| `open_invoice_limit` | Raising an invoice | The store already has 2,000 unpaid invoices. |
+| `affiliate_has_earned` | Deleting an affiliate | They have earned commission. Switch them off instead. |
+| `payout_answered` | Answering a payout | It was already marked paid or declined. |
+| `system_category` | Coupon categories | The two categories a store starts with cannot be changed. |
+| `webhook_limit` | Adding a webhook | The store already has 20 endpoints. |
+| `search_unavailable` | The search report | No search engine is connected. |
+
+Limits answer `422` with a code that ends in `_limit`, and a message that says the limit.
+
+## What to try again
+
+Try again after a `429`, once `Retry-After` has passed, and after a `500` or above, with a pause that grows. Send an [`Idempotency-Key`](/api-reference/idempotency) with a change, so that trying again cannot do it twice.
+
+Do not try a `4xx` again as it is. It will be refused the same way until the request is changed.
+
+If a `5xx` keeps coming back, look at [status.shoply.gg](https://status.shoply.gg).

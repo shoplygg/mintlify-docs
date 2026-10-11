@@ -1,0 +1,49 @@
+---
+title: "Webhooks"
+description: "Have Shoply tell your server when an order is paid, stock runs low, or anything else happens"
+---
+
+A webhook is Shoply telling your own server that something happened to your store, the moment it happens. You give it an address and tick the events you want.
+
+<Note>
+  For alerts in a Discord channel, you do not need this. Those are set up in **Settings**, under **Notifications**. Webhooks are for a server of your own.
+</Note>
+
+## Adding one
+
+<Steps>
+  <Step title="Open Developers, then Webhooks, and press Add webhook">
+    Enter the `https` address on your server that deliveries are posted to.
+  </Step>
+  <Step title="Tick the events">
+    Orders being made, paid, refunded and disputed; stock running low; products, customers and affiliates changing. Or take every event. The [full list](/api-reference/webhook-events) says when each is sent.
+  </Step>
+  <Step title="Keep the signing secret">
+    It is shown once, and starts `shoply_whsec_`. Your server uses it to check that a delivery is Shoply's and not somebody else posting to your address.
+  </Step>
+</Steps>
+
+A store holds up to 20 endpoints. You are asked to confirm it is you before one is added, moved to another address or given a new secret, and the store's owner is told by email: an order's events carry the buyer's email and what they were sent.
+
+## What your server has to do
+
+1. **Check the signature** on every delivery. [How, in four languages](/api-reference/webhooks#checking-the-signature).
+2. **Answer `2xx` within five seconds**, and do the work afterwards.
+3. **Expect a delivery more than once.** Each carries an ID in `X-Shoply-Delivery` that stays the same when it is sent again.
+
+## The delivery log
+
+Every delivery is listed under the endpoint: the event, when, and whether your server took it. Open one to see the body that was sent and every try, with the status your server answered and the start of what it said, or why it could not be reached.
+
+- **Send a test** posts a test event to the endpoint now and shows you the answer.
+- **Resend** sends a delivery again.
+
+Deliveries are kept for 30 days.
+
+## When your server is down
+
+A delivery that is not taken is tried again for about a day, at gaps that widen from a minute to twelve hours. After 20 deliveries in a row have been given up on, the endpoint is paused, and you switch it back on once your server is well.
+
+## Everything else
+
+The [API reference's webhooks page](/api-reference/webhooks) has the headers, the body, the retry times and the code to check a signature.

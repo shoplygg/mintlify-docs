@@ -1,0 +1,48 @@
+---
+title: "How delivery works"
+description: "What a buyer is sent when an order is paid: license keys, files, instructions, or the answer of your own server"
+---
+
+An order is delivered the moment it is paid. What it bought is shown on the checkout page the buyer is on, sent to their email, and kept in their customer panel at your store. Nobody has to press anything.
+
+Each variant says what it delivers, and can do more than one of these at once.
+
+<CardGroup cols={2}>
+  <Card title="License keys" icon="key">
+    A key from the variant's stock, one for each unit bought. You paste the keys in, one a line, or add them with the API.
+  </Card>
+  <Card title="Files" icon="file-zipper">
+    Up to three files a variant, of up to 100 MB each: ZIP, RAR, 7z, PDF, MP4, MP3, WAV, EPUB, EXE, DMG, MSI or APK. Buyers get a link that only they can use.
+  </Card>
+  <Card title="Instructions" icon="list-ol">
+    Text of your own, sent with the order: how to redeem, where to go next.
+  </Card>
+  <Card title="Dynamic" icon="server">
+    Shoply asks your server for the goods, and sends the buyer what it answers. See [dynamic delivery](/guides/dynamic-delivery).
+  </Card>
+</CardGroup>
+
+## An order is never half delivered
+
+An order completes only if every line can be delivered in full. If a variant is one key short, the order is not completed and nothing is handed over, and you are told which lines are short.
+
+Two people paying for the last key at the same moment cannot both get it: a key is taken from stock in the same step that completes the order.
+
+## When something does not arrive
+
+<AccordionGroup>
+  <Accordion title="The buyer did not get the email">
+    What they bought is also on their checkout page and in their customer panel, at `your-store.myshoply.gg/customer-panel`, where they sign in with a code sent to the email they bought with. You can send the delivery email again from the order's page.
+  </Accordion>
+  <Accordion title="A key did not work">
+    **Re-deliver** on the order's page gives the buyer fresh keys and emails them. The keys the order held before are revoked. They do not go back into stock.
+  </Accordion>
+  <Accordion title="A dynamic delivery failed">
+    It is tried again by itself for most of a day. **Retry** on the order's page asks your server again at once.
+  </Accordion>
+  <Accordion title="The money reached you another way">
+    **Mark as paid** on a pending or cancelled order completes it as a payment would.
+  </Accordion>
+</AccordionGroup>
+
+Each of those is also a route of the API: see [Orders](/api-reference/orders/list-orders).

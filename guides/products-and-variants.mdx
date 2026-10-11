@@ -1,0 +1,73 @@
+---
+title: "Products and variants"
+description: "What a product is made of, who can see it, and how its stock is counted"
+---
+
+A **product** is what a buyer sees: a name, a description, pictures. A **variant** is what they buy: an option of the product with its own price and its own delivery. Every product has at least one.
+
+| | A store can hold |
+| - | - |
+| Products | 250 |
+| Variants in a product | 100 |
+| Pictures on a product | 10 |
+| Categories | 150 |
+
+## A product
+
+<ResponseField name="Name and description">
+  The description is plain text with a few marks: a line that starts with `#` is a heading, one that starts with `-` is a point of a list, a blank line ends a paragraph, and `**bold**` works inside a line.
+</ResponseField>
+
+<ResponseField name="Visibility">
+  **Public** is listed on the store and can be bought. **Unlisted** is not listed and can be bought by anybody with its link. **Private** cannot be bought at all.
+</ResponseField>
+
+<ResponseField name="Pictures">
+  The first is the one listings show. A picture keeps its own shape: nothing is cropped to fit.
+</ResponseField>
+
+<ResponseField name="Categories">
+  A product can be in several. A category has a name, a description, a picture and a page of its own.
+</ResponseField>
+
+<ResponseField name="Badges and features">
+  Up to three short labels on the product ("New", or a status such as "Updated"), and a list of what it does, on its own or in named groups.
+</ResponseField>
+
+<ResponseField name="In search results">
+  Its own title and description for search engines. Left empty, its name and description are used.
+</ResponseField>
+
+## A variant
+
+<ResponseField name="Name and price">
+  The price is in the store's currency. With adaptive pricing on, a buyer is shown and charged in their own.
+</ResponseField>
+
+<ResponseField name="How many one order may hold">
+  A fewest and a most, from 1 to 100.
+</ResponseField>
+
+<ResponseField name="Delivery">
+  What it sends when it is paid for: license keys, files, instructions, or the answer of your own server. A variant can do several at once. See [how delivery works](/guides/delivery).
+</ResponseField>
+
+<ResponseField name="Payment methods">
+  A variant, or a whole product, can refuse some payment methods, and a product can add a fee for one.
+</ResponseField>
+
+## Stock
+
+A variant that delivers license keys sells as many as it has keys in stock, and is sold out when they run out. It can also be told not to count, for a key that many buyers share.
+
+The store alerts you when a variant runs low. The number that counts as low is in the store's settings.
+
+Nothing ever returns to stock. A key that was delivered belongs to its order, even when that order is refunded, and a key replaced by delivering an order again is revoked.
+
+## Deleting
+
+A product buyers have received license keys from cannot be deleted, because those keys are part of their orders. Set it to **Private** instead.
+
+## From your own server
+
+Products, variants, pictures and stock can all be managed with the API: see [Products](/api-reference/products/list-products) and [Stock](/api-reference/stock/add-license-keys).

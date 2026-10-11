@@ -1,0 +1,126 @@
+---
+title: "Checkout Kit"
+description: "Shoply's checkout as separate pieces in your own page, placed and styled the way your site is"
+---
+
+The [embed](/guides/embeds) opens the checkout over your page. The Checkout Kit puts it **in** your page: the order, the email box, the payment methods and the Pay button are pieces you place where you want them, between your own headings, looking the way your site looks.
+
+It needs product IDs and no key, and it sells a whole cart.
+
+## Adding it
+
+```html
+<script src="https://shoply.gg/sdk/kit.js" defer></script>
+
+<div data-shoply-piece="summary"></div>
+<div data-shoply-piece="email"></div>
+<div data-shoply-piece="payment"></div>
+<div data-shoply-piece="pay"></div>
+
+<script>
+  addEventListener("DOMContentLoaded", function () {
+    var kit = shoplyKit({ product: "PRODUCT_ID", variant: "VARIANT_ID" });
+
+    kit.on("paid", function () {
+      location.href = "/thank-you";
+    });
+  });
+</script>
+```
+
+Or all of it in one place: `<div data-shoply-piece="checkout"></div>`.
+
+## The pieces
+
+| Piece | What it is |
+| - | - |
+| `checkout` | All of it, in one piece. |
+| `payment` | The payment methods, and once Pay is pressed the payment itself and then the paid order. |
+| `summary` | What is being bought, its quantity, and what it comes to. |
+| `coupon` | The box a discount code goes in. |
+| `email` | Where the order is sent. |
+| `billing` | The billing address, for a method that asks for one. |
+| `pay` | The Pay button. |
+
+A kit has one of `checkout` and `payment`: that piece is the checkout itself, and the others are optional. A piece you leave out is drawn inside it, where the checkout would have it. The exceptions are `summary` and `coupon`, which are only where you put them.
+
+## What it sells
+
+```javascript
+// One product
+shoplyKit({ product: "PRODUCT_ID", variant: "VARIANT_ID", quantity: 1 });
+
+// A cart, all from the one store
+shoplyKit({
+  items: [
+    { product: "PRODUCT_ID", variant: "VARIANT_ID", quantity: 1 },
+    { product: "ANOTHER_PRODUCT_ID" },
+  ],
+  coupon: "WELCOME10",
+  email: "ada@example.com",
+});
+```
+
+A line that names no variant is given its product's first. When your own basket changes, name the cart again: `kit.set({ items: [...] })`.
+
+## How it looks
+
+```javascript
+shoplyKit({
+  product: "PRODUCT_ID",
+  theme: "auto", // "light", "dark" or "auto"
+  look: {
+    accent: "#12a37f", // the button, the chosen method. Your store's colour if left out.
+    text: "#1d2430",
+    muted: "#6c7480",
+    field: "#ffffff", // what a box or a row is filled with
+    line: "#d9d4c8", // its edge
+    radius: 4,
+    font: "Georgia, serif",
+    css: ".shoply-kit-button { text-transform: uppercase }",
+  },
+});
+```
+
+`css` is rules of your own, for these classes and nothing else:
+
+| Class | What it is |
+| - | - |
+| `.shoply-kit-field` | A box that is typed in or picked from. |
+| `.shoply-kit-error` | The line under a box that was refused. |
+| `.shoply-kit-method` | A payment method. `[aria-checked="true"]` is the one chosen. |
+| `.shoply-kit-method-name` | Its name. |
+| `.shoply-kit-button` | Pay. |
+| `.shoply-kit-line` | A product in the order, with `-line-name` and `-line-price`. |
+| `.shoply-kit-row` | A line of the totals. |
+| `.shoply-kit-total` | The total. |
+| `.shoply-kit-apply` | The coupon's Apply. |
+
+With `:hover`, `:focus`, `:focus-within`, `:disabled`, `::placeholder` and `@media`. A rule may set how a thing looks: colours, borders, type, spacing, size, shadows, transitions. It may not fetch anything (no `url()`, no `@import`) or move things about (no `position`, `display` or `transform`). Whatever was left out of what you wrote is said in your page's console.
+
+## From your own script
+
+| Call | What it does |
+| - | - |
+| `kit.place("summary", "#order")` | Put a piece in an element, or move it there. |
+| `kit.remove("summary")` | Take a piece away. |
+| `kit.set({ items, quantity, coupon, theme, look })` | Change what it sells or how it looks. |
+| `kit.pay()` | Press Pay from a button of your own. |
+| `kit.on("ready", fn)` | The checkout is drawn. |
+| `kit.on("change", fn)` | `fn({ state, total, currency, items, method, coupon })` |
+| `kit.on("problem", fn)` | `fn({ code, message })`: something the buyer has to put right, or that went wrong. |
+| `kit.on("paid", fn)` | The order is paid. |
+| `kit.destroy()` | Take the whole kit off the page. |
+
+`shoply:paid` is also sent on `window`, as the embed sends it.
+
+<Warning>
+  `paid` tells your **page**. It carries no order ID and is no proof of payment. Hand over goods of your own when your server receives the [`order.paid` webhook](/guides/webhooks).
+</Warning>
+
+## Things to know
+
+- **Your terms are yours to show.** The kit asks no buyer to agree to your store's terms and shows no link to them, since it is on your own site. Put them on your own page.
+- **The pieces run on `checkout.shoply.gg`**, in frames. Card details, the buyer's email and the order never touch your page.
+- **Analytics** work as they do for the [embed](/guides/embeds#your-stores-analytics): load `shoply.js` on your pages and start it with your store's ID.
+- Prices, the buyer's currency, coupons and stock are the same as on your Shoply store.

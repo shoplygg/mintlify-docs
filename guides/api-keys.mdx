@@ -1,0 +1,42 @@
+---
+title: "API keys"
+description: "Make a secret key for your own server, say what it may do, and see what it did"
+---
+
+A secret API key lets your own server do what the dashboard does: read orders, add stock, refund, and the rest. Keys are under **Developers**, then **API keys**.
+
+## Making one
+
+Press **Add API key** and give it:
+
+- **A name**, after what will use it: "Order sync", "Discord bot".
+- **Permissions**: what it may do. Tick only what that job needs. Every permission is listed on the [permissions page](/api-reference/permissions).
+- **Allowed addresses**, if you want: the IP addresses or ranges it may be used from. A key that leaks is then no use to whoever found it.
+- **A last day**, if you want: a date it stops working by itself.
+
+The key starts `shoply_sk_` and is shown once. Keep it somewhere safe. A store holds up to 15 keys.
+
+## Changing and replacing one
+
+A key's name, permissions and addresses can be changed. Its secret cannot be read again, though it can be **replaced**: the old secret stops working at once and the key keeps everything else. **Revoke** ends a key for good.
+
+You are asked to confirm it is you before a key is made, widened or replaced, and the store's owner is told by email.
+
+## What a key did
+
+**API requests**, under **Developers**, lists every request made with your store's keys for the last 30 days: when, which key, what was asked, what the answer was, and how long it took. Open one to see what was sent and what came back.
+
+A request that was refused is listed too, with why. That includes a key being tried from an address it does not accept, which is how you find out that one has got loose.
+
+What is never kept: the key itself, passwords and secrets in a body, and license keys on their way into stock.
+
+## Next
+
+<CardGroup cols={2}>
+  <Card title="Make your first request" icon="bolt" href="/api-reference/quickstart">
+    A key, your store, your products.
+  </Card>
+  <Card title="Authentication" icon="key" href="/api-reference/authentication">
+    How a key is sent and what protects it.
+  </Card>
+</CardGroup>

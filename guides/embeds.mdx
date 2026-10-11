@@ -1,0 +1,97 @@
+---
+title: "Embeds"
+description: "Open Shoply's checkout over a page of your own, with one line on a button"
+---
+
+The embed opens the checkout over your own site. Your visitor presses a button on your page, the checkout opens in a card over it, and they pay without leaving.
+
+It needs a product's ID and nothing else: no key, no server of your own.
+
+## Adding it
+
+Load the script once, and give any button the product it sells.
+
+```html
+<script src="https://shoply.gg/sdk/embed.js" defer></script>
+
+<!-- The whole product: the buyer picks the option first. -->
+<button data-shoply-product="PRODUCT_ID">Buy now</button>
+
+<!-- One option: straight to paying. -->
+<button data-shoply-product="PRODUCT_ID" data-shoply-variant="VARIANT_ID">Buy now</button>
+```
+
+The dashboard's **Developers**, then **Embeds**, page writes this for a product you pick, with its IDs filled in.
+
+## What a button can say
+
+| Attribute | What it does |
+| - | - |
+| `data-shoply-product` | The product. Needed. |
+| `data-shoply-variant` | One option of it. Left out, the buyer picks. |
+| `data-shoply-quantity` | How many to start with. |
+| `data-shoply-coupon` | A coupon code to apply. |
+| `data-shoply-theme` | `light`, `dark` or `auto`. The default is the buyer's own device. |
+| `data-shoply-ref` | An affiliate's code. Not needed as a rule: a page opened through an affiliate's link is noticed by itself and remembered for 30 days. |
+
+## Filling in what you already know
+
+If your page already knows the buyer, it can fill the checkout's boxes in for them. Give the value, or with `-from` a selector for a field on your page to read when the button is pressed.
+
+```html
+<button
+  data-shoply-product="PRODUCT_ID"
+  data-shoply-email-from="#email"
+  data-shoply-billing-name="Ada Lovelace"
+  data-shoply-billing-country="GB">
+  Buy now
+</button>
+```
+
+The billing fields are `-name`, `-line1`, `-line2`, `-city`, `-state`, `-postal-code` and `-country` (two letters). The buyer sees what was filled in and can change any of it.
+
+## From your own script
+
+```javascript
+shoplyEmbed.open({ product: "PRODUCT_ID", variant: "VARIANT_ID", theme: "dark" });
+
+shoplyEmbed.open({
+  product: "PRODUCT_ID",
+  email: "ada@example.com",
+  billing: { name: "Ada Lovelace", line1: "1 Example Street", city: "London", postalCode: "N1 9GU", country: "GB" },
+});
+
+shoplyEmbed.close();
+```
+
+Your page can hear what happened:
+
+```javascript
+window.addEventListener("shoply:paid", () => {
+  // The order has been paid.
+});
+
+window.addEventListener("shoply:close", () => {
+  // The checkout was closed.
+});
+```
+
+<Warning>
+  `shoply:paid` tells a page, and a page can be made to say anything. Hand over goods of your own when your server receives the [`order.paid` webhook](/guides/webhooks), not when a page says so.
+</Warning>
+
+## Your store's analytics
+
+For an order to say where it came from, the page it was bought on has to be counted as a visit. Load the storefront script on your pages and start it with your store's ID, and the embed does the rest.
+
+```html
+<script src="https://shoply.gg/sdk/shoply.js"></script>
+<script>shoply.init("YOUR_STORE_ID");</script>
+```
+
+## Things to know
+
+- The checkout runs on `checkout.shoply.gg`, in a frame. Card details never touch your page.
+- Prices, the buyer's currency, coupons and stock are the same as on your Shoply store.
+- An embed sells one product at a time. For a cart, or for a checkout that is part of your page instead of over it, use the [Checkout Kit](/guides/checkout-kit).
+- A product that is private cannot be bought through the embed.

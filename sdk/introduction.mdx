@@ -1,0 +1,64 @@
+---
+title: "Storefront SDK"
+description: "Build a storefront of your own on your own site, with one script and your store's ID"
+---
+
+`shoply.js` is a small script for a storefront you build yourself. It reads your store's products and prices, keeps a basket, and sends the buyer to Shoply's checkout to pay. It runs in the buyer's browser and needs your store's ID, not a key.
+
+```html
+<script src="https://shoply.gg/sdk/shoply.js"></script>
+<script>
+  shoply.init("YOUR_STORE_ID");
+
+  const store = await shoply.getStore();
+
+  store.data.products.forEach((product) => {
+    console.log(product.name, product.variants[0].cost);
+  });
+
+  shoply.addToBasket(productId, variantId, 1);
+
+  // Sends the buyer to the checkout with the basket.
+  await shoply.checkout("buyer@example.com", "WELCOME10");
+</script>
+```
+
+Your store's ID is on the dashboard's **Developers**, then **SDK**, page, which also writes this snippet for you.
+
+## What it does and does not do
+
+- **It reads**: the store, its products, categories, reviews and blog, and the price of everything in the currency this buyer will be charged in.
+- **It keeps a basket**, in the browser, for each store.
+- **It hands over to the checkout.** Money is taken on `checkout.shoply.gg` and nowhere else. The buyer pays there, sees what they bought there, and gets it by email. Once that checkout is paid, the next page load on your site empties the basket by itself.
+- **It counts visits.** `init()` announces the page, which is what your store's analytics are made of.
+- **It draws the cookie notice** your store's visitors are shown.
+
+It has no way to read an order or raise an invoice, and never will: those need a secret key, on a server. See the [API reference](/api-reference/introduction).
+
+## Every answer is an envelope
+
+```javascript
+const answer = await shoply.getProduct("northwind-pro");
+
+if (!answer.success) {
+  console.log(answer.code, answer.message);
+}
+```
+
+`{ success, message, code, data }`, the same as the API. Nothing throws on a refusal: check `success`, and branch on `code`, never on `message`.
+
+A few codes come from the script itself and not from the server: `network_error`, `timeout`, `bad_json`, `bad_shape`, and, refused before anything is sent, `empty_basket`, `missing_variant`, `missing_coupon`, `missing_identifier` and `store_inactive`.
+
+## Prices
+
+On a store with adaptive pricing, every price the script hands you is already in the currency the checkout will charge this buyer, and `getStore().data.currencyCode` names it. Format prices with `formatPrice()` or `createFormatter()`, and never write a currency symbol of your own.
+
+While the store runs a sale, a variant's `cost` is already the sale price. A variant on sale also carries `regularCost`, the price to strike through, and `sale`.
+
+## A page that changes without loading
+
+A storefront that loads a new document for each page needs nothing more. One that changes its page in the browser has to say when it has, or the whole visit reads as one page. The [reference](/sdk/reference) lists the calls.
+
+## Something lighter
+
+To sell from a page you already have, you do not need a storefront at all: the [embed](/guides/embeds) opens the checkout over your page, and the [Checkout Kit](/guides/checkout-kit) puts it in your page.

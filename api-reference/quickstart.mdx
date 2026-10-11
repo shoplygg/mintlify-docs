@@ -1,0 +1,98 @@
+---
+title: "Quick start"
+description: "Make a key, find your store, and read your products back"
+---
+
+<Steps>
+  <Step title="Make a key">
+    In the dashboard, open **Developers**, then **API keys**, and press **Add API key**. Name it after what will use it, tick the permissions that thing needs (for this page, **Read products**), and save.
+
+    The key starts `shoply_sk_` and is shown once. Keep it in an environment variable or a secrets manager, never in a page, an app or a repository.
+  </Step>
+
+  <Step title="Ask the key what it is">
+    A key is all you need to begin: it knows which store it belongs to.
+
+    <CodeGroup>
+    ```bash cURL
+    curl https://api.shoply.gg/v1/key \
+      -H "Authorization: Bearer $SHOPLY_KEY"
+    ```
+
+    ```javascript Node.js
+    const response = await fetch("https://api.shoply.gg/v1/key", {
+      headers: { Authorization: `Bearer ${process.env.SHOPLY_KEY}` },
+    });
+
+    const { data } = await response.json();
+
+    console.log(data.store.id, data.key.scopes);
+    ```
+
+    ```python Python
+    import os, requests
+
+    answer = requests.get(
+        "https://api.shoply.gg/v1/key",
+        headers={"Authorization": f"Bearer {os.environ['SHOPLY_KEY']}"},
+    ).json()
+
+    print(answer["data"]["store"]["id"], answer["data"]["key"]["scopes"])
+    ```
+
+    ```php PHP
+    $curl = curl_init('https://api.shoply.gg/v1/key');
+
+    curl_setopt_array($curl, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HTTPHEADER     => ['Authorization: Bearer ' . getenv('SHOPLY_KEY')],
+    ]);
+
+    $answer = json_decode(curl_exec($curl), true);
+
+    echo $answer['data']['store']['id'];
+    ```
+    </CodeGroup>
+
+    The answer names the key, its permissions, and the store with its ID. `api` is where that store's routes begin.
+
+    ```json
+    {
+      "success": true,
+      "message": null,
+      "code": null,
+      "data": {
+        "key": { "name": "Order sync", "scopes": ["products.read"], "allowedIps": [], "expiresAt": null },
+        "store": { "id": "8d0a0f6e-3f0b-4c57-9a55-0c1f3f5d7a10", "name": "Northwind Keys", "slug": "northwind" },
+        "api": "https://api.shoply.gg/v1/stores/8d0a0f6e-3f0b-4c57-9a55-0c1f3f5d7a10"
+      }
+    }
+    ```
+  </Step>
+
+  <Step title="Read your products">
+    ```bash
+    curl https://api.shoply.gg/v1/stores/$STORE_ID/products \
+      -H "Authorization: Bearer $SHOPLY_KEY"
+    ```
+
+    `data` is the list. Each product has its variants, and each variant its ID, price and how many license keys it has in stock.
+  </Step>
+</Steps>
+
+## Next
+
+<CardGroup cols={2}>
+  <Card title="Add stock" icon="boxes-stacked" href="/api-reference/stock/add-license-keys">
+    Send a variant its license keys.
+  </Card>
+  <Card title="Hear about paid orders" icon="bell" href="/api-reference/webhooks">
+    Add a webhook for `order.paid` instead of asking.
+  </Card>
+  <Card title="Raise an invoice" icon="file-invoice" href="/api-reference/invoices/create-an-invoice">
+    Make an order for a buyer and get the page to pay it on.
+  </Card>
+  <Card title="Send a change safely" icon="rotate" href="/api-reference/idempotency">
+    Make a retry do nothing twice.
+  </Card>
+</CardGroup>

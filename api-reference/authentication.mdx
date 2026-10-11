@@ -1,0 +1,56 @@
+---
+title: "Authentication"
+description: "Secret API keys: how one is sent, what it reaches, and what protects it"
+---
+
+Every request carries a secret API key as a bearer token.
+
+```bash
+curl https://api.shoply.gg/v1/key \
+  -H "Authorization: Bearer shoply_sk_..."
+```
+
+Where a client cannot set that header, the key may go in `X-Api-Key` instead.
+
+## What a key is
+
+A key is made in the dashboard, under **Developers**, then **API keys**. It starts `shoply_sk_`, and it is shown once: Shoply keeps a hash of it and cannot show it again. A store holds up to 15 live keys.
+
+A key belongs to **one store** and reaches that store only. Asked about any other store, it is told there is no such store, whether or not the other store is yours. An account with several stores makes a key in each.
+
+## What a key carries
+
+<ResponseField name="Permissions" type="required">
+  What the key may do, ticked when it is made: read products, refund orders, and so on. A route is refused to a key that does not carry its permission, with `missing_scope` and the name of the permission it needed. See [Permissions](/api-reference/permissions).
+</ResponseField>
+
+<ResponseField name="Allowed addresses" type="optional">
+  The IP addresses, or ranges in CIDR form, the key may be used from. With any set, a request from anywhere else is refused with `ip_not_allowed`, and still written into the store's record of requests, so you can see that the key was tried from somewhere it should not be. Left empty, the key works from anywhere.
+</ResponseField>
+
+<ResponseField name="A last day" type="optional">
+  A date after which the key stops working by itself. Left empty, it works until it is revoked.
+</ResponseField>
+
+A key's name, permissions and addresses can be changed afterwards, and its secret can be replaced with a new one: the old secret stops working at once and everything else about the key stays. Changing what a key may do or where it may be used from, and replacing its secret, each ask whoever does it to confirm it is them, and the store's owner is told by email.
+
+## Keeping one safe
+
+- **On a server, never in a browser or an app.** The API sends no CORS headers, so a page cannot read its answers at all. Whatever a browser has, its user has.
+- **One key for each thing that uses one.** Then one can be revoked without stopping the others, and the record of requests says which did what.
+- **Only the permissions the job needs**, and its server's address if that address does not change.
+- **Revoke a key the moment it may have been seen**, and make another. Revoking is immediate.
+
+## When a key is refused
+
+| Status | `code` | What it means |
+| - | - | - |
+| 401 | `api_key_required` | No key was sent. |
+| 401 | `invalid_api_key` | The key is not a live one: mistyped, revoked, or past its last day. |
+| 403 | `missing_scope` | The key does not carry the permission the route needs. `requiredScope` names it. |
+| 403 | `ip_not_allowed` | The request came from an address the key does not accept. |
+| 403 | `account_unavailable` | The store's account cannot use the API. Sign in to the dashboard to see why. |
+| 403 | `dashboard_only` | This is something only a person in the dashboard may do. |
+| 404 | `not_found` | The store in the address is not the key's own. |
+
+An address that sends a run of keys that are not keys is turned away for a few minutes with `rate_limited`.

@@ -1,0 +1,31 @@
+---
+title: "Your own domain"
+description: "Put your store at an address of your own"
+---
+
+Every store answers at `your-name.myshoply.gg`. You can also connect a domain you own, such as `shop.example.com`.
+
+<Steps>
+  <Step title="Add the domain">
+    Open **Domains** in the dashboard and enter the domain, with no `https://` in front. You are shown what its DNS record has to point at.
+  </Step>
+  <Step title="Add a CNAME record">
+    At whoever runs your domain's DNS, add a `CNAME` record for the domain that points at the target the dashboard showed you.
+  </Step>
+  <Step title="Wait for it to go live">
+    Shoply notices the record and issues a certificate. The dashboard says where it stands. From then on your store answers at your domain.
+  </Step>
+</Steps>
+
+A store has one domain of its own. Remove it to connect another.
+
+## Things to know
+
+- Your store goes on answering at its myshoply.gg address too.
+- The **customer panel** stays at the myshoply.gg address. A link to it from your domain leads there.
+- **Report abuse** on a store at its own domain leads to the same form at the myshoply.gg address.
+- The store's myshoply.gg name can be changed, once a week. The old name leads to the new one.
+
+## With the API
+
+See [Domain](/api-reference/domain/get-the-stores-domain).

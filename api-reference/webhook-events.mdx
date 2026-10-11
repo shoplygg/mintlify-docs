@@ -1,0 +1,65 @@
+---
+title: "Webhook events"
+description: "Every event a webhook can be sent for"
+---
+
+{/* Written by backend/api-docs.php from Support\Webhooks\Events. Do not edit by hand. */}
+
+An endpoint is sent the events you tick for it, or every event when it takes all of them. A new event is never sent to an endpoint that did not ask for it, unless it takes all of them.
+
+## Orders
+
+| Event | When it is sent |
+| - | - |
+| `order.created` | An order was made: a buyer started a checkout, or the store raised an invoice. |
+| `order.payment_started` | The buyer pressed Pay and a payment was opened with a payment method. |
+| `order.paid` | An order was paid for and is complete. |
+| `order.delivered` | What an order bought was handed over: license keys, files, a dynamic delivery's answer. |
+| `order.redelivered` | An order was delivered again with fresh license keys. |
+| `order.email_failed` | An order's delivery email could not be sent. |
+| `order.cancelled` | An order was cancelled, by its buyer or because nobody paid it in time. |
+| `order.refunded` | An order was refunded. |
+| `order.disputed` | A buyer disputed an order's payment with their bank or payment provider. |
+| `order.chargeback` | A dispute was lost and the order's money went back. |
+
+## Reviews
+
+| Event | When it is sent |
+| - | - |
+| `review.created` | A review was left on an order, by its buyer or by itself after seven days. |
+
+## Stock
+
+| Event | When it is sent |
+| - | - |
+| `stock.low` | A sale left a variant with few license keys, at or under the store's low stock number. |
+| `stock.out` | A sale took a variant's last license key. |
+
+## Catalogue
+
+| Event | When it is sent |
+| - | - |
+| `product.created` | A product was added. |
+| `product.updated` | A product, its variants or its pictures were changed. |
+| `product.deleted` | A product was deleted. |
+
+## Customers
+
+| Event | When it is sent |
+| - | - |
+| `customer.created` | An email address became a customer of the store. |
+| `customer.balance_changed` | A customer's store balance changed: it was spent, credited, refunded to or set. |
+
+## Affiliates
+
+| Event | When it is sent |
+| - | - |
+| `affiliate.created` | A customer became an affiliate, added by the store or by joining. |
+| `affiliate.payout_requested` | An affiliate asked for a payout. |
+| `affiliate.payout_answered` | A payout request was marked as paid or declined. |
+
+## Testing
+
+| Event | When it is sent |
+| - | - |
+| `webhook.test` | When you press **Send a test** on an endpoint. It is sent to that endpoint whatever it subscribes to. |

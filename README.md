@@ -1,55 +1,36 @@
-# Mintlify Starter Kit
+# Shoply docs
 
-Use the starter kit to get your docs deployed and ready to customize.
+The source of [docs.shoply.gg](https://docs.shoply.gg): guides for running a Shoply store, and the API, webhooks and SDKs for building on it. A [Mintlify](https://mintlify.com) site. **A push to `main` publishes it.**
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+## What is written by hand and what is not
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+| Path | What it is |
+| - | - |
+| `index.mdx`, `guides/`, `sdk/` | Written by hand. |
+| `api-reference/*.mdx` | Written by hand, except the two below. |
+| `api-reference/openapi.json` | **Generated.** Every route of the API, with what it takes and an example of what it answers. |
+| `api-reference/permissions.mdx`, `api-reference/webhook-events.mdx` | **Generated.** |
+| `docs.json` | By hand, except the route groups of the "API reference" tab, which are generated. |
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
-
-## AI-assisted writing
-
-Set up your AI coding tool to work with Mintlify:
+The generated files are written out of the API's own code, in the main repository (`backend/api-docs.php`), so the reference cannot say something the server does not do. Do not edit them here: change the route there and build again.
 
 ```bash
-npx skills add https://mintlify.com/docs
+# in the main repository's backend/
+php api-docs.php record         # ask every route for an example, on a throwaway store
+php api-docs.php build ../../Docs
 ```
 
-This command installs Mintlify's documentation skill for your configured AI tools like Claude Code, Cursor, Windsurf, and others. The skill includes component reference, writing standards, and workflow guidance.
+## Checking it
 
-See the [AI tools guides](/ai-tools) for tool-specific setup.
-
-## Development
-
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
-
-```
-npm i -g mint
+```bash
+npx mint@latest dev             # the site on this machine, at localhost:3000
+npx mint@latest broken-links
 ```
 
-Run the following command at the root of your documentation, where your `docs.json` is located:
+## Writing
 
-```
-mint dev
-```
-
-View your local preview at `http://localhost:3000`.
-
-## Publishing changes
-
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
-
-## Need help?
-
-### Troubleshooting
-
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
-
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+- Plain words, short sentences, sentence case. No em or en dashes.
+- Original wording. Nothing here is another platform's sentence.
+- The dashboard's own names for things, in bold: **Catalogue**, then **Products**.
+- A code sample that can be run as it is.
+- Made-up people live at `example.com`.

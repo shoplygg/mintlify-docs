@@ -1,0 +1,60 @@
+---
+title: "Orders"
+description: "What an order's status means, and what you can do to one"
+---
+
+An order exists from the moment a buyer starts a checkout, or you raise an invoice. The ID in a checkout's address is the order's ID.
+
+## Statuses
+
+| Status | What it means |
+| - | - |
+| **Pending** | Made and not paid yet. An unpaid order is cancelled by itself after 24 hours. |
+| **Completed** | Paid and delivered. This is a sale. |
+| **Refunded** | The money went back, or the buyer was credited. |
+| **Cancelled** | Nobody paid in time, or the buyer cancelled. |
+| **Chargeback** | The buyer's bank took the money back. |
+
+Money that arrives late for a cancelled order still completes it.
+
+## What you can do to an order
+
+<ResponseField name="Mark as paid">
+  On a pending or cancelled order: completes it as a payment would, for money that reached you some other way. Refused if any line cannot be delivered in full.
+</ResponseField>
+
+<ResponseField name="Refund">
+  On a completed order, all of it, one of three ways:
+
+  - **Back to what paid**, through the payment provider. Offered where the provider can send money back. Crypto never can.
+  - **As store credit**, onto the buyer's balance at your store, for as much of what was paid as you choose.
+  - **Recorded only**, when you returned the money yourself.
+
+  An order is marked refunded only once the provider has said the money is on its way, or the buyer has been credited.
+</ResponseField>
+
+<ResponseField name="Re-deliver">
+  Gives the buyer fresh license keys and emails them. The old keys are revoked.
+</ResponseField>
+
+<ResponseField name="Send the email again">
+  For a delivery email that did not arrive.
+</ResponseField>
+
+<ResponseField name="Note">
+  A note of your own on the order. The buyer never sees it.
+</ResponseField>
+
+An order's page also shows its timeline, the payments opened for it, where the buyer came from, and what is known of the connection it was placed from.
+
+## Invoices
+
+An invoice is an order you make for a buyer: products from your catalogue at their prices, or lines of your own at any price. The buyer gets a page to pay it on, and by email if you choose, with a PDF. Every order has a PDF, paid or not.
+
+## Reviews
+
+A buyer can leave one review on an order they paid for. An order nobody reviewed is given five stars by itself after seven days, unless you switch that off in the store's settings. A store cannot remove a review.
+
+## With the API
+
+Read orders, mark one paid, refund it, deliver it again and raise invoices from your own server: see [Orders](/api-reference/orders/list-orders) and [Invoices](/api-reference/invoices/create-an-invoice). To hear about an order the moment it is paid, add a [webhook](/guides/webhooks).

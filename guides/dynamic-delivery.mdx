@@ -1,0 +1,82 @@
+---
+title: "Dynamic delivery"
+description: "Have your own server hand out what was bought: what Shoply sends it, what it answers, and how to check the request"
+---
+
+With dynamic delivery, Shoply does not hold the goods. When an order is paid it asks **your** server for them, and sends the buyer whatever your server answers. Use it for a key made on the spot, an account created for the buyer, or stock that lives somewhere else.
+
+<Note>
+  This is not a [webhook](/guides/webhooks). A webhook tells you something happened. Dynamic delivery asks you for something, and waits for the answer.
+</Note>
+
+## Setting it up
+
+On a variant's **Delivery** tab, choose **Dynamic** and enter an `https` address on your server. Every variant of the store can share one address or have its own.
+
+Your store has one **delivery signing secret**, shown under **Developers**. Every request to your server is signed with it.
+
+## The request
+
+A `POST` with a JSON body, once for each line of the order that is delivered this way.
+
+```json
+{
+  "storeId": "8d0a0f6e-3f0b-4c57-9a55-0c1f3f5d7a10",
+  "customerId": "5f0e7b1a-2c64-4d0a-9a3e-7d5b9f1c2e44",
+  "lineItemId": "1042",
+  "deliveryId": "9b1f0c2d4e6a8b0c1d3e5f7a9b1c3d5e",
+  "productId": "c1c7f7a0-55f4-4a37-8f43-3d2a8f0f6e12",
+  "variantId": "e2d8a8b1-66a5-4b48-9a54-4e3b9a1a7f23",
+  "quantity": 1,
+  "order": {
+    "id": "0b8f9f39-6d0f-4c6b-8f5e-2a8f2f8f3c11",
+    "totalPrice": 9.99,
+    "currency": "USD",
+    "customer": { "email": "ada@example.com", "name": "Ada Lovelace" },
+    "items": [
+      {
+        "lineItemId": "1042",
+        "productId": "c1c7f7a0-55f4-4a37-8f43-3d2a8f0f6e12",
+        "variantId": "e2d8a8b1-66a5-4b48-9a54-4e3b9a1a7f23",
+        "productName": "Northwind Pro",
+        "variantName": "1 month",
+        "quantity": 1,
+        "unitPrice": 9.99
+      }
+    ],
+    "createdAt": "2026-10-11T08:15:44Z"
+  }
+}
+```
+
+`deliveryId` is the thing to remember. It is the same when a request is tried again after a timeout, so your server can answer with the goods it already made instead of making more. It is a new one when the order is delivered again later, which is a request for new goods.
+
+## The answer
+
+Answer `200` with the goods.
+
+- **Plain text**: the whole body is one item, however many lines it has.
+- **JSON** shaped `{"items": ["...", "..."]}`: one entry for each item.
+
+Anything but a `200`, an empty body, or no answer within 60 seconds is a failure, and is tried again.
+
+## Checking the request
+
+Every request carries the timestamp it was signed at, and a signature over that timestamp and the body:
+
+```
+X-Shoply-Timestamp: 1791705953
+X-Shoply-Signature: v1=HMAC-SHA256(secret, "<timestamp>.<raw body>")
+```
+
+Check it the way a [webhook's signature](/api-reference/webhooks#checking-the-signature) is checked: it is the same scheme, under your store's delivery signing secret. Use the raw body, compare in constant time, and refuse a timestamp more than a few minutes old.
+
+A second header, `X-Signature`, carries the HMAC-SHA256 of the body alone, in uppercase hex. It is there for handlers written before the timestamp existed. Check `X-Shoply-Signature` in anything new.
+
+## When your server fails
+
+The buyer is told their item is still being prepared, and Shoply asks again: after 2 minutes, then 10, 30, an hour, 2 hours, 4, and 8, eight tries in all. You can ask again yourself with **Retry** on the order's page, or with the [API](/api-reference/orders/retry-a-dynamic-delivery).
+
+## What your address has to be
+
+`https`, reachable from the internet, on port 443, 80, 8080 or 8443. An address inside a private network is refused, and so is a redirect to one.

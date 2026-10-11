@@ -1,0 +1,31 @@
+---
+title: "Payment methods"
+description: "How buyers pay you: cards, PayPal and crypto, through accounts of your own"
+---
+
+Buyers pay **you**, through an account of your own with a payment provider. You connect it under **Payments**, and Shoply's checkout takes the payment with it.
+
+| Method | Provider | Can a payment be sent back |
+| - | - | - |
+| Cards, Apple Pay, Google Pay | Stripe | Yes |
+| Cards | Authorize.net | Yes |
+| PayPal | PayPal | Yes |
+| Crypto | NOWPayments | No. A refund is store credit. |
+
+A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take.
+
+## Paying with balance
+
+Where you allow it, a buyer can pay with their [store balance](/guides/customers-and-balance), alone or with a payment method for the rest.
+
+## For one product
+
+A product or a single variant can refuse some payment methods, and a product can add a fee for one, as a percent, a fixed amount, or both. The fee follows whichever method the buyer pays with.
+
+## Credentials
+
+A payment method's keys are entered in the dashboard, where you are asked to confirm it is you, and are kept encrypted. They are never shown again and never answered by the API: a key can read which methods are connected and switch them on and off, and nothing more.
+
+## A payment that did not arrive
+
+A crypto payment has a time it is good for. When it runs out the checkout says so and offers a new one. If money arrives late for an order that was cancelled, the order still completes.

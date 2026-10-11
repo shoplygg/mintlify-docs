@@ -1,0 +1,60 @@
+---
+title: "Coupons and sales"
+description: "Discount codes a buyer types, and sales that lower prices for a stretch of time"
+---
+
+## Coupons
+
+A coupon is a code a buyer types at checkout. Find them under **Catalogue**, then **Coupons**.
+
+<ResponseField name="Discount">
+  A percent of the order, or an amount in the store's currency.
+</ResponseField>
+
+<ResponseField name="Limits">
+  How many orders may use it, the smallest order it works on, and a day it stops working. Each is optional.
+</ResponseField>
+
+<ResponseField name="Products">
+  Every product, or only the ones you pick: a whole product, or one variant of it.
+</ResponseField>
+
+Coupons are filed in categories of your own. A store holds up to 1,000 coupons.
+
+### The coupon pop-up
+
+The storefront can offer visitors a coupon in a pop-up: after a few seconds on the page, or when they look like leaving. Set it up under **Marketing**, then **Coupon pop-up**. It needs a coupon buyers can use today.
+
+### A reward for a first order
+
+A store can send a buyer a code of their own after their first order. Those codes are made by the store and kept in a category called First Timer.
+
+## Sales
+
+A sale takes a discount off products for a stretch of time. Prices on the storefront are struck through, with the sale price beside them and a countdown across the top. Find them under **Marketing**, then **Sales**.
+
+<ResponseField name="Discount">
+  A percent of each price, or an amount off it.
+</ResponseField>
+
+<ResponseField name="Products">
+  Every product, or the ones you pick.
+</ResponseField>
+
+<ResponseField name="From and until">
+  A start and an end. A sale that has ended is over by itself.
+</ResponseField>
+
+<ResponseField name="Coupons during the sale">
+  Whether a coupon counts only the items that are not on sale, works on sale items too, or does not work at all while the sale runs. You can make exceptions for particular coupons or coupon categories.
+</ResponseField>
+
+A store holds up to 30 sales.
+
+## An affiliate's discount
+
+A link from one of your [affiliates](/guides/affiliates) can take something off for the buyer too. That discount and a coupon both apply: the affiliate's is taken off what the coupon left.
+
+## With the API
+
+See [Coupons](/api-reference/coupons/list-coupons) and [Sales](/api-reference/sales/list-sales).
