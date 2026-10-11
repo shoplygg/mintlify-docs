@@ -2,11 +2,17 @@
     "$schema": "https://mintlify.com/docs.json",
     "theme": "mint",
     "name": "Shoply",
-    "description": "Guides for running a Shoply store, and the API, webhooks and SDKs for building on it.",
+    "description": "How to sell on Shoply, and how to build on it.",
     "colors": {
         "primary": "#6A3CE2",
-        "light": "#A78BFA",
+        "light": "#A685FF",
         "dark": "#6A3CE2"
+    },
+    "background": {
+        "color": {
+            "light": "#F5F7F8",
+            "dark": "#131418"
+        }
     },
     "favicon": "/favicon.png",
     "logo": {
@@ -15,6 +21,25 @@
         "href": "https://shoply.gg"
     },
     "navigation": {
+        "global": {
+            "anchors": [
+                {
+                    "anchor": "Status",
+                    "href": "https://status.shoply.gg",
+                    "icon": "heart-pulse"
+                },
+                {
+                    "anchor": "Telegram",
+                    "href": "https://t.me/shoplygg",
+                    "icon": "telegram"
+                },
+                {
+                    "anchor": "Discord",
+                    "href": "https://discord.gg/shoply",
+                    "icon": "discord"
+                }
+            ]
+        },
         "tabs": [
             {
                 "tab": "Guides",
@@ -483,12 +508,6 @@
         ]
     },
     "navbar": {
-        "links": [
-            {
-                "label": "Status",
-                "href": "https://status.shoply.gg"
-            }
-        ],
         "primary": {
             "type": "button",
             "label": "Dashboard",
@@ -518,6 +537,10 @@
                     }
                 ]
             }
-        ]
+        ],
+        "socials": {
+            "telegram": "https://t.me/shoplygg",
+            "discord": "https://discord.gg/shoply"
+        }
     }
 }

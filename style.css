@@ -1,0 +1,78 @@
+/*
+ * Shoply's docs in the dashboard's own dress.
+ *
+ * The page's ground and accent are docs.json's (background, colors). This file is the
+ * rest of what makes the dashboard look as it does: its raised surface for anything
+ * that is a card, its hairline, its corners, and its filled button, which is ink and
+ * never the accent. The values are the dashboard's own tokens
+ * (dashboard-next/src/app/globals.css in the main repo), light and dark.
+ *
+ * Colours and corners only. Nothing here moves a thing or changes its size: the layout
+ * is Mintlify's, and a rule that fought it would break at their next release.
+ */
+
+:root {
+  --shoply-ground: #f5f7f8;
+  --shoply-frame: #e9ecef;
+  --shoply-card: #ffffff;
+  --shoply-line: #e8edf0;
+  --shoply-ink: #16191d;
+  --shoply-soft: #565d67;
+  --shoply-on-ink: #ffffff;
+}
+
+.dark {
+  --shoply-ground: #131418;
+  --shoply-frame: #0e0f12;
+  --shoply-card: #1b1e23;
+  --shoply-line: #2a2f37;
+  --shoply-ink: #f7f8fa;
+  --shoply-soft: #a8aeb9;
+  --shoply-on-ink: #16191d;
+}
+
+/* A card is the dashboard's card: its surface, its hairline, its corner. */
+.card,
+.code-block,
+.accordion,
+#page-context-menu-button,
+#search-bar-entry,
+.chat-assistant-floating-input {
+  background-color: var(--shoply-card) !important;
+  border-color: var(--shoply-line) !important;
+}
+
+.card,
+.accordion {
+  border-radius: 12px !important;
+}
+
+/* The bar across the top and the tabs under it stand on the frame, as the dashboard's do. */
+#navbar,
+#navbar > div {
+  background-color: var(--shoply-frame) !important;
+  border-color: var(--shoply-line) !important;
+}
+
+/* A filled button is ink on the ground's colour. The accent is for links and what is picked. */
+#topbar-cta-button a,
+#topbar-cta-button a > span:first-child {
+  background-color: var(--shoply-ink) !important;
+  border-radius: 8px !important;
+}
+
+#topbar-cta-button a,
+#topbar-cta-button a * {
+  color: var(--shoply-on-ink) !important;
+}
+
+/* Words: the dashboard's ink for what is read, its grey for what is beside it. */
+#page-title,
+.prose :where(h1, h2, h3, h4, strong):not(:where(.card *)) {
+  color: var(--shoply-ink) !important;
+}
+
+#sidebar,
+#table-of-contents {
+  border-color: var(--shoply-line) !important;
+}
