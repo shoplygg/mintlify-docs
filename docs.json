@@ -73,13 +73,6 @@
                         ]
                     },
                     {
-                        "group": "Sell on your own site",
-                        "pages": [
-                            "guides/embeds",
-                            "guides/checkout-kit"
-                        ]
-                    },
-                    {
                         "group": "Automate",
                         "pages": [
                             "guides/api-keys",
@@ -494,8 +487,21 @@
                 ]
             },
             {
-                "tab": "SDK",
+                "tab": "SDK (sell on your own site)",
                 "groups": [
+                    {
+                        "group": "Start",
+                        "pages": [
+                            "sdk/overview"
+                        ]
+                    },
+                    {
+                        "group": "The checkout on your site",
+                        "pages": [
+                            "guides/embeds",
+                            "guides/checkout-kit"
+                        ]
+                    },
                     {
                         "group": "shoply.js",
                         "pages": [
@@ -554,7 +560,7 @@
                     },
                     {
                         "label": "SDK",
-                        "href": "/sdk/introduction"
+                        "href": "/sdk/overview"
                     }
                 ]
             },

@@ -1,0 +1,44 @@
+---
+title: "Sell on your own site"
+sidebarTitle: "Which one to use"
+description: "Three ways to sell from a site that is yours: a button, the checkout in your page, or a storefront you build"
+---
+
+Your store comes with a site of its own. If you already have a site, or want one that is yours from the first line, there are three ways to sell from it. They run from the least work to the most control, and one site can use more than one.
+
+| | What it is | Use it when |
+| - | - | - |
+| **[Embed](/guides/embeds)** | One script, and a product's ID on a button. Pressing it opens the checkout over your page. | You have a page and want a Buy button on it today. |
+| **[Checkout Kit](/guides/checkout-kit)** | The checkout as seven pieces you put in your own layout and dress as your site is. | The checkout should read as part of your page, not a window over it. |
+| **[shoply.js](/sdk/introduction)** | Your store's catalogue, prices, stock and a basket, for pages you write yourself. | You are building the whole storefront. |
+
+## What they share
+
+- **Shoply takes the payment.** The embed and the kit are frames of Shoply's checkout, and `shoply.js` sends the buyer to it. Card details never touch your page.
+- **An order is an order.** It is in your dashboard, delivers as any other does, and reaches your [webhooks](/api-reference/webhooks).
+- **No secret goes in a page.** None of the three uses an API key. A key is for your server: see the [API reference](/api-reference/introduction).
+
+## Where they differ
+
+| | Embed | Checkout Kit | shoply.js |
+| - | - | - | - |
+| What one checkout sells | One product | A cart of several | A basket of several |
+| Where the buyer pays | Over your page | In your page | On Shoply's checkout |
+| How it looks | Shoply's, light or dark | Yours: colours, corners, type, and your own CSS | Every page is yours; the checkout is Shoply's |
+| Your terms | Agreed to at the checkout, where your store has them | Not asked: show them on your own page | Agreed to at the checkout, where your store has them |
+
+## Counting visits
+
+A page that loads `shoply.js` and starts it is counted in your store's analytics. An order made through the embed or the kit on such a page is filed under that visit, so Analytics can say where the sale came from. A page without it counts no visit, and its orders came from none.
+
+<CardGroup cols={3}>
+  <Card title="Embeds" icon="arrow-pointer" href="/guides/embeds">
+    A Buy button on any page.
+  </Card>
+  <Card title="Checkout Kit" icon="table-columns" href="/guides/checkout-kit">
+    The checkout, in your layout.
+  </Card>
+  <Card title="shoply.js" icon="code" href="/sdk/introduction">
+    A storefront of your own.
+  </Card>
+</CardGroup>
