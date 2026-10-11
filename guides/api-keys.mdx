@@ -12,13 +12,14 @@ Press **Add API key** and give it:
 - **A name**, after what will use it: "Order sync", "Discord bot".
 - **Permissions**: what it may do. Tick only what that job needs. Every permission is listed on the [permissions page](/api-reference/permissions).
 - **Allowed addresses**, if you want: the IP addresses or ranges it may be used from. A key that leaks is then no use to whoever found it.
+- **Allowed domains**, if you want: the same thing by name. A domain such as `server.example.com` stands for the address it points at, so the key goes on working when your server moves and its DNS record follows. It has to point straight at the server: a domain behind Cloudflare points at Cloudflare, and is refused when you type it.
 - **A last day**, if you want: a date it stops working by itself.
 
 The key starts `shoply_sk_` and is shown once. Keep it somewhere safe. A store holds up to 15 keys.
 
 ## Changing and replacing one
 
-A key's name, permissions and addresses can be changed. Its secret cannot be read again, though it can be **replaced**: the old secret stops working at once and the key keeps everything else. **Revoke** ends a key for good.
+A key's name, permissions, addresses and domains can be changed. Its secret cannot be read again, though it can be **replaced**: the old secret stops working at once and the key keeps everything else. **Revoke** ends a key for good.
 
 You are asked to confirm it is you before a key is made, widened or replaced, and the store's owner is told by email.
 

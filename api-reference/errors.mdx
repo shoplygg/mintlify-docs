@@ -58,7 +58,7 @@ Show these to whoever typed the values. Each says which rule was broken.
 | `api_key_required` | 401 | No key was sent. |
 | `invalid_api_key` | 401 | Not a live key: mistyped, revoked or expired. |
 | `missing_scope` | 403 | The key lacks the route's permission, named in `requiredScope`. |
-| `ip_not_allowed` | 403 | The key does not accept requests from this address. |
+| `ip_not_allowed` | 403 | The key does not accept requests from this address: it is not on the key's list, and none of its domains points at it. |
 | `account_unavailable` | 403 | The store's account cannot use the API. |
 | `dashboard_only` | 403 | Only a person in the dashboard may do this. |
 | `not_found` | 404 | No such thing in this store. A store that is not the key's own answers the same. |

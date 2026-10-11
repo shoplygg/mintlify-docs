@@ -25,20 +25,34 @@ A key belongs to **one store** and reaches that store only. Asked about any othe
 </ResponseField>
 
 <ResponseField name="Allowed addresses" type="optional">
-  The IP addresses, or ranges in CIDR form, the key may be used from. With any set, a request from anywhere else is refused with `ip_not_allowed`, and still written into the store's record of requests, so you can see that the key was tried from somewhere it should not be. Left empty, the key works from anywhere.
+  The IP addresses, or ranges in CIDR form, the key may be used from. Up to 20.
+</ResponseField>
+
+<ResponseField name="Allowed domains" type="optional">
+  Domains the key may be used from, such as `server.example.com`. Up to 10. A domain stands for the addresses it points at: Shoply looks the name up, and a request is let through when it comes from one of them.
 </ResponseField>
 
 <ResponseField name="A last day" type="optional">
   A date after which the key stops working by itself. Left empty, it works until it is revoked.
 </ResponseField>
 
-A key's name, permissions and addresses can be changed afterwards, and its secret can be replaced with a new one: the old secret stops working at once and everything else about the key stays. Changing what a key may do or where it may be used from, and replacing its secret, each ask whoever does it to confirm it is them, and the store's owner is told by email.
+A key's name, permissions, addresses and domains can be changed afterwards, and its secret can be replaced with a new one: the old secret stops working at once and everything else about the key stays. Changing what a key may do or where it may be used from, and replacing its secret, each ask whoever does it to confirm it is them, and the store's owner is told by email.
+
+## Where a key may be used from
+
+A key with no addresses and no domains works from anywhere. Give it either and it is held to them: a request is let through when it comes from an address on the list, or from one a listed domain points at. From anywhere else it is refused with `ip_not_allowed`, and still written into the store's record of requests, so you can see that the key was tried from somewhere it should not be.
+
+Three things about domains:
+
+- **A domain is judged by where the request comes from.** Never by an `Origin` or `Referer` header: those are written by the sender, and whoever holds a key can write them.
+- **It has to point at the machine that sends the requests.** A domain behind a proxy such as Cloudflare points at the proxy, not at your server, so a key held to it would be refused everywhere. The dashboard says so when you type one. Use a name that points straight at the server, or the server's IP address.
+- **A change to its DNS record is followed within five minutes.** If the name cannot be looked up for a while, the addresses it last pointed at go on being accepted, for up to a day.
 
 ## Keeping one safe
 
 - **On a server, never in a browser or an app.** The API sends no CORS headers, so a page cannot read its answers at all. Whatever a browser has, its user has.
 - **One key for each thing that uses one.** Then one can be revoked without stopping the others, and the record of requests says which did what.
-- **Only the permissions the job needs**, and its server's address if that address does not change.
+- **Only the permissions the job needs**, and its server's address or domain if you can name one.
 - **Revoke a key the moment it may have been seen**, and make another. Revoking is immediate.
 
 ## When a key is refused
@@ -48,9 +62,9 @@ A key's name, permissions and addresses can be changed afterwards, and its secre
 | 401 | `api_key_required` | No key was sent. |
 | 401 | `invalid_api_key` | The key is not a live one: mistyped, revoked, or past its last day. |
 | 403 | `missing_scope` | The key does not carry the permission the route needs. `requiredScope` names it. |
-| 403 | `ip_not_allowed` | The request came from an address the key does not accept. |
+| 403 | `ip_not_allowed` | The request came from an address the key does not accept: not on its list, and not one its domains point at. |
 | 403 | `account_unavailable` | The store's account cannot use the API. Sign in to the dashboard to see why. |
 | 403 | `dashboard_only` | This is something only a person in the dashboard may do. |
 | 404 | `not_found` | The store in the address is not the key's own. |
 
-An address that sends a run of keys that are not keys is turned away for a few minutes with `rate_limited`.
+An address that sends a run of keys that are not keys, or of requests with a key that does not accept that address, is turned away for a few minutes with `rate_limited`.

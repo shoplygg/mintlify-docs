@@ -17,13 +17,19 @@ These are there to stop a loop, not to be planned around. Ten reads a second, ke
 
 ## Where a key stands
 
-Every answer says, in its headers:
+Every answer to a request that was counted says, in its headers:
 
 | Header | What it says |
 | - | - |
 | `X-RateLimit-Limit` | The budget this request was counted against. |
 | `X-RateLimit-Remaining` | How much of it is left. |
 | `X-RateLimit-Reset` | Seconds until it is whole again. |
+
+## What is counted
+
+Every request a key makes, whatever the answer: one refused for a permission the key lacks, or for a store that is not its own, is counted like one that worked.
+
+The one exception is a request from an address the key does not accept. That is counted against the address it came from, not against the key, so somebody trying a key they found cannot use up the budget of the server it was made for. After a run of those the address is turned away for a few minutes.
 
 ## When it runs out
 

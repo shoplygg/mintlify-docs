@@ -170,6 +170,12 @@
                                                                 "object"
                                                             ]
                                                         },
+                                                        "allowedDomains": {
+                                                            "type": [
+                                                                "array",
+                                                                "object"
+                                                            ]
+                                                        },
                                                         "expiresAt": {
                                                             "nullable": true
                                                         },
@@ -225,6 +231,7 @@
                                                 "store.write"
                                             ],
                                             "allowedIps": [],
+                                            "allowedDomains": [],
                                             "expiresAt": null,
                                             "expired": false,
                                             "createdAt": "2026-10-11T08:42:42Z",
