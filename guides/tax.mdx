@@ -1,0 +1,50 @@
+---
+title: "Tax at checkout"
+description: "Collect sales tax or VAT where you are registered: your places and rates, prices with or without tax, and business buyers"
+---
+
+Tax is off for every store until its seller turns it on. With it off, nothing is added to any order and the rest of this page does not matter.
+
+It is under **Finance**, then **Tax**. Like the rest of Finance, it opens once your store has a business name and country.
+
+## Turning it on
+
+| | |
+| - | - |
+| **Collect tax at checkout** | The switch for all of it. |
+| **Your prices** | Whether tax is added on top of your prices at the checkout, or is already inside them. |
+| **Business buyers with a VAT number pay no tax** | See below. |
+
+## Where you collect
+
+Add each place you are registered to collect tax in: a country, or for the United States a state. A place starts at a rate Shoply suggests, and the rate is yours to change. What a buyer is charged is always the rate on your own list. A buyer somewhere that is not on your list pays no tax.
+
+## Which place a buyer is in
+
+The buyer's country is where their connection is when the checkout starts. It is not a box they fill in.
+
+A buyer in the United States is asked which state they are in, and cannot pay until they say.
+
+## Business buyers
+
+With **Business buyers with a VAT number pay no tax** on, a buyer can enter their VAT number. It is checked with the European Union's own register. When the register confirms it and the business is in another country than yours, the tax is taken off the order.
+
+## What it does to an order
+
+- Tax added on top is its own line at the checkout. Tax inside your prices changes no total.
+- A payment method's fee is not taxed.
+- The tax is fixed when the buyer presses Pay. A rate you change tomorrow does not reach an order already being paid.
+
+## What is never taxed by itself
+
+An invoice you raise under **Invoicing**, and an order you make by hand. Neither has a buyer's place to go by.
+
+## In your books
+
+Tax collected is not income. Finance leaves it out of your sales, and **Accounting** lists the orders that carried tax by place and rate, which is the figure to report.
+
+Shoply works out the sum. Where you have to register and what you owe is yours to know.
+
+## With the API
+
+See [Get tax settings](/api-reference/tax/get-tax-settings), [Update tax settings](/api-reference/tax/update-tax-settings) and [Add or change tax rates](/api-reference/tax/add-or-change-tax-rates).

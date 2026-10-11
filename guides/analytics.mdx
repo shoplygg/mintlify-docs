@@ -1,0 +1,66 @@
+---
+title: "Analytics"
+description: "Who is on your store now, where visits come from, and which of them bought"
+---
+
+Analytics is under **Online store**. It has two sides: **Live view**, which is the last few minutes, and **Reports**, which is any stretch of days you pick.
+
+## Live view
+
+A globe with a dot for every place somebody is looking at your store from. The dot grows with the number of people there.
+
+| | |
+| - | - |
+| **Visitors now** | Visits that were active in the last ten minutes. The same figure is on your dashboard's home page. |
+| **Browsing**, **Active carts**, **Checking out**, **Purchased** | Those same ten minutes, by how far each visitor has got. |
+| **Sessions today**, **Orders today**, **Sales today** | The day so far. |
+
+A line is drawn from your store to a place while something arrives there, and is gone when it lands. White is a visitor. Amber is an order nobody has paid yet, which exists from the moment a checkout is opened. Mint is a paid order. An order you watch from Buy to paid is two lines, amber and then mint.
+
+## Reports
+
+| | |
+| - | - |
+| **Sessions** | Visits. One person looking at five pages in a sitting is one session. |
+| **Page views** | Pages looked at. |
+| **Bounce rate** | Visits that looked at one page and left. |
+| **Bought** | Of the visits, how many led to a sale. |
+
+Under the figures: **Sessions over time**, **Where they came from**, **Where they are** and **What they use**.
+
+### Where they came from
+
+Every visit is filed under one channel.
+
+| Channel | What puts a visit there |
+| - | - |
+| **Search** | A search engine, or an assistant such as ChatGPT, Perplexity or Copilot. |
+| **Social** | A social network. |
+| **Email** | A link in an email: one opened from a webmail site, or one tagged as email. |
+| **Paid** | An ad: a link tagged as one, or one that carries an ad network's click ID. |
+| **Referral** | Any other website. |
+| **Direct** | No website at all: a typed address, a bookmark, an app that does not say. |
+
+A **campaign** is a link you tagged with `utm_campaign`, `utm_source` and `utm_medium`, all three together. Visits through it are listed with what they went on to buy.
+
+A store with affiliates gets an **Affiliates** list as well: clicks on each link, and the orders it led to. A visit through an affiliate's link is still filed under the channel it arrived by.
+
+## Which visit a sale belongs to
+
+An order remembers the visitor who placed it. The sale is given to the **last visit that visitor began before the order**, within 30 days.
+
+An order with no visit is given to nothing. That is an order you made by hand, an invoice, or a sale on a page of your own that does not count visits. It is in every total that counts sales and in none that says where sales came from. **Bought** is sales that came from a visit, over visits, so it never counts those.
+
+An order's own page says the same under **Came from**: the channel, the website or search engine, the campaign's tags and the page the visitor landed on.
+
+## A site of your own
+
+A page of yours is a visit when it loads `shoply.js` and starts it. An order made there through the [embed](/guides/embeds) or the [Checkout Kit](/guides/checkout-kit) is then filed under that visit. See [counting visits](/sdk/overview#counting-visits).
+
+## What is not counted
+
+A visit by something that calls itself a bot is not kept. A preview of your store in the builder or the dashboard counts nothing either.
+
+## With the API
+
+The same figures: [Get the overview](/api-reference/analytics/get-the-overview), [Get the visits report](/api-reference/analytics/get-the-visits-report), [Get the live view](/api-reference/analytics/get-the-live-view) and [Get visitors now](/api-reference/analytics/get-visitors-now).

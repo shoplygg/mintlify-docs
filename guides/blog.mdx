@@ -1,0 +1,69 @@
+---
+title: "Blog"
+description: "Articles on your store's own address, written to be found by people searching for what you sell"
+---
+
+A blog is how a store answers the questions people type into a search engine before they know your name. It is under **Search visibility**, then **Blog pages**, and its posts are published on your store, at your store's address.
+
+| | A store can hold |
+| - | - |
+| Categories | 20 |
+| Posts in a category | 15 |
+
+## Categories
+
+Every post is in a category. A new store starts with three, **Setup Guides**, **Troubleshooting** and **News and Updates**, which are ordinary categories: rename them, sort them or delete them.
+
+| | |
+| - | - |
+| **Name** and **Address** | What the category is called, and the last part of its address on your store. |
+| **Description** | What it is about, shown on your blog's front page and to search engines. |
+| **Picture** | Shown at the head of the category, on its card, and when a link to it is shared. |
+
+## Writing a post
+
+A post is written in Markdown, so it is plain text with a few marks.
+
+| You type | You get |
+| - | - |
+| `# Heading`, `## Smaller heading` | Headings. The post's title is the page's main heading, and yours start one level under it. |
+| A blank line | A new paragraph. |
+| `**bold**`, `*italic*`, `~~struck~~`, `` `code` `` | Those. |
+| `[words](https://example.com)` | A link. One that leaves your store opens beside it. |
+| `![what it shows](address)` | A picture. What you write in the brackets is read out to somebody who cannot see it. |
+| `- item`, `1. item` | Lists. Indent one to nest it. |
+| `> quote` | A quotation. |
+| Three backticks, above and below | A block of code, shown as typed. |
+| <code>&#124; a &#124; b &#124;</code> with a row of dashes under the first row | A table. |
+
+HTML is not one of the marks. A tag typed into a post is shown to the reader as the text you typed.
+
+A post also has a cover picture, and its own title and description for search results under **In search results**. Left empty, its title and the start of its text are used.
+
+### The preview
+
+The preview is the post exactly as your store will show it, drawn by the same code. Beside it is the search result the post would be, and a short check of what a search engine looks for in it.
+
+## Publishing
+
+A post is a draft until it goes out, and a draft is nowhere on your store.
+
+- **Publish** in the editor's header saves the post as it stands and puts it out.
+- **Publish** and **Unpublish** in a post's menu on the list change that and nothing else.
+
+## Where it all is
+
+| Address | What is there |
+| - | - |
+| `/blog/` | Your categories, in the order you sorted them, each with its picture, its description and how many posts are out in it. |
+| `/blog/<category>/` | That category's posts, in the order you sorted them. |
+| `/blog/<category>/<post>/` | The post. |
+| `/blog/feed.xml` | A feed of what is out, newest first. |
+
+Only what is published is anywhere. A category with no post out has no page, and `/blog/` itself is a missing page until your first post is published. From then on your store's header gains a **Blog** link by itself.
+
+When you rename a post or a category, or move a post to another category, its old address leads to the new one. Nothing you have already shared breaks.
+
+## With the API
+
+Everything here can be done from your own server: see [List blog categories and posts](/api-reference/blog/list-blog-categories-and-posts), [Create a blog post](/api-reference/blog/create-a-blog-post) and [Publish or unpublish a blog post](/api-reference/blog/publish-or-unpublish-a-blog-post).

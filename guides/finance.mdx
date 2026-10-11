@@ -1,0 +1,51 @@
+---
+title: "Finance"
+sidebarTitle: "Expenses and profit"
+description: "What your store took in, what it cost, and what is left: expenses, profit and the books"
+---
+
+The **Finance** group of the dashboard keeps your store's books: **Expenses**, **Accounting**, **Profit**, **Tax** and **Invoicing**. This page is the first three. [Tax at checkout](/guides/tax) has a page of its own, and invoices are with [orders](/guides/orders#invoices).
+
+## Before it opens
+
+Finance asks for your business's name and country first, under **Settings**, then **Business**. Every statement it makes says whose it is. Invoicing does not wait for this.
+
+## What counts
+
+- An order counts in the period it was **placed**.
+- Only a **completed** order is a sale. A pending, cancelled or refunded one is not.
+- Money is in your store's currency.
+- **Tax you collected is not income.** It is left out of every sale on these pages and reported by itself.
+
+## Profit
+
+**Net profit** is what is left of your sales after three things:
+
+| | |
+| - | - |
+| **Cost of goods** | What a sale costs you. Type a cost on a variant, as an amount or as a percent of its price. It is written onto each order as it is paid, so changing a cost later does not rewrite earlier months unless you say to use it for past sales too. |
+| **Payment fees** | What your payment providers keep. Shoply does not read these from a provider: they are worked out from the rates you type under **Payment fees**, and every place the figure shows carries a mark saying it can be slightly off. |
+| **Expenses** | What you recorded under **Expenses**. |
+
+The **Profit** page shows **Net sales**, **Net profit**, **Margin**, **Profit per order** and **Break-even**, your sales and profit by month, where the money went, and each product's own figures.
+
+## Expenses
+
+An expense is money your business spent: a payee, an amount, a date, a category, and a receipt if you have one.
+
+| | |
+| - | - |
+| **By hand** | Add one whenever you pay for something. |
+| **Recurring** | A bill that comes round every month or year. It can add itself on the day, or ask you first. Pause one and nothing is added or asked until you resume it. |
+| **Imported** | A statement from your bank, as a file. Say how its dates are written and whether it lists only money going out. |
+| **Rules** | A rule files an expense that arrives with no category, by words in the payee's name. |
+
+Categories are yours to add, rename and sort. Payment fees are not a category, on purpose: they are already taken off your profit, and an expense for them would count them twice.
+
+## Accounting
+
+**Accounting** is the books for a period: **Net sales**, **Gross profit**, **Expenses** and **Net profit**, with what each payment method took in, where your buyers were, and the orders that carried tax by place and rate. **Downloads** gives you the same as files for whoever does your accounts.
+
+## With the API
+
+See [Get profit](/api-reference/finance/get-profit) and [Get the books](/api-reference/finance/get-the-books), [List expenses](/api-reference/expenses/list-expenses) and [Create an expense](/api-reference/expenses/create-an-expense), and for categories, recurring expenses and rules, [expense setup](/api-reference/expense-setup/list-expense-categories).

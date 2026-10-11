@@ -58,6 +58,7 @@
                             "guides/delivery",
                             "guides/dynamic-delivery",
                             "guides/orders",
+                            "guides/reviews",
                             "guides/coupons-and-sales",
                             "guides/customers-and-balance",
                             "guides/affiliates"
@@ -69,7 +70,22 @@
                             "guides/storefronts",
                             "guides/custom-domain",
                             "guides/payment-methods",
-                            "guides/fraud-protection"
+                            "guides/fraud-protection",
+                            "guides/analytics"
+                        ]
+                    },
+                    {
+                        "group": "Search visibility",
+                        "pages": [
+                            "guides/search-visibility",
+                            "guides/blog"
+                        ]
+                    },
+                    {
+                        "group": "Finance",
+                        "pages": [
+                            "guides/finance",
+                            "guides/tax"
                         ]
                     },
                     {

@@ -1,0 +1,65 @@
+---
+title: "Search visibility"
+sidebarTitle: "Sitemap and settings"
+description: "How your store is found on Google and Bing: what it tells them by itself, and what is yours to set"
+---
+
+Your store is built to be read by search engines without anything from you. Every page has a title and a description of its own, what is on a page is in the page for a search engine that runs no script, and the store keeps a sitemap. The **Search visibility** group of the dashboard is where you change what it says.
+
+For articles written to be found, see [the blog](/guides/blog).
+
+## A page's own title and description
+
+A product and a category each have **In search results**: a title and a description for search engines alone. Left empty, the name and the description are used. A product's is on its **General** tab, a category's is in its dialog.
+
+## Sitemap
+
+**Sitemap** lists every address your store hands to search engines, in four kinds: pages, categories, products and blog. The file itself is at `/sitemap.xml` on your store.
+
+For a whole kind, or for one address, you can set:
+
+| | |
+| - | - |
+| **Listed** | Whether it is in the sitemap at all. A kind switched off lists none of its addresses. |
+| **Priority** | How much it matters beside your other pages. |
+| **How often** | How often it changes. |
+
+An address you leave alone follows its kind. Each change is saved as you make it.
+
+Google reads the date a page last changed and has said it ignores priority and how often. Other search engines may read them.
+
+## Redirects
+
+When a page goes, a product is renamed or a link was mistyped somewhere, a **redirect** sends its old address to a page that is there.
+
+- Both ends are addresses on your store, such as `/old-page` or `/product/?name=old-name`. A whole address copied from your browser works too.
+- A redirect is only followed once its address really has nothing at it. One made for an address that still has a page waits, and says so.
+- A redirect never leads to another redirect. Add one for a place older ones lead to, and they are moved along with it.
+
+**Broken links**, on the same page, lists the addresses people asked your store for that had nothing at them, the most recent 200. Add a redirect for one and it leaves the list.
+
+## Search settings
+
+| | |
+| - | - |
+| **Site verification** | The code Google or Bing gives you to prove the store is yours. Paste the code or the whole tag. It is written into your store's front page. |
+| **Let AI crawlers read your store** | On for a new store. Off, your store asks the crawlers that train and feed AI assistants to stay away. It asks: a crawler that ignores the request is not stopped. Google's and Bing's own search crawlers are never asked to leave. |
+| **Tell search engines when a page changes** | On for a new store. A product you save, a post you publish or a design you put live is reported to the search engines that take such reports, so they come back sooner. |
+| **Google Analytics** | A **Measurement ID** and an **API secret**. With both, each paid order is sent to your Analytics as a purchase, under the visit it came from. The checkout is on another address than your store, so Analytics on your store's pages would never see a sale by itself. |
+
+## Search analytics
+
+**Search analytics** shows how your store does in search: how often it was shown, how often it was pressed, the click rate and its average position, over time and by what people searched. Pick one search or one page to see its figures alone.
+
+It reads them from an account of yours.
+
+| | |
+| - | - |
+| **Bing Webmaster Tools** | Paste your API key, from **Settings**, then **API access**, in Bing Webmaster Tools. Your store has to be added and verified there first. Bing knows searches and pages. |
+| **Google Tag Manager** | A container ID. Your store's pages then load your container. Tags from Google's own services run; a tag from another company is refused by the browser. |
+
+Connecting Google Search Console is not available yet.
+
+## With the API
+
+[Search settings](/api-reference/search-settings/get-search-settings), [the sitemap](/api-reference/sitemap/get-the-sitemap) and [redirects and broken links](/api-reference/redirects/list-redirects-and-broken-links) can all be read and changed from your own server.

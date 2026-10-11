@@ -1,0 +1,40 @@
+---
+title: "Reviews"
+description: "What buyers say about their orders: how a review is left, where it shows, and what nobody can do to one"
+---
+
+A review belongs to a paid order. Every order can have one: a rating from one to five stars, and words if the buyer has any, up to 1,000 characters.
+
+## How one is left
+
+| | |
+| - | - |
+| **By the buyer** | On the order's own page, once it is paid. Every receipt has a **Leave a review** button that leads there. That button is on every store's receipts and cannot be switched off. |
+| **By itself** | An order nobody reviewed gets five stars seven days after it was paid, marked as left automatically. |
+
+Automatic reviews are on for a new store. To stop them, open **Settings**, then **Statistics**, and switch **Automatic reviews** off. Orders already reviewed keep what they have.
+
+## A review is final
+
+Nobody changes a review once it is left.
+
+- The buyer cannot edit theirs, or replace one that was left automatically.
+- You cannot edit, hide or delete one, from the dashboard or with the API.
+
+That is the point of them: a rating a store could prune would tell a buyer nothing.
+
+## Where they show
+
+Your store's **Reviews** page lists them, newest first, each with what was bought. A buyer is shown as a verified buyer and never by their email address. A product's rating and its number of reviews, where a theme shows them, are worked out from the reviews of orders that held it.
+
+In the dashboard they are under **Audience**, then **Reviews**: the average rating, how many are five stars, how many were written by buyers and how many were left automatically. Search by a buyer's email, an order's ID or a review's words.
+
+## Being told
+
+Under **Settings**, then **Notifications**, **New reviews** posts each review a buyer writes to your store's Discord, with its stars, its words and its order. Automatic reviews are not posted.
+
+Your own server can hear of every review, automatic ones included, with the [`review.created`](/api-reference/webhook-events#reviews) webhook event.
+
+## With the API
+
+Reviews can be read and nothing else: see [List reviews](/api-reference/reviews/list-reviews).
