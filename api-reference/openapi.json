@@ -123,7 +123,11 @@
                 "summary": "Get the current key",
                 "description": "What the key in the request is: its name, the permissions it carries, the addresses it accepts, and the store it belongs to with that store's ID. Make this your first call. Every other address needs the store's ID, and `api` in the answer is where that store's routes begin.\n\nAny live key may ask it, whatever its permissions.\n\nAny live API key may call this, whatever its permissions.",
                 "x-mint": {
-                    "href": "/api-reference/api-key/get-the-current-key"
+                    "href": "/api-reference/api-key/get-the-current-key",
+                    "metadata": {
+                        "title": "Get the current key",
+                        "sidebarTitle": "Get the current key"
+                    }
                 },
                 "parameters": [],
                 "responses": {
@@ -274,7 +278,11 @@
                 "summary": "Get the store",
                 "description": "The store's details and settings: its name and address, currency, branding, links, policies, what its storefront shows, and its business details.\n\nNeeds the `store.read` permission (Read store).",
                 "x-mint": {
-                    "href": "/api-reference/store/get-the-store"
+                    "href": "/api-reference/store/get-the-store",
+                    "metadata": {
+                        "title": "Get the store",
+                        "sidebarTitle": "Get the store"
+                    }
                 },
                 "parameters": [
                     {
@@ -587,7 +595,11 @@
                 "summary": "Update the store",
                 "description": "Saves the store's settings. Read the store first and send it back changed: `name` is needed, and `description`, `logoUrl`, `supportUrl`, `guideUrl` and `panelUrl` are cleared when left out. Every other field stays as it is when left out.\n\nThe store's address is changed with \"Change the store's address\", and its logo and icon are uploaded with their own routes.\n\nNeeds the `store.write` permission (Change store).",
                 "x-mint": {
-                    "href": "/api-reference/store/update-the-store"
+                    "href": "/api-reference/store/update-the-store",
+                    "metadata": {
+                        "title": "Update the store",
+                        "sidebarTitle": "Update the store"
+                    }
                 },
                 "parameters": [
                     {
@@ -1098,7 +1110,11 @@
                 "summary": "Change the store's address",
                 "description": "Moves the store to a new name under myshoply.gg. The old address leads to the new one. It can be changed once a week, and a name that is taken or reserved is refused.\n\nNeeds the `store.write` permission (Change store).",
                 "x-mint": {
-                    "href": "/api-reference/store/change-the-stores-address"
+                    "href": "/api-reference/store/change-the-stores-address",
+                    "metadata": {
+                        "title": "Change the store's address",
+                        "sidebarTitle": "Change the store's address"
+                    }
                 },
                 "parameters": [
                     {
@@ -1172,7 +1188,11 @@
                 "summary": "Upload the store's logo",
                 "description": "Gives the store its logo, replacing any it had. Sent as `multipart/form-data` in a field called `image`.\n\nNeeds the `store.write` permission (Change store).",
                 "x-mint": {
-                    "href": "/api-reference/store/upload-the-stores-logo"
+                    "href": "/api-reference/store/upload-the-stores-logo",
+                    "metadata": {
+                        "title": "Upload the store's logo",
+                        "sidebarTitle": "Upload the store's logo"
+                    }
                 },
                 "parameters": [
                     {
@@ -1243,7 +1263,11 @@
                 "summary": "Upload the store's icon",
                 "description": "Gives the store the icon its site shows in a browser tab, replacing any it had. Sent as `multipart/form-data` in a field called `image`.\n\nNeeds the `store.write` permission (Change store).",
                 "x-mint": {
-                    "href": "/api-reference/store/upload-the-stores-icon"
+                    "href": "/api-reference/store/upload-the-stores-icon",
+                    "metadata": {
+                        "title": "Upload the store's icon",
+                        "sidebarTitle": "Upload the store's icon"
+                    }
                 },
                 "parameters": [
                     {
@@ -1314,7 +1338,11 @@
                 "summary": "Get email and alert settings",
                 "description": "What the store's emails say and which alerts it is sent. Its Discord webhook is answered only as saved or not. These settings are changed in the dashboard.\n\nNeeds the `store.read` permission (Read store).",
                 "x-mint": {
-                    "href": "/api-reference/store/get-email-and-alert-settings"
+                    "href": "/api-reference/store/get-email-and-alert-settings",
+                    "metadata": {
+                        "title": "Get email and alert settings",
+                        "sidebarTitle": "Get email and alert settings"
+                    }
                 },
                 "parameters": [
                     {
@@ -1554,7 +1582,11 @@
                 "summary": "Get the store's domain",
                 "description": "The store's own domain, if it has connected one, with where it stands, and `cnameTarget`: what the domain's DNS record has to point at.\n\nNeeds the `store.read` permission (Read store).",
                 "x-mint": {
-                    "href": "/api-reference/domain/get-the-stores-domain"
+                    "href": "/api-reference/domain/get-the-stores-domain",
+                    "metadata": {
+                        "title": "Get the store's domain",
+                        "sidebarTitle": "Get the store's domain"
+                    }
                 },
                 "parameters": [
                     {
@@ -1635,7 +1667,11 @@
                 "summary": "Connect a domain",
                 "description": "Connects a domain of the store's own. Point a CNAME record for it at `cnameTarget` and it goes live once that is seen and its certificate is issued. A store has one domain: remove it to connect another.\n\nNeeds the `store.write` permission (Change store).",
                 "x-mint": {
-                    "href": "/api-reference/domain/connect-a-domain"
+                    "href": "/api-reference/domain/connect-a-domain",
+                    "metadata": {
+                        "title": "Connect a domain",
+                        "sidebarTitle": "Connect a domain"
+                    }
                 },
                 "parameters": [
                     {
@@ -1707,7 +1743,11 @@
                 "summary": "Remove the store's domain",
                 "description": "Disconnects the store's own domain. The store goes on answering at its myshoply.gg address.\n\nNeeds the `store.write` permission (Change store).",
                 "x-mint": {
-                    "href": "/api-reference/domain/remove-the-stores-domain"
+                    "href": "/api-reference/domain/remove-the-stores-domain",
+                    "metadata": {
+                        "title": "Remove the store's domain",
+                        "sidebarTitle": "Remove the store's domain"
+                    }
                 },
                 "parameters": [
                     {
@@ -1761,7 +1801,11 @@
                 "summary": "List payment methods",
                 "description": "Every payment method Shoply supports, and for each whether this store has connected it and switched it on, in the order its checkout offers them. Never a method's credentials. `meta.balance` says whether buyers may pay with their store balance. A method's name here is the name the rest of the API uses for it.\n\nNeeds the `payments.read` permission (Read payment methods).",
                 "x-mint": {
-                    "href": "/api-reference/payment-methods/list-payment-methods"
+                    "href": "/api-reference/payment-methods/list-payment-methods",
+                    "metadata": {
+                        "title": "List payment methods",
+                        "sidebarTitle": "List payment methods"
+                    }
                 },
                 "parameters": [
                     {
@@ -2078,7 +2122,11 @@
                 "summary": "Switch a payment method on or off",
                 "description": "Takes a connected method off the checkout, or puts it back. Off keeps its credentials. On is refused for a method that is missing something it needs, which is put right in the dashboard. Answers the list again.\n\nNeeds the `payments.write` permission (Change payment methods).",
                 "x-mint": {
-                    "href": "/api-reference/payment-methods/switch-a-payment-method-on-or-off"
+                    "href": "/api-reference/payment-methods/switch-a-payment-method-on-or-off",
+                    "metadata": {
+                        "title": "Switch a payment method on or off",
+                        "sidebarTitle": "Switch a payment method on or off"
+                    }
                 },
                 "parameters": [
                     {
@@ -2160,7 +2208,11 @@
                 "summary": "Sort payment methods",
                 "description": "Sets the order the checkout offers payment methods in. The first is the one most buyers take. Answers the list again.\n\nNeeds the `payments.write` permission (Change payment methods).",
                 "x-mint": {
-                    "href": "/api-reference/payment-methods/sort-payment-methods"
+                    "href": "/api-reference/payment-methods/sort-payment-methods",
+                    "metadata": {
+                        "title": "Sort payment methods",
+                        "sidebarTitle": "Sort payment methods"
+                    }
                 },
                 "parameters": [
                     {
@@ -2241,7 +2293,11 @@
                 "summary": "Switch paying with balance on or off",
                 "description": "Whether the checkout offers buyers their balance at the store. Answers the list again.\n\nNeeds the `payments.write` permission (Change payment methods).",
                 "x-mint": {
-                    "href": "/api-reference/payment-methods/switch-paying-with-balance-on-or-off"
+                    "href": "/api-reference/payment-methods/switch-paying-with-balance-on-or-off",
+                    "metadata": {
+                        "title": "Switch paying with balance on or off",
+                        "sidebarTitle": "Switch paying with balance on or off"
+                    }
                 },
                 "parameters": [
                     {
@@ -2583,7 +2639,11 @@
                 "summary": "Get the overview",
                 "description": "A period's headline figures (revenue, orders, customers and the rest), the same figures for the period before, and a day by day series. What the dashboard's home page draws.\n\nNeeds the `analytics.read` permission (Read analytics). It is one of the heavier reads, and is counted against a smaller budget of its own: 60 a minute for each key.",
                 "x-mint": {
-                    "href": "/api-reference/analytics/get-the-overview"
+                    "href": "/api-reference/analytics/get-the-overview",
+                    "metadata": {
+                        "title": "Get the overview",
+                        "sidebarTitle": "Get the overview"
+                    }
                 },
                 "parameters": [
                     {
@@ -3212,7 +3272,11 @@
                 "summary": "Get the visits report",
                 "description": "A period's visits and what they went on to buy: visitors, where they came from by channel, website, campaign and affiliate, the pages they landed on, countries and devices. A sale is given to the last visit its buyer began before it, within 30 days. An order with no visit behind it (one made by hand, an invoice) counts in the totals and in none of the lists that say where sales came from.\n\nNeeds the `analytics.read` permission (Read analytics). It is one of the heavier reads, and is counted against a smaller budget of its own: 60 a minute for each key.",
                 "x-mint": {
-                    "href": "/api-reference/analytics/get-the-visits-report"
+                    "href": "/api-reference/analytics/get-the-visits-report",
+                    "metadata": {
+                        "title": "Get the visits report",
+                        "sidebarTitle": "Get the visits report"
+                    }
                 },
                 "parameters": [
                     {
@@ -3870,7 +3934,11 @@
                 "summary": "Get the live view",
                 "description": "What is happening on the store now: who is on it and where, the checkouts and orders of the last ten minutes, and the day's running totals.\n\nNeeds the `analytics.read` permission (Read analytics).",
                 "x-mint": {
-                    "href": "/api-reference/analytics/get-the-live-view"
+                    "href": "/api-reference/analytics/get-the-live-view",
+                    "metadata": {
+                        "title": "Get the live view",
+                        "sidebarTitle": "Get the live view"
+                    }
                 },
                 "parameters": [
                     {
@@ -4063,7 +4131,11 @@
                 "summary": "Get visitors now",
                 "description": "How many visitors are on the store now: one number, counted over the last ten minutes.\n\nNeeds the `analytics.read` permission (Read analytics).",
                 "x-mint": {
-                    "href": "/api-reference/analytics/get-visitors-now"
+                    "href": "/api-reference/analytics/get-visitors-now",
+                    "metadata": {
+                        "title": "Get visitors now",
+                        "sidebarTitle": "Get visitors now"
+                    }
                 },
                 "parameters": [
                     {
@@ -4142,7 +4214,11 @@
                 "summary": "Get the search report",
                 "description": "How the store was found in a search engine over a period: clicks, impressions, click rate and position, over time and by search, page, country and device. From an engine the store has connected in the dashboard. With none connected it is refused with `search_unavailable`. Neither engine has figures for today.\n\nNeeds the `analytics.read` permission (Read analytics). It is one of the heavier reads, and is counted against a smaller budget of its own: 60 a minute for each key.",
                 "x-mint": {
-                    "href": "/api-reference/analytics/get-the-search-report"
+                    "href": "/api-reference/analytics/get-the-search-report",
+                    "metadata": {
+                        "title": "Get the search report",
+                        "sidebarTitle": "Get the search report"
+                    }
                 },
                 "parameters": [
                     {
@@ -4299,7 +4375,11 @@
                 "summary": "List storefronts",
                 "description": "The store's storefronts: each a design of its site, on a theme. One of them is live (`meta.liveId`), which is the one buyers see. A store holds up to 10. `meta.themes` is the themes a new one can start from.\n\nNeeds the `storefronts.read` permission (Read storefronts).",
                 "x-mint": {
-                    "href": "/api-reference/storefronts/list-storefronts"
+                    "href": "/api-reference/storefronts/list-storefronts",
+                    "metadata": {
+                        "title": "List storefronts",
+                        "sidebarTitle": "List storefronts"
+                    }
                 },
                 "parameters": [
                     {
@@ -4531,7 +4611,11 @@
                 "summary": "Create a storefront",
                 "description": "Adds a storefront as a draft: a theme's starting design, or a copy of one the store already has. Answers the store's storefronts with the new one among them.\n\nNeeds the `storefronts.write` permission (Change storefronts).",
                 "x-mint": {
-                    "href": "/api-reference/storefronts/create-a-storefront"
+                    "href": "/api-reference/storefronts/create-a-storefront",
+                    "metadata": {
+                        "title": "Create a storefront",
+                        "sidebarTitle": "Create a storefront"
+                    }
                 },
                 "parameters": [
                     {
@@ -4800,7 +4884,11 @@
                 "summary": "Import a storefront",
                 "description": "Makes a new storefront, as a draft, from one that was exported: the JSON document \"Export a storefront\" answers under `storefront`, sent as `multipart/form-data` in a field called `file`. Nothing in it is trusted: its design is rebuilt from the theme, and each of its files is checked. One thing wrong refuses all of it, and the refusal names the file. `meta.imported` says which storefront it became and how many problems its code has to be fixed before it can be published.\n\nNeeds the `storefronts.write` permission (Change storefronts).",
                 "x-mint": {
-                    "href": "/api-reference/storefronts/import-a-storefront"
+                    "href": "/api-reference/storefronts/import-a-storefront",
+                    "metadata": {
+                        "title": "Import a storefront",
+                        "sidebarTitle": "Import a storefront"
+                    }
                 },
                 "parameters": [
                     {
@@ -4871,7 +4959,11 @@
                 "summary": "Export a storefront",
                 "description": "A storefront to keep, work on or hand on: its design, and every file of its code when it has code of its own, as text. `storefront` in the answer is what \"Import a storefront\" takes.\n\nNeeds the `storefronts.read` permission (Read storefronts). It is one of the heavier reads, and is counted against a smaller budget of its own: 60 a minute for each key.",
                 "x-mint": {
-                    "href": "/api-reference/storefronts/export-a-storefront"
+                    "href": "/api-reference/storefronts/export-a-storefront",
+                    "metadata": {
+                        "title": "Export a storefront",
+                        "sidebarTitle": "Export a storefront"
+                    }
                 },
                 "parameters": [
                     {
@@ -5659,7 +5751,11 @@
                 "summary": "Rename a storefront",
                 "description": "Changes what a storefront is called. Buyers never see the name. Answers the store's storefronts again.\n\nNeeds the `storefronts.write` permission (Change storefronts).",
                 "x-mint": {
-                    "href": "/api-reference/storefronts/rename-a-storefront"
+                    "href": "/api-reference/storefronts/rename-a-storefront",
+                    "metadata": {
+                        "title": "Rename a storefront",
+                        "sidebarTitle": "Rename a storefront"
+                    }
                 },
                 "parameters": [
                     {
@@ -5925,7 +6021,11 @@
                 "summary": "Delete a storefront",
                 "description": "Removes a storefront that is not the live one. Answers the storefronts that are left.\n\nNeeds the `storefronts.write` permission (Change storefronts).",
                 "x-mint": {
-                    "href": "/api-reference/storefronts/delete-a-storefront"
+                    "href": "/api-reference/storefronts/delete-a-storefront",
+                    "metadata": {
+                        "title": "Delete a storefront",
+                        "sidebarTitle": "Delete a storefront"
+                    }
                 },
                 "parameters": [
                     {
@@ -6105,7 +6205,11 @@
                 "summary": "Make a storefront live",
                 "description": "Makes this storefront the one buyers see, as it was last published. Answers the store's storefronts again.\n\nNeeds the `storefronts.write` permission (Change storefronts).",
                 "x-mint": {
-                    "href": "/api-reference/storefronts/make-a-storefront-live"
+                    "href": "/api-reference/storefronts/make-a-storefront-live",
+                    "metadata": {
+                        "title": "Make a storefront live",
+                        "sidebarTitle": "Make a storefront live"
+                    }
                 },
                 "parameters": [
                     {
@@ -6185,7 +6289,11 @@
                 "summary": "List products",
                 "description": "Every product the store has, in the store's own order, each with its variants, pictures, categories and stock counts. A store holds up to 250 products, so the list is not paged.\n\nNeeds the `products.read` permission (Read products).",
                 "x-mint": {
-                    "href": "/api-reference/products/list-products"
+                    "href": "/api-reference/products/list-products",
+                    "metadata": {
+                        "title": "List products",
+                        "sidebarTitle": "List products"
+                    }
                 },
                 "parameters": [
                     {
@@ -6603,7 +6711,11 @@
                 "summary": "Create a product",
                 "description": "Adds a product with its variants. A store holds up to 250 products. Stock is added afterwards, a variant at a time, with the variant IDs in the answer.\n\nA refusal names the field, and for a variant its place in the list: `variants.0.price`.\n\nNeeds the `products.write` permission (Change products).",
                 "x-mint": {
-                    "href": "/api-reference/products/create-a-product"
+                    "href": "/api-reference/products/create-a-product",
+                    "metadata": {
+                        "title": "Create a product",
+                        "sidebarTitle": "Create a product"
+                    }
                 },
                 "parameters": [
                     {
@@ -7213,7 +7325,11 @@
                 "summary": "Get a product",
                 "description": "One product, with everything its editor shows.\n\nNeeds the `products.read` permission (Read products).",
                 "x-mint": {
-                    "href": "/api-reference/products/get-a-product"
+                    "href": "/api-reference/products/get-a-product",
+                    "metadata": {
+                        "title": "Get a product",
+                        "sidebarTitle": "Get a product"
+                    }
                 },
                 "parameters": [
                     {
@@ -7670,7 +7786,11 @@
                 "summary": "Update a product",
                 "description": "Saves the product whole, as its editor does: send every field as it should be. `variants` is the complete list. An entry with an `id` changes that variant, an entry without one is added, and a variant left out is removed with its unsold stock. A variant buyers have received license keys from cannot be removed.\n\nRead the product first and send it back changed. The fields that say \"stay as they are\" are the only ones that may be left out.\n\nNeeds the `products.write` permission (Change products).",
                 "x-mint": {
-                    "href": "/api-reference/products/update-a-product"
+                    "href": "/api-reference/products/update-a-product",
+                    "metadata": {
+                        "title": "Update a product",
+                        "sidebarTitle": "Update a product"
+                    }
                 },
                 "parameters": [
                     {
@@ -8291,7 +8411,11 @@
                 "summary": "Delete a product",
                 "description": "Removes the product with its variants, pictures and unsold stock. Refused for a product buyers have received license keys from, since those keys are part of their orders: set its visibility to `private` instead.\n\nNeeds the `products.write` permission (Change products).",
                 "x-mint": {
-                    "href": "/api-reference/products/delete-a-product"
+                    "href": "/api-reference/products/delete-a-product",
+                    "metadata": {
+                        "title": "Delete a product",
+                        "sidebarTitle": "Delete a product"
+                    }
                 },
                 "parameters": [
                     {
@@ -8354,7 +8478,11 @@
                 "summary": "Set a product's visibility",
                 "description": "Changes who can see and buy the product, without sending the rest of it.\n\nNeeds the `products.write` permission (Change products).",
                 "x-mint": {
-                    "href": "/api-reference/products/set-a-products-visibility"
+                    "href": "/api-reference/products/set-a-products-visibility",
+                    "metadata": {
+                        "title": "Set a product's visibility",
+                        "sidebarTitle": "Set a product's visibility"
+                    }
                 },
                 "parameters": [
                     {
@@ -8472,7 +8600,11 @@
                 "summary": "Sort products",
                 "description": "Sets the order products are listed in, on the storefront and everywhere else.\n\nNeeds the `products.write` permission (Change products).",
                 "x-mint": {
-                    "href": "/api-reference/products/sort-products"
+                    "href": "/api-reference/products/sort-products",
+                    "metadata": {
+                        "title": "Sort products",
+                        "sidebarTitle": "Sort products"
+                    }
                 },
                 "parameters": [
                     {
@@ -8575,7 +8707,11 @@
                 "summary": "Change many products",
                 "description": "One change made to many products. Only what is sent changes.\n\nNeeds the `products.write` permission (Change products).",
                 "x-mint": {
-                    "href": "/api-reference/products/change-many-products"
+                    "href": "/api-reference/products/change-many-products",
+                    "metadata": {
+                        "title": "Change many products",
+                        "sidebarTitle": "Change many products"
+                    }
                 },
                 "parameters": [
                     {
@@ -8698,7 +8834,11 @@
                 "summary": "Delete many products",
                 "description": "Deletes each product as deleting one does. A product buyers have received license keys from is kept, and the answer names the ones that stayed.\n\nNeeds the `products.write` permission (Change products).",
                 "x-mint": {
-                    "href": "/api-reference/products/delete-many-products"
+                    "href": "/api-reference/products/delete-many-products",
+                    "metadata": {
+                        "title": "Delete many products",
+                        "sidebarTitle": "Delete many products"
+                    }
                 },
                 "parameters": [
                     {
@@ -8774,7 +8914,11 @@
                 "summary": "Upload a product picture",
                 "description": "Adds a picture to the product, sent as `multipart/form-data` in a field called `image`. A product holds up to 10. The first one uploaded is the one listings show.\n\nNeeds the `products.write` permission (Change products).",
                 "x-mint": {
-                    "href": "/api-reference/product-pictures/upload-a-product-picture"
+                    "href": "/api-reference/product-pictures/upload-a-product-picture",
+                    "metadata": {
+                        "title": "Upload a product picture",
+                        "sidebarTitle": "Upload a product picture"
+                    }
                 },
                 "parameters": [
                     {
@@ -8854,7 +8998,11 @@
                 "summary": "Sort a product's pictures",
                 "description": "Sets the order of the product's pictures, or moves one to the front. The first picture is the one listings show. Send one of the two fields.\n\nNeeds the `products.write` permission (Change products).",
                 "x-mint": {
-                    "href": "/api-reference/product-pictures/sort-a-products-pictures"
+                    "href": "/api-reference/product-pictures/sort-a-products-pictures",
+                    "metadata": {
+                        "title": "Sort a product's pictures",
+                        "sidebarTitle": "Sort a product's pictures"
+                    }
                 },
                 "parameters": [
                     {
@@ -8940,7 +9088,11 @@
                 "summary": "Delete a product picture",
                 "description": "Removes one picture from the product.\n\nNeeds the `products.write` permission (Change products).",
                 "x-mint": {
-                    "href": "/api-reference/product-pictures/delete-a-product-picture"
+                    "href": "/api-reference/product-pictures/delete-a-product-picture",
+                    "metadata": {
+                        "title": "Delete a product picture",
+                        "sidebarTitle": "Delete a product picture"
+                    }
                 },
                 "parameters": [
                     {
@@ -9012,7 +9164,11 @@
                 "summary": "List a variant's license keys",
                 "description": "The license keys a variant has in stock: the unsold ones and nothing else. A key that was delivered belongs to its order and is read there.\n\nNeeds the `stock.read` permission (Read stock).",
                 "x-mint": {
-                    "href": "/api-reference/stock/list-a-variants-license-keys"
+                    "href": "/api-reference/stock/list-a-variants-license-keys",
+                    "metadata": {
+                        "title": "List a variant's license keys",
+                        "sidebarTitle": "List a variant's license keys"
+                    }
                 },
                 "parameters": [
                     {
@@ -9175,7 +9331,11 @@
                 "summary": "Add license keys",
                 "description": "Adds license keys to a variant's stock, up to 5,000 in one request. A variant holds up to 5,000 unsold keys and a store 100,000.\n\nA key sent twice is stocked twice, which is how one key is sold to several buyers. `duplicates` in the answer counts the ones that matched stock the variant already had, so sending the same batch a second time by mistake shows.\n\nNeeds the `stock.write` permission (Change stock).",
                 "x-mint": {
-                    "href": "/api-reference/stock/add-license-keys"
+                    "href": "/api-reference/stock/add-license-keys",
+                    "metadata": {
+                        "title": "Add license keys",
+                        "sidebarTitle": "Add license keys"
+                    }
                 },
                 "parameters": [
                     {
@@ -9301,7 +9461,11 @@
                 "summary": "Replace a variant's license keys",
                 "description": "Makes the variant's unsold stock exactly the keys sent. Keys already delivered are not touched: they are order history, not stock.\n\nNeeds the `stock.write` permission (Change stock).",
                 "x-mint": {
-                    "href": "/api-reference/stock/replace-a-variants-license-keys"
+                    "href": "/api-reference/stock/replace-a-variants-license-keys",
+                    "metadata": {
+                        "title": "Replace a variant's license keys",
+                        "sidebarTitle": "Replace a variant's license keys"
+                    }
                 },
                 "parameters": [
                     {
@@ -9390,7 +9554,11 @@
                 "summary": "Delete license keys",
                 "description": "Deletes the unsold keys among the ones named. `removed` in the answer can be lower than the number sent: a key sold in the meantime stays with its order.\n\nNeeds the `stock.write` permission (Change stock).",
                 "x-mint": {
-                    "href": "/api-reference/stock/delete-license-keys"
+                    "href": "/api-reference/stock/delete-license-keys",
+                    "metadata": {
+                        "title": "Delete license keys",
+                        "sidebarTitle": "Delete license keys"
+                    }
                 },
                 "parameters": [
                     {
@@ -9506,7 +9674,11 @@
                 "summary": "Delete a license key",
                 "description": "Deletes one unsold key. Refused for a key that has been sold.\n\nNeeds the `stock.write` permission (Change stock).",
                 "x-mint": {
-                    "href": "/api-reference/stock/delete-a-license-key"
+                    "href": "/api-reference/stock/delete-a-license-key",
+                    "metadata": {
+                        "title": "Delete a license key",
+                        "sidebarTitle": "Delete a license key"
+                    }
                 },
                 "parameters": [
                     {
@@ -9578,7 +9750,11 @@
                 "summary": "List a variant's files",
                 "description": "The files a variant delivers to its buyers.\n\nNeeds the `stock.read` permission (Read stock).",
                 "x-mint": {
-                    "href": "/api-reference/stock/list-a-variants-files"
+                    "href": "/api-reference/stock/list-a-variants-files",
+                    "metadata": {
+                        "title": "List a variant's files",
+                        "sidebarTitle": "List a variant's files"
+                    }
                 },
                 "parameters": [
                     {
@@ -9685,7 +9861,11 @@
                 "summary": "Start a file upload",
                 "description": "The first of three steps to give a variant a file to deliver. This one says what the file is and answers a signed address to send it to. Then send the file itself to that address with a `PUT`. Then call \"Finish a file upload\".\n\nA variant holds up to 3 files of up to 100 MB each, and a store up to 100 files and 5 GB. Accepted: ZIP, RAR, 7z, PDF, MP4, MP3, WAV, EPUB, EXE, DMG, MSI and APK.\n\nNeeds the `stock.write` permission (Change stock).",
                 "x-mint": {
-                    "href": "/api-reference/stock/start-a-file-upload"
+                    "href": "/api-reference/stock/start-a-file-upload",
+                    "metadata": {
+                        "title": "Start a file upload",
+                        "sidebarTitle": "Start a file upload"
+                    }
                 },
                 "parameters": [
                     {
@@ -9774,7 +9954,11 @@
                 "summary": "Finish a file upload",
                 "description": "The last step of adding a file: says the file has been sent. Shoply checks it arrived and is the size that was said, and from then on buyers of the variant receive it.\n\nNeeds the `stock.write` permission (Change stock).",
                 "x-mint": {
-                    "href": "/api-reference/stock/finish-a-file-upload"
+                    "href": "/api-reference/stock/finish-a-file-upload",
+                    "metadata": {
+                        "title": "Finish a file upload",
+                        "sidebarTitle": "Finish a file upload"
+                    }
                 },
                 "parameters": [
                     {
@@ -9846,7 +10030,11 @@
                 "summary": "Delete a file",
                 "description": "Removes a file from the variant. Buyers who already have a link to it can no longer download it.\n\nNeeds the `stock.write` permission (Change stock).",
                 "x-mint": {
-                    "href": "/api-reference/stock/delete-a-file"
+                    "href": "/api-reference/stock/delete-a-file",
+                    "metadata": {
+                        "title": "Delete a file",
+                        "sidebarTitle": "Delete a file"
+                    }
                 },
                 "parameters": [
                     {
@@ -9918,7 +10106,11 @@
                 "summary": "List categories",
                 "description": "Every category the store has, in the store's own order, each with the products in it. A store holds up to 150, so the list is not paged.\n\nNeeds the `categories.read` permission (Read categories).",
                 "x-mint": {
-                    "href": "/api-reference/categories/list-categories"
+                    "href": "/api-reference/categories/list-categories",
+                    "metadata": {
+                        "title": "List categories",
+                        "sidebarTitle": "List categories"
+                    }
                 },
                 "parameters": [
                     {
@@ -10105,7 +10297,11 @@
                 "summary": "Create a category",
                 "description": "Adds a category, with the products that go in it. A store holds up to 150.\n\nNeeds the `categories.write` permission (Change categories).",
                 "x-mint": {
-                    "href": "/api-reference/categories/create-a-category"
+                    "href": "/api-reference/categories/create-a-category",
+                    "metadata": {
+                        "title": "Create a category",
+                        "sidebarTitle": "Create a category"
+                    }
                 },
                 "parameters": [
                     {
@@ -10307,7 +10503,11 @@
                 "summary": "Update a category",
                 "description": "Saves the category whole: send every field as it should be. `productIds` is the exception: left out, the products in the category stay as they are.\n\nNeeds the `categories.write` permission (Change categories).",
                 "x-mint": {
-                    "href": "/api-reference/categories/update-a-category"
+                    "href": "/api-reference/categories/update-a-category",
+                    "metadata": {
+                        "title": "Update a category",
+                        "sidebarTitle": "Update a category"
+                    }
                 },
                 "parameters": [
                     {
@@ -10522,7 +10722,11 @@
                 "summary": "Delete a category",
                 "description": "Removes the category. The products that were in it are not deleted.\n\nNeeds the `categories.write` permission (Change categories).",
                 "x-mint": {
-                    "href": "/api-reference/categories/delete-a-category"
+                    "href": "/api-reference/categories/delete-a-category",
+                    "metadata": {
+                        "title": "Delete a category",
+                        "sidebarTitle": "Delete a category"
+                    }
                 },
                 "parameters": [
                     {
@@ -10616,7 +10820,11 @@
                 "summary": "Sort categories",
                 "description": "Sets the order categories are listed in.\n\nNeeds the `categories.write` permission (Change categories).",
                 "x-mint": {
-                    "href": "/api-reference/categories/sort-categories"
+                    "href": "/api-reference/categories/sort-categories",
+                    "metadata": {
+                        "title": "Sort categories",
+                        "sidebarTitle": "Sort categories"
+                    }
                 },
                 "parameters": [
                     {
@@ -10719,7 +10927,11 @@
                 "summary": "Upload a category's picture",
                 "description": "Gives the category its one picture, sent as `multipart/form-data` in a field called `image`. A picture it already had is replaced.\n\nNeeds the `categories.write` permission (Change categories).",
                 "x-mint": {
-                    "href": "/api-reference/categories/upload-a-categorys-picture"
+                    "href": "/api-reference/categories/upload-a-categorys-picture",
+                    "metadata": {
+                        "title": "Upload a category's picture",
+                        "sidebarTitle": "Upload a category's picture"
+                    }
                 },
                 "parameters": [
                     {
@@ -10797,7 +11009,11 @@
                 "summary": "Delete a category's picture",
                 "description": "Removes the category's picture.\n\nNeeds the `categories.write` permission (Change categories).",
                 "x-mint": {
-                    "href": "/api-reference/categories/delete-a-categorys-picture"
+                    "href": "/api-reference/categories/delete-a-categorys-picture",
+                    "metadata": {
+                        "title": "Delete a category's picture",
+                        "sidebarTitle": "Delete a category's picture"
+                    }
                 },
                 "parameters": [
                     {
@@ -10860,7 +11076,11 @@
                 "summary": "List orders",
                 "description": "The store's orders, a page at a time, newest first unless sorted otherwise. `meta.statusCounts` says how many orders are in each status, and `meta.stats` what the orders matched come to.\n\nNeeds the `orders.read` permission (Read orders).",
                 "x-mint": {
-                    "href": "/api-reference/orders/list-orders"
+                    "href": "/api-reference/orders/list-orders",
+                    "metadata": {
+                        "title": "List orders",
+                        "sidebarTitle": "List orders"
+                    }
                 },
                 "parameters": [
                     {
@@ -11445,7 +11665,11 @@
                 "summary": "Export orders",
                 "description": "The orders the same filters would list, as a CSV file with a row an order. Up to 10,000 orders in one file: narrow it by date for more.\n\nNeeds the `orders.read` permission (Read orders). It is one of the heavier reads, and is counted against a smaller budget of its own: 60 a minute for each key.",
                 "x-mint": {
-                    "href": "/api-reference/orders/export-orders"
+                    "href": "/api-reference/orders/export-orders",
+                    "metadata": {
+                        "title": "Export orders",
+                        "sidebarTitle": "Export orders"
+                    }
                 },
                 "parameters": [
                     {
@@ -11609,7 +11833,11 @@
                 "summary": "Get an order",
                 "description": "One order with everything its page shows: its lines and what each delivered, its payments, the buyer, its timeline, where it came from, and `refund`, which says which ways it can be refunded.\n\nNeeds the `orders.read` permission (Read orders).",
                 "x-mint": {
-                    "href": "/api-reference/orders/get-an-order"
+                    "href": "/api-reference/orders/get-an-order",
+                    "metadata": {
+                        "title": "Get an order",
+                        "sidebarTitle": "Get an order"
+                    }
                 },
                 "parameters": [
                     {
@@ -12218,7 +12446,11 @@
                 "summary": "Get an order's network",
                 "description": "What is known about the connection the order was placed from: its provider, and whether it looks like a VPN, a proxy or a data centre. Asked of a lookup service when it is called, so it is a route of its own.\n\nNeeds the `orders.read` permission (Read orders). It is one of the heavier reads, and is counted against a smaller budget of its own: 60 a minute for each key.",
                 "x-mint": {
-                    "href": "/api-reference/orders/get-an-orders-network"
+                    "href": "/api-reference/orders/get-an-orders-network",
+                    "metadata": {
+                        "title": "Get an order's network",
+                        "sidebarTitle": "Get an order's network"
+                    }
                 },
                 "parameters": [
                     {
@@ -12275,7 +12507,11 @@
                 "summary": "Get an order's PDF",
                 "description": "The order's invoice as a PDF file. Every order has one, paid or not.\n\nNeeds the `orders.read` permission (Read orders). It is one of the heavier reads, and is counted against a smaller budget of its own: 60 a minute for each key.",
                 "x-mint": {
-                    "href": "/api-reference/orders/get-an-orders-pdf"
+                    "href": "/api-reference/orders/get-an-orders-pdf",
+                    "metadata": {
+                        "title": "Get an order's PDF",
+                        "sidebarTitle": "Get an order's PDF"
+                    }
                 },
                 "parameters": [
                     {
@@ -12333,7 +12569,11 @@
                 "summary": "Mark an order as paid",
                 "description": "Completes a pending or cancelled order as a payment would: it is delivered, its receipt is sent and it counts as revenue. For money that reached you some other way.\n\nRefused if any line cannot be delivered in full, so an order is never half delivered. Refused for an order that was refunded or charged back, and for a checkout the buyer never pressed Pay on, which has nobody to deliver to.\n\nNeeds the `orders.fulfil` permission (Deliver orders).",
                 "x-mint": {
-                    "href": "/api-reference/orders/mark-an-order-as-paid"
+                    "href": "/api-reference/orders/mark-an-order-as-paid",
+                    "metadata": {
+                        "title": "Mark an order as paid",
+                        "sidebarTitle": "Mark an order as paid"
+                    }
                 },
                 "parameters": [
                     {
@@ -12450,7 +12690,11 @@
                 "summary": "Refund an order",
                 "description": "Refunds a completed order, all of it. Which `destination` an order can take is in `refund` on the order: a payment method that cannot send money back (crypto, always) can only be refunded as store credit or recorded.\n\nSend an `Idempotency-Key` with this request. The order is marked refunded only once the payment provider has said the money is on its way, or the buyer has been credited.\n\nNeeds the `orders.refund` permission (Refund orders).",
                 "x-mint": {
-                    "href": "/api-reference/orders/refund-an-order"
+                    "href": "/api-reference/orders/refund-an-order",
+                    "metadata": {
+                        "title": "Refund an order",
+                        "sidebarTitle": "Refund an order"
+                    }
                 },
                 "parameters": [
                     {
@@ -12587,7 +12831,11 @@
                 "summary": "Deliver an order again",
                 "description": "Gives the buyer fresh license keys for the order's lines and emails them. The keys those lines held before are revoked, not returned to stock, so this costs stock: it is for a key that did not work.\n\nIt goes to the order's own email address. Sending an order to another address is done in the dashboard.\n\nNeeds the `orders.fulfil` permission (Deliver orders).",
                 "x-mint": {
-                    "href": "/api-reference/orders/deliver-an-order-again"
+                    "href": "/api-reference/orders/deliver-an-order-again",
+                    "metadata": {
+                        "title": "Deliver an order again",
+                        "sidebarTitle": "Deliver an order again"
+                    }
                 },
                 "parameters": [
                     {
@@ -12751,7 +12999,11 @@
                 "summary": "Retry a dynamic delivery",
                 "description": "Asks your delivery endpoint again for the lines whose dynamic delivery failed. Nothing is revoked: those lines never delivered anything.\n\nNeeds the `orders.fulfil` permission (Deliver orders).",
                 "x-mint": {
-                    "href": "/api-reference/orders/retry-a-dynamic-delivery"
+                    "href": "/api-reference/orders/retry-a-dynamic-delivery",
+                    "metadata": {
+                        "title": "Retry a dynamic delivery",
+                        "sidebarTitle": "Retry a dynamic delivery"
+                    }
                 },
                 "parameters": [
                     {
@@ -12833,7 +13085,11 @@
                 "summary": "Send an order's email again",
                 "description": "Sends the order's delivery email again, with what it delivered, to the order's own email address.\n\nNeeds the `orders.fulfil` permission (Deliver orders). It sends an email, and is counted against a budget of its own: 60 in ten minutes for each key.",
                 "x-mint": {
-                    "href": "/api-reference/orders/send-an-orders-email-again"
+                    "href": "/api-reference/orders/send-an-orders-email-again",
+                    "metadata": {
+                        "title": "Send an order's email again",
+                        "sidebarTitle": "Send an order's email again"
+                    }
                 },
                 "parameters": [
                     {
@@ -12896,7 +13152,11 @@
                 "summary": "Write an order's note",
                 "description": "Sets the store's own note on the order. The buyer never sees it.\n\nNeeds the `orders.write` permission (Change orders).",
                 "x-mint": {
-                    "href": "/api-reference/orders/write-an-orders-note"
+                    "href": "/api-reference/orders/write-an-orders-note",
+                    "metadata": {
+                        "title": "Write an order's note",
+                        "sidebarTitle": "Write an order's note"
+                    }
                 },
                 "parameters": [
                     {
@@ -13009,7 +13269,11 @@
                 "summary": "List invoices",
                 "description": "The invoices the store has raised, a page at a time, newest first. An invoice is an order the store made for a buyer to pay: `orderId` is that order, and `payUrl` the page it is paid on.\n\nNeeds the `invoices.read` permission (Read invoices).",
                 "x-mint": {
-                    "href": "/api-reference/invoices/list-invoices"
+                    "href": "/api-reference/invoices/list-invoices",
+                    "metadata": {
+                        "title": "List invoices",
+                        "sidebarTitle": "List invoices"
+                    }
                 },
                 "parameters": [
                     {
@@ -13215,7 +13479,11 @@
                 "summary": "Create an invoice",
                 "description": "Raises an invoice: an order for a buyer to pay, with a page to pay it on. This is how a script makes an order. The answer has the order's ID (`orderId`) and the page it is paid on (`payUrl`), which you can hand to the buyer yourself.\n\nWith `send` on, the invoice is also emailed to the buyer with its PDF. A store may email one invoice in five minutes, so a script that makes many leaves `send` off and delivers the link itself.\n\nA product line costs what the product costs. For any other price, add a line of your own with a `description` and a `unitPrice`. An invoice carries no automatic tax. A store may hold up to 2,000 unpaid invoices at once.\n\nNeeds the `invoices.write` permission (Raise invoices). It makes an order, and is counted against a budget of its own: 60 a minute for each key.",
                 "x-mint": {
-                    "href": "/api-reference/invoices/create-an-invoice"
+                    "href": "/api-reference/invoices/create-an-invoice",
+                    "metadata": {
+                        "title": "Create an invoice",
+                        "sidebarTitle": "Create an invoice"
+                    }
                 },
                 "parameters": [
                     {
@@ -13352,7 +13620,11 @@
                 "summary": "Send an invoice",
                 "description": "Emails the invoice to the address on it, with its PDF. Only while it can still be paid, and one invoice email a store in five minutes.\n\nNeeds the `invoices.write` permission (Raise invoices). It sends an email, and is counted against a budget of its own: 60 in ten minutes for each key.",
                 "x-mint": {
-                    "href": "/api-reference/invoices/send-an-invoice"
+                    "href": "/api-reference/invoices/send-an-invoice",
+                    "metadata": {
+                        "title": "Send an invoice",
+                        "sidebarTitle": "Send an invoice"
+                    }
                 },
                 "parameters": [
                     {
@@ -13415,7 +13687,11 @@
                 "summary": "List reviews",
                 "description": "The reviews left on the store's orders, a page at a time, newest first. A buyer leaves one for a paid order; an order nobody reviewed is given five stars by itself after seven days. `meta.summary` is the whole store's average and counts, whatever the filters.\n\nNeeds the `reviews.read` permission (Read reviews).",
                 "x-mint": {
-                    "href": "/api-reference/reviews/list-reviews"
+                    "href": "/api-reference/reviews/list-reviews",
+                    "metadata": {
+                        "title": "List reviews",
+                        "sidebarTitle": "List reviews"
+                    }
                 },
                 "parameters": [
                     {
@@ -13598,7 +13874,11 @@
                 "summary": "List coupons",
                 "description": "The store's coupons, a page at a time, each with how often it has been used and what it has taken off. `meta.counts` says how many there are in each state.\n\nNeeds the `coupons.read` permission (Read coupons).",
                 "x-mint": {
-                    "href": "/api-reference/coupons/list-coupons"
+                    "href": "/api-reference/coupons/list-coupons",
+                    "metadata": {
+                        "title": "List coupons",
+                        "sidebarTitle": "List coupons"
+                    }
                 },
                 "parameters": [
                     {
@@ -13859,7 +14139,11 @@
                 "summary": "Create a coupon",
                 "description": "Adds a coupon. Its expiry cannot already have passed.\n\nNeeds the `coupons.write` permission (Change coupons).",
                 "x-mint": {
-                    "href": "/api-reference/coupons/create-a-coupon"
+                    "href": "/api-reference/coupons/create-a-coupon",
+                    "metadata": {
+                        "title": "Create a coupon",
+                        "sidebarTitle": "Create a coupon"
+                    }
                 },
                 "parameters": [
                     {
@@ -14113,7 +14397,11 @@
                 "summary": "Update a coupon",
                 "description": "Saves the coupon whole: send every field as it should be, not only what changed. A field left out goes back to its default. The exceptions are `appliesTo` and `targets`, which stay as they are when `appliesTo` is left out.\n\nNeeds the `coupons.write` permission (Change coupons).",
                 "x-mint": {
-                    "href": "/api-reference/coupons/update-a-coupon"
+                    "href": "/api-reference/coupons/update-a-coupon",
+                    "metadata": {
+                        "title": "Update a coupon",
+                        "sidebarTitle": "Update a coupon"
+                    }
                 },
                 "parameters": [
                     {
@@ -14378,7 +14666,11 @@
                 "summary": "Delete a coupon",
                 "description": "Removes the coupon. Orders that used it keep the code they were placed with.\n\nNeeds the `coupons.write` permission (Change coupons).",
                 "x-mint": {
-                    "href": "/api-reference/coupons/delete-a-coupon"
+                    "href": "/api-reference/coupons/delete-a-coupon",
+                    "metadata": {
+                        "title": "Delete a coupon",
+                        "sidebarTitle": "Delete a coupon"
+                    }
                 },
                 "parameters": [
                     {
@@ -14472,7 +14764,11 @@
                 "summary": "Sort coupons",
                 "description": "Sets the order of the coupons in one coupon category. Send every coupon of that category, in the order they should be in.\n\nNeeds the `coupons.write` permission (Change coupons).",
                 "x-mint": {
-                    "href": "/api-reference/coupons/sort-coupons"
+                    "href": "/api-reference/coupons/sort-coupons",
+                    "metadata": {
+                        "title": "Sort coupons",
+                        "sidebarTitle": "Sort coupons"
+                    }
                 },
                 "parameters": [
                     {
@@ -14579,7 +14875,11 @@
                 "summary": "List coupon categories",
                 "description": "The categories the store files its coupons in, in the store's own order, each with how many coupons it holds. Two are the store's from the start and cannot be renamed or deleted: Default, and First Timer, which holds the codes the first-order reward makes.\n\nNeeds the `coupons.read` permission (Read coupons).",
                 "x-mint": {
-                    "href": "/api-reference/coupon-categories/list-coupon-categories"
+                    "href": "/api-reference/coupon-categories/list-coupon-categories",
+                    "metadata": {
+                        "title": "List coupon categories",
+                        "sidebarTitle": "List coupon categories"
+                    }
                 },
                 "parameters": [
                     {
@@ -14720,7 +15020,11 @@
                 "summary": "Create a coupon category",
                 "description": "Adds a category to file coupons in. A store holds up to 30 of its own.\n\nNeeds the `coupons.write` permission (Change coupons).",
                 "x-mint": {
-                    "href": "/api-reference/coupon-categories/create-a-coupon-category"
+                    "href": "/api-reference/coupon-categories/create-a-coupon-category",
+                    "metadata": {
+                        "title": "Create a coupon category",
+                        "sidebarTitle": "Create a coupon category"
+                    }
                 },
                 "parameters": [
                     {
@@ -14873,7 +15177,11 @@
                 "summary": "Update a coupon category",
                 "description": "Renames a category or changes its note. The two the store starts with are refused with `system_category`.\n\nNeeds the `coupons.write` permission (Change coupons).",
                 "x-mint": {
-                    "href": "/api-reference/coupon-categories/update-a-coupon-category"
+                    "href": "/api-reference/coupon-categories/update-a-coupon-category",
+                    "metadata": {
+                        "title": "Update a coupon category",
+                        "sidebarTitle": "Update a coupon category"
+                    }
                 },
                 "parameters": [
                     {
@@ -15032,7 +15340,11 @@
                 "summary": "Delete a coupon category",
                 "description": "Removes the category. The coupons in it are not deleted: they move to Default, since buyers may be holding their codes.\n\nNeeds the `coupons.write` permission (Change coupons).",
                 "x-mint": {
-                    "href": "/api-reference/coupon-categories/delete-a-coupon-category"
+                    "href": "/api-reference/coupon-categories/delete-a-coupon-category",
+                    "metadata": {
+                        "title": "Delete a coupon category",
+                        "sidebarTitle": "Delete a coupon category"
+                    }
                 },
                 "parameters": [
                     {
@@ -15130,7 +15442,11 @@
                 "summary": "Sort coupon categories",
                 "description": "Sets the order the categories are listed in.\n\nNeeds the `coupons.write` permission (Change coupons).",
                 "x-mint": {
-                    "href": "/api-reference/coupon-categories/sort-coupon-categories"
+                    "href": "/api-reference/coupon-categories/sort-coupon-categories",
+                    "metadata": {
+                        "title": "Sort coupon categories",
+                        "sidebarTitle": "Sort coupon categories"
+                    }
                 },
                 "parameters": [
                     {
@@ -15206,7 +15522,11 @@
                 "summary": "Get the coupon pop-up",
                 "description": "The pop-up that offers visitors of the storefront a coupon. A store that never set one up reads back the defaults, switched off. `unusable` says why buyers are not being shown it when its coupon no longer works.\n\nNeeds the `coupons.read` permission (Read coupons).",
                 "x-mint": {
-                    "href": "/api-reference/coupon-pop-up/get-the-coupon-pop-up"
+                    "href": "/api-reference/coupon-pop-up/get-the-coupon-pop-up",
+                    "metadata": {
+                        "title": "Get the coupon pop-up",
+                        "sidebarTitle": "Get the coupon pop-up"
+                    }
                 },
                 "parameters": [
                     {
@@ -15315,7 +15635,11 @@
                 "summary": "Update the coupon pop-up",
                 "description": "Saves the pop-up whole. Switched off, it is saved as it is, finished or not. Switched on, it needs a title and a coupon buyers can use today.\n\nNeeds the `coupons.write` permission (Change coupons).",
                 "x-mint": {
-                    "href": "/api-reference/coupon-pop-up/update-the-coupon-pop-up"
+                    "href": "/api-reference/coupon-pop-up/update-the-coupon-pop-up",
+                    "metadata": {
+                        "title": "Update the coupon pop-up",
+                        "sidebarTitle": "Update the coupon pop-up"
+                    }
                 },
                 "parameters": [
                     {
@@ -15528,7 +15852,11 @@
                 "summary": "List sales",
                 "description": "Every sale the store has, newest first. A store holds up to 30, so the list is not paged.\n\nNeeds the `sales.read` permission (Read sales).",
                 "x-mint": {
-                    "href": "/api-reference/sales/list-sales"
+                    "href": "/api-reference/sales/list-sales",
+                    "metadata": {
+                        "title": "List sales",
+                        "sidebarTitle": "List sales"
+                    }
                 },
                 "parameters": [
                     {
@@ -15687,7 +16015,11 @@
                 "summary": "Create a sale",
                 "description": "Adds a sale. A store holds up to 30.\n\nNeeds the `sales.write` permission (Change sales).",
                 "x-mint": {
-                    "href": "/api-reference/sales/create-a-sale"
+                    "href": "/api-reference/sales/create-a-sale",
+                    "metadata": {
+                        "title": "Create a sale",
+                        "sidebarTitle": "Create a sale"
+                    }
                 },
                 "parameters": [
                     {
@@ -15969,7 +16301,11 @@
                 "summary": "Get a sale",
                 "description": "One sale, with the products it covers and its coupon exceptions.\n\nNeeds the `sales.read` permission (Read sales).",
                 "x-mint": {
-                    "href": "/api-reference/sales/get-a-sale"
+                    "href": "/api-reference/sales/get-a-sale",
+                    "metadata": {
+                        "title": "Get a sale",
+                        "sidebarTitle": "Get a sale"
+                    }
                 },
                 "parameters": [
                     {
@@ -16121,7 +16457,11 @@
                 "summary": "Update a sale",
                 "description": "Saves the sale whole: send every field as it should be, not only what changed.\n\nNeeds the `sales.write` permission (Change sales).",
                 "x-mint": {
-                    "href": "/api-reference/sales/update-a-sale"
+                    "href": "/api-reference/sales/update-a-sale",
+                    "metadata": {
+                        "title": "Update a sale",
+                        "sidebarTitle": "Update a sale"
+                    }
                 },
                 "parameters": [
                     {
@@ -16313,7 +16653,11 @@
                 "summary": "Delete a sale",
                 "description": "Removes the sale. Orders placed during it keep the prices they were charged.\n\nNeeds the `sales.write` permission (Change sales).",
                 "x-mint": {
-                    "href": "/api-reference/sales/delete-a-sale"
+                    "href": "/api-reference/sales/delete-a-sale",
+                    "metadata": {
+                        "title": "Delete a sale",
+                        "sidebarTitle": "Delete a sale"
+                    }
                 },
                 "parameters": [
                     {
@@ -16407,7 +16751,11 @@
                 "summary": "Switch a sale on or off",
                 "description": "Changes whether the sale runs, without sending the rest of it.\n\nNeeds the `sales.write` permission (Change sales).",
                 "x-mint": {
-                    "href": "/api-reference/sales/switch-a-sale-on-or-off"
+                    "href": "/api-reference/sales/switch-a-sale-on-or-off",
+                    "metadata": {
+                        "title": "Switch a sale on or off",
+                        "sidebarTitle": "Switch a sale on or off"
+                    }
                 },
                 "parameters": [
                     {
@@ -16586,7 +16934,11 @@
                 "summary": "List blog categories and posts",
                 "description": "Every blog category in the store's own order, each with its posts in theirs, drafts included, without their text. A store holds up to 20 categories and a category up to 15 posts.\n\nNeeds the `blog.read` permission (Read blog).",
                 "x-mint": {
-                    "href": "/api-reference/blog/list-blog-categories-and-posts"
+                    "href": "/api-reference/blog/list-blog-categories-and-posts",
+                    "metadata": {
+                        "title": "List blog categories and posts",
+                        "sidebarTitle": "List blog categories and posts"
+                    }
                 },
                 "parameters": [
                     {
@@ -16784,7 +17136,11 @@
                 "summary": "Create a blog category",
                 "description": "Adds a category for posts to go in. A category with no published post is nowhere on the store.\n\nNeeds the `blog.write` permission (Change blog).",
                 "x-mint": {
-                    "href": "/api-reference/blog/create-a-blog-category"
+                    "href": "/api-reference/blog/create-a-blog-category",
+                    "metadata": {
+                        "title": "Create a blog category",
+                        "sidebarTitle": "Create a blog category"
+                    }
                 },
                 "parameters": [
                     {
@@ -16920,7 +17276,11 @@
                 "summary": "Update a blog category",
                 "description": "Saves the category's name, description and address. A changed address is safe: the old one leads to the new.\n\nNeeds the `blog.write` permission (Change blog).",
                 "x-mint": {
-                    "href": "/api-reference/blog/update-a-blog-category"
+                    "href": "/api-reference/blog/update-a-blog-category",
+                    "metadata": {
+                        "title": "Update a blog category",
+                        "sidebarTitle": "Update a blog category"
+                    }
                 },
                 "parameters": [
                     {
@@ -17056,7 +17416,11 @@
                 "summary": "Delete a blog category",
                 "description": "Removes a category that has no posts. One that still has posts is refused with `blog_category_not_empty`: move or delete them first.\n\nNeeds the `blog.write` permission (Change blog).",
                 "x-mint": {
-                    "href": "/api-reference/blog/delete-a-blog-category"
+                    "href": "/api-reference/blog/delete-a-blog-category",
+                    "metadata": {
+                        "title": "Delete a blog category",
+                        "sidebarTitle": "Delete a blog category"
+                    }
                 },
                 "parameters": [
                     {
@@ -17150,7 +17514,11 @@
                 "summary": "Sort blog categories",
                 "description": "Sets the order the blog's own page lists its categories in.\n\nNeeds the `blog.write` permission (Change blog).",
                 "x-mint": {
-                    "href": "/api-reference/blog/sort-blog-categories"
+                    "href": "/api-reference/blog/sort-blog-categories",
+                    "metadata": {
+                        "title": "Sort blog categories",
+                        "sidebarTitle": "Sort blog categories"
+                    }
                 },
                 "parameters": [
                     {
@@ -17253,7 +17621,11 @@
                 "summary": "Upload a blog category's picture",
                 "description": "Gives the category its one picture, replacing any it had. Sent as `multipart/form-data` in a field called `image`.\n\nNeeds the `blog.write` permission (Change blog).",
                 "x-mint": {
-                    "href": "/api-reference/blog/upload-a-blog-categorys-picture"
+                    "href": "/api-reference/blog/upload-a-blog-categorys-picture",
+                    "metadata": {
+                        "title": "Upload a blog category's picture",
+                        "sidebarTitle": "Upload a blog category's picture"
+                    }
                 },
                 "parameters": [
                     {
@@ -17331,7 +17703,11 @@
                 "summary": "Delete a blog category's picture",
                 "description": "Removes the category's picture.\n\nNeeds the `blog.write` permission (Change blog).",
                 "x-mint": {
-                    "href": "/api-reference/blog/delete-a-blog-categorys-picture"
+                    "href": "/api-reference/blog/delete-a-blog-categorys-picture",
+                    "metadata": {
+                        "title": "Delete a blog category's picture",
+                        "sidebarTitle": "Delete a blog category's picture"
+                    }
                 },
                 "parameters": [
                     {
@@ -17394,7 +17770,11 @@
                 "summary": "Create a blog post",
                 "description": "Starts a post as a draft with a title and nothing else. Write it and publish it with \"Update a blog post\".\n\nNeeds the `blog.write` permission (Change blog).",
                 "x-mint": {
-                    "href": "/api-reference/blog/create-a-blog-post"
+                    "href": "/api-reference/blog/create-a-blog-post",
+                    "metadata": {
+                        "title": "Create a blog post",
+                        "sidebarTitle": "Create a blog post"
+                    }
                 },
                 "parameters": [
                     {
@@ -17598,7 +17978,11 @@
                 "summary": "Get a blog post",
                 "description": "One post with its text, as Markdown.\n\nNeeds the `blog.read` permission (Read blog).",
                 "x-mint": {
-                    "href": "/api-reference/blog/get-a-blog-post"
+                    "href": "/api-reference/blog/get-a-blog-post",
+                    "metadata": {
+                        "title": "Get a blog post",
+                        "sidebarTitle": "Get a blog post"
+                    }
                 },
                 "parameters": [
                     {
@@ -17821,7 +18205,11 @@
                 "summary": "Update a blog post",
                 "description": "Saves the post whole: send every field as it should be. `status` and `categoryId` are the exceptions, and stay as they are when left out. The text is Markdown and nothing in it is trusted as HTML. A picture in the text that the text no longer shows is removed when the post is saved.\n\nNeeds the `blog.write` permission (Change blog).",
                 "x-mint": {
-                    "href": "/api-reference/blog/update-a-blog-post"
+                    "href": "/api-reference/blog/update-a-blog-post",
+                    "metadata": {
+                        "title": "Update a blog post",
+                        "sidebarTitle": "Update a blog post"
+                    }
                 },
                 "parameters": [
                     {
@@ -18059,7 +18447,11 @@
                 "summary": "Delete a blog post",
                 "description": "Removes the post and its pictures.\n\nNeeds the `blog.write` permission (Change blog).",
                 "x-mint": {
-                    "href": "/api-reference/blog/delete-a-blog-post"
+                    "href": "/api-reference/blog/delete-a-blog-post",
+                    "metadata": {
+                        "title": "Delete a blog post",
+                        "sidebarTitle": "Delete a blog post"
+                    }
                 },
                 "parameters": [
                     {
@@ -18153,7 +18545,11 @@
                 "summary": "Publish or unpublish a blog post",
                 "description": "Puts a post out, or takes it back to a draft, and changes nothing else about it.\n\nNeeds the `blog.write` permission (Change blog).",
                 "x-mint": {
-                    "href": "/api-reference/blog/publish-or-unpublish-a-blog-post"
+                    "href": "/api-reference/blog/publish-or-unpublish-a-blog-post",
+                    "metadata": {
+                        "title": "Publish or unpublish a blog post",
+                        "sidebarTitle": "Publish or unpublish a blog post"
+                    }
                 },
                 "parameters": [
                     {
@@ -18302,7 +18698,11 @@
                 "summary": "Sort a category's blog posts",
                 "description": "Sets the order one category's page lists its posts in.\n\nNeeds the `blog.write` permission (Change blog).",
                 "x-mint": {
-                    "href": "/api-reference/blog/sort-a-categorys-blog-posts"
+                    "href": "/api-reference/blog/sort-a-categorys-blog-posts",
+                    "metadata": {
+                        "title": "Sort a category's blog posts",
+                        "sidebarTitle": "Sort a category's blog posts"
+                    }
                 },
                 "parameters": [
                     {
@@ -18410,7 +18810,11 @@
                 "summary": "Upload a blog post's cover",
                 "description": "Gives the post its one cover picture, replacing any it had. Sent as `multipart/form-data` in a field called `image`.\n\nNeeds the `blog.write` permission (Change blog).",
                 "x-mint": {
-                    "href": "/api-reference/blog/upload-a-blog-posts-cover"
+                    "href": "/api-reference/blog/upload-a-blog-posts-cover",
+                    "metadata": {
+                        "title": "Upload a blog post's cover",
+                        "sidebarTitle": "Upload a blog post's cover"
+                    }
                 },
                 "parameters": [
                     {
@@ -18488,7 +18892,11 @@
                 "summary": "Delete a blog post's cover",
                 "description": "Removes the post's cover picture.\n\nNeeds the `blog.write` permission (Change blog).",
                 "x-mint": {
-                    "href": "/api-reference/blog/delete-a-blog-posts-cover"
+                    "href": "/api-reference/blog/delete-a-blog-posts-cover",
+                    "metadata": {
+                        "title": "Delete a blog post's cover",
+                        "sidebarTitle": "Delete a blog post's cover"
+                    }
                 },
                 "parameters": [
                     {
@@ -18551,7 +18959,11 @@
                 "summary": "Upload a picture for a blog post's text",
                 "description": "Uploads a picture to use in the post's text, and answers its address (`url`) to write into the Markdown. Sent as `multipart/form-data` in a field called `image`. It stays the post's for as long as the saved text shows it.\n\nNeeds the `blog.write` permission (Change blog).",
                 "x-mint": {
-                    "href": "/api-reference/blog/upload-a-picture-for-a-blog-posts-text"
+                    "href": "/api-reference/blog/upload-a-picture-for-a-blog-posts-text",
+                    "metadata": {
+                        "title": "Upload a picture for a blog post's text",
+                        "sidebarTitle": "Upload a picture for a blog post's text"
+                    }
                 },
                 "parameters": [
                     {
@@ -18631,7 +19043,11 @@
                 "summary": "Get search settings",
                 "description": "The four things a store sets once for search: its site verification codes, whether AI crawlers are asked to stay away, whether search engines are told of changes, and where paid orders are sent in Google Analytics.\n\nNeeds the `seo.read` permission (Read search settings).",
                 "x-mint": {
-                    "href": "/api-reference/search-settings/get-search-settings"
+                    "href": "/api-reference/search-settings/get-search-settings",
+                    "metadata": {
+                        "title": "Get search settings",
+                        "sidebarTitle": "Get search settings"
+                    }
                 },
                 "parameters": [
                     {
@@ -18731,7 +19147,11 @@
                 "summary": "Update search settings",
                 "description": "Changes the store's search settings. Only what is sent changes.\n\nNeeds the `seo.write` permission (Change search settings).",
                 "x-mint": {
-                    "href": "/api-reference/search-settings/update-search-settings"
+                    "href": "/api-reference/search-settings/update-search-settings",
+                    "metadata": {
+                        "title": "Update search settings",
+                        "sidebarTitle": "Update search settings"
+                    }
                 },
                 "parameters": [
                     {
@@ -18875,7 +19295,11 @@
                 "summary": "List redirects and broken links",
                 "description": "The store's redirects, and under `meta.missing` the addresses people asked the store for that had nothing at them, most asked for first. A redirect from an address that still has a page is kept and waits: `live` says which.\n\nNeeds the `seo.read` permission (Read search settings).",
                 "x-mint": {
-                    "href": "/api-reference/redirects/list-redirects-and-broken-links"
+                    "href": "/api-reference/redirects/list-redirects-and-broken-links",
+                    "metadata": {
+                        "title": "List redirects and broken links",
+                        "sidebarTitle": "List redirects and broken links"
+                    }
                 },
                 "parameters": [
                     {
@@ -18995,7 +19419,11 @@
                 "summary": "Create a redirect",
                 "description": "Sends an address that has nothing at it to one that has. It is followed only once the first address has turned out to be nothing, so a redirect can never take a page away. Adding one for a broken link takes that link off the list. Answers the store's redirects as they now stand.\n\nNeeds the `seo.write` permission (Change search settings).",
                 "x-mint": {
-                    "href": "/api-reference/redirects/create-a-redirect"
+                    "href": "/api-reference/redirects/create-a-redirect",
+                    "metadata": {
+                        "title": "Create a redirect",
+                        "sidebarTitle": "Create a redirect"
+                    }
                 },
                 "parameters": [
                     {
@@ -19149,7 +19577,11 @@
                 "summary": "Update a redirect",
                 "description": "Changes where a redirect is from and where it leads. Answers the store's redirects as they now stand.\n\nNeeds the `seo.write` permission (Change search settings).",
                 "x-mint": {
-                    "href": "/api-reference/redirects/update-a-redirect"
+                    "href": "/api-reference/redirects/update-a-redirect",
+                    "metadata": {
+                        "title": "Update a redirect",
+                        "sidebarTitle": "Update a redirect"
+                    }
                 },
                 "parameters": [
                     {
@@ -19310,7 +19742,11 @@
                 "summary": "Delete a redirect",
                 "description": "Removes a redirect. Answers the redirects that are left.\n\nNeeds the `seo.write` permission (Change search settings).",
                 "x-mint": {
-                    "href": "/api-reference/redirects/delete-a-redirect"
+                    "href": "/api-reference/redirects/delete-a-redirect",
+                    "metadata": {
+                        "title": "Delete a redirect",
+                        "sidebarTitle": "Delete a redirect"
+                    }
                 },
                 "parameters": [
                     {
@@ -19418,7 +19854,11 @@
                 "summary": "Dismiss broken links",
                 "description": "Takes one address off the list of broken links, or all of them when none is named. An address somebody asks for again is counted again.\n\nNeeds the `seo.write` permission (Change search settings).",
                 "x-mint": {
-                    "href": "/api-reference/redirects/dismiss-broken-links"
+                    "href": "/api-reference/redirects/dismiss-broken-links",
+                    "metadata": {
+                        "title": "Dismiss broken links",
+                        "sidebarTitle": "Dismiss broken links"
+                    }
                 },
                 "parameters": [
                     {
@@ -19526,7 +19966,11 @@
                 "summary": "Get the sitemap",
                 "description": "Every address the store has, a kind at a time (pages, categories, products, blog), each with whether the sitemap lists it, its priority and how often it is said to change. This is the file the store serves at `/sitemap.xml`.\n\nNeeds the `seo.read` permission (Read search settings).",
                 "x-mint": {
-                    "href": "/api-reference/sitemap/get-the-sitemap"
+                    "href": "/api-reference/sitemap/get-the-sitemap",
+                    "metadata": {
+                        "title": "Get the sitemap",
+                        "sidebarTitle": "Get the sitemap"
+                    }
                 },
                 "parameters": [
                     {
@@ -19727,7 +20171,11 @@
                 "summary": "Update a kind of address",
                 "description": "Sets the rule for a whole kind. Every address of that kind that has no rule of its own follows it, and a kind that is not listed lists none of its addresses. Send any of the three. Answers the whole sitemap again.\n\nNeeds the `seo.write` permission (Change search settings).",
                 "x-mint": {
-                    "href": "/api-reference/sitemap/update-a-kind-of-address"
+                    "href": "/api-reference/sitemap/update-a-kind-of-address",
+                    "metadata": {
+                        "title": "Update a kind of address",
+                        "sidebarTitle": "Update a kind of address"
+                    }
                 },
                 "parameters": [
                     {
@@ -19977,7 +20425,11 @@
                 "summary": "Update one address",
                 "description": "Sets one address's own rule. An address set to what its kind says follows its kind again. Only an address the store has can be given a rule. Answers the whole sitemap again.\n\nNeeds the `seo.write` permission (Change search settings).",
                 "x-mint": {
-                    "href": "/api-reference/sitemap/update-one-address"
+                    "href": "/api-reference/sitemap/update-one-address",
+                    "metadata": {
+                        "title": "Update one address",
+                        "sidebarTitle": "Update one address"
+                    }
                 },
                 "parameters": [
                     {
@@ -20083,7 +20535,11 @@
                 "summary": "List customers",
                 "description": "The store's customers, a page at a time, each with how many orders they have paid for, what they have spent and their balance.\n\nNeeds the `customers.read` permission (Read customers).",
                 "x-mint": {
-                    "href": "/api-reference/customers/list-customers"
+                    "href": "/api-reference/customers/list-customers",
+                    "metadata": {
+                        "title": "List customers",
+                        "sidebarTitle": "List customers"
+                    }
                 },
                 "parameters": [
                     {
@@ -20318,7 +20774,11 @@
                 "summary": "Create a customer",
                 "description": "Adds an address to the customer list before it has ordered, so it can be given a balance or made an affiliate. An address that is already a customer is answered as it is, with `meta.alreadyExisted` saying so.\n\nNeeds the `customers.write` permission (Change customers).",
                 "x-mint": {
-                    "href": "/api-reference/customers/create-a-customer"
+                    "href": "/api-reference/customers/create-a-customer",
+                    "metadata": {
+                        "title": "Create a customer",
+                        "sidebarTitle": "Create a customer"
+                    }
                 },
                 "parameters": [
                     {
@@ -20462,7 +20922,11 @@
                 "summary": "Get customer figures",
                 "description": "The four figures over the customers list, each beside the period before it. With no period named, the last 30 days.\n\nNeeds the `customers.read` permission (Read customers).",
                 "x-mint": {
-                    "href": "/api-reference/customers/get-customer-figures"
+                    "href": "/api-reference/customers/get-customer-figures",
+                    "metadata": {
+                        "title": "Get customer figures",
+                        "sidebarTitle": "Get customer figures"
+                    }
                 },
                 "parameters": [
                     {
@@ -20680,7 +21144,11 @@
                 "summary": "Get a customer",
                 "description": "One customer: their orders, their balance and its history, whether they are blacklisted, and their affiliate figures if they are one.\n\nNeeds the `customers.read` permission (Read customers).",
                 "x-mint": {
-                    "href": "/api-reference/customers/get-a-customer"
+                    "href": "/api-reference/customers/get-a-customer",
+                    "metadata": {
+                        "title": "Get a customer",
+                        "sidebarTitle": "Get a customer"
+                    }
                 },
                 "parameters": [
                     {
@@ -20875,7 +21343,11 @@
                 "summary": "Change a customer's balance",
                 "description": "Adds to, takes from or sets the customer's balance at the store, which they can spend at checkout. Send an `Idempotency-Key` with this request, so that a retry does not credit twice. Answers the customer with the new balance and its history.\n\nNeeds the `customers.balance` permission (Change balances).",
                 "x-mint": {
-                    "href": "/api-reference/customers/change-a-customers-balance"
+                    "href": "/api-reference/customers/change-a-customers-balance",
+                    "metadata": {
+                        "title": "Change a customer's balance",
+                        "sidebarTitle": "Change a customer's balance"
+                    }
                 },
                 "parameters": [
                     {
@@ -21067,7 +21539,11 @@
                 "summary": "Blacklist a customer",
                 "description": "Stops the customer buying: their email is added to the store's blacklist, and with `addresses` the IP addresses their orders came from. Their open checkouts are refused from this moment.\n\nNeeds the `customers.write` permission (Change customers).",
                 "x-mint": {
-                    "href": "/api-reference/customers/blacklist-a-customer"
+                    "href": "/api-reference/customers/blacklist-a-customer",
+                    "metadata": {
+                        "title": "Blacklist a customer",
+                        "sidebarTitle": "Blacklist a customer"
+                    }
                 },
                 "parameters": [
                     {
@@ -21248,7 +21724,11 @@
                 "summary": "Clear a customer from the blacklist",
                 "description": "Takes the customer off the blacklist: the rules their page or a dispute of theirs added, and any rule on their email.\n\nNeeds the `customers.write` permission (Change customers).",
                 "x-mint": {
-                    "href": "/api-reference/customers/clear-a-customer-from-the-blacklist"
+                    "href": "/api-reference/customers/clear-a-customer-from-the-blacklist",
+                    "metadata": {
+                        "title": "Clear a customer from the blacklist",
+                        "sidebarTitle": "Clear a customer from the blacklist"
+                    }
                 },
                 "parameters": [
                     {
@@ -21410,7 +21890,11 @@
                 "summary": "List affiliates",
                 "description": "Every affiliate of the store, each with their link, their rates, what their link has led to, what they have earned and what they are owed. `meta.totals` adds them up, and `meta.programme` is the programme's settings. A store holds up to 500, so the list is not paged.\n\nNeeds the `affiliates.read` permission (Read affiliates).",
                 "x-mint": {
-                    "href": "/api-reference/affiliates/list-affiliates"
+                    "href": "/api-reference/affiliates/list-affiliates",
+                    "metadata": {
+                        "title": "List affiliates",
+                        "sidebarTitle": "List affiliates"
+                    }
                 },
                 "parameters": [
                     {
@@ -21691,7 +22175,11 @@
                 "summary": "Create an affiliate",
                 "description": "Makes a customer of the store an affiliate, with a link of their own. The address has to be a customer already: create the customer first if it is not.\n\nNeeds the `affiliates.write` permission (Change affiliates).",
                 "x-mint": {
-                    "href": "/api-reference/affiliates/create-an-affiliate"
+                    "href": "/api-reference/affiliates/create-an-affiliate",
+                    "metadata": {
+                        "title": "Create an affiliate",
+                        "sidebarTitle": "Create an affiliate"
+                    }
                 },
                 "parameters": [
                     {
@@ -22014,7 +22502,11 @@
                 "summary": "Update an affiliate",
                 "description": "Changes an affiliate's code, rates or whether their link works. Only what is sent changes.\n\nNeeds the `affiliates.write` permission (Change affiliates).",
                 "x-mint": {
-                    "href": "/api-reference/affiliates/update-an-affiliate"
+                    "href": "/api-reference/affiliates/update-an-affiliate",
+                    "metadata": {
+                        "title": "Update an affiliate",
+                        "sidebarTitle": "Update an affiliate"
+                    }
                 },
                 "parameters": [
                     {
@@ -22336,7 +22828,11 @@
                 "summary": "Delete an affiliate",
                 "description": "Removes an affiliate who has earned nothing. One who has earned commission is refused with `affiliate_has_earned`: switch them off instead, so that what an order earned is still on record if that order is refunded later. Answers the affiliates that are left.\n\nNeeds the `affiliates.write` permission (Change affiliates).",
                 "x-mint": {
-                    "href": "/api-reference/affiliates/delete-an-affiliate"
+                    "href": "/api-reference/affiliates/delete-an-affiliate",
+                    "metadata": {
+                        "title": "Delete an affiliate",
+                        "sidebarTitle": "Delete an affiliate"
+                    }
                 },
                 "parameters": [
                     {
@@ -22557,7 +23053,11 @@
                 "summary": "Change an affiliate's balance",
                 "description": "Adds to, takes from or sets what an affiliate is owed. Send an `Idempotency-Key` with this request.\n\nNeeds the `affiliates.payouts` permission (Answer payouts).",
                 "x-mint": {
-                    "href": "/api-reference/affiliates/change-an-affiliates-balance"
+                    "href": "/api-reference/affiliates/change-an-affiliates-balance",
+                    "metadata": {
+                        "title": "Change an affiliate's balance",
+                        "sidebarTitle": "Change an affiliate's balance"
+                    }
                 },
                 "parameters": [
                     {
@@ -22884,7 +23384,11 @@
                 "summary": "Get an affiliate's history",
                 "description": "One affiliate's balance line by line (`changes`), and the payouts they have asked for (`payouts`).\n\nNeeds the `affiliates.read` permission (Read affiliates).",
                 "x-mint": {
-                    "href": "/api-reference/affiliates/get-an-affiliates-history"
+                    "href": "/api-reference/affiliates/get-an-affiliates-history",
+                    "metadata": {
+                        "title": "Get an affiliate's history",
+                        "sidebarTitle": "Get an affiliate's history"
+                    }
                 },
                 "parameters": [
                     {
@@ -23019,7 +23523,11 @@
                 "summary": "List referred orders",
                 "description": "The orders that came through affiliates' links, newest first, each with what it earned. `state` is `credited` (paid, and the commission is on the affiliate's balance), `waiting` (not paid yet) or `back` (refunded or charged back, and the commission taken back).\n\nNeeds the `affiliates.read` permission (Read affiliates).",
                 "x-mint": {
-                    "href": "/api-reference/affiliates/list-referred-orders"
+                    "href": "/api-reference/affiliates/list-referred-orders",
+                    "metadata": {
+                        "title": "List referred orders",
+                        "sidebarTitle": "List referred orders"
+                    }
                 },
                 "parameters": [
                     {
@@ -23127,7 +23635,11 @@
                 "summary": "List payout requests",
                 "description": "The payouts affiliates have asked for, the ones still waiting first. A payout is a request and a record: the affiliate says how they want to be paid, and the store pays it itself. Shoply sends no money.\n\nNeeds the `affiliates.read` permission (Read affiliates).",
                 "x-mint": {
-                    "href": "/api-reference/affiliates/list-payout-requests"
+                    "href": "/api-reference/affiliates/list-payout-requests",
+                    "metadata": {
+                        "title": "List payout requests",
+                        "sidebarTitle": "List payout requests"
+                    }
                 },
                 "parameters": [
                     {
@@ -23241,7 +23753,11 @@
                 "summary": "Answer a payout request",
                 "description": "Marks a payout as paid, which records that you paid it yourself, or declines it, which puts the amount back on the affiliate's balance. A payout that was already answered is refused with `payout_answered`. Answers the store's affiliates as they now stand.\n\nNeeds the `affiliates.payouts` permission (Answer payouts).",
                 "x-mint": {
-                    "href": "/api-reference/affiliates/answer-a-payout-request"
+                    "href": "/api-reference/affiliates/answer-a-payout-request",
+                    "metadata": {
+                        "title": "Answer a payout request",
+                        "sidebarTitle": "Answer a payout request"
+                    }
                 },
                 "parameters": [
                     {
@@ -23331,7 +23847,11 @@
                 "summary": "Get the affiliate programme",
                 "description": "The programme's settings: whether it is on, the rates a new affiliate gets, and what an affiliate may do for themselves.\n\nNeeds the `affiliates.read` permission (Read affiliates).",
                 "x-mint": {
-                    "href": "/api-reference/affiliates/get-the-affiliate-programme"
+                    "href": "/api-reference/affiliates/get-the-affiliate-programme",
+                    "metadata": {
+                        "title": "Get the affiliate programme",
+                        "sidebarTitle": "Get the affiliate programme"
+                    }
                 },
                 "parameters": [
                     {
@@ -23454,7 +23974,11 @@
                 "summary": "Update the affiliate programme",
                 "description": "Changes the programme's settings. Only what is sent changes. Switched off, no link takes anything off or earns anything, and the customer panel says nothing of affiliates.\n\nNeeds the `affiliates.write` permission (Change affiliates).",
                 "x-mint": {
-                    "href": "/api-reference/affiliates/update-the-affiliate-programme"
+                    "href": "/api-reference/affiliates/update-the-affiliate-programme",
+                    "metadata": {
+                        "title": "Update the affiliate programme",
+                        "sidebarTitle": "Update the affiliate programme"
+                    }
                 },
                 "parameters": [
                     {
@@ -23625,7 +24149,11 @@
                 "summary": "List blacklist rules",
                 "description": "The store's blacklist, a page at a time. A buyer who matches a rule that is in force cannot start or pay for a checkout. A store holds up to 10,000 rules.\n\nNeeds the `fraud.read` permission (Read fraud protection).",
                 "x-mint": {
-                    "href": "/api-reference/blacklist/list-blacklist-rules"
+                    "href": "/api-reference/blacklist/list-blacklist-rules",
+                    "metadata": {
+                        "title": "List blacklist rules",
+                        "sidebarTitle": "List blacklist rules"
+                    }
                 },
                 "parameters": [
                     {
@@ -23849,7 +24377,11 @@
                 "summary": "Create a blacklist rule",
                 "description": "Adds a rule. Something already on the blacklist is refused.\n\nNeeds the `fraud.write` permission (Change fraud protection).",
                 "x-mint": {
-                    "href": "/api-reference/blacklist/create-a-blacklist-rule"
+                    "href": "/api-reference/blacklist/create-a-blacklist-rule",
+                    "metadata": {
+                        "title": "Create a blacklist rule",
+                        "sidebarTitle": "Create a blacklist rule"
+                    }
                 },
                 "parameters": [
                     {
@@ -24021,7 +24553,11 @@
                 "summary": "Update a blacklist rule",
                 "description": "Saves the rule whole: send every field as it should be.\n\nNeeds the `fraud.write` permission (Change fraud protection).",
                 "x-mint": {
-                    "href": "/api-reference/blacklist/update-a-blacklist-rule"
+                    "href": "/api-reference/blacklist/update-a-blacklist-rule",
+                    "metadata": {
+                        "title": "Update a blacklist rule",
+                        "sidebarTitle": "Update a blacklist rule"
+                    }
                 },
                 "parameters": [
                     {
@@ -24200,7 +24736,11 @@
                 "summary": "Delete a blacklist rule",
                 "description": "Removes the rule.\n\nNeeds the `fraud.write` permission (Change fraud protection).",
                 "x-mint": {
-                    "href": "/api-reference/blacklist/delete-a-blacklist-rule"
+                    "href": "/api-reference/blacklist/delete-a-blacklist-rule",
+                    "metadata": {
+                        "title": "Delete a blacklist rule",
+                        "sidebarTitle": "Delete a blacklist rule"
+                    }
                 },
                 "parameters": [
                     {
@@ -24290,7 +24830,11 @@
                 "summary": "Switch a blacklist rule on or off",
                 "description": "Changes whether the rule is in force, without sending the rest of it.\n\nNeeds the `fraud.write` permission (Change fraud protection).",
                 "x-mint": {
-                    "href": "/api-reference/blacklist/switch-a-blacklist-rule-on-or-off"
+                    "href": "/api-reference/blacklist/switch-a-blacklist-rule-on-or-off",
+                    "metadata": {
+                        "title": "Switch a blacklist rule on or off",
+                        "sidebarTitle": "Switch a blacklist rule on or off"
+                    }
                 },
                 "parameters": [
                     {
@@ -24447,7 +24991,11 @@
                 "summary": "List fraud events",
                 "description": "What fraud protection did, newest first: the checkouts it refused and why, and every change to the blacklist and its settings. `meta.counts` says how many events of each reason the same filters match.\n\nNeeds the `fraud.read` permission (Read fraud protection).",
                 "x-mint": {
-                    "href": "/api-reference/fraud-protection/list-fraud-events"
+                    "href": "/api-reference/fraud-protection/list-fraud-events",
+                    "metadata": {
+                        "title": "List fraud events",
+                        "sidebarTitle": "List fraud events"
+                    }
                 },
                 "parameters": [
                     {
@@ -24778,7 +25326,11 @@
                 "summary": "Get a fraud event's network",
                 "description": "What is known about the connection an event came from: its provider, and whether it looks like a VPN, a proxy or a data centre.\n\nNeeds the `fraud.read` permission (Read fraud protection). It is one of the heavier reads, and is counted against a smaller budget of its own: 60 a minute for each key.",
                 "x-mint": {
-                    "href": "/api-reference/fraud-protection/get-a-fraud-events-network"
+                    "href": "/api-reference/fraud-protection/get-a-fraud-events-network",
+                    "metadata": {
+                        "title": "Get a fraud event's network",
+                        "sidebarTitle": "Get a fraud event's network"
+                    }
                 },
                 "parameters": [
                     {
@@ -24835,7 +25387,11 @@
                 "summary": "Get fraud settings",
                 "description": "What the store refuses before an order is made: VPNs and proxies, countries, and buyers who have disputed a payment.\n\nNeeds the `fraud.read` permission (Read fraud protection).",
                 "x-mint": {
-                    "href": "/api-reference/fraud-protection/get-fraud-settings"
+                    "href": "/api-reference/fraud-protection/get-fraud-settings",
+                    "metadata": {
+                        "title": "Get fraud settings",
+                        "sidebarTitle": "Get fraud settings"
+                    }
                 },
                 "parameters": [
                     {
@@ -24919,7 +25475,11 @@
                 "summary": "Update fraud settings",
                 "description": "Saves the two switches as they are sent. `blockedCountries` changes only when it is sent.\n\nNeeds the `fraud.write` permission (Change fraud protection).",
                 "x-mint": {
-                    "href": "/api-reference/fraud-protection/update-fraud-settings"
+                    "href": "/api-reference/fraud-protection/update-fraud-settings",
+                    "metadata": {
+                        "title": "Update fraud settings",
+                        "sidebarTitle": "Update fraud settings"
+                    }
                 },
                 "parameters": [
                     {
@@ -25047,7 +25607,11 @@
                 "summary": "Get finance access",
                 "description": "Whether the store may use Finance yet (`open`), and what its business details still lack if not (`missing`). They are set in the dashboard's settings.\n\nNeeds the `finance.read` permission (Read finance).",
                 "x-mint": {
-                    "href": "/api-reference/finance/get-finance-access"
+                    "href": "/api-reference/finance/get-finance-access",
+                    "metadata": {
+                        "title": "Get finance access",
+                        "sidebarTitle": "Get finance access"
+                    }
                 },
                 "parameters": [
                     {
@@ -25129,7 +25693,11 @@
                 "summary": "Get profit",
                 "description": "What the store kept in a period and how that is made up, beside the period before: net sales, the cost of goods, payment fees, expenses and net profit, twelve months of sales and profit, and every product with what each variant sold and cost. Payment fees are worked out from the rates the store typed, never read from a provider, so they can be slightly off. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `finance.read` permission (Read finance). It is one of the heavier reads, and is counted against a smaller budget of its own: 60 a minute for each key.",
                 "x-mint": {
-                    "href": "/api-reference/finance/get-profit"
+                    "href": "/api-reference/finance/get-profit",
+                    "metadata": {
+                        "title": "Get profit",
+                        "sidebarTitle": "Get profit"
+                    }
                 },
                 "parameters": [
                     {
@@ -25560,7 +26128,11 @@
                 "summary": "Get the books",
                 "description": "The books for a period: the profit and loss line by line beside the period before, where the buyers were, and what each payment method took in. Tax collected is not income and is in none of it but the tax report. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `finance.read` permission (Read finance). It is one of the heavier reads, and is counted against a smaller budget of its own: 60 a minute for each key.",
                 "x-mint": {
-                    "href": "/api-reference/finance/get-the-books"
+                    "href": "/api-reference/finance/get-the-books",
+                    "metadata": {
+                        "title": "Get the books",
+                        "sidebarTitle": "Get the books"
+                    }
                 },
                 "parameters": [
                     {
@@ -25897,7 +26469,11 @@
                 "summary": "Export the books",
                 "description": "One of a period's files: `statement` (the profit and loss as a PDF, or as a CSV with `format=csv`), `countries`, `transactions` or `tax` (each a CSV), or `pack`, a ZIP of all of them with the expenses beside them. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `finance.read` permission (Read finance). It is one of the heavier reads, and is counted against a smaller budget of its own: 60 a minute for each key.",
                 "x-mint": {
-                    "href": "/api-reference/finance/export-the-books"
+                    "href": "/api-reference/finance/export-the-books",
+                    "metadata": {
+                        "title": "Export the books",
+                        "sidebarTitle": "Export the books"
+                    }
                 },
                 "parameters": [
                     {
@@ -26016,7 +26592,11 @@
                 "summary": "Set a variant's cost",
                 "description": "What one sale of a variant costs the store, as an amount or as a share of its price. Send neither to clear it. The cost is stamped onto each order line when the order is paid, so a later change does not rewrite old months. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `finance.write` permission (Change finance).",
                 "x-mint": {
-                    "href": "/api-reference/finance/set-a-variants-cost"
+                    "href": "/api-reference/finance/set-a-variants-cost",
+                    "metadata": {
+                        "title": "Set a variant's cost",
+                        "sidebarTitle": "Set a variant's cost"
+                    }
                 },
                 "parameters": [
                     {
@@ -26147,7 +26727,11 @@
                 "summary": "Get payment fee rates",
                 "description": "The rate the store has typed for each payment provider: what that provider keeps of a payment, as a percent and a fixed amount. Profit takes payment fees from these. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `finance.read` permission (Read finance).",
                 "x-mint": {
-                    "href": "/api-reference/finance/get-payment-fee-rates"
+                    "href": "/api-reference/finance/get-payment-fee-rates",
+                    "metadata": {
+                        "title": "Get payment fee rates",
+                        "sidebarTitle": "Get payment fee rates"
+                    }
                 },
                 "parameters": [
                     {
@@ -26269,7 +26853,11 @@
                 "summary": "Set payment fee rates",
                 "description": "Saves the rates for the providers named. A refusal names the provider and the field: `stripe.percent`. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `finance.write` permission (Change finance).",
                 "x-mint": {
-                    "href": "/api-reference/finance/set-payment-fee-rates"
+                    "href": "/api-reference/finance/set-payment-fee-rates",
+                    "metadata": {
+                        "title": "Set payment fee rates",
+                        "sidebarTitle": "Set payment fee rates"
+                    }
                 },
                 "parameters": [
                     {
@@ -26415,7 +27003,11 @@
                 "summary": "Get tax settings",
                 "description": "Whether the store collects tax at checkout, whether its prices include it, the places it collects in and at what rate, and each country's built-in rate. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `finance.read` permission (Read finance).",
                 "x-mint": {
-                    "href": "/api-reference/tax/get-tax-settings"
+                    "href": "/api-reference/tax/get-tax-settings",
+                    "metadata": {
+                        "title": "Get tax settings",
+                        "sidebarTitle": "Get tax settings"
+                    }
                 },
                 "parameters": [
                     {
@@ -27554,7 +28146,11 @@
                 "summary": "Update tax settings",
                 "description": "Changes the store's three tax switches. Only what is sent changes. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `finance.write` permission (Change finance).",
                 "x-mint": {
-                    "href": "/api-reference/tax/update-tax-settings"
+                    "href": "/api-reference/tax/update-tax-settings",
+                    "metadata": {
+                        "title": "Update tax settings",
+                        "sidebarTitle": "Update tax settings"
+                    }
                 },
                 "parameters": [
                     {
@@ -28683,7 +29279,11 @@
                 "summary": "Add or change tax rates",
                 "description": "Adds each place the store collects tax in, or changes its rate where it already does. The United States is taxed a state at a time. Answers the tax settings as they now stand. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `finance.write` permission (Change finance).",
                 "x-mint": {
-                    "href": "/api-reference/tax/add-or-change-tax-rates"
+                    "href": "/api-reference/tax/add-or-change-tax-rates",
+                    "metadata": {
+                        "title": "Add or change tax rates",
+                        "sidebarTitle": "Add or change tax rates"
+                    }
                 },
                 "parameters": [
                     {
@@ -29870,7 +30470,11 @@
                 "summary": "Remove a tax rate",
                 "description": "Stops collecting tax in a place. A country named with no state goes with all of its states. Answers the tax settings as they now stand. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `finance.write` permission (Change finance).",
                 "x-mint": {
-                    "href": "/api-reference/tax/remove-a-tax-rate"
+                    "href": "/api-reference/tax/remove-a-tax-rate",
+                    "metadata": {
+                        "title": "Remove a tax rate",
+                        "sidebarTitle": "Remove a tax rate"
+                    }
                 },
                 "parameters": [
                     {
@@ -31026,7 +31630,11 @@
                 "summary": "List expenses",
                 "description": "A period's expenses, newest first, up to 2,000 of them. `meta.totals` is what the expenses matched come to, counting every one, and `meta.groups` the same by category. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.read` permission (Read expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expenses/list-expenses"
+                    "href": "/api-reference/expenses/list-expenses",
+                    "metadata": {
+                        "title": "List expenses",
+                        "sidebarTitle": "List expenses"
+                    }
                 },
                 "parameters": [
                     {
@@ -31348,7 +31956,11 @@
                 "summary": "Create an expense",
                 "description": "Files an expense: what a bot paid a member of staff, a provider's invoice a script read. A store holds up to 50,000. A recurring expense is set up with its own route. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.write` permission (Change expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expenses/create-an-expense"
+                    "href": "/api-reference/expenses/create-an-expense",
+                    "metadata": {
+                        "title": "Create an expense",
+                        "sidebarTitle": "Create an expense"
+                    }
                 },
                 "parameters": [
                     {
@@ -31570,7 +32182,11 @@
                 "summary": "Get an expense summary",
                 "description": "A period's spending at a glance: the total beside the period before, what repeats, the largest category, how many have receipts, twelve months of totals and what is coming up. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.read` permission (Read expenses). It is one of the heavier reads, and is counted against a smaller budget of its own: 60 a minute for each key.",
                 "x-mint": {
-                    "href": "/api-reference/expenses/get-an-expense-summary"
+                    "href": "/api-reference/expenses/get-an-expense-summary",
+                    "metadata": {
+                        "title": "Get an expense summary",
+                        "sidebarTitle": "Get an expense summary"
+                    }
                 },
                 "parameters": [
                     {
@@ -31828,7 +32444,11 @@
                 "summary": "Get what an expense can be",
                 "description": "What an expense is made from: the store's expense categories, who it has paid before, the ways of paying, the currencies an amount can be sent in, and every limit. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.read` permission (Read expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expenses/get-what-an-expense-can-be"
+                    "href": "/api-reference/expenses/get-what-an-expense-can-be",
+                    "metadata": {
+                        "title": "Get what an expense can be",
+                        "sidebarTitle": "Get what an expense can be"
+                    }
                 },
                 "parameters": [
                     {
@@ -32074,7 +32694,11 @@
                 "summary": "Export expenses",
                 "description": "The expenses the same filters would list, as a CSV file or as a PDF on the store's letterhead. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.read` permission (Read expenses). It is one of the heavier reads, and is counted against a smaller budget of its own: 60 a minute for each key.",
                 "x-mint": {
-                    "href": "/api-reference/expenses/export-expenses"
+                    "href": "/api-reference/expenses/export-expenses",
+                    "metadata": {
+                        "title": "Export expenses",
+                        "sidebarTitle": "Export expenses"
+                    }
                 },
                 "parameters": [
                     {
@@ -32221,7 +32845,11 @@
                 "summary": "Update an expense",
                 "description": "Changes an expense. A field left out stays as it is. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.write` permission (Change expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expenses/update-an-expense"
+                    "href": "/api-reference/expenses/update-an-expense",
+                    "metadata": {
+                        "title": "Update an expense",
+                        "sidebarTitle": "Update an expense"
+                    }
                 },
                 "parameters": [
                     {
@@ -32450,7 +33078,11 @@
                 "summary": "Delete an expense",
                 "description": "Removes an expense, and its receipt with it. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.write` permission (Change expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expenses/delete-an-expense"
+                    "href": "/api-reference/expenses/delete-an-expense",
+                    "metadata": {
+                        "title": "Delete an expense",
+                        "sidebarTitle": "Delete an expense"
+                    }
                 },
                 "parameters": [
                     {
@@ -32544,7 +33176,11 @@
                 "summary": "Get an expense's receipt",
                 "description": "A link to the expense's receipt that works for five minutes. A receipt is private: there is no address for it that lasts. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.read` permission (Read expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expenses/get-an-expenses-receipt"
+                    "href": "/api-reference/expenses/get-an-expenses-receipt",
+                    "metadata": {
+                        "title": "Get an expense's receipt",
+                        "sidebarTitle": "Get an expense's receipt"
+                    }
                 },
                 "parameters": [
                     {
@@ -32599,7 +33235,11 @@
                 "summary": "Start a receipt upload",
                 "description": "The first of three steps to attach a receipt: a PDF, PNG, JPG or WEBP. This one says what the file is and answers a signed address to send it to. Then send the file to that address with a `PUT`. Then call \"Finish a receipt upload\". Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.write` permission (Change expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expenses/start-a-receipt-upload"
+                    "href": "/api-reference/expenses/start-a-receipt-upload",
+                    "metadata": {
+                        "title": "Start a receipt upload",
+                        "sidebarTitle": "Start a receipt upload"
+                    }
                 },
                 "parameters": [
                     {
@@ -32685,7 +33325,11 @@
                 "summary": "Delete an expense's receipt",
                 "description": "Removes the receipt and keeps the expense. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.write` permission (Change expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expenses/delete-an-expenses-receipt"
+                    "href": "/api-reference/expenses/delete-an-expenses-receipt",
+                    "metadata": {
+                        "title": "Delete an expense's receipt",
+                        "sidebarTitle": "Delete an expense's receipt"
+                    }
                 },
                 "parameters": [
                     {
@@ -32748,7 +33392,11 @@
                 "summary": "Finish a receipt upload",
                 "description": "The last step of attaching a receipt: says the file has been sent. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.write` permission (Change expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expenses/finish-a-receipt-upload"
+                    "href": "/api-reference/expenses/finish-a-receipt-upload",
+                    "metadata": {
+                        "title": "Finish a receipt upload",
+                        "sidebarTitle": "Finish a receipt upload"
+                    }
                 },
                 "parameters": [
                     {
@@ -32811,7 +33459,11 @@
                 "summary": "List expense categories",
                 "description": "The categories the store files its expenses in, in its own order. A store holds up to 50. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.read` permission (Read expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expense-setup/list-expense-categories"
+                    "href": "/api-reference/expense-setup/list-expense-categories",
+                    "metadata": {
+                        "title": "List expense categories",
+                        "sidebarTitle": "List expense categories"
+                    }
                 },
                 "parameters": [
                     {
@@ -32918,7 +33570,11 @@
                 "summary": "Create an expense category",
                 "description": "Adds a category to file expenses in. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.write` permission (Change expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expense-setup/create-an-expense-category"
+                    "href": "/api-reference/expense-setup/create-an-expense-category",
+                    "metadata": {
+                        "title": "Create an expense category",
+                        "sidebarTitle": "Create an expense category"
+                    }
                 },
                 "parameters": [
                     {
@@ -33036,7 +33692,11 @@
                 "summary": "Update an expense category",
                 "description": "Renames a category or changes its icon. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.write` permission (Change expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expense-setup/update-an-expense-category"
+                    "href": "/api-reference/expense-setup/update-an-expense-category",
+                    "metadata": {
+                        "title": "Update an expense category",
+                        "sidebarTitle": "Update an expense category"
+                    }
                 },
                 "parameters": [
                     {
@@ -33159,7 +33819,11 @@
                 "summary": "Delete an expense category",
                 "description": "Removes the category. The expenses filed under it stay, in no category: `moved` says how many. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.write` permission (Change expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expense-setup/delete-an-expense-category"
+                    "href": "/api-reference/expense-setup/delete-an-expense-category",
+                    "metadata": {
+                        "title": "Delete an expense category",
+                        "sidebarTitle": "Delete an expense category"
+                    }
                 },
                 "parameters": [
                     {
@@ -33257,7 +33921,11 @@
                 "summary": "Sort expense categories",
                 "description": "Sets the order the categories are listed in. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.write` permission (Change expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expense-setup/sort-expense-categories"
+                    "href": "/api-reference/expense-setup/sort-expense-categories",
+                    "metadata": {
+                        "title": "Sort expense categories",
+                        "sidebarTitle": "Sort expense categories"
+                    }
                 },
                 "parameters": [
                     {
@@ -33360,7 +34028,11 @@
                 "summary": "List recurring expenses",
                 "description": "The expenses that come round every month or year, with the day each is next due. A store holds up to 100. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.read` permission (Read expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expense-setup/list-recurring-expenses"
+                    "href": "/api-reference/expense-setup/list-recurring-expenses",
+                    "metadata": {
+                        "title": "List recurring expenses",
+                        "sidebarTitle": "List recurring expenses"
+                    }
                 },
                 "parameters": [
                     {
@@ -33516,7 +34188,11 @@
                 "summary": "Create a recurring expense",
                 "description": "Adds an expense that comes round. When it falls due it waits to be answered: paid, or skipped this once. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.write` permission (Change expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expense-setup/create-a-recurring-expense"
+                    "href": "/api-reference/expense-setup/create-a-recurring-expense",
+                    "metadata": {
+                        "title": "Create a recurring expense",
+                        "sidebarTitle": "Create a recurring expense"
+                    }
                 },
                 "parameters": [
                     {
@@ -33711,7 +34387,11 @@
                 "summary": "Update a recurring expense",
                 "description": "Changes a recurring expense. A field left out stays as it is. The expenses it has already written are not changed. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.write` permission (Change expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expense-setup/update-a-recurring-expense"
+                    "href": "/api-reference/expense-setup/update-a-recurring-expense",
+                    "metadata": {
+                        "title": "Update a recurring expense",
+                        "sidebarTitle": "Update a recurring expense"
+                    }
                 },
                 "parameters": [
                     {
@@ -33913,7 +34593,11 @@
                 "summary": "Delete a recurring expense",
                 "description": "Stops it coming round. The expenses it has already written stay. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.write` permission (Change expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expense-setup/delete-a-recurring-expense"
+                    "href": "/api-reference/expense-setup/delete-a-recurring-expense",
+                    "metadata": {
+                        "title": "Delete a recurring expense",
+                        "sidebarTitle": "Delete a recurring expense"
+                    }
                 },
                 "parameters": [
                     {
@@ -34007,7 +34691,11 @@
                 "summary": "Mark a recurring expense as paid",
                 "description": "Answers one that is due: it was paid. The expense is filed under the day it fell due, and the recurring expense moves to its next date. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.write` permission (Change expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expense-setup/mark-a-recurring-expense-as-paid"
+                    "href": "/api-reference/expense-setup/mark-a-recurring-expense-as-paid",
+                    "metadata": {
+                        "title": "Mark a recurring expense as paid",
+                        "sidebarTitle": "Mark a recurring expense as paid"
+                    }
                 },
                 "parameters": [
                     {
@@ -34070,7 +34758,11 @@
                 "summary": "Skip a recurring expense",
                 "description": "Answers one that is due: not this time. Nothing is filed, and it moves to its next date. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.write` permission (Change expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expense-setup/skip-a-recurring-expense"
+                    "href": "/api-reference/expense-setup/skip-a-recurring-expense",
+                    "metadata": {
+                        "title": "Skip a recurring expense",
+                        "sidebarTitle": "Skip a recurring expense"
+                    }
                 },
                 "parameters": [
                     {
@@ -34223,7 +34915,11 @@
                 "summary": "List expense rules",
                 "description": "The store's rules for filing an expense that names no category: a phrase in the payee, and the category it means. A store holds up to 100. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.read` permission (Read expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expense-setup/list-expense-rules"
+                    "href": "/api-reference/expense-setup/list-expense-rules",
+                    "metadata": {
+                        "title": "List expense rules",
+                        "sidebarTitle": "List expense rules"
+                    }
                 },
                 "parameters": [
                     {
@@ -34335,7 +35031,11 @@
                 "summary": "Create an expense rule",
                 "description": "Adds a rule: an expense whose payee contains the phrase is filed in the category. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.write` permission (Change expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expense-setup/create-an-expense-rule"
+                    "href": "/api-reference/expense-setup/create-an-expense-rule",
+                    "metadata": {
+                        "title": "Create an expense rule",
+                        "sidebarTitle": "Create an expense rule"
+                    }
                 },
                 "parameters": [
                     {
@@ -34464,7 +35164,11 @@
                 "summary": "Delete an expense rule",
                 "description": "Removes the rule. Expenses it has already filed stay where they are. Refused with `business_details_required` until the store has its business details.\n\nNeeds the `expenses.write` permission (Change expenses).",
                 "x-mint": {
-                    "href": "/api-reference/expense-setup/delete-an-expense-rule"
+                    "href": "/api-reference/expense-setup/delete-an-expense-rule",
+                    "metadata": {
+                        "title": "Delete an expense rule",
+                        "sidebarTitle": "Delete an expense rule"
+                    }
                 },
                 "parameters": [
                     {
@@ -34558,7 +35262,11 @@
                 "summary": "List API requests",
                 "description": "The requests made with this store's API keys, newest first, without what was sent or answered. Requests are kept for 30 days. `meta.keptDays` says so.\n\nNeeds the `logs.read` permission (Read API requests).",
                 "x-mint": {
-                    "href": "/api-reference/api-requests/list-api-requests"
+                    "href": "/api-reference/api-requests/list-api-requests",
+                    "metadata": {
+                        "title": "List API requests",
+                        "sidebarTitle": "List API requests"
+                    }
                 },
                 "parameters": [
                     {
@@ -34802,7 +35510,11 @@
                 "summary": "Get an API request",
                 "description": "One request, with what was sent and what came back. Long bodies are cut short, and values that are secrets or goods (a password, license keys going into stock) are not kept. A request's ID is the `X-Request-Id` header of its answer.\n\nNeeds the `logs.read` permission (Read API requests).",
                 "x-mint": {
-                    "href": "/api-reference/api-requests/get-an-api-request"
+                    "href": "/api-reference/api-requests/get-an-api-request",
+                    "metadata": {
+                        "title": "Get an API request",
+                        "sidebarTitle": "Get an API request"
+                    }
                 },
                 "parameters": [
                     {
@@ -34953,7 +35665,11 @@
                 "summary": "List webhook endpoints",
                 "description": "The store's webhook endpoints, each with the events it is sent and how its last delivery went. `recentDeliveries` is how its last twenty stand, oldest first: `delivered`, `failed` or `pending`. `meta.events` is every event there is. A store holds up to 20 endpoints.\n\nNeeds the `webhooks.read` permission (Read webhooks).",
                 "x-mint": {
-                    "href": "/api-reference/webhook-endpoints/list-webhook-endpoints"
+                    "href": "/api-reference/webhook-endpoints/list-webhook-endpoints",
+                    "metadata": {
+                        "title": "List webhook endpoints",
+                        "sidebarTitle": "List webhook endpoints"
+                    }
                 },
                 "parameters": [
                     {
@@ -35156,7 +35872,11 @@
                 "summary": "Create a webhook endpoint",
                 "description": "Adds an address for the store's events to be sent to. `secret` in the answer is what every delivery to it is signed with: it is answered here and never again, so keep it. The store's owner is told by email that a webhook was added.\n\nNeeds the `webhooks.write` permission (Change webhooks).",
                 "x-mint": {
-                    "href": "/api-reference/webhook-endpoints/create-a-webhook-endpoint"
+                    "href": "/api-reference/webhook-endpoints/create-a-webhook-endpoint",
+                    "metadata": {
+                        "title": "Create a webhook endpoint",
+                        "sidebarTitle": "Create a webhook endpoint"
+                    }
                 },
                 "parameters": [
                     {
@@ -35323,7 +36043,11 @@
                 "summary": "Get a webhook endpoint",
                 "description": "One endpoint. Never its signing secret.\n\nNeeds the `webhooks.read` permission (Read webhooks).",
                 "x-mint": {
-                    "href": "/api-reference/webhook-endpoints/get-a-webhook-endpoint"
+                    "href": "/api-reference/webhook-endpoints/get-a-webhook-endpoint",
+                    "metadata": {
+                        "title": "Get a webhook endpoint",
+                        "sidebarTitle": "Get a webhook endpoint"
+                    }
                 },
                 "parameters": [
                     {
@@ -35451,7 +36175,11 @@
                 "summary": "Update a webhook endpoint",
                 "description": "Saves the endpoint whole: its address, its events and its note. `enabled` stays as it is when left out. Switching an endpoint on is also what starts one again that Shoply had paused for failing. Its signing secret stays the same.\n\nNeeds the `webhooks.write` permission (Change webhooks).",
                 "x-mint": {
-                    "href": "/api-reference/webhook-endpoints/update-a-webhook-endpoint"
+                    "href": "/api-reference/webhook-endpoints/update-a-webhook-endpoint",
+                    "metadata": {
+                        "title": "Update a webhook endpoint",
+                        "sidebarTitle": "Update a webhook endpoint"
+                    }
                 },
                 "parameters": [
                     {
@@ -35624,7 +36352,11 @@
                 "summary": "Delete a webhook endpoint",
                 "description": "Removes the endpoint, and with it the record of what was sent to it.\n\nNeeds the `webhooks.write` permission (Change webhooks).",
                 "x-mint": {
-                    "href": "/api-reference/webhook-endpoints/delete-a-webhook-endpoint"
+                    "href": "/api-reference/webhook-endpoints/delete-a-webhook-endpoint",
+                    "metadata": {
+                        "title": "Delete a webhook endpoint",
+                        "sidebarTitle": "Delete a webhook endpoint"
+                    }
                 },
                 "parameters": [
                     {
@@ -35718,7 +36450,11 @@
                 "summary": "Replace a signing secret",
                 "description": "Gives the endpoint a new signing secret, answered here and never again. The old one signs nothing from this moment, so give your server the new one before its next delivery is checked.\n\nNeeds the `webhooks.write` permission (Change webhooks).",
                 "x-mint": {
-                    "href": "/api-reference/webhook-endpoints/replace-a-signing-secret"
+                    "href": "/api-reference/webhook-endpoints/replace-a-signing-secret",
+                    "metadata": {
+                        "title": "Replace a signing secret",
+                        "sidebarTitle": "Replace a signing secret"
+                    }
                 },
                 "parameters": [
                     {
@@ -35781,7 +36517,11 @@
                 "summary": "Send a test delivery",
                 "description": "Sends a `webhook.test` event to the endpoint now, whatever it subscribes to, and answers what your server said. It is signed like any other and is in the delivery log. A store may ask for 30 test and resent deliveries in ten minutes.\n\nNeeds the `webhooks.write` permission (Change webhooks).",
                 "x-mint": {
-                    "href": "/api-reference/webhook-endpoints/send-a-test-delivery"
+                    "href": "/api-reference/webhook-endpoints/send-a-test-delivery",
+                    "metadata": {
+                        "title": "Send a test delivery",
+                        "sidebarTitle": "Send a test delivery"
+                    }
                 },
                 "parameters": [
                     {
@@ -35844,7 +36584,11 @@
                 "summary": "List webhook deliveries",
                 "description": "What was sent to the store's endpoints, newest first, without the bodies. A delivery is one event on its way to one endpoint: `pending` while it is being tried, then `delivered` or `failed`. Deliveries are kept for 30 days.\n\nNeeds the `webhooks.read` permission (Read webhooks).",
                 "x-mint": {
-                    "href": "/api-reference/webhook-deliveries/list-webhook-deliveries"
+                    "href": "/api-reference/webhook-deliveries/list-webhook-deliveries",
+                    "metadata": {
+                        "title": "List webhook deliveries",
+                        "sidebarTitle": "List webhook deliveries"
+                    }
                 },
                 "parameters": [
                     {
@@ -36000,7 +36744,11 @@
                 "summary": "Get a webhook delivery",
                 "description": "One delivery, with the body that was sent (`payload`) and every try at sending it (`tries`): the status your server answered with, the start of what it answered, or why it could not be reached.\n\nNeeds the `webhooks.read` permission (Read webhooks).",
                 "x-mint": {
-                    "href": "/api-reference/webhook-deliveries/get-a-webhook-delivery"
+                    "href": "/api-reference/webhook-deliveries/get-a-webhook-delivery",
+                    "metadata": {
+                        "title": "Get a webhook delivery",
+                        "sidebarTitle": "Get a webhook delivery"
+                    }
                 },
                 "parameters": [
                     {
@@ -36057,7 +36805,11 @@
                 "summary": "Resend a webhook delivery",
                 "description": "Sends the same body again, to the endpoint's address and under its secret as they are now, and answers the delivery with the new try in it. The delivery's ID is the same, so a server that has already taken it can tell.\n\nNeeds the `webhooks.write` permission (Change webhooks).",
                 "x-mint": {
-                    "href": "/api-reference/webhook-deliveries/resend-a-webhook-delivery"
+                    "href": "/api-reference/webhook-deliveries/resend-a-webhook-delivery",
+                    "metadata": {
+                        "title": "Resend a webhook delivery",
+                        "sidebarTitle": "Resend a webhook delivery"
+                    }
                 },
                 "parameters": [
                     {
