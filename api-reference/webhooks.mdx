@@ -221,6 +221,9 @@ When 20 deliveries in a row have been given up on, the endpoint is **paused**: n
   <Accordion title="A webhook tells a server, not a page">
     The Checkout Kit and the embed tell the page they are on that an order was paid, so that the page can say thank you. That is not proof of anything. Hand over goods of your own when your server receives `order.paid`.
   </Accordion>
+  <Accordion title="Trust the signature, not the address">
+    Deliveries do not come from one fixed IP address, and the addresses they do come from are shared with other senders. Do not allowlist an address in place of checking the signature: the signature is what says a delivery is Shoply's.
+  </Accordion>
   <Accordion title="Check up now and then">
     Servers go down for longer than a day. Read [orders](/api-reference/orders/list-orders) back now and then to catch what was missed.
   </Accordion>

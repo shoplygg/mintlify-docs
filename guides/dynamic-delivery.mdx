@@ -71,6 +71,8 @@ X-Shoply-Signature: v1=HMAC-SHA256(secret, "<timestamp>.<raw body>")
 
 Check it the way a [webhook's signature](/api-reference/webhooks#checking-the-signature) is checked: it is the same scheme, under your store's delivery signing secret. Use the raw body, compare in constant time, and refuse a timestamp more than a few minutes old.
 
+Requests do not come from one fixed IP address, so the signature is the only thing that says a request is Shoply's. Do not allowlist an address in its place.
+
 A second header, `X-Signature`, carries the HMAC-SHA256 of the body alone, in uppercase hex. It is there for handlers written before the timestamp existed. Check `X-Shoply-Signature` in anything new.
 
 ## When your server fails
