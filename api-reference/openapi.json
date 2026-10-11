@@ -34951,7 +34951,7 @@
                     "Webhook endpoints"
                 ],
                 "summary": "List webhook endpoints",
-                "description": "The store's webhook endpoints, each with the events it is sent and how its last delivery went. `meta.events` is every event there is. A store holds up to 20 endpoints.\n\nNeeds the `webhooks.read` permission (Read webhooks).",
+                "description": "The store's webhook endpoints, each with the events it is sent and how its last delivery went. `recentDeliveries` is how its last twenty stand, oldest first: `delivered`, `failed` or `pending`. `meta.events` is every event there is. A store holds up to 20 endpoints.\n\nNeeds the `webhooks.read` permission (Read webhooks).",
                 "x-mint": {
                     "href": "/api-reference/webhook-endpoints/list-webhook-endpoints"
                 },
@@ -35017,6 +35017,12 @@
                                                     },
                                                     "lastStatus": {
                                                         "nullable": true
+                                                    },
+                                                    "recentDeliveries": {
+                                                        "type": [
+                                                            "array",
+                                                            "object"
+                                                        ]
                                                     },
                                                     "dateCreated": {
                                                         "type": "string"
@@ -35089,6 +35095,7 @@
                                             "failures": 0,
                                             "lastDeliveryAt": null,
                                             "lastStatus": null,
+                                            "recentDeliveries": [],
                                             "dateCreated": "2026-10-11T08:42:42Z",
                                             "updatedAt": "2026-10-11T08:42:42.744Z"
                                         }

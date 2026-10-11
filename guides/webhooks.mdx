@@ -33,10 +33,12 @@ A store holds up to 20 endpoints. You are asked to confirm it is you before one 
 
 ## The delivery log
 
-Every delivery is listed under the endpoint: the event, when, and whether your server took it. Open one to see the body that was sent and every try, with the status your server answered and the start of what it said, or why it could not be reached.
+An endpoint's card shows how its last twenty deliveries went as a strip: green for taken, red for given up on, amber for one still being tried. One going wrong shows there before you open anything.
 
-- **Send a test** posts a test event to the endpoint now and shows you the answer.
-- **Resend** sends a delivery again.
+Every delivery is listed under **Developers**, then **Activity**, on **Webhook deliveries**: the event, where it was sent, and whether your server took it. Open one to see the body that was sent and every try, with the status your server answered and the start of what it said, or why it could not be reached.
+
+- **Send a test**, on an endpoint's card, posts a test event to it now and tells you the answer.
+- **Resend**, on a delivery in Activity, sends that delivery again.
 
 Deliveries are kept for 30 days.
 

@@ -10,7 +10,7 @@ A secret API key lets your own server do what the dashboard does: read orders, a
 Press **Add API key** and give it:
 
 - **A name**, after what will use it: "Order sync", "Discord bot".
-- **Permissions**: what it may do. Tick only what that job needs. Every permission is listed on the [permissions page](/api-reference/permissions).
+- **Permissions**: what it may do. Start from **Read only**, **Orders and stock** or **Everything**, or pick your own, then open a group to tick or untick one. Give it only what that job needs. Every permission is listed on the [permissions page](/api-reference/permissions).
 - **Allowed addresses**, if you want: the IP addresses or ranges it may be used from. A key that leaks is then no use to whoever found it.
 - **Allowed domains**, if you want: the same thing by name. A domain such as `server.example.com` stands for the address it points at, so the key goes on working when your server moves and its DNS record follows. It has to point straight at the server: a domain behind Cloudflare points at Cloudflare, and is refused when you type it.
 - **A last day**, if you want: a date it stops working by itself.
@@ -25,7 +25,7 @@ You are asked to confirm it is you before a key is made, widened or replaced, an
 
 ## What a key did
 
-**API requests**, under **Developers**, lists every request made with your store's keys for the last 30 days: when, which key, what was asked, what the answer was, and how long it took. Open one to see what was sent and what came back.
+**Activity**, under **Developers**, lists every request made with your store's keys for the last 30 days: when, which key, what was asked, what the answer was, and how long it took. Open one to see what was sent and what came back.
 
 A request that was refused is listed too, with why. That includes a key being tried from an address it does not accept, which is how you find out that one has got loose.
 
