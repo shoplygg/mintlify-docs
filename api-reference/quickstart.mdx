@@ -1,13 +1,13 @@
 ---
 title: "Quick start"
-description: "Make a key, find your store, and read your products back"
+description: "From a new key to your own products, read back by your own server"
 ---
 
 <Steps>
   <Step title="Make a key">
     In the dashboard, open **Developers**, then **API keys**, and press **Add API key**. Name it after what will use it, tick the permissions that thing needs (for this page, **Read products**), and save.
 
-    The key starts `shoply_sk_` and is shown once. Keep it in an environment variable or a secrets manager, never in a page, an app or a repository.
+    The key starts `shoply_sk_` and is shown once. It belongs where your server keeps its secrets, and nowhere a browser or a repository can read it.
   </Step>
 
   <Step title="Ask the key what it is">

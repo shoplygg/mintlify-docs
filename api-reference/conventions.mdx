@@ -7,7 +7,7 @@ These hold on every route.
 
 ## The envelope
 
-Every answer has the same four fields, whether it worked or not.
+An answer is always four fields. A refusal has the same four as a success.
 
 ```json
 {
@@ -20,7 +20,7 @@ Every answer has the same four fields, whether it worked or not.
 
 | Field | What it is |
 | - | - |
-| `success` | Whether the request did what was asked. Branch on this. |
+| `success` | `true` when the change was made or the thing was found. Branch on this. |
 | `message` | Words for a person. `null` when it worked. They can be reworded. |
 | `code` | Why it was refused, as a word that does not change. `null` when it worked. |
 | `data` | The thing asked for. `null` on a refusal. |

@@ -1,5 +1,6 @@
 ---
-title: "Products and variants"
+title: "Products, variants and stock"
+sidebarTitle: "Products"
 description: "What a product is made of, who can see it, and how its stock is counted"
 ---
 
@@ -14,47 +15,23 @@ A **product** is what a buyer sees: a name, a description, pictures. A **variant
 
 ## A product
 
-<ResponseField name="Name and description">
-  The description is plain text with a few marks: a line that starts with `#` is a heading, one that starts with `-` is a point of a list, a blank line ends a paragraph, and `**bold**` works inside a line.
-</ResponseField>
-
-<ResponseField name="Visibility">
-  **Public** is listed on the store and can be bought. **Unlisted** is not listed and can be bought by anybody with its link. **Private** cannot be bought at all.
-</ResponseField>
-
-<ResponseField name="Pictures">
-  The first is the one listings show. A picture keeps its own shape: nothing is cropped to fit.
-</ResponseField>
-
-<ResponseField name="Categories">
-  A product can be in several. A category has a name, a description, a picture and a page of its own.
-</ResponseField>
-
-<ResponseField name="Badges and features">
-  Up to three short labels on the product ("New", or a status such as "Updated"), and a list of what it does, on its own or in named groups.
-</ResponseField>
-
-<ResponseField name="In search results">
-  Its own title and description for search engines. Left empty, its name and description are used.
-</ResponseField>
+| | |
+| - | - |
+| **Name and description** | The description is plain text with a few marks: a line that starts with `#` is a heading, one that starts with `-` is a point of a list, a blank line ends a paragraph, and `**bold**` works inside a line. |
+| **Visibility** | **Public** is listed on the store and can be bought. **Unlisted** is not listed and can be bought by anybody with its link. **Private** cannot be bought at all. |
+| **Pictures** | The first is the one listings show. A picture keeps its own shape: nothing is cropped to fit. |
+| **Categories** | A product can be in several. A category has a name, a description, a picture and a page of its own. |
+| **Badges and features** | Up to three short labels on the product ("New", or a status such as "Updated"), and a list of what it does, on its own or in named groups. |
+| **In search results** | Its own title and description for search engines. Left empty, its name and description are used. |
 
 ## A variant
 
-<ResponseField name="Name and price">
-  The price is in the store's currency. With adaptive pricing on, a buyer is shown and charged in their own.
-</ResponseField>
-
-<ResponseField name="How many one order may hold">
-  A fewest and a most, from 1 to 100.
-</ResponseField>
-
-<ResponseField name="Delivery">
-  What it sends when it is paid for: license keys, files, instructions, or the answer of your own server. A variant can do several at once. See [how delivery works](/guides/delivery).
-</ResponseField>
-
-<ResponseField name="Payment methods">
-  A variant, or a whole product, can refuse some payment methods, and a product can add a fee for one.
-</ResponseField>
+| | |
+| - | - |
+| **Name and price** | The price is in the store's currency. With adaptive pricing on, a buyer is shown and charged in their own. |
+| **How many one order may hold** | A fewest and a most, from 1 to 100. |
+| **Delivery** | What it sends when it is paid for: license keys, files, instructions, or the answer of your own server. A variant can do several at once. See [how delivery works](/guides/delivery). |
+| **Payment methods** | A variant, or a whole product, can refuse some payment methods, and a product can add a fee for one. |
 
 ## Stock
 

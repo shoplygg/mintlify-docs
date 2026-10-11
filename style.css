@@ -2,59 +2,121 @@
  * Shoply's docs in the dashboard's own dress.
  *
  * The page's ground and accent are docs.json's (background, colors). This file is the
- * rest of what makes the dashboard look as it does: its raised surface for anything
- * that is a card, its hairline, its corners, and its filled button, which is ink and
- * never the accent. The values are the dashboard's own tokens
- * (dashboard-next/src/app/globals.css in the main repo), light and dark.
+ * rest: the dashboard's tokens (dashboard-next/src/app/globals.css in the main repo),
+ * light and dark, put on each part Mintlify draws.
  *
- * Colours and corners only. Nothing here moves a thing or changes its size: the layout
- * is Mintlify's, and a rule that fought it would break at their next release.
+ * What it is held to, each from the user looking at the site the day it went up
+ * (2026-10-11, beside another platform's docs: "way cleaner/smoother", "less colors",
+ * "smaller stuff"), and each measured before it was changed:
+ *
+ *   - The dashboard's frame and panel. The bar across the top and the sidebar stand on
+ *     the frame, the darker ground the dashboard's own top bar and rail stand on, and
+ *     what is read is one rounded panel on it, as a page of the dashboard is. Two
+ *     grounds, and no line between the bar and the sidebar. (For an hour it was one flat
+ *     ground with hairlines, which is how the other platform's docs are: "now docs look
+ *     good but its basically 1:1 ... change navbar to make it like ours".)
+ *   - A tab is a chip, as a switch in the dashboard is, where Mintlify underlines it.
+ *   - The accent is for a link and for the mark beside the page you are on, as in the
+ *     dashboard's rail. A group's name, the row you are on, the contents list and a
+ *     field's name were all in it; they are ink and grey.
+ *   - Smaller where it is chrome: a group's name in the sidebar, the title, the line
+ *     under it, the headings. What is read (a paragraph, a table) is the size it was.
+ *
+ * Colours, corners and type only. Nothing here moves a part or changes the layout,
+ * which is Mintlify's: a rule that fought it would break at their next release.
  */
 
 :root {
   --shoply-ground: #f5f7f8;
   --shoply-frame: #e9ecef;
+  --shoply-panel: #fbfcfd;
+  --shoply-panel-line: #e1e6ea;
+  --shoply-field: #ffffff;
+  --shoply-row: #ffffff;
+  --shoply-row-hover: rgba(255, 255, 255, 0.55);
+  --shoply-row-edge: inset 0 0 0 1px rgba(22, 25, 29, 0.06), 0 1px 2px rgba(22, 25, 29, 0.06);
   --shoply-card: #ffffff;
   --shoply-line: #e8edf0;
+  --shoply-chip: #e8edf0;
+  --shoply-hover: #eff3f5;
   --shoply-ink: #16191d;
   --shoply-soft: #565d67;
+  --shoply-faint: #767f89;
   --shoply-on-ink: #ffffff;
+  --shoply-accent: #6a3ce2;
+  --shoply-accent-soft: #eceafd;
 }
 
 .dark {
   --shoply-ground: #131418;
   --shoply-frame: #0e0f12;
+  --shoply-panel: #131418;
+  --shoply-panel-line: #232830;
+  --shoply-field: rgba(255, 255, 255, 0.065);
+  --shoply-row: #2a2f37;
+  --shoply-row-hover: #1c1e23;
+  --shoply-row-edge: none;
   --shoply-card: #1b1e23;
   --shoply-line: #2a2f37;
+  --shoply-chip: #2a2f37;
+  --shoply-hover: #22262d;
   --shoply-ink: #f7f8fa;
   --shoply-soft: #a8aeb9;
+  --shoply-faint: #9096a1;
   --shoply-on-ink: #16191d;
+  --shoply-accent: #a685ff;
+  --shoply-accent-soft: rgba(166, 133, 255, 0.14);
 }
 
-/* A card is the dashboard's card: its surface, its hairline, its corner. */
-.card,
-.code-block,
-.accordion,
-#page-context-menu-button,
-#search-bar-entry,
-.chat-assistant-floating-input {
-  background-color: var(--shoply-card) !important;
-  border-color: var(--shoply-line) !important;
+/* ── The frame, and the panel on it ──
+ *
+ * On a computer. A phone has no sidebar and little room for a margin, so there the page
+ * is one ground, as the dashboard's is on a phone.
+ */
+
+@media (min-width: 1024px) {
+  #background-color,
+  #navbar > div {
+    background-color: var(--shoply-frame) !important;
+    border-color: transparent !important;
+  }
+
+  #sidebar-content,
+  #sidebar {
+    border-color: transparent !important;
+  }
+
+  /* What is read, and the foot under it: the one box beside the sidebar. */
+  #body-content > div.w-full {
+    margin-bottom: 20px;
+    border: 1px solid var(--shoply-panel-line);
+    border-radius: 14px;
+    background-color: var(--shoply-panel);
+  }
+
+  /* The front page has no sidebar: its panel keeps clear of the window's edges itself. */
+  #navbar.is-custom ~ #body-content > div.w-full {
+    width: calc(100% - 40px) !important;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
 }
 
-.card,
-.accordion {
-  border-radius: 12px !important;
-}
+/* ── The bar across the top ── */
 
-/* The bar across the top and the tabs under it stand on the frame, as the dashboard's do. */
 #navbar,
-#navbar > div {
-  background-color: var(--shoply-frame) !important;
-  border-color: var(--shoply-line) !important;
+#navbar-transition {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
 }
 
-/* A filled button is ink on the ground's colour. The accent is for links and what is picked. */
+#search-bar-entry {
+  border-radius: 8px !important;
+  background-color: var(--shoply-field) !important;
+  box-shadow: none !important;
+}
+
+/* A filled button is ink on the ground's colour, as the dashboard's is. */
 #topbar-cta-button a,
 #topbar-cta-button a > span:first-child {
   background-color: var(--shoply-ink) !important;
@@ -66,13 +128,640 @@
   color: var(--shoply-on-ink) !important;
 }
 
-/* Words: the dashboard's ink for what is read, its grey for what is beside it. */
-#page-title,
-.prose :where(h1, h2, h3, h4, strong):not(:where(.card *)) {
+/* Guides, API reference, SDK: chips, the one you are in filled. No line under it. */
+.nav-tabs {
+  align-items: center;
+  gap: 4px !important;
+}
+
+.nav-tabs-item {
+  height: 30px !important;
+  padding: 0 12px;
+  border-radius: 8px;
+  color: var(--shoply-soft) !important;
+  font-weight: 500 !important;
+  text-shadow: none !important;
+}
+
+.nav-tabs-item > div {
+  display: none !important;
+}
+
+.nav-tabs-item:hover {
   color: var(--shoply-ink) !important;
 }
 
-#sidebar,
-#table-of-contents {
+.nav-tabs-item[data-active="true"],
+.nav-tabs-item[aria-current],
+.nav-tabs-item:has(> div[class*="bg-primary"]) {
+  background-color: var(--shoply-row);
+  box-shadow: var(--shoply-row-edge);
+  color: var(--shoply-ink) !important;
+}
+
+/* ── The sidebar ── */
+
+.sidebar-group-header {
+  margin-bottom: 6px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: var(--shoply-faint) !important;
+}
+
+#navigation-items li > a {
+  border-radius: 8px !important;
+  color: var(--shoply-soft);
+  text-shadow: none !important;
+}
+
+#navigation-items li > a:hover {
+  background-color: var(--shoply-row-hover) !important;
+  color: var(--shoply-ink) !important;
+}
+
+/* The page you are on: the dashboard rail's row, grey with a short mark in the accent. */
+#navigation-items li[data-active="true"] > a {
+  background-color: var(--shoply-row) !important;
+  box-shadow: var(--shoply-row-edge);
+  color: var(--shoply-ink) !important;
+  font-weight: 500;
+}
+
+#navigation-items li[data-active="true"]::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 5px;
+  width: 3px;
+  border-radius: 3px;
+  background-color: var(--shoply-accent);
+}
+
+/* Status, Telegram and Discord: a plain mark, where Mintlify boxes each one. */
+.nav-anchor {
+  margin-bottom: 10px !important;
+  color: var(--shoply-soft) !important;
+}
+
+.nav-anchor:hover {
+  color: var(--shoply-ink) !important;
+}
+
+.nav-anchor > div:first-child {
+  margin-right: 10px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.nav-anchor > div:first-child svg {
+  background-color: var(--shoply-faint) !important;
+}
+
+/* ── A page's head ── */
+
+.eyebrow {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--shoply-faint) !important;
+}
+
+#page-title {
+  font-size: 30px !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.015em !important;
+  color: var(--shoply-ink) !important;
+}
+
+#header > div:last-child,
+#header .prose {
+  font-size: 16px !important;
+  line-height: 1.55 !important;
+  color: var(--shoply-soft) !important;
+}
+
+#page-context-menu-button {
+  background-color: var(--shoply-card) !important;
   border-color: var(--shoply-line) !important;
+}
+
+/* ── What is read ── */
+
+.prose :where(h2):not(:where(.card *)) {
+  margin-top: 2.25em;
+  font-size: 20px !important;
+  line-height: 1.35 !important;
+  letter-spacing: -0.01em;
+  color: var(--shoply-ink) !important;
+}
+
+.prose :where(h3):not(:where(.card *)) {
+  font-size: 16px !important;
+  color: var(--shoply-ink) !important;
+}
+
+.prose :where(h4, strong):not(:where(.card *)) {
+  color: var(--shoply-ink) !important;
+}
+
+/* A table is the dashboard's: in a card, its heads small and grey, a hairline a row. */
+#content table {
+  border: 1px solid var(--shoply-line);
+  border-radius: 10px;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  background-color: var(--shoply-card);
+  font-size: 14px;
+}
+
+#content table th {
+  padding: 10px 14px !important;
+  border-bottom: 1px solid var(--shoply-line) !important;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--shoply-faint);
+}
+
+#content table td {
+  padding: 10px 14px !important;
+  border-bottom: 1px solid var(--shoply-line) !important;
+}
+
+#content table tr:last-child td {
+  border-bottom: 0 !important;
+}
+
+#content table td {
+  vertical-align: top;
+}
+
+/* A table with nothing in its head has no head: a list of settings, each with what it does. */
+#content table thead:not(:has(th:not(:empty))) {
+  display: none;
+}
+
+/* A card is the dashboard's card: its surface, its hairline, its corner. */
+.card,
+.code-block,
+.accordion {
+  background-color: var(--shoply-card) !important;
+  border-color: var(--shoply-line) !important;
+  border-radius: 10px !important;
+}
+
+.callout {
+  border-radius: 10px !important;
+}
+
+/* A field's name is ink. In the accent every one of them read as a link. */
+.field .param-head [class*="text-primary"],
+.field .param-head .font-semibold {
+  color: var(--shoply-ink) !important;
+}
+
+.field {
+  border-color: var(--shoply-line) !important;
+}
+
+/* ── The contents list ── */
+
+#table-of-contents,
+#sidebar {
+  border-color: var(--shoply-line) !important;
+}
+
+#table-of-contents .toc-item a {
+  color: var(--shoply-faint) !important;
+  border-color: transparent !important;
+  font-weight: 400 !important;
+}
+
+#table-of-contents .toc-item a:hover,
+#table-of-contents .toc-item[data-active-deepest="true"] > a {
+  color: var(--shoply-ink) !important;
+}
+
+/* ── The foot ── */
+
+/* The question box that floats over the foot of every page. The same assistant is one
+   press away in the bar across the top, where it covers nothing. */
+[data-assistant-bar] {
+  display: none !important;
+}
+
+#footer {
+  border-color: var(--shoply-line) !important;
+}
+
+#footer > div {
+  padding-top: 48px !important;
+  padding-bottom: 48px !important;
+}
+
+#footer a {
+  color: var(--shoply-soft);
+}
+
+#footer a:hover {
+  color: var(--shoply-ink);
+}
+
+/* The page before and the page after: what each is, over its name, and clear of the foot
+   (they stood on the foot's own line, with "Previous" under the name it was about). */
+#pagination {
+  margin: 44px 0 56px !important;
+}
+
+#pagination a {
+  padding: 11px 16px !important;
+  border-color: var(--shoply-line) !important;
+  border-radius: 10px !important;
+  background-color: var(--shoply-card);
+}
+
+#pagination a:hover {
+  background-color: var(--shoply-hover);
+}
+
+#pagination a > div {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 1px;
+}
+
+#pagination a > div > * {
+  margin: 0 !important;
+}
+
+#pagination [data-component-part="pagination-title"] {
+  font-size: 14px;
+  color: var(--shoply-ink) !important;
+}
+
+#pagination a > div > div:last-child {
+  font-size: 12px !important;
+  color: var(--shoply-faint) !important;
+}
+
+/* ── The front page ──
+ *
+ * index.mdx is a page of its own making, in Mintlify's "custom" mode: the user's pick of
+ * six drawn for them (2026-10-11, "B2 ... use the same code thing u have in B1"). It is
+ * the dashboard's Developers introduction as a front page: a card that says what the
+ * docs are, a stage beside it with Shoply's globe and an answer of the API standing on
+ * it, and the pages as columns under both. Its words and icons are written by a script
+ * with the main repo's working papers (docs_home_build.mjs); these are its rules.
+ */
+
+.sh-home {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 44px 24px 88px;
+  color: var(--shoply-ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.sh-home *,
+.sh-home *::before,
+.sh-home *::after {
+  box-sizing: border-box;
+}
+
+.sh-home a {
+  border: 0;
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+}
+
+.sh-home h1,
+.sh-home h2,
+.sh-home p {
+  margin: 0;
+}
+
+.sh-card {
+  position: relative;
+  border: 1px solid var(--shoply-line);
+  border-radius: 12px;
+  background: var(--shoply-card);
+}
+
+.sh-h1 {
+  font-size: 27px;
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--shoply-ink);
+  text-wrap: balance;
+}
+
+.sh-lead {
+  max-width: 440px;
+  margin-top: 12px !important;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--shoply-soft);
+  text-wrap: pretty;
+}
+
+.sh-h2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--shoply-ink);
+}
+
+/* A tile: an icon on the accent's soft ground, or on grey where it only heads a list. */
+.sh-tile {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--shoply-accent-soft);
+  color: var(--shoply-accent);
+}
+
+.sh-tile.sh-plain {
+  background: var(--shoply-chip);
+  color: var(--shoply-ink);
+}
+
+.sh-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.sh-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500 !important;
+  white-space: nowrap;
+}
+
+.sh-btn.sh-fill {
+  background: var(--shoply-ink);
+  color: var(--shoply-on-ink) !important;
+}
+
+.sh-btn.sh-outline {
+  border: 1px solid var(--shoply-line) !important;
+  background: var(--shoply-card);
+  color: var(--shoply-ink) !important;
+}
+
+.sh-btn.sh-outline:hover {
+  background: var(--shoply-hover);
+}
+
+.sh-split {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: 20px;
+}
+
+.sh-intro {
+  padding: 36px;
+}
+
+.sh-ways {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 30px;
+  padding-top: 18px;
+  border-top: 1px solid var(--shoply-line);
+}
+
+.sh-way {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 -10px;
+  padding: 11px 10px;
+  border-radius: 10px;
+}
+
+.sh-way:hover {
+  background: var(--shoply-hover);
+}
+
+.sh-words {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.sh-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--shoply-ink);
+}
+
+.sh-line {
+  margin-top: 1px;
+  font-size: 13px;
+  color: var(--shoply-soft);
+}
+
+.sh-go {
+  margin-left: auto;
+  color: var(--shoply-faint);
+}
+
+/* The stage. Its globe is drawn as the dashboard's stage and Shoply's error pages draw
+   it: a box that fades out from the corner, and in it a colour cut to the globe's shape
+   by a mask. The picture is the error pages' own cut (images/globe-corner.webp). */
+.sh-stage {
+  min-height: 430px;
+  overflow: hidden;
+}
+
+.sh-globe {
+  --globe: 760px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: calc(var(--globe) * 0.7209);
+  height: calc(var(--globe) * 0.5814);
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse 100% 100% at 100% 100%, #000 0%, rgba(0, 0, 0, 0.7) 45%, transparent 80%);
+  mask-image: radial-gradient(ellipse 100% 100% at 100% 100%, #000 0%, rgba(0, 0, 0, 0.7) 45%, transparent 80%);
+}
+
+.sh-globe > div {
+  position: absolute;
+  inset: 0;
+  background-color: color-mix(in srgb, var(--shoply-accent) 70%, var(--shoply-ink));
+  -webkit-mask: url(/images/globe-corner.webp) right bottom / calc(var(--globe) * 0.6802) auto no-repeat;
+  mask: url(/images/globe-corner.webp) right bottom / calc(var(--globe) * 0.6802) auto no-repeat;
+}
+
+/* What stands on it: one answer of the API. Ink and grey, with the verb and the status
+   its only colour. It runs off the stage's right edge, as the dashboard's pictures do. */
+.sh-sample {
+  position: absolute;
+  top: 36px;
+  right: -40px;
+  left: 36px;
+  border: 1px solid var(--shoply-line);
+  border-radius: 12px;
+  background: var(--shoply-ground);
+  box-shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.45);
+}
+
+.sh-sample-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--shoply-line);
+  font-size: 13px;
+}
+
+.sh-verb {
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: var(--shoply-accent-soft);
+  color: var(--shoply-accent);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.sh-path {
+  font-weight: 500;
+  color: var(--shoply-ink);
+}
+
+.sh-status {
+  margin-right: 44px;
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1f9d68;
+}
+
+.sh-sample-body {
+  overflow: hidden;
+  padding: 14px 16px 18px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--shoply-faint);
+  white-space: nowrap;
+}
+
+.sh-in1 {
+  padding-left: 18px;
+}
+
+.sh-in2 {
+  padding-left: 36px;
+}
+
+.sh-in3 {
+  padding-left: 54px;
+}
+
+.sh-k {
+  color: var(--shoply-soft);
+}
+
+.sh-v {
+  color: var(--shoply-ink);
+}
+
+/* The pages. */
+.sh-cols {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 40px;
+  padding: 0 8px;
+}
+
+.sh-col {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.sh-col .sh-tile {
+  margin-bottom: 8px;
+}
+
+.sh-col .sh-h2 {
+  margin-bottom: 4px;
+}
+
+.sh-col a {
+  color: var(--shoply-soft) !important;
+}
+
+.sh-col a:hover {
+  color: var(--shoply-ink) !important;
+}
+
+.sh-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  margin-top: 36px;
+  padding: 0 8px;
+  font-size: 13px;
+  color: var(--shoply-faint);
+}
+
+.sh-foot a {
+  color: var(--shoply-soft) !important;
+}
+
+.sh-foot a:hover {
+  color: var(--shoply-ink) !important;
+}
+
+@media (max-width: 860px) {
+  .sh-home {
+    padding: 28px 16px 64px;
+  }
+
+  .sh-h1 {
+    font-size: 24px;
+  }
+
+  .sh-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sh-intro {
+    padding: 24px;
+  }
+
+  .sh-stage {
+    min-height: 380px;
+  }
+
+  .sh-sample {
+    top: 24px;
+    left: 24px;
+  }
+
+  .sh-cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }

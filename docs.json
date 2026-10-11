@@ -1,6 +1,6 @@
 {
     "$schema": "https://mintlify.com/docs.json",
-    "theme": "mint",
+    "theme": "aspen",
     "name": "Shoply",
     "description": "How to sell on Shoply, and how to build on it.",
     "colors": {
@@ -45,7 +45,7 @@
                 "tab": "Guides",
                 "groups": [
                     {
-                        "group": "Get started",
+                        "group": "Start",
                         "pages": [
                             "index",
                             "guides/quickstart"
@@ -497,7 +497,7 @@
                 "tab": "SDK",
                 "groups": [
                     {
-                        "group": "Storefront SDK",
+                        "group": "shoply.js",
                         "pages": [
                             "sdk/introduction",
                             "sdk/reference"
@@ -523,6 +523,10 @@
         ]
     },
     "footer": {
+        "socials": {
+            "discord": "https://discord.gg/shoply",
+            "telegram": "https://t.me/shoplygg"
+        },
         "links": [
             {
                 "header": "Shoply",
@@ -536,11 +540,41 @@
                         "href": "https://status.shoply.gg"
                     }
                 ]
+            },
+            {
+                "header": "Docs",
+                "items": [
+                    {
+                        "label": "Guides",
+                        "href": "/guides/quickstart"
+                    },
+                    {
+                        "label": "API reference",
+                        "href": "/api-reference/introduction"
+                    },
+                    {
+                        "label": "SDK",
+                        "href": "/sdk/introduction"
+                    }
+                ]
+            },
+            {
+                "header": "Legal",
+                "items": [
+                    {
+                        "label": "Terms",
+                        "href": "https://shoply.gg/terms"
+                    },
+                    {
+                        "label": "Privacy",
+                        "href": "https://shoply.gg/privacy"
+                    },
+                    {
+                        "label": "Cookies",
+                        "href": "https://shoply.gg/cookies"
+                    }
+                ]
             }
-        ],
-        "socials": {
-            "telegram": "https://t.me/shoplygg",
-            "discord": "https://discord.gg/shoply"
-        }
+        ]
     }
 }

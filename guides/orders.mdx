@@ -19,31 +19,31 @@ Money that arrives late for a cancelled order still completes it.
 
 ## What you can do to an order
 
-<ResponseField name="Mark as paid">
-  On a pending or cancelled order: completes it as a payment would, for money that reached you some other way. Refused if any line cannot be delivered in full.
-</ResponseField>
+### Mark as paid
 
-<ResponseField name="Refund">
-  On a completed order, all of it, one of three ways:
+On a pending or cancelled order: completes it as a payment would, for money that reached you some other way. Refused if any line cannot be delivered in full.
 
-  - **Back to what paid**, through the payment provider. Offered where the provider can send money back. Crypto never can.
-  - **As store credit**, onto the buyer's balance at your store, for as much of what was paid as you choose.
-  - **Recorded only**, when you returned the money yourself.
+### Refund
 
-  An order is marked refunded only once the provider has said the money is on its way, or the buyer has been credited.
-</ResponseField>
+On a completed order, all of it, one of three ways:
 
-<ResponseField name="Re-deliver">
-  Gives the buyer fresh license keys and emails them. The old keys are revoked.
-</ResponseField>
+- **Back to what paid**, through the payment provider. Offered where the provider can send money back. Crypto never can.
+- **As store credit**, onto the buyer's balance at your store, for as much of what was paid as you choose.
+- **Recorded only**, when you returned the money yourself.
 
-<ResponseField name="Send the email again">
-  For a delivery email that did not arrive.
-</ResponseField>
+An order is marked refunded only once the provider has said the money is on its way, or the buyer has been credited.
 
-<ResponseField name="Note">
-  A note of your own on the order. The buyer never sees it.
-</ResponseField>
+### Re-deliver
+
+Gives the buyer fresh license keys and emails them. The old keys are revoked.
+
+### Send now
+
+On a delivery email that is still owed or that failed. One that was sent goes out again when you re-deliver.
+
+### Note
+
+A note of your own on the order. The buyer never sees it.
 
 An order's page also shows its timeline, the payments opened for it, where the buyer came from, and what is known of the connection it was placed from.
 

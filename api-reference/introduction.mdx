@@ -9,8 +9,8 @@ The Shoply API is everything the dashboard does, for a program instead of a pers
 https://api.shoply.gg/v1
 ```
 
-<Card title="Make your first request" icon="bolt" href="/api-reference/quickstart">
-  Make a key, ask what it is, and read your products back. Three steps.
+<Card title="From a key to an answer" icon="terminal" href="/api-reference/quickstart">
+  A new key, one question to learn its store, and your products read back by your own server.
 </Card>
 
 ## What it is for
@@ -32,9 +32,9 @@ https://api.shoply.gg/v1
 
 ## How it is shaped
 
-Every route but one begins `/stores/{storeId}`, because everything belongs to a store. A key belongs to one store too, and reaches that store only.
+Every route but one is under `/stores/{storeId}`. Nothing here is an account's: a product, an order, a customer is one store's. A key is one store's too, and reaches no other.
 
-Every answer is the same envelope, whether it worked or not. A key carries permissions, and each route's page says which one it needs. Requests are counted for each key, and every answer says how much of its budget is left.
+An answer has one shape, a success and a refusal alike. A key carries permissions, and each route's page says which one it needs. Requests are counted for each key, and every answer says how much of its budget is left.
 
 <CardGroup cols={2}>
   <Card title="Authentication" icon="key" href="/api-reference/authentication">
