@@ -92,7 +92,8 @@
                         "group": "Automate",
                         "pages": [
                             "guides/api-keys",
-                            "guides/webhooks"
+                            "guides/webhooks",
+                            "guides/your-own-panel"
                         ]
                     }
                 ]
@@ -385,6 +386,9 @@
                             "GET /stores/{storeId}/affiliate-orders",
                             "GET /stores/{storeId}/affiliate-payouts",
                             "PUT /stores/{storeId}/affiliate-payouts/{payoutId}",
+                            "POST /stores/{storeId}/affiliates/{affiliateId}/payouts",
+                            "DELETE /stores/{storeId}/affiliates/{affiliateId}/payouts/{payoutId}",
+                            "POST /stores/{storeId}/affiliates/{affiliateId}/to-store-balance",
                             "GET /stores/{storeId}/affiliate-programme",
                             "PUT /stores/{storeId}/affiliate-programme"
                         ]

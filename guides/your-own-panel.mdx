@@ -1,0 +1,83 @@
+---
+title: "A customer or affiliate panel of your own"
+sidebarTitle: "Your own panel"
+description: "Sign buyers in on your own site and show them their orders, their balance and their affiliate link, with the API"
+---
+
+Every store has a customer panel on its myshoply.gg address, where a buyer signs in with a code sent to their email. You do not have to use it. If buyers sign in on your own site, your server can show them the same things, and let an affiliate do what the panel lets them do, with an [API key](/guides/api-keys).
+
+## How it fits together
+
+1. A buyer signs in **with you**. How is yours: a code you email them, a password, Discord. Shoply has no part in it.
+2. Your server, which now knows their email address, asks the API with your key.
+3. Your page shows what came back.
+
+<Warning>
+  The key stays on your server and never reaches a page. It can read every customer of the store, so your server is what decides whose orders a visitor sees: ask only with the address your own sign-in proved, never with one the browser sent.
+</Warning>
+
+## The key
+
+Give it only what your panel does.
+
+| Your panel | Permissions |
+| - | - |
+| Shows orders and what was delivered | `orders.read`, `customers.read` |
+| Adds to a balance, as a reward | `customers.balance` |
+| Has an affiliate page | `affiliates.read`, `affiliates.write` |
+| Lets an affiliate ask for a payout | `affiliates.payouts` |
+| Lets an affiliate move commission to store balance | `affiliates.payouts` and `customers.balance` |
+
+## Who the buyer is to the store
+
+[List customers](/api-reference/customers/list-customers) with `search` set to their address. The search matches part of an address, so take the one whose `emailAddress` is exactly theirs. Keep its `id`: everything else asks by it.
+
+Somebody who has never ordered is not a customer yet. [Create a customer](/api-reference/customers/create-a-customer) adds them, and answers the one there is when the address is already known.
+
+## Their orders, and what they were sent
+
+[Get a customer](/api-reference/customers/get-a-customer) answers their orders with their balance. For one order in full, [get the order](/api-reference/orders/get-an-order): each of its `items` has what was delivered, the license keys in `deliveredKeys` and your message in `deliveryInstructions`.
+
+Show a buyer only orders whose `email` is their own address.
+
+## Their balance
+
+`balance` on the customer is what they can spend at your checkout, and `balanceHistory` is how it got there. To add to it yourself, for a reward or a giveaway, [change the customer's balance](/api-reference/customers/change-a-customers-balance).
+
+## An affiliate page
+
+The [programme](/guides/affiliates) has to be switched on. Its four switches for what an affiliate may do hold here as well: what is off is refused, whoever asks.
+
+| What the affiliate does | Ask |
+| - | - |
+| Sees their link, what it earned and what they are owed | [Get a customer](/api-reference/customers/get-a-customer), whose `affiliate` has it, or [list affiliates](/api-reference/affiliates/list-affiliates) |
+| Joins | [Create an affiliate](/api-reference/affiliates/create-an-affiliate), with their address and the code they picked |
+| Changes the code their link ends in | [Update an affiliate](/api-reference/affiliates/update-an-affiliate) |
+| Reads what they earned, line by line | [Get an affiliate's history](/api-reference/affiliates/get-an-affiliates-history), and [list referred orders](/api-reference/affiliates/list-referred-orders) with `affiliate` set |
+| Asks for a payout | [Ask for a payout for an affiliate](/api-reference/affiliates/ask-for-a-payout-for-an-affiliate) |
+| Takes a request back | [Take back a payout request](/api-reference/affiliates/take-back-a-payout-request) |
+| Moves commission to their store balance | [Move commission to store balance](/api-reference/affiliates/move-commission-to-store-balance) |
+
+A code that is already somebody's is refused at `code`, so your page can say it is taken.
+
+A payout is a request and a record: Shoply sends no money. You pay it yourself and mark it paid, or decline it with a reason, in the dashboard or with [answer a payout request](/api-reference/affiliates/answer-a-payout-request).
+
+### Links that count
+
+An affiliate's link is an address of your own site with `?ref=` and their code. A page that loads `shoply.js`, the [embed](/guides/embeds) or the [Checkout Kit](/guides/checkout-kit) notices it and carries it to the checkout, where the buyer's discount and the affiliate's commission are worked out. You do not look the code up yourself.
+
+## Hear of it instead of asking
+
+A [webhook](/guides/webhooks) tells your server as things happen, so a page does not have to ask each time it is opened.
+
+| Event | When |
+| - | - |
+| `order.paid`, `order.delivered`, `order.redelivered` | An order is paid, and when what it sends has gone out or gone out again. |
+| `order.refunded`, `order.chargeback` | The money went back. |
+| `customer.balance_changed` | A customer's balance moved. |
+| `affiliate.created` | A customer became an affiliate. |
+| `affiliate.payout_requested`, `affiliate.payout_answered` | A payout was asked for, and marked paid or declined. |
+
+## Keep what you can
+
+A key's budget is its own, not each visitor's: see [rate limits](/api-reference/rate-limits). Keep a buyer's orders for a minute or two, or until a webhook says something changed, in place of asking on every page.

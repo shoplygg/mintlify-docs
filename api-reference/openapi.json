@@ -23848,6 +23848,262 @@
                 }
             }
         },
+        "/stores/{storeId}/affiliates/{affiliateId}/payouts": {
+            "post": {
+                "operationId": "affiliates.askPayout",
+                "tags": [
+                    "Affiliates"
+                ],
+                "summary": "Ask for a payout for an affiliate",
+                "description": "Asks for a payout in an affiliate's name, for a panel of your own where they sign in with you. The amount leaves their balance now and is held until you answer the request; declined or taken back, it returns. One request at a time, and never more than they are owed. Refused with `payout_refused` while the programme is off or does not take payout requests. Answers the request (`payout`) and what the affiliate is still owed (`balance`).\n\nNeeds the `affiliates.payouts` permission (Answer payouts).",
+                "x-mint": {
+                    "href": "/api-reference/affiliates/ask-for-a-payout-for-an-affiliate",
+                    "metadata": {
+                        "title": "Ask for a payout for an affiliate",
+                        "sidebarTitle": "Ask for a payout for an affiliate"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "storeId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The store's ID. A key reaches the store it was made in: `GET /key` answers which.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "affiliateId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The affiliate.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/IdempotencyKey"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "amount": {
+                                        "type": "number",
+                                        "description": "How much, above zero and up to what the affiliate is owed.",
+                                        "example": 25
+                                    },
+                                    "details": {
+                                        "type": "string",
+                                        "description": "How they want to be paid, in their own words. Up to 300 characters.",
+                                        "example": "PayPal, ada@example.com"
+                                    }
+                                },
+                                "required": [
+                                    "amount",
+                                    "details"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "It worked.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Envelope"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/NoKey"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/NotAllowed"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/Refused"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/TooMany"
+                    }
+                }
+            }
+        },
+        "/stores/{storeId}/affiliates/{affiliateId}/payouts/{payoutId}": {
+            "delete": {
+                "operationId": "affiliates.withdrawPayout",
+                "tags": [
+                    "Affiliates"
+                ],
+                "summary": "Take back a payout request",
+                "description": "Takes back a request that has not been answered, and puts its amount back on the affiliate's balance. One that was already answered is refused with `payout_answered`.\n\nNeeds the `affiliates.payouts` permission (Answer payouts).",
+                "x-mint": {
+                    "href": "/api-reference/affiliates/take-back-a-payout-request",
+                    "metadata": {
+                        "title": "Take back a payout request",
+                        "sidebarTitle": "Take back a payout request"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "storeId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The store's ID. A key reaches the store it was made in: `GET /key` answers which.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "affiliateId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The affiliate.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "payoutId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The payout request.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/IdempotencyKey"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "It worked.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Envelope"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/NoKey"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/NotAllowed"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/Refused"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/TooMany"
+                    }
+                }
+            }
+        },
+        "/stores/{storeId}/affiliates/{affiliateId}/to-store-balance": {
+            "post": {
+                "operationId": "affiliates.toStoreBalance",
+                "tags": [
+                    "Affiliates"
+                ],
+                "summary": "Move commission to store balance",
+                "description": "Moves what an affiliate is owed onto their balance at the store, to spend at checkout. It counts as paid out. What lands is what leaves: where the store balance is near its ceiling, less than was asked for moves, and `moved` says how much. Refused with `move_refused` while the programme is off or does not move commission to store balance.\n\nThe key needs the `customers.balance` permission as well, since this adds to a customer's balance. Send an `Idempotency-Key` with this request.\n\nNeeds the `affiliates.payouts` permission (Answer payouts).",
+                "x-mint": {
+                    "href": "/api-reference/affiliates/move-commission-to-store-balance",
+                    "metadata": {
+                        "title": "Move commission to store balance",
+                        "sidebarTitle": "Move commission to store balance"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "storeId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The store's ID. A key reaches the store it was made in: `GET /key` answers which.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "affiliateId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The affiliate.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/IdempotencyKey"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "amount": {
+                                        "type": "number",
+                                        "description": "How much, above zero and up to what the affiliate is owed.",
+                                        "example": 10
+                                    }
+                                },
+                                "required": [
+                                    "amount"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "It worked.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Envelope"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/NoKey"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/NotAllowed"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/Refused"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/TooMany"
+                    }
+                }
+            }
+        },
         "/stores/{storeId}/affiliate-programme": {
             "get": {
                 "operationId": "affiliateProgramme.show",
