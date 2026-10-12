@@ -12829,7 +12829,7 @@
                     "Orders"
                 ],
                 "summary": "Deliver an order again",
-                "description": "Gives the buyer fresh license keys for the order's lines and emails them. The keys those lines held before are revoked, not returned to stock, so this costs stock: it is for a key that did not work.\n\nIt goes to the order's own email address. Sending an order to another address is done in the dashboard.\n\nNeeds the `orders.fulfil` permission (Deliver orders).",
+                "description": "Gives the buyer fresh license keys for the order's lines and emails them. The keys those lines held before are revoked, not returned to stock, so this costs stock: it is for a key that did not work.\n\nIt goes to the order's own email address. Sending an order to another address is done in the dashboard.\n\nOne order is delivered again at most ten times an hour, whoever asks: after that the answer is 429.\n\nNeeds the `orders.fulfil` permission (Deliver orders).",
                 "x-mint": {
                     "href": "/api-reference/orders/deliver-an-order-again",
                     "metadata": {
@@ -12997,7 +12997,7 @@
                     "Orders"
                 ],
                 "summary": "Retry a dynamic delivery",
-                "description": "Asks your delivery endpoint again for the lines whose dynamic delivery failed. Nothing is revoked: those lines never delivered anything.\n\nNeeds the `orders.fulfil` permission (Deliver orders).",
+                "description": "Asks your delivery endpoint again for the lines whose dynamic delivery failed. Nothing is revoked: those lines never delivered anything. A store may ask for 60 of these in ten minutes.\n\nNeeds the `orders.fulfil` permission (Deliver orders).",
                 "x-mint": {
                     "href": "/api-reference/orders/retry-a-dynamic-delivery",
                     "metadata": {

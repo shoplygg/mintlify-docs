@@ -15,6 +15,17 @@ Requests are counted for each key, not for each address: two of your servers sha
 
 These are there to stop a loop, not to be planned around. Ten reads a second, kept up, is more than a sync job needs. A route counted against one of the smaller budgets says so on its page.
 
+## What is counted for the store
+
+A few requests make Shoply send something: an email to a buyer, or a request to your own server. Those have a limit that is the store's or the order's, shared by the dashboard and every key the store has.
+
+| What | How many |
+| - | - |
+| [Send an order's email again](/api-reference/orders/send-an-orders-email-again) | 5 an hour, for one order |
+| [Deliver an order again](/api-reference/orders/deliver-an-order-again) | 10 an hour, for one order |
+| [Retry a dynamic delivery](/api-reference/orders/retry-a-dynamic-delivery) | 60 in ten minutes, for the store |
+| [Send a test delivery](/api-reference/webhook-endpoints/send-a-test-delivery) and [Resend a webhook delivery](/api-reference/webhook-deliveries/resend-a-webhook-delivery) | 30 in ten minutes together, for the store |
+
 ## Where a key stands
 
 Every answer to a request that was counted says, in its headers:
