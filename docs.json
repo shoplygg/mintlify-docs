@@ -1,7 +1,7 @@
 {
     "$schema": "https://mintlify.com/docs.json",
     "theme": "aspen",
-    "name": "Shoply",
+    "name": "Shoply Documentation",
     "description": "How to sell on Shoply, and how to build on it.",
     "colors": {
         "primary": "#6A3CE2",
