@@ -201,13 +201,34 @@ A delivery that is not taken is tried again, eight times in all, at gaps that wi
 | 7 | 6 hours |
 | 8 | 12 hours |
 
-That is a little over 22 hours from first to last, so a server that was down overnight still gets what it missed. After the eighth try the delivery is marked `failed` and left.
+That is a little over 22 hours from first to last, so a server that was down overnight still gets what it missed. After the eighth try the delivery is marked `failed` and left. One that your server has still not taken 24 hours after its event is marked `failed` too, tried eight times or not.
 
 Every try is written down. The delivery log, in the dashboard and [in the API](/api-reference/webhook-deliveries/list-webhook-deliveries), shows the status your server answered with and the start of what it said, or why it could not be reached: it did not answer in time, it refused the connection, its certificate is wrong. **Resend** on any delivery sends the same body again, under the same delivery ID, signed afresh.
 
 ### An endpoint that keeps failing
 
+One try that is not taken is treated as a bad moment, and nothing else changes. From the second in a row the endpoint is held as a whole: nothing waiting for it is sent, and an event that happens meanwhile waits with the rest. When the hold is over, one delivery is tried. If your server takes it, everything that was waiting untried is sent at once. If it does not, the next hold is longer:
+
+| Tries in a row not taken | Nothing is sent for |
+| - | - |
+| 2 | 1 minute |
+| 3 | 2 minutes |
+| 4 | 5 minutes |
+| 5 | 15 minutes |
+| 6 | 30 minutes |
+| 7 or more | 1 hour |
+
+So a server that is down is tried once an hour at most, however many events it has missed, and is sent them within the hour of coming back. To have them sooner, press **Send a test** on the endpoint: a test that your server takes ends the hold. So does saving the endpoint with a new address.
+
+Waiting spends none of a delivery's eight tries, and a delivery your server has already refused keeps to its own times in the table above.
+
 When 20 deliveries in a row have been given up on, the endpoint is **paused**: nothing more is sent to it, and you are shown so in the dashboard. Fix your server and switch the endpoint back on. Deliveries that were already waiting for it are sent then. What happened while it was paused was not kept for it, so read it back from the API.
+
+### How much can wait
+
+Up to 5,000 deliveries wait for one endpoint. While that many are waiting, a new event is not queued for it, and events are queued again as soon as fewer are. An endpoint that takes what it is sent has nothing waiting, so this is only ever reached by one that has refused for hours in a busy store. Read what it missed back from the API.
+
+The delivery log keeps 30 days, and a store's newest 50,000 deliveries that were taken or given up on. One that is still waiting is never removed from it.
 
 ## Getting it right
 
@@ -231,4 +252,4 @@ When 20 deliveries in a row have been given up on, the endpoint is **paused**: n
 
 ## Trying it
 
-**Send a test** on an endpoint posts a `webhook.test` event to it at once, signed like any other, and shows you what your server answered. It is sent whatever the endpoint subscribes to.
+**Send a test** on an endpoint posts a `webhook.test` event to it at once, signed like any other, and shows you what your server answered. It is sent whatever the endpoint subscribes to, and whether or not the endpoint is being held.

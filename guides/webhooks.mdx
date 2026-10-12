@@ -42,11 +42,17 @@ Every delivery is listed under **Developers**, then **Activity**, on **Webhook d
 
 A store can ask for 30 tests and resends in ten minutes.
 
-Deliveries are kept for 30 days.
+Deliveries are kept for 30 days, up to the newest 50,000 that were taken or given up on.
 
 ## When your server is down
 
-A delivery that is not taken is tried again for about a day, at gaps that widen from a minute to twelve hours. After 20 deliveries in a row have been given up on, the endpoint is paused, and you switch it back on once your server is well.
+A delivery that is not taken is tried again for about a day, at gaps that widen from a minute to twelve hours.
+
+When your server refuses two tries in a row, everything for that endpoint waits together. One delivery is tried after a minute, then after longer gaps, up to an hour apart. The first one your server takes sends the rest at once, so nothing is lost by being down for an evening, and a server that is down is not sent a request for every event it missed. **Send a test** that your server takes does the same straight away.
+
+Up to 5,000 deliveries wait for one endpoint. Past that, new events are not queued for it until some have gone.
+
+After 20 deliveries in a row have been given up on, the endpoint is paused, and you switch it back on once your server is well.
 
 ## Everything else
 
