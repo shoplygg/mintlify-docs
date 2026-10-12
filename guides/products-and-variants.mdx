@@ -30,16 +30,25 @@ A **product** is what a buyer sees: a name, a description, pictures. A **variant
 | - | - |
 | **Name and price** | The price is in the store's currency. With adaptive pricing on, a buyer is shown and charged in their own. |
 | **How many one order may hold** | A fewest and a most, from 1 to 100. |
+| **Stock** | How its stock is counted, and how many there are. See [Stock](#stock). |
 | **Delivery** | What it sends when it is paid for: license keys, files, instructions, or the answer of your own server. A variant can do several at once. See [how delivery works](/guides/delivery). |
 | **Payment methods** | A variant, or a whole product, can refuse some payment methods, and a product can add a fee for one. |
 
 ## Stock
 
-A variant that delivers license keys sells as many as it has keys in stock, and is sold out when they run out. It can also be told not to count, for a key that many buyers share.
+Each variant says how its stock is counted, under **Stock** on the product's **Variants** tab, with how many there are beside it under **In stock**.
 
-The store alerts you when a variant runs low. The number that counts as low is in the store's settings. A variant that has never had a key is not reported: nothing has run out.
+| | |
+| - | - |
+| **From keys** | It sells as many as it has license keys in stock, and is sold out when they run out. For a variant that delivers license keys. |
+| **Unlimited** | Stock is not counted, and it never sells out. For a key that many buyers share, or anything you can always deliver. |
+| **Set amount** | A number you type, from 0 to 1,000,000. Each sale takes from it, and the variant is sold out at zero. It works whatever the variant delivers. |
 
-Nothing ever returns to stock. A key that was delivered belongs to its order, even when that order is refunded, and a key replaced by delivering an order again is revoked.
+A variant that counts its stock does not sell more than it has. A cart that asks for more is turned away, and a payment that arrives for more than is left is not completed until you add stock and mark the order paid, or refund it.
+
+The store alerts you when a variant runs low. The number that counts as low is in the store's settings. A variant that counts its keys and has never had one is not reported: nothing has run out.
+
+Nothing ever returns to stock. A key that was delivered belongs to its order, even when that order is refunded, and a key replaced by delivering an order again is revoked. A number you set does not go back up either: raise it yourself.
 
 ## Deleting
 

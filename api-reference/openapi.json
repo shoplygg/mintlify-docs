@@ -6806,12 +6806,17 @@
                                                 },
                                                 "stockMode": {
                                                     "type": "integer",
-                                                    "description": "For license keys. `2`: the variant sells as many as it has keys in stock. `1`: stock is not counted.",
+                                                    "description": "How its stock is counted. `2`: it sells as many as it has license keys in stock, which needs the `license_keys` method. `3`: it sells down from a number you set as `stock`. `1`: stock is not counted, and it never sells out. Left out, an existing variant keeps its own.",
                                                     "enum": [
                                                         1,
-                                                        2
+                                                        2,
+                                                        3
                                                     ],
                                                     "default": 2
+                                                },
+                                                "stock": {
+                                                    "type": "integer",
+                                                    "description": "For `stockMode` 3: how many are left, from 0 to 1,000,000. Each sale takes from it. Left out, the number stays as it is, so a change to something else does not undo what has sold since you read it. A variant new to this way of counting starts at 0."
                                                 },
                                                 "deliveryInstructions": {
                                                     "type": "string",
@@ -7890,12 +7895,17 @@
                                                 },
                                                 "stockMode": {
                                                     "type": "integer",
-                                                    "description": "For license keys. `2`: the variant sells as many as it has keys in stock. `1`: stock is not counted.",
+                                                    "description": "How its stock is counted. `2`: it sells as many as it has license keys in stock, which needs the `license_keys` method. `3`: it sells down from a number you set as `stock`. `1`: stock is not counted, and it never sells out. Left out, an existing variant keeps its own.",
                                                     "enum": [
                                                         1,
-                                                        2
+                                                        2,
+                                                        3
                                                     ],
                                                     "default": 2
+                                                },
+                                                "stock": {
+                                                    "type": "integer",
+                                                    "description": "For `stockMode` 3: how many are left, from 0 to 1,000,000. Each sale takes from it. Left out, the number stays as it is, so a change to something else does not undo what has sold since you read it. A variant new to this way of counting starts at 0."
                                                 },
                                                 "deliveryInstructions": {
                                                     "type": "string",
