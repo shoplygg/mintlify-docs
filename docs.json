@@ -71,7 +71,8 @@
                             "guides/custom-domain",
                             "guides/payment-methods",
                             "guides/fraud-protection",
-                            "guides/analytics"
+                            "guides/analytics",
+                            "guides/settings"
                         ]
                     },
                     {

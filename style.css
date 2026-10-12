@@ -820,3 +820,62 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/*
+ * The live demo's block on the Embeds and Checkout Kit guides (live-demo.js): a card with
+ * what the demo is, the button that starts it, and for the kit the stage its piece is put
+ * on. Its button is the front page's own (.sh-btn).
+ */
+.sh-demo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px 20px;
+  margin: 4px 0 8px;
+  padding: 18px 20px;
+  border: 1px solid var(--shoply-line);
+  border-radius: 12px;
+  background: var(--shoply-card);
+}
+
+.sh-demo p {
+  margin: 0;
+}
+
+.sh-demo-words {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+.sh-demo-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--shoply-ink);
+}
+
+.sh-demo-line {
+  margin-top: 3px !important;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--shoply-soft);
+}
+
+.sh-demo .sh-btn {
+  flex: none;
+  cursor: pointer;
+}
+
+/* What the demo has to say for itself: that it is not switched on, or could not be loaded. */
+.sh-demo-says {
+  flex: 1 1 100%;
+  font-size: 13px;
+  color: var(--shoply-soft);
+}
+
+.sh-demo-stage {
+  flex: 1 1 100%;
+  min-width: 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--shoply-line);
+}
