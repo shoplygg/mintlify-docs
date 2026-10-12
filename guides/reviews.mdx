@@ -1,6 +1,6 @@
 ---
 title: "Reviews"
-description: "What buyers say about their orders: how a review is left, where it shows, and what nobody can do to one"
+description: "What buyers say about their orders: how a review is left, where it shows, what nobody can do to one, and how to ask for one to be removed"
 ---
 
 A review belongs to a paid order. Every order can have one: a rating from one to five stars, and words if the buyer has any, up to 1,000 characters.
@@ -23,6 +23,32 @@ Nobody changes a review once it is left.
 
 That is the point of them: a rating a store could prune would tell a buyer nothing.
 
+## Asking for one to be removed
+
+A review that breaks the rules can be taken down, by Shoply and not by you. Under **Audience**, then **Reviews**, open a review's menu and choose **Flag for removal**. Say what is wrong with it, and add your own words if they help.
+
+| What is wrong with it | For a review that |
+| - | - |
+| **Abusive or hateful** | Insults or threatens somebody, or attacks people for who they are. |
+| **Shares private details** | Gives a name, an address, a phone number or anything else that identifies a person. |
+| **Advertising or spam** | Sells something, or sends readers to another shop. |
+| **Not about this order** | Is about another product, another store, or nothing the order held. |
+| **Unlawful content** | Says something the law does not allow to be published. |
+| **Something else** | Is none of these. Your own words are needed for this one. |
+
+Somebody at Shoply reads every flag and answers it one of two ways.
+
+- **Removed.** The review leaves your store, its products' ratings are worked out again without it, and the order's history says so. That order cannot be given another review.
+- **Kept.** The review stays, and its row on your Reviews page reads **Flag declined** with the reason.
+
+A low rating is not a reason by itself, and neither is a review you think is unfair: a buyer may say what they thought of their order.
+
+| | |
+| - | - |
+| **How often** | A review can be flagged once. A store can flag 20 reviews a day. |
+| **Which reviews** | The ones a buyer left. An automatic review is five stars with no words, so there is nothing in it to flag. |
+| **Your own words** | Up to 1,000 characters. |
+
 ## Where they show
 
 Your store's **Reviews** page lists them, newest first, each with what was bought. A buyer is shown as a verified buyer and never by their email address. A product's rating and its number of reviews, where a theme shows them, are worked out from the reviews of orders that held it.
@@ -37,4 +63,4 @@ Your own server can hear of every review, automatic ones included, with the [`re
 
 ## With the API
 
-Reviews can be read and nothing else: see [List reviews](/api-reference/reviews/list-reviews).
+Reviews can be read and nothing else: see [List reviews](/api-reference/reviews/list-reviews). A review you flagged carries `flag`, with how the flag stands and the answer it was given. Flagging itself is done in the dashboard.
