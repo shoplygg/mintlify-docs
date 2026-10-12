@@ -207,9 +207,9 @@ Every try is written down. The delivery log, in the dashboard and [in the API](/
 
 ### An endpoint that keeps failing
 
-One try that is not taken is treated as a bad moment, and nothing else changes. From the second in a row the endpoint is held as a whole: nothing waiting for it is sent, and an event that happens meanwhile waits with the rest. When the hold is over, one delivery is tried. If your server takes it, everything that was waiting untried is sent at once. If it does not, the next hold is longer:
+One delivery that is not taken is treated as a bad moment, and nothing else changes. From the second in a row the endpoint is held as a whole: nothing waiting for it is sent, and an event that happens meanwhile waits with the rest. When the hold is over, one delivery is tried. If your server takes it, everything that was waiting untried is sent at once. If it does not, the endpoint is held again:
 
-| Tries in a row not taken | Nothing is sent for |
+| Refused in a row | Nothing is sent for |
 | - | - |
 | 2 | 1 minute |
 | 3 | 2 minutes |
@@ -218,11 +218,23 @@ One try that is not taken is treated as a bad moment, and nothing else changes. 
 | 6 | 30 minutes |
 | 7 or more | 1 hour |
 
-So a server that is down is tried once an hour at most, however many events it has missed, and is sent them within the hour of coming back. To have them sooner, press **Send a test** on the endpoint: a test that your server takes ends the hold. So does saving the endpoint with a new address.
+What counts as one more in the row is a delivery refused for the first time, or a server that gives no answer at all. A delivery your server has refused before and answers with an error again does not make the hold longer, so one event that your handler cannot take does not hold up the others for an hour. The count starts again when your server takes a delivery, or after a day with nothing refused.
+
+So a server that is down is tried once an hour at most, however many events it has missed, and is sent them within the hour of coming back. To have them sooner, press **Send a test** on the endpoint: a test that your server takes ends the hold. Saving the endpoint with a new address has one delivery tried at once.
 
 Waiting spends none of a delivery's eight tries, and a delivery your server has already refused keeps to its own times in the table above.
 
+If the trouble is on Shoply's side, nothing is held against your endpoint and no try is spent: the delivery waits a minute and is sent then. Its row in the log says so.
+
 When 20 deliveries in a row have been given up on, the endpoint is **paused**: nothing more is sent to it, and you are shown so in the dashboard. Fix your server and switch the endpoint back on. Deliveries that were already waiting for it are sent then. What happened while it was paused was not kept for it, so read it back from the API.
+
+### How fast they are sent
+
+A delivery is sent as its event happens. An endpoint is sent its deliveries one at a time: the next is sent when the one before it has been answered. So answer quickly, and do the work afterwards.
+
+A server that takes two seconds or more to answer is sent its deliveries from a queue for the next ten minutes, and not as each event happens. The queue runs every minute, so they can arrive up to a minute late.
+
+A store sends one server at most 1,200 deliveries a minute, whichever of the store's endpoints they are for. The server is counted by the addresses its name points at, so several names for one machine are one server. Past it no try is spent: a delivery waits a few seconds and is sent then.
 
 ### How much can wait
 
