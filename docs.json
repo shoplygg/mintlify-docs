@@ -259,7 +259,8 @@
                         "pages": [
                             "GET /stores/{storeId}/invoices",
                             "POST /stores/{storeId}/invoices",
-                            "POST /stores/{storeId}/invoices/{orderId}/send"
+                            "POST /stores/{storeId}/invoices/{orderId}/send",
+                            "POST /stores/{storeId}/payment-links"
                         ]
                     },
                     {
