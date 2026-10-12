@@ -260,7 +260,8 @@
                             "GET /stores/{storeId}/invoices",
                             "POST /stores/{storeId}/invoices",
                             "POST /stores/{storeId}/invoices/{orderId}/send",
-                            "POST /stores/{storeId}/payment-links"
+                            "POST /stores/{storeId}/payment-links",
+                            "DELETE /stores/{storeId}/payment-links/{orderId}"
                         ]
                     },
                     {
