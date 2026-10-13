@@ -10,11 +10,12 @@ Buyers pay **you**, through an account of your own with a payment provider. You 
 | Cards, Apple Pay, Google Pay | Stripe | Yes |
 | Cards | Authorize.net | Yes |
 | Cards | NMI, or a provider that resells it | Yes |
+| Cards, iDEAL, Bancontact, Klarna and more | Mollie | Yes |
 | Cards, wallets and local methods | Whop | Yes |
 | PayPal | PayPal | Yes |
 | Crypto | NOWPayments, Cryptomus, Heleket, OxaPay | No. A refund is store credit. |
 
-A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
+A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
 
 ## NMI
 
@@ -50,6 +51,19 @@ A switch that needs another switches it on with it: checking an address needs on
 - With the webhook set up, a payment you void in your gateway refunds the order here too.
 - A chargeback does not show on the order: the gateway reports one in a way Shoply cannot confirm with it.
 - An account you have switched to the gateway's **test mode** approves every card and charges nothing, and Shoply cannot tell. Switch it back before you sell.
+
+## Mollie
+
+Connect your Mollie account with one thing: an **API Key**, from **Developers**, **API keys** in your Mollie dashboard. A key that begins `live_` takes real payments. One that begins `test_` completes and delivers orders with no money moving, and the order says so.
+
+Saving asks Mollie about the key and refuses one it does not know. It also refuses a profile with no payment method switched on, since no buyer could pay through it: switch at least one on in Mollie first. **Test Connection** says how many are on.
+
+At the checkout the buyer presses Pay and Mollie's own page opens in a new tab, for exactly the order's total, with the methods your profile offers in that currency. When they have paid, the order completes on the page they left open and is delivered. There is nothing to set up in Mollie for this: each payment tells Mollie where to report.
+
+- Which methods a buyer sees is decided in Mollie, under **Settings**, **Payment methods**. A method that does not take the order's currency is not offered: iDEAL takes euros only.
+- A payment that is not finished in time runs out. The checkout says so and Pay starts a new one.
+- **Refund order** in the dashboard sends the payment back through Mollie. A refund you make in Mollie refunds the order here too, and a partial one is noted on it.
+- A chargeback makes the order a chargeback.
 
 ## Whop
 
