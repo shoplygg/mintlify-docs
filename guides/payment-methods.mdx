@@ -9,11 +9,47 @@ Buyers pay **you**, through an account of your own with a payment provider. You 
 | - | - | - |
 | Cards, Apple Pay, Google Pay | Stripe | Yes |
 | Cards | Authorize.net | Yes |
+| Cards | NMI, or a provider that resells it | Yes |
 | Cards, wallets and local methods | Whop | Yes |
 | PayPal | PayPal | Yes |
 | Crypto | NOWPayments, Cryptomus, Heleket, OxaPay | No. A refund is store credit. |
 
-A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
+A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
+
+## NMI
+
+NMI is a payment gateway, sold under its own name and by many providers under theirs. Connect the one you have with what its **Security Keys** page gives you:
+
+| Box | What goes in it |
+| - | - |
+| Public Security Key | A public key with the Tokenization permission, and Checkout as well if you use 3D Secure or Kount. |
+| Private Security Key | A private key with the API and Query permissions. |
+| Gateway Address | The address your provider gave you for the gateway, if it is not NMI's own. Leave it empty otherwise. Only an address of an NMI gateway is accepted. |
+| Webhook Signing Key | Optional. Copy the **Callback URL** the dialog shows into your gateway's **Webhooks** page, pick the transaction events, and paste the signing key that page shows. |
+
+**Test Connection** asks the gateway whether it knows the private key. The public key can only be tried by a browser, so the first card window is its test.
+
+At the checkout the buyer presses Pay and the gateway's own card window opens over the page. The card is typed there and never reaches Shoply. Approved, the order completes on the same page and is delivered.
+
+Under the keys are the gateway's switches:
+
+| Switch | What it does |
+| - | - |
+| Require Billing Information | Asks card buyers for their name and billing address, and sends it with the charge. |
+| Check Cards With 3D Secure | The buyer's bank confirms the card is theirs before it is charged. Most buyers see nothing; some are asked for a code by their bank. A card its bank disowns is never charged. |
+| Take Verified Cards Only | Also turns away a card the bank could not verify. Safer, but a bank without 3D Secure is turned away too. |
+| Decline a Street Address That Doesn't Match | The card is turned away when the bank says the street does not match. |
+| Decline a Postal Code That Doesn't Match | The same for the postal code. |
+| Decline When the Bank Can't Check the Address | Turns away a card whose bank gave no answer about the address. Many banks outside the United States give none. |
+| Decline a Security Code That Doesn't Match | The card is turned away when the bank says the code on its back is wrong. |
+| Screen Payments With Kount | For a gateway account that has Kount: each payment is scored before it is charged. |
+
+A switch that needs another switches it on with it: checking an address needs one asked for. A card one of these turns away is never charged, the buyer is told which detail did not match, and the order's history says so.
+
+- **Refund order** in the dashboard sends the payment back through the gateway.
+- With the webhook set up, a payment you void in your gateway refunds the order here too.
+- A chargeback does not show on the order: the gateway reports one in a way Shoply cannot confirm with it.
+- An account you have switched to the gateway's **test mode** approves every card and charges nothing, and Shoply cannot tell. Switch it back before you sell.
 
 ## Whop
 
