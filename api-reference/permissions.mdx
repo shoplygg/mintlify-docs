@@ -13,86 +13,86 @@ Give a key only what its job needs. A script that reads orders for a report has 
 
 | Permission | In the dashboard | What it reaches |
 | - | - | - |
-| `store.read` | Read store | The store's details, branding and settings. |
-| `store.write` | Change store | Change the store's details, branding, address and domain. |
-| `payments.read` | Read payment methods | Which payment methods are connected and switched on. Never their credentials. |
-| `payments.write` | Change payment methods | Switch payment methods on and off and sort them. Never their credentials. |
-| `analytics.read` | Read analytics | Visits, revenue figures, the live view and search reports. |
+| `store.read` | Read Store | The store's details, branding and settings. |
+| `store.write` | Change Store | Change the store's details, branding, address and domain. |
+| `payments.read` | Read Payment Methods | Which payment methods are connected and switched on. Never their credentials. |
+| `payments.write` | Change Payment Methods | Switch payment methods on and off and sort them. Never their credentials. |
+| `analytics.read` | Read Analytics | Visits, revenue figures, the live view and search reports. |
 
 ## Catalogue
 
 | Permission | In the dashboard | What it reaches |
 | - | - | - |
-| `products.read` | Read products | Products, their variants, pictures and stock counts. |
-| `products.write` | Change products | Add, change, sort and delete products, variants and pictures. |
-| `stock.read` | Read stock | The license keys and files a variant has in stock, unsold ones included. |
-| `stock.write` | Change stock | Add, replace and remove a variant's license keys and files. |
-| `categories.read` | Read categories | Product categories and what is in them. |
-| `categories.write` | Change categories | Add, change, sort and delete product categories. |
+| `products.read` | Read Products | Products, their variants, pictures and stock counts. |
+| `products.write` | Change Products | Add, change, sort and delete products, variants and pictures. |
+| `stock.read` | Read Stock | The license keys and files a variant has in stock, unsold ones included. |
+| `stock.write` | Change Stock | Add, replace and remove a variant's license keys and files. |
+| `categories.read` | Read Categories | Product categories and what is in them. |
+| `categories.write` | Change Categories | Add, change, sort and delete product categories. |
 
 ## Orders
 
 | Permission | In the dashboard | What it reaches |
 | - | - | - |
-| `orders.read` | Read orders | Orders with what was bought, what was delivered and the buyer's details. |
-| `orders.write` | Change orders | Write an order's note. |
-| `orders.fulfil` | Deliver orders | Mark an order as paid, deliver it again and send its email again. |
-| `orders.refund` | Refund orders | Refund an order, to what paid for it or as store credit. |
-| `invoices.read` | Read invoices | Invoices the store has raised. |
-| `invoices.write` | Raise invoices | Raise an invoice for a buyer to pay, and send it. |
-| `reviews.read` | Read reviews | Reviews buyers have left. |
+| `orders.read` | Read Orders | Orders with what was bought, what was delivered and the buyer's details. |
+| `orders.write` | Change Orders | Write an order's note. |
+| `orders.fulfil` | Deliver Orders | Mark an order as paid, deliver it again and send its email again. |
+| `orders.refund` | Refund Orders | Refund an order, to what paid for it or as store credit. |
+| `invoices.read` | Read Invoices | Invoices the store has raised. |
+| `invoices.write` | Raise Invoices | Raise an invoice for a buyer to pay, and send it. |
+| `reviews.read` | Read Reviews | Reviews buyers have left. |
 
 ## Customers
 
 | Permission | In the dashboard | What it reaches |
 | - | - | - |
-| `customers.read` | Read customers | Customers, what they have spent and their balance. |
-| `customers.write` | Change customers | Add a customer, and blacklist or clear one. |
-| `customers.balance` | Change balances | Add to, take from or set a customer's store balance. |
-| `affiliates.read` | Read affiliates | Affiliates, what their links led to, their balances and payouts. |
-| `affiliates.write` | Change affiliates | Add, change and remove affiliates, and change the programme's settings. |
-| `affiliates.payouts` | Answer payouts | Mark a payout as paid or decline it, change an affiliate's balance, and ask for a payout or take one back in an affiliate's name. |
+| `customers.read` | Read Customers | Customers, what they have spent and their balance. |
+| `customers.write` | Change Customers | Add a customer, and blacklist or clear one. |
+| `customers.balance` | Change Balances | Add to, take from or set a customer's store balance. |
+| `affiliates.read` | Read Affiliates | Affiliates, what their links led to, their balances and payouts. |
+| `affiliates.write` | Change Affiliates | Add, change and remove affiliates, and change the programme's settings. |
+| `affiliates.payouts` | Answer Payouts | Mark a payout as paid or decline it, change an affiliate's balance, and ask for a payout or take one back in an affiliate's name. |
 
 ## Marketing
 
 | Permission | In the dashboard | What it reaches |
 | - | - | - |
-| `coupons.read` | Read coupons | Coupons, their categories and the coupon pop-up. |
-| `coupons.write` | Change coupons | Add, change and delete coupons, their categories and the pop-up. |
-| `sales.read` | Read sales | Sales and the products each one covers. |
-| `sales.write` | Change sales | Add, change, switch and delete sales. |
-| `blog.read` | Read blog | Blog categories and posts, drafts included. |
-| `blog.write` | Change blog | Add, change, publish and delete blog categories and posts. |
-| `seo.read` | Read search settings | Search settings, redirects, broken links and the sitemap. |
-| `seo.write` | Change search settings | Change search settings, redirects and the sitemap's rules. |
+| `coupons.read` | Read Coupons | Coupons, their categories and the coupon pop-up. |
+| `coupons.write` | Change Coupons | Add, change and delete coupons, their categories and the pop-up. |
+| `sales.read` | Read Sales | Sales and the products each one covers. |
+| `sales.write` | Change Sales | Add, change, switch and delete sales. |
+| `blog.read` | Read Blog | Blog categories and posts, drafts included. |
+| `blog.write` | Change Blog | Add, change, publish and delete blog categories and posts. |
+| `seo.read` | Read Search Settings | Search settings, redirects, broken links and the sitemap. |
+| `seo.write` | Change Search Settings | Change search settings, redirects and the sitemap's rules. |
 
 ## Fraud protection
 
 | Permission | In the dashboard | What it reaches |
 | - | - | - |
-| `fraud.read` | Read fraud protection | The blacklist, its settings and what it has stopped. |
-| `fraud.write` | Change fraud protection | Add, change and remove blacklist rules, and change the settings. |
+| `fraud.read` | Read Fraud Protection | The blacklist, its settings and what it has stopped. |
+| `fraud.write` | Change Fraud Protection | Add, change and remove blacklist rules, and change the settings. |
 
 ## Finance
 
 | Permission | In the dashboard | What it reaches |
 | - | - | - |
-| `finance.read` | Read finance | Profit, accounting, tax settings and their exports. |
-| `finance.write` | Change finance | Product costs, payment fee rates and tax settings. |
-| `expenses.read` | Read expenses | Expenses, their categories, recurring ones and rules. |
-| `expenses.write` | Change expenses | File, change and delete expenses and what organises them. |
+| `finance.read` | Read Finance | Profit, accounting, tax settings and their exports. |
+| `finance.write` | Change Finance | Product costs, payment fee rates and tax settings. |
+| `expenses.read` | Read Expenses | Expenses, their categories, recurring ones and rules. |
+| `expenses.write` | Change Expenses | File, change and delete expenses and what organises them. |
 
 ## Storefronts
 
 | Permission | In the dashboard | What it reaches |
 | - | - | - |
-| `storefronts.read` | Read storefronts | The store's storefronts, and an export of one. |
-| `storefronts.write` | Change storefronts | Add, import, rename and delete storefronts, and choose the live one. |
+| `storefronts.read` | Read Storefronts | The store's storefronts, and an export of one. |
+| `storefronts.write` | Change Storefronts | Add, import, rename and delete storefronts, and choose the live one. |
 
 ## Developers
 
 | Permission | In the dashboard | What it reaches |
 | - | - | - |
-| `webhooks.read` | Read webhooks | Webhook endpoints and the record of what was sent to them. |
-| `webhooks.write` | Change webhooks | Add, change, test and delete webhook endpoints. A webhook is sent the store's orders, with buyers' emails and what they were delivered. |
-| `logs.read` | Read API requests | The record of requests made with the store's API keys. |
+| `webhooks.read` | Read Webhooks | Webhook endpoints and the record of what was sent to them. |
+| `webhooks.write` | Change Webhooks | Add, change, test and delete webhook endpoints. A webhook is sent the store's orders, with buyers' emails and what they were delivered. |
+| `logs.read` | Read API Requests | The record of requests made with the store's API keys. |

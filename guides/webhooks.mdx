@@ -35,9 +35,9 @@ A store holds up to 20 endpoints. You are asked to confirm it is you before one 
 
 An endpoint's card shows how its last twenty deliveries went as a strip: green for taken, red for given up on, amber for one still being tried. One going wrong shows there before you open anything.
 
-Every delivery is listed under **Developers**, then **Activity**, on **Webhook deliveries**: the event, where it was sent, and whether your server took it. Open one to see the body that was sent and every try, with the status your server answered and the start of what it said, or why it could not be reached.
+Every delivery is listed under **Developers**, then **Activity**, on **Webhook Deliveries**: the event, where it was sent, and whether your server took it. Open one to see the body that was sent and every try, with the status your server answered and the start of what it said, or why it could not be reached.
 
-- **Send a test**, on an endpoint's card, posts a test event to it now and tells you the answer.
+- **Send a Test**, on an endpoint's card, posts a test event to it now and tells you the answer.
 - **Resend**, on a delivery in Activity, sends that delivery again.
 
 A store can ask for 30 tests and resends in ten minutes.
@@ -48,7 +48,7 @@ Deliveries are kept for 30 days, up to the newest 50,000 that were taken or give
 
 A delivery that is not taken is tried again for about a day, at gaps that widen from a minute to twelve hours.
 
-When your server refuses two deliveries in a row, everything for that endpoint waits together. One delivery is tried after a minute, then after longer gaps, up to an hour apart. The first one your server takes sends the rest at once, so nothing is lost by being down for an evening, and a server that is down is not sent a request for every event it missed. **Send a test** that your server takes does the same straight away.
+When your server refuses two deliveries in a row, everything for that endpoint waits together. One delivery is tried after a minute, then after longer gaps, up to an hour apart. The first one your server takes sends the rest at once, so nothing is lost by being down for an evening, and a server that is down is not sent a request for every event it missed. **Send a Test** that your server takes does the same straight away.
 
 Up to 5,000 deliveries wait for one endpoint. Past that, new events are not queued for it until some have gone.
 

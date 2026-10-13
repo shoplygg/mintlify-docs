@@ -3,7 +3,7 @@ title: "Payment methods"
 description: "How buyers pay you: cards, PayPal and crypto, through accounts of your own"
 ---
 
-Buyers pay **you**, through an account of your own with a payment provider. You connect it under **Payment methods**, and Shoply's checkout takes the payment with it.
+Buyers pay **you**, through an account of your own with a payment provider. You connect it under **Payment Methods**, and Shoply's checkout takes the payment with it.
 
 | Method | Provider | Can a payment be sent back |
 | - | - | - |
@@ -48,7 +48,7 @@ Under the keys are the gateway's switches:
 
 A switch that needs another switches it on with it: checking an address needs one asked for. A card one of these turns away is never charged, the buyer is told which detail did not match, and the order's history says so.
 
-- **Refund order** in the dashboard sends the payment back through the gateway.
+- **Refund Order** in the dashboard sends the payment back through the gateway.
 - With the webhook set up, a payment you void in your gateway refunds the order here too.
 - A chargeback does not show on the order: the gateway reports one in a way Shoply cannot confirm with it.
 - An account you have switched to the gateway's **test mode** approves every card and charges nothing, and Shoply cannot tell. Switch it back before you sell.
@@ -63,7 +63,7 @@ At the checkout the buyer presses Pay and Mollie's own page opens in a new tab, 
 
 - Which methods a buyer sees is decided in Mollie, under **Settings**, **Payment methods**. A method that does not take the order's currency is not offered: iDEAL takes euros only.
 - A payment that is not finished in time runs out. The checkout says so and Pay starts a new one.
-- **Refund order** in the dashboard sends the payment back through Mollie. A refund you make in Mollie refunds the order here too, and a partial one is noted on it.
+- **Refund Order** in the dashboard sends the payment back through Mollie. A refund you make in Mollie refunds the order here too, and a partial one is noted on it.
 - A chargeback makes the order a chargeback.
 
 ## SumUp
@@ -82,7 +82,7 @@ At the checkout the buyer presses Pay and SumUp's own page opens in a new tab, f
 - A SumUp account charges in **one currency**. An order priced in another is charged in your account's, at the day's rate, and the buyer sees that figure before they pay.
 - SumUp's page takes a payment for 30 minutes. After that the checkout says it ran out, and Pay starts a new one.
 - A sandbox account completes and delivers orders with no money moving, and the order says so.
-- **Refund order** in the dashboard sends the payment back through SumUp.
+- **Refund Order** in the dashboard sends the payment back through SumUp.
 - A refund or a chargeback made in SumUp itself does not reach the order when it happens: SumUp reports only that a payment was made. Refund order asks SumUp first, so money that already went back there is never sent twice.
 
 ## Whop
@@ -91,14 +91,14 @@ Connect the business you have on Whop with two things from your Whop dashboard:
 
 | Box | Where it is in Whop |
 | - | - |
-| API key | **Developer**, under your account's API keys. Give it the Admin role, or the permissions to manage checkouts, payments and webhooks. |
+| API Key | **Developer**, under your account's API keys. Give it the Admin role, or the permissions to manage checkouts, payments and webhooks. |
 | Business ID | It starts with `biz_`, and is in your dashboard's address and under **Settings**. |
 
 Saving checks the two against Whop, says whether the key is a live one or a sandbox one, and sets up the webhook that tells Shoply about your payments. You paste nothing into Whop for it.
 
 At the checkout the buyer presses Pay and Whop's own checkout page opens in a new tab, for exactly the order's total. When they have paid, the order completes on the page they left open and is delivered. The payment lands in your Whop balance, in a product named after your store that is hidden from your Whop storefront.
 
-- **Refund order** in the dashboard sends the payment back through Whop. A refund you make in Whop refunds the order here too, and a partial one is noted on it.
+- **Refund Order** in the dashboard sends the payment back through Whop. A refund you make in Whop refunds the order here too, and a partial one is noted on it.
 - A dispute shows on the order, and a lost one makes it a chargeback.
 - A promo code of your own that a buyer uses on Whop's page lowers what they pay, so the order is not completed and you are told. Keep promo codes off the product Shoply makes.
 - Whop links may ask for up to 2,500 US dollars until Whop has approved your business for more. A total over that cannot be paid this way.
@@ -110,10 +110,10 @@ Four providers take crypto for you, and a store can connect any of them, or seve
 
 | Provider | What to paste | Where it is |
 | - | - | - |
-| NOWPayments | API key, IPN secret key | Your NOWPayments dashboard |
-| Cryptomus | Merchant ID, Payment API key | Your merchant's Settings tab in Cryptomus, once the merchant is approved |
-| Heleket | Merchant ID, Payment API key | Your merchant's settings in Heleket |
-| OxaPay | Merchant API key | Merchant Service in your OxaPay dashboard |
+| NOWPayments | API Key, IPN Secret Key | Your NOWPayments dashboard |
+| Cryptomus | Merchant ID, Payment API Key | Your merchant's Settings tab in Cryptomus, once the merchant is approved |
+| Heleket | Merchant ID, Payment API Key | Your merchant's settings in Heleket |
+| OxaPay | Merchant API Key | Merchant Service in your OxaPay dashboard |
 
 Use the key for taking payments. Cryptomus, Heleket and OxaPay each have a second key for sending money out, which Shoply never asks for.
 
@@ -125,9 +125,9 @@ It works the same way whichever you connect:
 - When the payment is seen the order waits for it to confirm, and then completes and delivers. Nothing needs pressing.
 - A payment that arrives up to 1% short still completes the order, and the order's history says by how much. One that arrives further short does not complete it: you are told, the order's history says what did arrive, and the coins are in your account with the provider to send back or to keep and mark the order as paid.
 - A payment that arrives over the amount completes the order, and the history says how much more came.
-- A crypto payment is never sent back through the provider. **Refund order** puts the amount on the buyer's store balance.
+- A crypto payment is never sent back through the provider. **Refund Order** puts the amount on the buyer's store balance.
 
-**Test connection** in a provider's dialog says whether the keys work and how many coins the account takes. An account with no coin switched on is refused there, since no buyer could pay with it.
+**Test Connection** in a provider's dialog says whether the keys work and how many coins the account takes. An account with no coin switched on is refused there, since no buyer could pay with it.
 
 ## Paying with balance
 

@@ -3,16 +3,16 @@ title: "API keys"
 description: "Make a secret key for your own server, say what it may do, and see what it did"
 ---
 
-A secret API key lets your own server do what the dashboard does: read orders, add stock, refund, and the rest. Keys are under **Developers**, then **API keys**.
+A secret API key lets your own server do what the dashboard does: read orders, add stock, refund, and the rest. Keys are under **Developers**, then **API Keys**.
 
 ## Making one
 
-Press **Add API key** and give it:
+Press **Add API Key** and give it:
 
 - **A name**, after what will use it: "Order sync", "Discord bot".
-- **Permissions**: what it may do. Start from **Read only**, **Orders and stock** or **Everything**, or pick your own, then open a group to tick or untick one. Give it only what that job needs. Every permission is listed on the [permissions page](/api-reference/permissions).
-- **Allowed addresses**, if you want: the IP addresses or ranges it may be used from. A key that leaks is then no use to whoever found it.
-- **Allowed domains**, if you want: the same thing by name. A domain such as `server.example.com` stands for the address it points at, so the key goes on working when your server moves and its DNS record follows. It has to point straight at the server: a domain behind Cloudflare points at Cloudflare, and is refused when you type it.
+- **Permissions**: what it may do. Start from **Read Only**, **Orders and Stock** or **Everything**, or pick your own, then open a group to tick or untick one. Give it only what that job needs. Every permission is listed on the [permissions page](/api-reference/permissions).
+- **Allowed Addresses**, if you want: the IP addresses or ranges it may be used from. A key that leaks is then no use to whoever found it.
+- **Allowed Domains**, if you want: the same thing by name. A domain such as `server.example.com` stands for the address it points at, so the key goes on working when your server moves and its DNS record follows. It has to point straight at the server: a domain behind Cloudflare points at Cloudflare, and is refused when you type it.
 - **A last day**, if you want: a date it stops working by itself.
 
 The key starts `shoply_sk_` and is shown once. Keep it somewhere safe. A store holds up to 15 keys.
