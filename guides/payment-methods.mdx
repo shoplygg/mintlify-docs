@@ -11,7 +11,7 @@ Buyers pay **you**, through an account of your own with a payment provider. You 
 | Cards | Authorize.net | Yes |
 | Cards, wallets and local methods | Whop | Yes |
 | PayPal | PayPal | Yes |
-| Crypto | NOWPayments | No. A refund is store credit. |
+| Crypto | NOWPayments, Cryptomus, Heleket, OxaPay | No. A refund is store credit. |
 
 A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take.
 
@@ -33,6 +33,31 @@ At the checkout the buyer presses Pay and Whop's own checkout page opens in a ne
 - A promo code of your own that a buyer uses on Whop's page lowers what they pay, so the order is not completed and you are told. Keep promo codes off the product Shoply makes.
 - Whop links may ask for up to 2,500 US dollars until Whop has approved your business for more. A total over that cannot be paid this way.
 - A sandbox key completes and delivers orders with no money moving, and the order says so.
+
+## Crypto
+
+Four providers take crypto for you, and a store can connect any of them, or several at once. Each is an account of your own with that company, and each is a row of its own at the checkout, under its name: "Cryptocurrency (Cryptomus)". Rename a row in its settings if you would rather it said something else.
+
+| Provider | What to paste | Where it is |
+| - | - | - |
+| NOWPayments | API key, IPN secret key | Your NOWPayments dashboard |
+| Cryptomus | Merchant ID, Payment API key | Your merchant's Settings tab in Cryptomus, once the merchant is approved |
+| Heleket | Merchant ID, Payment API key | Your merchant's settings in Heleket |
+| OxaPay | Merchant API key | Merchant Service in your OxaPay dashboard |
+
+Use the key for taking payments. Cryptomus, Heleket and OxaPay each have a second key for sending money out, which Shoply never asks for.
+
+It works the same way whichever you connect:
+
+- The buyer picks a coin on the checkout, from the ones your account with that provider takes. A coin on more than one network is listed once for each, and says which: "Tether (TRON)".
+- A coin that cannot take an order this small is said at the picker, before the buyer presses Pay.
+- Pay shows an address, the exact amount in the coin, a QR code and a clock, on the checkout itself. Nobody is sent to another page.
+- When the payment is seen the order waits for it to confirm, and then completes and delivers. Nothing needs pressing.
+- A payment that arrives up to 1% short still completes the order, and the order's history says by how much. One that arrives further short does not complete it: you are told, the order's history says what did arrive, and the coins are in your account with the provider to send back or to keep and mark the order as paid.
+- A payment that arrives over the amount completes the order, and the history says how much more came.
+- A crypto payment is never sent back through the provider. **Refund order** puts the amount on the buyer's store balance.
+
+**Test connection** in a provider's dialog says whether the keys work and how many coins the account takes. An account with no coin switched on is refused there, since no buyer could pay with it.
 
 ## Paying with balance
 
