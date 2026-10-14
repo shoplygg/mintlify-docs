@@ -29,6 +29,10 @@ Adding to a balance is money leaving your store without a payment, so the store'
 
 **Blacklist** on a customer's page stops them buying: their email, and if you choose the IP addresses their orders came from. See [fraud protection](/guides/fraud-protection).
 
+## Exporting customers
+
+**Export CSV** on **Customers** makes a spreadsheet of them, starting from the list's filters: when they were first seen, everyone or only affiliates, and the order. Each row is a customer: their email, when they were first seen, the orders they paid for and what they spent, their first and last paid order, their store balance, and their affiliate code and balance where they have one. Up to 10,000 customers a file, and 30 files every 10 minutes with the orders' exports.
+
 ## With the API
 
-See [Customers](/api-reference/customers/list-customers). Changing a balance is a permission of its own, and should be sent with an [`Idempotency-Key`](/api-reference/idempotency).
+See [Customers](/api-reference/customers/list-customers) and [Export customers](/api-reference/customers/export-customers). Changing a balance is a permission of its own, and should be sent with an [`Idempotency-Key`](/api-reference/idempotency).

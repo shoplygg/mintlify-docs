@@ -368,6 +368,7 @@
                         "openapi": "api-reference/openapi.json",
                         "pages": [
                             "GET /stores/{storeId}/customers",
+                            "GET /stores/{storeId}/customers/export",
                             "GET /stores/{storeId}/customers/stats",
                             "GET /stores/{storeId}/customers/{customerId}",
                             "POST /stores/{storeId}/customers",

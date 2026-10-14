@@ -47,6 +47,14 @@ A note of your own on the order. The buyer never sees it.
 
 An order's page also shows its timeline, the payments opened for it, where the buyer came from, and what is known of the connection it was placed from.
 
+## Exporting orders
+
+**Export CSV** on **Orders** makes a spreadsheet. It starts from the filters the list has, and you can change them before you download: the dates, the status and the payment method.
+
+Each row can be **An Order** or **A Product Line**. A row an order has everything the order's page shows: when it was placed and paid, what the sale price, the coupon and an affiliate link took off, the payment fee, the tax, what came from the buyer's balance, the currency it was charged in, the billing address, the address it was placed from and your note. A row a product line has each line's quantity, price, price before a sale and discount, so it can be summed by product. Delivered keys are never in the file.
+
+One file holds up to 10,000 orders; if there were more, the dashboard says so, and narrowing the dates gets the rest. A store can export 30 files every 10 minutes, orders and customers together.
+
 ## Invoices
 
 An invoice is an order you make for a buyer: products from your catalogue at their prices, or lines of your own at any price. The buyer gets a page to pay it on, and by email if you choose, with a PDF. Every order has a PDF, paid or not.
@@ -79,4 +87,4 @@ A buyer can leave one review on an order they paid for. An order nobody reviewed
 
 ## With the API
 
-Read orders, mark one paid, refund it, deliver it again, raise invoices and make payment links from your own server: see [Orders](/api-reference/orders/list-orders) and [Invoices](/api-reference/invoices/create-an-invoice). To hear about an order the moment it is paid, add a [webhook](/guides/webhooks).
+Read orders, export them, mark one paid, refund it, deliver it again, raise invoices and make payment links from your own server: see [Orders](/api-reference/orders/list-orders) and [Export orders](/api-reference/orders/export-orders) and [Invoices](/api-reference/invoices/create-an-invoice). To hear about an order the moment it is paid, add a [webhook](/guides/webhooks).
