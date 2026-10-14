@@ -12,8 +12,8 @@
 
 ## How it looks
 
-- `style.css` dresses Mintlify's parts in the dashboard's own tokens: the top bar and sidebar on the dashboard's frame, what is read as one rounded panel on it, a tab as a chip, the page you are on as a grey row with a short mark in the accent. Its header says what each choice answers. Colours, corners and type only: nothing in it moves a part.
-- The accent is for links and for that one mark. A heading, a group's name, the contents list and a field's name are ink and grey.
+- `style.css` dresses Mintlify's parts in the dashboard's own tokens: the top bar and sidebar on the dashboard's frame, what is read as one rounded panel on it, a tab as a chip, the page you are on as a grey row with its word in ink and no mark (the mark in the accent beside it went on 2026-10-14, with the dashboard rail's). Its header says what each choice answers. Colours, corners and type only: nothing in it moves a part.
+- The accent is for links, and never marks where you are. A heading, a group's name, the contents list and a field's name are ink and grey.
 - The site must never be restyled toward another platform's docs. It was once, and read as a copy of theirs.
 - A list of "a setting, and what it does" in a guide is a table with an empty head (`| | |`), the setting's name in bold. `<ResponseField>` is for a field of an API answer, with its type, and nowhere else: it sets a name in monospace with an anchor.
 

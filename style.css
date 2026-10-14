@@ -16,9 +16,10 @@
  *     ground with hairlines, which is how the other platform's docs are: "now docs look
  *     good but its basically 1:1 ... change navbar to make it like ours".)
  *   - A tab is a chip, as a switch in the dashboard is, where Mintlify underlines it.
- *   - The accent is for a link and for the mark beside the page you are on, as in the
- *     dashboard's rail. A group's name, the row you are on, the contents list and a
- *     field's name were all in it; they are ink and grey.
+ *   - The accent is for a link. A group's name, the row you are on, the contents list and
+ *     a field's name were all in it; they are ink and grey. The page you are on had a
+ *     short mark in the accent beside it, as the dashboard's rail did, until 2026-10-14,
+ *     when the user had the rail's taken off and then this one ("do docs aswell").
  *   - Smaller where it is chrome: a group's name in the sidebar, the title, the line
  *     under it, the headings. What is read (a paragraph, a table) is the size it was.
  *
@@ -179,23 +180,12 @@
   color: var(--shoply-ink) !important;
 }
 
-/* The page you are on: the dashboard rail's row, grey with a short mark in the accent. */
+/* The page you are on: the dashboard rail's row, grey, its word in ink, and no mark. */
 #navigation-items li[data-active="true"] > a {
   background-color: var(--shoply-row) !important;
   box-shadow: var(--shoply-row-edge);
   color: var(--shoply-ink) !important;
   font-weight: 500;
-}
-
-#navigation-items li[data-active="true"]::before {
-  content: "";
-  position: absolute;
-  top: 10px;
-  bottom: 10px;
-  left: 5px;
-  width: 3px;
-  border-radius: 3px;
-  background-color: var(--shoply-accent);
 }
 
 /* Status, Telegram and Discord: a plain mark, where Mintlify boxes each one. */
