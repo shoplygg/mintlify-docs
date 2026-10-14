@@ -4,7 +4,7 @@ sidebarTitle: "Expenses and profit"
 description: "What your store took in, what it cost, and what is left: expenses, profit and the books"
 ---
 
-The **Finance** group of the dashboard keeps your store's books: **Expenses**, **Accounting**, **Profit**, **Tax** and **Invoicing**. This page is the first three. [Tax at checkout](/guides/tax) has a page of its own, and invoices are with [orders](/guides/orders#invoices).
+The **Finance** group of the dashboard keeps your store's books: **Expenses**, **Reports**, **Tax** and **Invoicing**. This page is the first two. [Tax at checkout](/guides/tax) has a page of its own, and invoices are with [orders](/guides/orders#invoices).
 
 ## Before it opens
 
@@ -12,11 +12,11 @@ Finance asks for your business's name and country first, under **Settings**, the
 
 ## Making a report
 
-**Profit** and **Accounting** are reports. Pick a period and press **Generate Report**: each reads every order in the period, so it can take a moment.
+**Reports** is your profit and your books for a period, in five tabs: **Profit**, **Profit and Loss**, **Sales by Country**, **Payment Methods**, and **Tax Collected** if the store collected tax. Pick a period and press **Generate Report**: it reads every order in the period, so it can take a moment, and fills every tab at once.
 
 The page keeps the last report you made and opens on it, saying what it covers and when it was made. Picking another period changes nothing until you press the button again. Something that changes the figures afterwards, such as a payment fee rate or a cost used for past sales, is in the report once you make it again, and the page says so until you do.
 
-A store makes up to 20 reports every 10 minutes. That counts both pages, Accounting's **Downloads** and the reports the [API](#with-the-api) answers.
+A store makes up to 20 reports every 10 minutes. That counts **Generate Report**, the **Downloads** and the reports the [API](#with-the-api) answers.
 
 ## What counts
 
@@ -37,7 +37,7 @@ A store makes up to 20 reports every 10 minutes. That counts both pages, Account
 | **Affiliate Commission** | What your [affiliates](/guides/affiliates) earned on the period's sales. When an order is refunded, what came back off the affiliate's balance is taken off again; what they had already been paid stays a cost. |
 | **Expenses** | What you recorded under **Expenses**. |
 
-The **Profit** page shows **Net Sales**, **Net Profit**, **Margin**, **Profit per Order** and **Break-Even**, your sales and profit by month, where the money went, and each product's own figures.
+The **Profit** tab of **Reports** shows **Net Profit**, **Margin**, **Profit per Order** and **Break-Even**, your sales and profit by month, where the money went, and each product's own figures.
 
 ## Expenses
 
@@ -52,9 +52,9 @@ An expense is money your business spent: a payee, an amount, a date, a category,
 
 Categories are yours to add, rename and sort. Payment fees are not a category, on purpose: they are already taken off your profit, and an expense for them would count them twice.
 
-## Accounting
+## The books
 
-**Accounting** is the books for a period: **Net Sales**, **Gross Profit**, **Expenses** and **Net Profit**, with what each payment method took in, where your buyers were, and the orders that carried tax by place and rate. **Downloads** gives you the same as files for whoever does your accounts, for the period the report covers.
+The other tabs of **Reports** are the books for a period: **Net Sales**, **Gross Profit**, **Expenses** and **Net Profit**, over the profit and loss, where your buyers were, what each payment method took in, and the orders that carried tax by place and rate. **Downloads** gives you the same as files for whoever does your accounts, for the period the report covers.
 
 The profit and loss starts from gross sales, at the prices before any sale, and takes off what your sales, discounts (coupons and affiliate links), refunds and chargebacks took, each on a line of its own. Affiliate commission is a cost of sales beside payment fees, and the transactions file has a row for each order's commission.
 
