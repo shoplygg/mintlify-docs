@@ -10,21 +10,31 @@ The **Finance** group of the dashboard keeps your store's books: **Expenses**, *
 
 Finance asks for your business's name and country first, under **Settings**, then **Business**. Every statement it makes says whose it is. Invoicing does not wait for this.
 
+## Making a report
+
+**Profit** and **Accounting** are reports. Pick a period and press **Generate Report**: each reads every order in the period, so it can take a moment.
+
+The page keeps the last report you made and opens on it, saying what it covers and when it was made. Picking another period changes nothing until you press the button again. Something that changes the figures afterwards, such as a payment fee rate or a cost used for past sales, is in the report once you make it again, and the page says so until you do.
+
+A store makes up to 20 reports every 10 minutes. That counts both pages, Accounting's **Downloads** and the reports the [API](#with-the-api) answers.
+
 ## What counts
 
 - An order counts in the period it was **placed**.
 - Only a **completed** order is a sale. A pending, cancelled or refunded one is not.
+- A sale is what the buyer **paid**: at the sale price it was on, after its coupon and any affiliate link's discount, with the payment method's fee they were charged. A variant's own price is never used.
 - Money is in your store's currency.
 - **Tax you collected is not income.** It is left out of every sale on these pages and reported by itself.
 
 ## Profit
 
-**Net Profit** is what is left of your sales after three things:
+**Net Profit** is what is left of your sales after four things:
 
 | | |
 | - | - |
-| **Cost of Goods** | What a sale costs you. Type a cost on a variant, as an amount or as a percent of its price. It is written onto each order as it is paid, so changing a cost later does not rewrite earlier months unless you say to use it for past sales too. |
+| **Cost of Goods** | What a sale costs you. Type a cost on a variant, as an amount or as a percent of what it sold for, which is what the buyer paid for it after any sale and discount. It is written onto each order as it is paid, so changing a cost later does not rewrite earlier months unless you say to use it for past sales too. |
 | **Payment Fees** | What your payment providers keep. Shoply does not read these from a provider: they are worked out from the rates you type under **Payment Fees**, and every place the figure shows carries a mark saying it can be slightly off. |
+| **Affiliate Commission** | What your [affiliates](/guides/affiliates) earned on the period's sales. When an order is refunded, what came back off the affiliate's balance is taken off again; what they had already been paid stays a cost. |
 | **Expenses** | What you recorded under **Expenses**. |
 
 The **Profit** page shows **Net Sales**, **Net Profit**, **Margin**, **Profit per Order** and **Break-Even**, your sales and profit by month, where the money went, and each product's own figures.
@@ -44,7 +54,9 @@ Categories are yours to add, rename and sort. Payment fees are not a category, o
 
 ## Accounting
 
-**Accounting** is the books for a period: **Net Sales**, **Gross Profit**, **Expenses** and **Net Profit**, with what each payment method took in, where your buyers were, and the orders that carried tax by place and rate. **Downloads** gives you the same as files for whoever does your accounts.
+**Accounting** is the books for a period: **Net Sales**, **Gross Profit**, **Expenses** and **Net Profit**, with what each payment method took in, where your buyers were, and the orders that carried tax by place and rate. **Downloads** gives you the same as files for whoever does your accounts, for the period the report covers.
+
+The profit and loss starts from gross sales, at the prices before any sale, and takes off what your sales, discounts (coupons and affiliate links), refunds and chargebacks took, each on a line of its own. Affiliate commission is a cost of sales beside payment fees, and the transactions file has a row for each order's commission.
 
 ## With the API
 
