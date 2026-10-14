@@ -29,9 +29,9 @@
 
 - Use active voice and second person ("you").
 - One idea a sentence. Plain words.
-- Sentence case for headings.
+- Sentence case for the docs' own headings and page titles.
 - No em or en dashes anywhere.
-- Bold for what is on screen: **Developers**, then **API keys**.
+- Bold for what is on screen, named exactly as the screen names it: **Developers**, then **API Keys**. The dashboard writes its labels in title case (since 2026-10-13), so a tab, a button or a box's name here is in title case too, while the sentence around it is not. Another company's name for its own screen is as that company writes it.
 - Code formatting for file names, commands, paths, fields and values.
 - Original wording. Do not copy or closely follow another platform's docs.
 
