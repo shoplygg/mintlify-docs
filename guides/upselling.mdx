@@ -1,0 +1,74 @@
+---
+title: "Upselling"
+description: "What a buyer is offered beside what they chose: add-ons, offers in the cart and at checkout, and what is bought together"
+---
+
+Upselling is under **Catalogue**, then **Upselling**. It has a tab for each place a buyer meets an offer, and figures over them for the period you pick beside the add button.
+
+## Add-ons
+
+An add-on is a tick on a product's page, under its options. Ticked, it goes into the cart with the product, and the buyer can still tick or untick it on the checkout.
+
+| | |
+| - | - |
+| **What It Sells** | **A Plain Extra**: a name and a price, with nothing behind it to deliver. Its **Message After Payment** is on the buyer's receipt and order page. Or **One of Your Products**, at a **Price as an Add-on** of your own, delivered as that product always is. |
+| **How It Is Offered** | **Optional**, which the buyer ticks. **Ticked**, which they can untick. **Included**, which is always in the order. |
+| **Charged** | **Once per Order**, or **For Each Item** of the product it is beside. |
+| **Offer It With** | Products, or whole categories, so that a product you add to one later has it too. |
+
+A plain extra's **Cost Per Unit** counts toward your profit in [Finance](/guides/finance) and is never shown to buyers. Each add-on becomes a line of the order of its own, marked with the line it was ticked beside. One line takes up to 10.
+
+## Cart offers
+
+Under the cart's lines, the store offers up to three things at once. **Add Cart Offer** makes one of two kinds.
+
+| | |
+| - | - |
+| **An Offer Beside It** | Another product, offered while the cart holds what **It Shows When** asks for: a product, a category, or a cart total. Taken, it is a line of one at the offer's price. |
+| **An Upgrade** | A better product in place of one in the cart. **It Replaces** names the products it is offered on, and **Upgrade To** is what the buyer gets instead. Taken, it replaces that line, every item of it. |
+
+Each has a **Price**: **Its Price**, **Percent Off** or **Amount Off**, on that order only. **Words Over It** is the line the store shows above the offer. Left empty, the storefront says "Goes well with it" or "Upgrade and save", in the buyer's language.
+
+If what an offer asked for leaves the cart, the product it added stays there at its own price.
+
+## At checkout
+
+One offer, with a tick above **Pay** on Shoply's checkout and in the [Checkout Kit](/guides/checkout-kit). It is not in the [embed](/guides/embeds), which sells the one product it was opened on. It shows under the same conditions as a cart offer, and has two switches of its own, since the checkout is the one place that knows who is buying.
+
+| | |
+| - | - |
+| **First Orders Only** | Offered only to a buyer who has never paid at your store. |
+| **Hide When Already Bought** | Not offered to a buyer who has bought it before. |
+
+Left empty, its words are "Add to Your Order", in the buyer's language.
+
+## Bought together
+
+Under **Buy now** on a product's page, up to four products a buyer can add with one press, each at its own price. Yours come first: **Add Bought Together** picks a **Product**, and the products it is **Shown Under**.
+
+**Worked Out From Your Orders**, at the head of the tab, fills the rest with what your paid orders show is most often bought with that product. It is on until you switch it off.
+
+## When an offer runs
+
+**More Options**, at the foot of each dialog but Bought Together's, has **Starts** (**Now**, or **At a Set Time**) and **Ends** (**Never**, or **At a Set Time**). An offer's menu has **Turn Off**, which keeps it for later.
+
+## The figures
+
+| | |
+| - | - |
+| **Upsell Revenue** | What the offers sold on paid orders, at the price they were sold for. |
+| **Orders With an Upsell** | Paid orders that had at least one. |
+| **Times Shown** | How often a storefront or the checkout showed one. A robot's look is not counted. |
+| **Taken** | Of the times shown, the share that went into a paid order. |
+
+Each offer's row has the same figures for itself. A store holds up to 200 upsells of every kind together, and each names up to 100 products and categories.
+
+## On your storefront
+
+Every theme draws add-ons, the cart's offers and bought together. A storefront whose code you have changed in the code studio keeps its own files: it shows none of these until its files do. An add-on that is **Included** is in the order whatever the storefront shows, and the checkout lists it.
+
+On a site of your own, the [storefront SDK](/sdk/overview) answers a product's add-ons and what is bought together with it, and has calls for the cart's offers.
+
+## With the API
+
+See [Upsells](/api-reference/upsells/list-upsells).

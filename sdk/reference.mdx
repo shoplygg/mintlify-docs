@@ -21,7 +21,7 @@ Everything hangs off the global `shoply`, after `init()`. Calls that ask the ser
 | `getStore()` | The store: its name, branding, currency, products and running sales. Kept, and calls made at the same time share one request. |
 | `getProducts()` | The store's products. |
 | `getCategories()` | Its categories. |
-| `getProduct(idOrSlug)` | One product, by its ID or the last part of its address. |
+| `getProduct(idOrSlug)` | One product, by its ID or the last part of its address. It carries its add-ons (`addons`) and what is bought together with it (`together`). |
 
 ## The basket
 
@@ -30,19 +30,30 @@ Kept in the browser, for each store, so two stores open in one browser never sha
 | Call | What it does |
 | - | - |
 | `getBasket()` | What is in it. |
-| `addToBasket(productId, variantId, quantity)` | Add to it. The same variant twice is one line. |
-| `setQuantity(productId, variantId, quantity)` | Change a line. `0` removes it. |
-| `removeFromBasket(productId, variantId)` | Remove a line. |
+| `addToBasket(productId, variantId, quantity, options?)` | Add to it. The same variant twice is one line. `options.addons` is the IDs of the add-ons ticked beside it, and `options.offer` the offer it was taken through. |
+| `setQuantity(productId, variantId, quantity, offer?)` | Change a line. `0` removes it. |
+| `setAddons(productId, variantId, addons)` | Set the add-ons ticked for a line. An empty list unticks them all. |
+| `removeFromBasket(productId, variantId, offer?)` | Remove a line. |
 | `clearBasket()` | Empty it. |
 | `basketCount()` | How many items are in it. |
 | `basketSubtotal()` | What it comes to. |
+
+### Offers
+
+What the store sets on its [Upselling](/guides/upselling) page. The checkout prices every offer again, so what the basket shows is a guide.
+
+| Call | What it does |
+| - | - |
+| `cartOffers()` | What the store offers beside the basket as it is: products offered in the cart (`kind` `cart`) and upgrades for its lines (`upgrade`). Also brings each taken offer's price in line with what the checkout will charge. |
+| `takeOffer(offer)` | Put one of those offers in the basket: a cart offer as a line of one, an upgrade in place of the line it is for. |
+| `offersSeen(ids)` | Tell the store which offers a page showed, for the figures on its Upselling page. |
 
 ## Checking out
 
 | Call | What it does |
 | - | - |
 | `checkout(email, coupon?)` | Send the buyer to the checkout with the basket. The email is needed. The buyer can still change it there. |
-| `createOrder(email, productId, variantId, quantity?)` | The checkout for one item, for a Buy now button. |
+| `createOrder(email, productId, variantId, quantity?, options?)` | The checkout for one item, for a Buy now button. `options.addons` names its ticked add-ons. |
 | `validateCoupon(code, subtotal?)` | What a coupon would take off. A preview only: the checkout checks it again. |
 | `settleCheckout()` | Empty the basket once its checkout is paid. `init()` calls it for you. |
 

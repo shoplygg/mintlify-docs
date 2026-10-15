@@ -60,6 +60,7 @@
                             "guides/orders",
                             "guides/reviews",
                             "guides/coupons-and-sales",
+                            "guides/upselling",
                             "guides/customers-and-balance",
                             "guides/affiliates"
                         ]
@@ -234,6 +235,19 @@
                             "POST /stores/{storeId}/categories/{categoryId}/image",
                             "DELETE /stores/{storeId}/categories/{categoryId}/image",
                             "DELETE /stores/{storeId}/categories/{categoryId}"
+                        ]
+                    },
+                    {
+                        "group": "Upsells",
+                        "openapi": "api-reference/openapi.json",
+                        "pages": [
+                            "GET /stores/{storeId}/upsells",
+                            "POST /stores/{storeId}/upsells",
+                            "PUT /stores/{storeId}/upsells/sort",
+                            "PATCH /stores/{storeId}/upsells/settings",
+                            "PUT /stores/{storeId}/upsells/{upsellId}",
+                            "PATCH /stores/{storeId}/upsells/{upsellId}/enabled",
+                            "DELETE /stores/{storeId}/upsells/{upsellId}"
                         ]
                     },
                     {
