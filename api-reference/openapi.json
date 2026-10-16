@@ -11581,7 +11581,7 @@
                                     "hideOwned": {
                                         "type": "boolean",
                                         "description": "A checkout offer only: not offered to a buyer who has bought it before.",
-                                        "default": true
+                                        "default": false
                                     },
                                     "enabled": {
                                         "type": "boolean",
@@ -12208,7 +12208,7 @@
                                     "hideOwned": {
                                         "type": "boolean",
                                         "description": "A checkout offer only: not offered to a buyer who has bought it before.",
-                                        "default": true
+                                        "default": false
                                     },
                                     "enabled": {
                                         "type": "boolean",
