@@ -13498,7 +13498,7 @@
                     "Orders"
                 ],
                 "summary": "Export orders",
-                "description": "The orders the same filters would list, as a CSV file: a row an order with every field its page shows (when it was paid, the fee, tax, balance and affiliate in it, the currency it was charged in, the billing address), or a row a product line with `rows=lines`. The first thirteen columns are always Order ID, Created, Email, Status, Payment, Currency, Subtotal, Discount, Total, Coupon, Country, Items and Products, in that order. No delivered key is in it. Every order the filters match is in the file, however many: it is sent as it is read, with no length given. Add `check=1` for `{ rows }`, how many it would have, which is not counted. A store exports at most 30 files every 10 minutes, orders and customers together, whoever asks: after that the answer is 429.\n\nNeeds the `orders.read` permission (Read Orders). It is one of the heavier reads, and is counted against a smaller budget of its own: 60 a minute for each key.",
+                "description": "The orders the same filters would list, as a CSV file: a row an order with every field its page shows (when it was paid, the fee, tax, balance and affiliate in it, the currency it was charged in, the billing address), or a row a product line with `rows=lines`. The first thirteen columns are always Order ID, Created, Email, Status, Payment, Currency, Subtotal, Discount, Total, Coupon, Country, Items and Products, in that order. No delivered key is in it. Every order the filters match is in the file, however many: it is sent as it is read, with no length given. Add `check=1` for `{ rows }`, how many it would have, which is not counted. A store exports at most 30 files every 10 minutes, orders, customers, fraud events and blacklist rules together, whoever asks: after that the answer is 429.\n\nNeeds the `orders.read` permission (Read Orders). It is one of the heavier reads, and is counted against a smaller budget of its own: 60 a minute for each key.",
                 "x-mint": {
                     "href": "/api-reference/orders/export-orders",
                     "metadata": {
@@ -23475,7 +23475,7 @@
                     "Customers"
                 ],
                 "summary": "Export customers",
-                "description": "The customers the same filters would list, as a CSV file: each one's email, when they were first seen, the orders they paid for and what they spent, their first and last paid order, their store balance, and their affiliate code and balance where they have one. Every customer the filters match is in the file, however many: it is sent as it is read. Add `check=1` for `{ rows }`, how many it would have, which is not counted. A store exports at most 30 files every 10 minutes, orders and customers together, whoever asks: after that the answer is 429.\n\nNeeds the `customers.read` permission (Read Customers). It is one of the heavier reads, and is counted against a smaller budget of its own: 60 a minute for each key.",
+                "description": "The customers the same filters would list, as a CSV file: each one's email, when they were first seen, the orders they paid for and what they spent, their first and last paid order, their store balance, and their affiliate code and balance where they have one. Every customer the filters match is in the file, however many: it is sent as it is read. Add `check=1` for `{ rows }`, how many it would have, which is not counted. A store exports at most 30 files every 10 minutes, orders, customers, fraud events and blacklist rules together, whoever asks: after that the answer is 429.\n\nNeeds the `customers.read` permission (Read Customers). It is one of the heavier reads, and is counted against a smaller budget of its own: 60 a minute for each key.",
                 "x-mint": {
                     "href": "/api-reference/customers/export-customers",
                     "metadata": {
@@ -27565,6 +27565,111 @@
                 }
             }
         },
+        "/stores/{storeId}/blacklist/export": {
+            "get": {
+                "operationId": "blacklist.export",
+                "tags": [
+                    "Blacklist"
+                ],
+                "summary": "Export blacklist rules",
+                "description": "The rules the same filters would list, as a CSV file, newest first: each one's type, value and note, whether it is in force, when and how it was added, the customer or order it came from, and how many checkouts it has stopped. Every rule the filters match is in the file. Add `check=1` for `{ rows }`, how many it would have, which is not counted. A store exports at most 30 files every 10 minutes, orders, customers, fraud events and blacklist rules together, whoever asks: after that the answer is 429.\n\nNeeds the `fraud.read` permission (Read Fraud Protection). It is one of the heavier reads, and is counted against a smaller budget of its own: 60 a minute for each key.",
+                "x-mint": {
+                    "href": "/api-reference/blacklist/export-blacklist-rules",
+                    "metadata": {
+                        "title": "Export blacklist rules",
+                        "sidebarTitle": "Export blacklist rules"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "storeId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The store's ID. A key reaches the store it was made in: `GET /key` answers which.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only rules that are in force, or only ones switched off.",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "enabled",
+                                "disabled"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only rules of this type.",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "email",
+                                "domain",
+                                "ip",
+                                "cidr",
+                                "asn",
+                                "isp",
+                                "city"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "description": "Part of a rule's value or note.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "check",
+                        "in": "query",
+                        "required": false,
+                        "description": "`1` for how many rows the file would have, as `{ rows }`, in place of the file. Not counted against the store's exports, and refused with 429 where none are left.",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "1"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The file itself, not a JSON envelope.",
+                        "content": {
+                            "application/octet-stream": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/NoKey"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/NotAllowed"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/TooMany"
+                    }
+                }
+            }
+        },
         "/stores/{storeId}/blacklist/{ruleId}": {
             "put": {
                 "operationId": "blacklist.update",
@@ -28319,6 +28424,145 @@
                                             "changes": 6
                                         }
                                     }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/NoKey"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/NotAllowed"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/TooMany"
+                    }
+                }
+            }
+        },
+        "/stores/{storeId}/fraud-events/export": {
+            "get": {
+                "operationId": "fraudEvents.export",
+                "tags": [
+                    "Fraud protection"
+                ],
+                "summary": "Export fraud events",
+                "description": "The events the same filters would list, as a CSV file, newest first: when each happened and how many attempts it gathered, what it was, the email, IP address, country and order, the rule it matched or the change that was made and by whom, and what a lookup of the address already knew (its provider and network, where it is, and whether it looked like a VPN, a data centre or a phone). Nothing is looked up to write the file: an address never looked up has those empty. Every event the filters match is in the file, however many: it is sent as it is read. Add `check=1` for `{ rows }`, how many it would have, which is not counted. A store exports at most 30 files every 10 minutes, orders, customers, fraud events and blacklist rules together, whoever asks: after that the answer is 429.\n\nNeeds the `fraud.read` permission (Read Fraud Protection). It is one of the heavier reads, and is counted against a smaller budget of its own: 60 a minute for each key.",
+                "x-mint": {
+                    "href": "/api-reference/fraud-protection/export-fraud-events",
+                    "metadata": {
+                        "title": "Export fraud events",
+                        "sidebarTitle": "Export fraud events"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "storeId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The store's ID. A key reaches the store it was made in: `GET /key` answers which.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "reason",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only events of this reason. `changes` is every change to the rules and settings.",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "blacklist",
+                                "vpn",
+                                "country",
+                                "unpaid_limit",
+                                "dispute",
+                                "refund",
+                                "changes"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "description": "Part of an email address, an IP address or a rule's value.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "check",
+                        "in": "query",
+                        "required": false,
+                        "description": "`1` for how many rows the file would have, as `{ rows }`, in place of the file. Not counted against the store's exports, and refused with 429 where none are left.",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "1"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "range",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only events in this period.",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "today",
+                                "yesterday",
+                                "7d",
+                                "30d",
+                                "this_week",
+                                "last_week",
+                                "this_month",
+                                "last_month",
+                                "this_year"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only events on or after this day, as `YYYY-MM-DD`. With `to`, in place of `range`.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only events on or before this day, as `YYYY-MM-DD`.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "tz",
+                        "in": "query",
+                        "required": false,
+                        "description": "The time zone those days are in, as an IANA name. Left out, UTC.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The file itself, not a JSON envelope.",
+                        "content": {
+                            "application/octet-stream": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
                                 }
                             }
                         }

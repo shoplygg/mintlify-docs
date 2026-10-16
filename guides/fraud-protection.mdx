@@ -19,6 +19,8 @@ A rule refuses whoever matches it:
 
 A rule can be switched off without deleting it, and carries a note of why. A store holds up to 10,000 rules.
 
+**Export CSV** on **Blacklist** makes a spreadsheet of the rules, starting from the list's filters: on or off, and the type. Each row is a rule: its type, value and note, whether it is on, when and how it was added, and how many checkouts it has stopped.
+
 ## Before an order is made
 
 Under **Fraud Protection**, then **Settings**:
@@ -31,10 +33,14 @@ Under **Fraud Protection**, then **Settings**:
 
 **Activity** lists every checkout that was refused and why, and every change to the rules and settings.
 
+**Export CSV** on **Activity** makes a spreadsheet of it, starting from the list's filters: the dates and the reason. Each row is an event: when it happened and how many attempts it gathered, what it was, the email, IP address, country and order, the rule it matched or the change and who made it, and what was already known about the address (its provider and network, where it is, and whether it looked like a VPN). Nothing is looked up to make the file, so an address nobody opened in Activity has those empty.
+
+Every row that matches is in either file, and a store can export 30 files every 10 minutes, with its orders' and customers' exports.
+
 ## One customer
 
 **Blacklist Customer** on a customer's page adds their email and, if you choose, the addresses their orders came from. **Unblacklist Customer** takes them off again, and says which rules that cover other buyers still refuse them.
 
 ## With the API
 
-See [Blacklist](/api-reference/blacklist/list-blacklist-rules) and [Fraud protection](/api-reference/fraud-protection/list-fraud-events).
+See [Blacklist](/api-reference/blacklist/list-blacklist-rules) and [Fraud protection](/api-reference/fraud-protection/list-fraud-events). Both files can be asked for with a key: [Export blacklist rules](/api-reference/blacklist/export-blacklist-rules) and [Export fraud events](/api-reference/fraud-protection/export-fraud-events).

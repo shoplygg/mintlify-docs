@@ -416,6 +416,7 @@
                         "openapi": "api-reference/openapi.json",
                         "pages": [
                             "GET /stores/{storeId}/blacklist",
+                            "GET /stores/{storeId}/blacklist/export",
                             "POST /stores/{storeId}/blacklist",
                             "PUT /stores/{storeId}/blacklist/{ruleId}",
                             "PATCH /stores/{storeId}/blacklist/{ruleId}/enabled",
@@ -427,6 +428,7 @@
                         "openapi": "api-reference/openapi.json",
                         "pages": [
                             "GET /stores/{storeId}/fraud-events",
+                            "GET /stores/{storeId}/fraud-events/export",
                             "GET /stores/{storeId}/fraud-events/{eventId}/network",
                             "GET /stores/{storeId}/fraud-settings",
                             "PUT /stores/{storeId}/fraud-settings"
