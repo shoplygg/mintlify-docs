@@ -1,6 +1,6 @@
 ---
 title: "Payment methods"
-description: "How buyers pay you: cards, PayPal and crypto, through accounts of your own"
+description: "How buyers pay you: cards, PayPal, crypto and skins, through accounts of your own"
 ---
 
 Buyers pay **you**, through an account of your own with a payment provider. You connect it under **Payment Methods**, and Shoply's checkout takes the payment with it.
@@ -15,6 +15,7 @@ Buyers pay **you**, through an account of your own with a payment provider. You 
 | Cards, wallets and local methods | Whop | Yes |
 | PayPal | PayPal | Yes |
 | Crypto | NOWPayments, Cryptomus, Heleket, OxaPay | No. A refund is store credit. |
+| CS2 and Rust skins | Skinloop | No. A refund is store credit. |
 
 A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
 
@@ -129,11 +130,34 @@ It works the same way whichever you connect:
 
 **Test Connection** in a provider's dialog says whether the keys work and how many coins the account takes. An account with no coin switched on is refused there, since no buyer could pay with it.
 
+## Skinloop
+
+Buyers pay with their CS2 or Rust skins, traded from their Steam inventory on Skinloop's own page. Skinloop pays your Skinloop balance in US dollars. Under **Add a payment method** it is under **Other**: it is neither fiat nor crypto.
+
+Connecting takes four steps, three of them in Skinloop:
+
+1. Make an **API Key** in Skinloop, under **API & Webhooks**, with `checkout:create` and `checkout:read` and the games you take. Paste it into Shoply.
+2. In Skinloop, under **Checkout Configuration**, add the **Checkout Address** Shoply shows you to **Checkout Redirect Origins**. Without it Skinloop refuses every checkout, and buyers cannot pay.
+3. In Skinloop, under **API & Webhooks**, add the **Callback URL** Shoply shows you as a webhook endpoint, for `payment.completed` and `payment.reverted`. Paste the signing secret it shows you into **Webhook Signing Secret**.
+4. Switch on **Take CS2 Skins**, **Take Rust Skins**, or both, as your key allows.
+
+Saving asks Skinloop whose the key is and refuses one it does not know. **Test Connection** does the same. Whether the key may make checkouts, for which games, and whether the address is approved, Skinloop says only when a buyer pays, so make one small payment of your own before you sell.
+
+At the checkout the buyer presses Pay and Skinloop's page opens in a new tab, for exactly the order's total in US dollars. They pick their skins and send the trade. Their email goes with it, and Skinloop does not ask them for it again.
+
+- A **Rust** trade completes the order as soon as Skinloop has verified it.
+- A **CS2** trade is held by Steam for **up to 8 days**. The order stays pending meanwhile, and the checkout tells the buyer so. It is delivered when Skinloop says the trade is complete, and is never cancelled as unpaid while the trade is held.
+- An order priced in another currency is charged in US dollars, at the day's rate, and the buyer sees that figure before they pay.
+- Skinloop's page waits an hour for a trade. After that the checkout offers Pay again.
+- A buyer may send skins worth more than the order. The order completes as usual, for the same order.
+- A trade Skinloop reverses after the order completed makes the order a chargeback. It reaches the order only by the webhook, which is why `payment.reverted` is one of the two events.
+- Skins cannot be sent back. **Refund Order** puts the amount on the buyer's store balance.
+
 ## Unpaid orders
 
 An order nobody pays is cancelled by itself, and any coupon it used is released. **Unpaid Orders**, under **Payment Methods**, says how long one is kept: 24 hours unless you change it, from 1 hour to 14 days.
 
-A payment method can have a time of its own, for an order a buyer has started paying with it: three days for crypto, say, while an abandoned card checkout goes in an hour. Either way the time counts from when the order was placed, and a buyer who has just pressed **Pay** always has an hour to finish.
+A payment method can have a time of its own, for an order a buyer has started paying with it: three days for crypto, say, while an abandoned card checkout goes in an hour. Either way the time counts from when the order was placed, and a buyer who has just pressed **Pay** always has an hour to finish. A payment already on its way keeps the order whatever the time says: coins confirming, a bank that has not answered, or a CS2 trade in Steam's hold.
 
 An invoice you send is kept until its own due date instead.
 
