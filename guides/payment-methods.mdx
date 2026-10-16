@@ -13,12 +13,13 @@ Buyers pay **you**, through an account of your own with a payment provider. You 
 | Cards, iDEAL, Bancontact, Klarna and more | Mollie | Yes |
 | Cards, Apple Pay, Google Pay | SumUp | Yes |
 | Cards, Apple Pay, Google Pay | Square | Yes |
+| Cards, Revolut Pay, Apple Pay, Google Pay | Revolut Business | Yes |
 | Cards, wallets and local methods | Whop | Yes |
 | PayPal | PayPal | Yes |
 | Crypto | NOWPayments, Cryptomus, Heleket, OxaPay | No. A refund is store credit. |
 | CS2 and Rust skins | Skinloop | No. A refund is store credit. |
 
-A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp, Square and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
+A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp, Square, Revolut Business and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
 
 ## NMI
 
@@ -108,6 +109,20 @@ For payments to be confirmed sooner, add the **Callback URL** Shoply shows you a
 - A sandbox token completes and delivers orders with no money moving, and the order says so.
 - **Refund Order** in the dashboard sends the payment back through Square. A refund you make in Square reaches the order by the webhook, and a partial one is noted on it. Refund Order asks Square first, so money that already went back is never sent twice.
 - A dispute opened at Square does not reach the order. Answer it in Square.
+
+## Revolut Business
+
+Connect your Revolut Business account with one thing: the **Secret Key** under **Merchant API** in your Revolut Business settings (APIs). The public key beside it is not the one.
+
+Saving asks Revolut about the key, says whether it is a live one or a sandbox one, and sets up the webhook that tells Shoply about your payments and disputes. You paste nothing into Revolut for it. Revolut keeps at most ten webhooks an account: if yours already has ten, remove one you no longer use and save again.
+
+At the checkout the buyer presses Pay and Revolut's own page opens in a new tab, for exactly the order's total, with their email already filled in. It takes cards, Revolut Pay, and Apple Pay and Google Pay where the buyer's device has them. When they have paid, the order completes on the page they left open and is delivered.
+
+- Revolut takes 27 currencies, US dollars, euros and pounds among them. An order priced in another is charged in one of those, at the day's rate, and the buyer sees that figure before they pay.
+- Revolut's page takes a payment for as long as the order waits to be paid: the time under **Unpaid Orders**, below.
+- **Refund Order** in the dashboard sends the payment back through Revolut. A refund you make in Revolut reaches the order the next time Shoply asks about it, which Refund Order does first, so money that already went back is never sent twice.
+- A dispute shows on the order, and a lost one makes it a chargeback.
+- A sandbox key completes and delivers orders with no money moving, and the order says so.
 
 ## Whop
 
