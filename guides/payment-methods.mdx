@@ -12,12 +12,13 @@ Buyers pay **you**, through an account of your own with a payment provider. You 
 | Cards | NMI, or a provider that resells it | Yes |
 | Cards, iDEAL, Bancontact, Klarna and more | Mollie | Yes |
 | Cards, Apple Pay, Google Pay | SumUp | Yes |
+| Cards, Apple Pay, Google Pay | Square | Yes |
 | Cards, wallets and local methods | Whop | Yes |
 | PayPal | PayPal | Yes |
 | Crypto | NOWPayments, Cryptomus, Heleket, OxaPay | No. A refund is store credit. |
 | CS2 and Rust skins | Skinloop | No. A refund is store credit. |
 
-A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
+A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp, Square and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
 
 ## NMI
 
@@ -85,6 +86,28 @@ At the checkout the buyer presses Pay and SumUp's own page opens in a new tab, f
 - A sandbox account completes and delivers orders with no money moving, and the order says so.
 - **Refund Order** in the dashboard sends the payment back through SumUp.
 - A refund or a chargeback made in SumUp itself does not reach the order when it happens: SumUp reports only that a payment was made. Refund order asks SumUp first, so money that already went back there is never sent twice.
+
+## Square
+
+Connect your Square account with an access token, and if you like, which of your locations takes the money:
+
+| Box | What goes in it |
+| - | - |
+| Access Token | Your app's access token, from **Credentials** in your app in the Square Developer Console. Make an app there if you have none. |
+| Location ID | Which location takes the money, from **Locations** in your Square dashboard. Left empty, your main location. |
+| Webhook Signature Key | Optional, below. |
+
+Saving asks Square for that location with the token. A token Square does not know is refused, and so is a location the token has none of, one that is not active, and one that cannot take card payments yet. Square's answer also says whether the token is a sandbox one and which currency the location charges in, and **Test Connection** tells you both.
+
+At the checkout the buyer presses Pay and Square's own page opens in a new tab, for exactly the order's total, with their email already filled in. It takes cards, Apple Pay and Google Pay, and Cash App Pay and Afterpay where your account offers them. It asks for no tip, no coupon and no shipping address. When they have paid, the order completes on the page they left open and is delivered.
+
+For payments to be confirmed sooner, add the **Callback URL** Shoply shows you as a webhook subscription in your app in the Square Developer Console, for `payment.created` and `payment.updated`, and paste its signature key into **Webhook Signature Key**. Without it every payment is still followed, a little later.
+
+- A Square location charges in **one currency**. An order priced in another is charged in your location's, at the day's rate, and the buyer sees that figure before they pay.
+- Square's page takes a payment for as long as the order waits to be paid: the time under **Unpaid Orders**, below.
+- A sandbox token completes and delivers orders with no money moving, and the order says so.
+- **Refund Order** in the dashboard sends the payment back through Square. A refund you make in Square reaches the order by the webhook, and a partial one is noted on it. Refund Order asks Square first, so money that already went back is never sent twice.
+- A dispute opened at Square does not reach the order. Answer it in Square.
 
 ## Whop
 
