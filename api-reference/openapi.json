@@ -13692,7 +13692,7 @@
                     "Orders"
                 ],
                 "summary": "Get an order",
-                "description": "One order with everything its page shows: its lines and what each delivered, its payments, the buyer, its timeline, where it came from, and `refund`, which says which ways it can be refunded.\n\nNeeds the `orders.read` permission (Read Orders).",
+                "description": "One order with everything its page shows: its lines and what each delivered, its payments, the buyer, its timeline, where it came from, `refund`, which says which ways it can be refunded, and `requests`: what Shoply sent your servers about it, each try of each webhook about the order and each line's dynamic delivery, newest first, with the first 300 characters of what came back.\n\nNeeds the `orders.read` permission (Read Orders).",
                 "x-mint": {
                     "href": "/api-reference/orders/get-an-order",
                     "metadata": {
