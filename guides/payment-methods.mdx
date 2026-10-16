@@ -14,12 +14,13 @@ Buyers pay **you**, through an account of your own with a payment provider. You 
 | Cards, Apple Pay, Google Pay | SumUp | Yes |
 | Cards, Apple Pay, Google Pay | Square | Yes |
 | Cards, Revolut Pay, Apple Pay, Google Pay | Revolut Business | Yes |
+| Cards, PayPal, Apple Pay, Google Pay | Lemon Squeezy, as the seller of record | Yes |
 | Cards, wallets and local methods | Whop | Yes |
 | PayPal | PayPal | Yes |
 | Crypto | NOWPayments, Cryptomus, Heleket, OxaPay | No. A refund is store credit. |
 | CS2 and Rust skins | Skinloop | No. A refund is store credit. |
 
-A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp, Square, Revolut Business and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
+A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp, Square, Revolut Business, Lemon Squeezy and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
 
 ## NMI
 
@@ -123,6 +124,27 @@ At the checkout the buyer presses Pay and Revolut's own page opens in a new tab,
 - **Refund Order** in the dashboard sends the payment back through Revolut. A refund you make in Revolut reaches the order the next time Shoply asks about it, which Refund Order does first, so money that already went back is never sent twice.
 - A dispute shows on the order, and a lost one makes it a chargeback.
 - A sandbox key completes and delivers orders with no money moving, and the order says so.
+
+## Lemon Squeezy
+
+Lemon Squeezy is the seller of record: it sells to the buyer itself, handles sales tax and VAT for you, and pays you out. It sells only products of your Lemon Squeezy store, so first make one product there for your Shoply orders, with a one-time price of any amount, and publish it. Each order is sold as that product, at the order's own total and under the order's name.
+
+| Box | Where it is in Lemon Squeezy |
+| - | - |
+| API Key | **Settings**, **API**. Make a key there; a key made in test mode is a test key. |
+| Product ID | The number in the product's address in your Lemon Squeezy dashboard. |
+| Store ID | Only if the key can see more than one store: the number under **Settings**, **Stores**. Left empty, your only store. |
+
+Saving asks Lemon Squeezy about the three: a product that is not published, that belongs to another store, or that has only a subscription price is refused. It also says whether the key is a test one, and which currency your store charges in, and **Test Connection** tells you both. Saving sets up the webhook that tells Shoply about your payments too: you paste nothing into Lemon Squeezy for it.
+
+At the checkout the buyer presses Pay and Lemon Squeezy's own page opens in a new tab, for the order's total, with their email already filled in and no discount box. Lemon Squeezy may add tax to what they pay. When they have paid, the order completes on the page they left open and is delivered.
+
+- Your Lemon Squeezy store charges in **one currency**. An order priced in another is charged in your store's, at the day's rate, and the buyer sees that figure before they pay.
+- Lemon Squeezy's page takes a payment for as long as the order waits to be paid: the time under **Unpaid Orders**, below.
+- Lemon Squeezy's webhook is how a payment reaches the order, and it is tried for only a few minutes. If it never arrives, Shoply looks for the payment by the buyer's email a few minutes later, and completes the order when only one payment could be it. Otherwise mark the order paid yourself.
+- **Refund Order** in the dashboard sends the payment back through Lemon Squeezy. A refund you make in Lemon Squeezy refunds the order here too, and a partial one is noted on it.
+- A dispute at Lemon Squeezy does not reach the order. Answer it in Lemon Squeezy.
+- A test key completes and delivers orders with no money moving, and the order says so.
 
 ## Whop
 
