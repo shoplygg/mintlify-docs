@@ -7,17 +7,17 @@ Every store answers at `your-name.myshoply.gg`. You can also connect a domain yo
 
 <Steps>
   <Step title="Add the domain">
-    Open **Domains** in the dashboard and enter the domain, with no `https://` in front. You are shown what its DNS record has to point at.
+    Open **Domains** in the dashboard and enter the domain, with no `https://` in front. You are shown the two DNS records it needs.
   </Step>
-  <Step title="Add a CNAME record">
-    At whoever runs your domain's DNS, add a `CNAME` record for the domain that points at the target the dashboard showed you.
+  <Step title="Add the two records">
+    At whoever runs your domain's DNS, add a `CNAME` record for the domain that points at the target the dashboard showed you, and the `TXT` record that shows the domain is yours.
   </Step>
   <Step title="Wait for it to go live">
-    Shoply notices the record and issues a certificate. The dashboard says where it stands. From then on your store answers at your domain.
+    The domain's card ticks off three things as they happen: **Points to Shoply**, **Proved Yours** and **Secure**, once its certificate is issued. With all three it reads **Live**, and your store answers at your domain. Until then each one that is missing says what it still needs.
   </Step>
 </Steps>
 
-A store has one domain of its own. Remove it to connect another.
+**Show DNS Records** on the card brings the records back whenever you need them, for instance when you move to another DNS provider. A store has one domain of its own: **Remove Domain** takes it off, and then you can connect another.
 
 ## Things to know
 

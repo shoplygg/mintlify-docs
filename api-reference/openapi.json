@@ -1575,7 +1575,7 @@
                     "Domain"
                 ],
                 "summary": "Get the store's domain",
-                "description": "The store's own domain, if it has connected one, with where it stands, and `cnameTarget`: what the domain's DNS record has to point at.\n\nNeeds the `store.read` permission (Read Store).",
+                "description": "The store's own domain, if it has connected one, with where it stands (`status`, and `checks`: whether it points here, whether its TXT record has proved it the store's, and whether its certificate is issued), and `cnameTarget`: what the domain's DNS record has to point at.\n\nNeeds the `store.read` permission (Read Store).",
                 "x-mint": {
                     "href": "/api-reference/domain/get-the-stores-domain",
                     "metadata": {
