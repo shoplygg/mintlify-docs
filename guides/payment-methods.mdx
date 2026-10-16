@@ -15,12 +15,13 @@ Buyers pay **you**, through an account of your own with a payment provider. You 
 | Cards, Apple Pay, Google Pay | Square | Yes |
 | Cards, Revolut Pay, Apple Pay, Google Pay | Revolut Business | Yes |
 | Cards, PayPal, Apple Pay, Google Pay | Lemon Squeezy, as the seller of record | Yes |
+| Cards | Amazon Payment Services | Yes |
 | Cards, wallets and local methods | Whop | Yes |
 | PayPal | PayPal | Yes |
 | Crypto | NOWPayments, Cryptomus, Heleket, OxaPay | No. A refund is store credit. |
 | CS2 and Rust skins | Skinloop | No. A refund is store credit. |
 
-A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp, Square, Revolut Business, Lemon Squeezy and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
+A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp, Square, Revolut Business, Lemon Squeezy, Amazon Payment Services and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
 
 ## NMI
 
@@ -145,6 +146,30 @@ At the checkout the buyer presses Pay and Lemon Squeezy's own page opens in a ne
 - **Refund Order** in the dashboard sends the payment back through Lemon Squeezy. A refund you make in Lemon Squeezy refunds the order here too, and a partial one is noted on it.
 - A dispute at Lemon Squeezy does not reach the order. Answer it in Lemon Squeezy.
 - A test key completes and delivers orders with no money moving, and the order says so.
+
+## Amazon Payment Services
+
+Connect your Amazon Payment Services account (once PayFort) with what its back office shows under **Integration Settings**, and the currency your account charges in:
+
+| Box | Where it is |
+| - | - |
+| Merchant Identifier | **Integration Settings** in your Amazon Payment Services back office. |
+| Access Code | The same page. |
+| SHA Request Phrase | The same page. |
+| SHA Response Phrase | The same page. |
+| Currency | The one currency your account charges in, as three letters: AED, SAR, USD. |
+
+Saving checks them with Amazon Payment Services, works out whether the account is a sandbox one and which SHA type you chose there (SHA-256, SHA-512, HMAC-256 or HMAC-512), and **Test Connection** tells you both. A merchant identifier, an access code or a phrase it does not take is refused at its box.
+
+For payments to be confirmed sooner, add the **Callback URL** Shoply shows you under **Integration Settings**, as both the **Direct Transaction Feedback URL** and the **Notification Feedback URL**. Without it every payment is still followed, a little later.
+
+At the checkout the buyer presses Pay and Amazon Payment Services' own page opens in a new tab, for exactly the order's total. When they have paid they are sent back to the order, which completes and is delivered.
+
+- Your account charges in **one currency**, the one you typed. An order priced in another is charged in yours, at the day's rate, and the buyer sees that figure before they pay.
+- Its page takes a payment for as long as the order waits to be paid: the time under **Unpaid Orders**, below.
+- **Refund Order** in the dashboard sends the payment back through Amazon Payment Services. A refund made in its back office reaches the order the next time Shoply asks about it, which Refund Order does first, so money that already went back is never sent twice.
+- A dispute does not reach the order. Answer it in Amazon Payment Services.
+- A sandbox account completes and delivers orders with no money moving, and the order says so.
 
 ## Whop
 
