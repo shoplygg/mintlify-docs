@@ -1,0 +1,60 @@
+---
+title: "Custom fields"
+description: "Ask the buyer for what you need before they pay, such as a username or a region, and find their answers on the order"
+---
+
+A variant can ask the buyer questions before they pay: a username to add them by, a region to set them up in, a note. The buyer answers at checkout, under the product they are buying, and the answers are on the order with everything else.
+
+## Setting them up
+
+On a product's **Variants** tab, press **Edit** on the variant, open **Delivery**, and switch **Custom Fields** on. The first question opens straight away. Press **Back to Fields** to see the list, where **Add Field** adds another and a row's menu deletes one. Drag a row to change the order the buyer is asked in.
+
+The questions are saved with the product, by **Save Changes**. Switching **Custom Fields** off stops the buyer being asked, and keeps the questions for when you switch it on again.
+
+| | |
+| - | - |
+| **Label** | What the buyer reads over the box, up to 80 characters. |
+| **Key** | What the answer is called on the order, in the API and in the request to your server: small letters, digits and underscores, starting with a letter, up to 40. Left empty, it is made from the label: "Discord Username" is `discord_username`. |
+| **Type** | What kind of answer it is. See below. |
+| **Options** | For a dropdown or a choice: what the buyer picks from, up to 25. |
+| **Placeholder** | Shown in the box until something is typed, up to 120 characters. |
+| **Hint** | A line under the box, up to 200 characters. |
+| **Required** | The buyer cannot pay until it is answered. A required tick box has to be ticked. |
+
+| Type | The buyer |
+| - | - |
+| **Text** | types one line, up to 200 characters |
+| **Long Text** | types a few lines, up to 2,000 characters |
+| **Number** | types a number |
+| **Dropdown** | picks one of your options from a menu |
+| **Choice** | picks one of your options, all shown |
+| **Tick Box** | ticks a box |
+
+A variant can ask up to 10 questions.
+
+## Where the buyer answers
+
+- **On the checkout**, under the product's line in the order. On a phone, under the order's summary, with the product's name over them.
+- **In an embed**, on its first step, under the options, for the option chosen. An embed that opens on the payment step, because its product has one option or the button names one, asks at the top of that step.
+- **In the [Checkout Kit](/guides/checkout-kit)**, under the product's line in the `summary` piece, or at the top of the `payment` piece when there is no summary on the page.
+
+**Pay** waits until every required question is answered, and takes the buyer to the first one that is not. A question that may be left says "(optional)" beside it.
+
+Your labels, hints and options are shown as you wrote them, in whatever language the buyer reads the checkout in.
+
+A buyer is asked once for each variant in their order, however many of it they buy.
+
+Questions are asked wherever a buyer checks out. They are not asked on an [invoice or a payment link](/guides/orders#invoices) you send, or on an order you mark as paid yourself.
+
+## Where the answers are
+
+- **On the order's page**, in a **Custom Fields** card under what was delivered, each answer under its question, with a copy button beside the short ones.
+- **In the orders file** from **Export CSV**, in a **Custom Fields** column: every answer of the order, or the line's own when each row is a product line.
+- **In the API**, as `customFields` on the order: a group for each variant, each answer with its key, its label and its type. The same order is in your [webhooks](/guides/webhooks).
+- **In the request to your own server** for [dynamic delivery](/guides/dynamic-delivery), as `customFields`, the line's answers by key: `{"discord_username": "ada"}`.
+
+An answer is kept with its question as it read when the buyer answered, so changing or deleting a question later does not change orders already placed. A tick box that was ticked reads "Yes".
+
+## From your own server
+
+A variant's questions are its `customFields`, and its switch is `customFieldsOn`, in [Create a product](/api-reference/products/create-a-product) and [Update a product](/api-reference/products/update-a-product). Either left out of an update stays as it is.

@@ -11,7 +11,7 @@ With dynamic delivery, Shoply does not hold the goods. When an order is paid it 
 
 ## Setting it up
 
-On a product's **Delivery** tab, open the variant, switch **Dynamic** on, and press **Manage** beside it. Enter an `https` address on your server. Every variant of the store can share one address or have its own.
+On a product's **Variants** tab, press **Edit** on the variant, open **Delivery**, switch **Dynamic** on, and press **Manage** beside it. Enter an `https` address on your server. Every variant of the store can share one address or have its own.
 
 Your store has one **signing secret** for dynamic delivery, shown in that same dialog. Every request to your server is signed with it.
 
@@ -28,6 +28,7 @@ A `POST` with a JSON body, once for each line of the order that is delivered thi
   "productId": "c1c7f7a0-55f4-4a37-8f43-3d2a8f0f6e12",
   "variantId": "e2d8a8b1-66a5-4b48-9a54-4e3b9a1a7f23",
   "quantity": 1,
+  "customFields": { "discord_username": "ada" },
   "order": {
     "id": "0b8f9f39-6d0f-4c6b-8f5e-2a8f2f8f3c11",
     "totalPrice": 9.99,
@@ -41,13 +42,16 @@ A `POST` with a JSON body, once for each line of the order that is delivered thi
         "productName": "Northwind Pro",
         "variantName": "1 month",
         "quantity": 1,
-        "unitPrice": 9.99
+        "unitPrice": 9.99,
+        "customFields": { "discord_username": "ada" }
       }
     ],
     "createdAt": "2026-10-11T08:15:44Z"
   }
 }
 ```
+
+`customFields` is what the buyer answered to the variant's [custom fields](/guides/custom-fields), by each question's key, such as the username to make a key for. It is `{}` where the variant asks nothing. A tick box that was ticked is `true`.
 
 `deliveryId` is the thing to remember. It is the same when a request is tried again after a timeout, so your server can answer with the goods it already made instead of making more. It is a new one when the order is delivered again later, which is a request for new goods.
 

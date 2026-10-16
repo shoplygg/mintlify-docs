@@ -230,7 +230,7 @@
                                     "code": null,
                                     "data": {
                                         "key": {
-                                            "id": "5e943aac-9877-43e1-a222-e138c206b077",
+                                            "id": "415e38a0-1de2-424a-b05a-ac735fa34bc8",
                                             "name": "Order sync",
                                             "prefix": "shoply_sk_3f9a1c",
                                             "scopes": [
@@ -241,17 +241,17 @@
                                             "allowedDomains": [],
                                             "expiresAt": null,
                                             "expired": false,
-                                            "createdAt": "2026-10-16T11:18:28Z",
+                                            "createdAt": "2026-10-16T21:09:48Z",
                                             "lastUsedAt": null,
                                             "revokedAt": null
                                         },
                                         "store": {
-                                            "id": "b8a95d27-7627-4ada-b95b-8e729a6a1330",
+                                            "id": "53db1b00-6d50-4eb0-991c-03538f17a4ca",
                                             "name": "Northwind Keys",
                                             "slug": "northwind",
                                             "url": "https://northwind.myshoply.gg"
                                         },
-                                        "api": "/v1/stores/b8a95d27-7627-4ada-b95b-8e729a6a1330"
+                                        "api": "/v1/stores/53db1b00-6d50-4eb0-991c-03538f17a4ca"
                                     }
                                 }
                             }
@@ -505,7 +505,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "b8a95d27-7627-4ada-b95b-8e729a6a1330",
+                                        "id": "53db1b00-6d50-4eb0-991c-03538f17a4ca",
                                         "name": "Northwind Keys",
                                         "slug": "northwind",
                                         "urlChangeableAt": null,
@@ -570,7 +570,7 @@
                                         "originCountry": "",
                                         "hasDynamicSecret": false,
                                         "dynamicSecretEnd": "",
-                                        "updatedAt": "2026-10-16T11:18:28.985Z"
+                                        "updatedAt": "2026-10-16T21:09:48.532Z"
                                     }
                                 }
                             }
@@ -1015,7 +1015,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "b8a95d27-7627-4ada-b95b-8e729a6a1330",
+                                        "id": "53db1b00-6d50-4eb0-991c-03538f17a4ca",
                                         "name": "Northwind Keys",
                                         "slug": "northwind",
                                         "urlChangeableAt": null,
@@ -1079,8 +1079,8 @@
                                         "invoiceFooter": "",
                                         "originCountry": "",
                                         "hasDynamicSecret": true,
-                                        "dynamicSecretEnd": "Jw==",
-                                        "updatedAt": "2026-10-16T11:18:29.043Z"
+                                        "dynamicSecretEnd": "qg==",
+                                        "updatedAt": "2026-10-16T21:09:48.611Z"
                                     }
                                 }
                             }
@@ -1547,7 +1547,7 @@
                                             "glow": "#6838e6",
                                             "soft": "#ded4f7"
                                         },
-                                        "updatedAt": "2026-10-16T11:18:29.043Z"
+                                        "updatedAt": "2026-10-16T21:09:48.611Z"
                                     }
                                 }
                             }
@@ -1918,6 +1918,9 @@
                                                                 "required": {
                                                                     "type": "boolean"
                                                                 },
+                                                                "max": {
+                                                                    "type": "integer"
+                                                                },
                                                                 "secret": {
                                                                     "type": "boolean"
                                                                 },
@@ -2022,7 +2025,7 @@
                                             "tagline": "Accept crypto at checkout, paid out to your own wallet.",
                                             "accent": "#64acff",
                                             "site": "https://account.nowpayments.io/",
-                                            "callbackUrl": "http://localhost:8000/api/payments/nowpayments/callback/b8a95d27-7627-4ada-b95b-8e729a6a1330",
+                                            "callbackUrl": "http://localhost:8000/api/payments/nowpayments/callback/53db1b00-6d50-4eb0-991c-03538f17a4ca",
                                             "returnOrigin": "",
                                             "originHint": "",
                                             "callbackHint": "",
@@ -2042,6 +2045,7 @@
                                                     "label": "API Key",
                                                     "placeholder": "XXXXXXX-XXXXXXX-XXXXXXX-XXXXXXX",
                                                     "required": true,
+                                                    "max": 255,
                                                     "secret": true,
                                                     "showCallback": false,
                                                     "mode": "",
@@ -2053,6 +2057,7 @@
                                                     "label": "IPN Secret Key",
                                                     "placeholder": "",
                                                     "required": true,
+                                                    "max": 255,
                                                     "secret": true,
                                                     "showCallback": true,
                                                     "mode": "",
@@ -2081,7 +2086,7 @@
                                             "tagline": "Accept cards on your checkout, paid into your Stripe account.",
                                             "accent": "#635bff",
                                             "site": "https://dashboard.stripe.com/apikeys",
-                                            "callbackUrl": "http://localhost:8000/api/payments/stripe/callback/b8a95d27-7627-4ada-b95b-8e729a6a1330",
+                                            "callbackUrl": "http://localhost:8000/api/payments/stripe/callback/53db1b00-6d50-4eb0-991c-03538f17a4ca",
                                             "returnOrigin": "",
                                             "originHint": "",
                                             "callbackHint": "",
@@ -2101,6 +2106,7 @@
                                                     "label": "Secret Key",
                                                     "placeholder": "sk_live_... or rk_live_...",
                                                     "required": true,
+                                                    "max": 255,
                                                     "secret": true,
                                                     "showCallback": false,
                                                     "mode": "",
@@ -2112,6 +2118,7 @@
                                                     "label": "Publishable Key",
                                                     "placeholder": "pk_live_...",
                                                     "required": true,
+                                                    "max": 255,
                                                     "secret": false,
                                                     "showCallback": false,
                                                     "mode": "",
@@ -2491,6 +2498,9 @@
                                                                 "required": {
                                                                     "type": "boolean"
                                                                 },
+                                                                "max": {
+                                                                    "type": "integer"
+                                                                },
                                                                 "secret": {
                                                                     "type": "boolean"
                                                                 },
@@ -2595,7 +2605,7 @@
                                             "tagline": "Accept crypto at checkout, paid out to your own wallet.",
                                             "accent": "#64acff",
                                             "site": "https://account.nowpayments.io/",
-                                            "callbackUrl": "http://localhost:8000/api/payments/nowpayments/callback/b8a95d27-7627-4ada-b95b-8e729a6a1330",
+                                            "callbackUrl": "http://localhost:8000/api/payments/nowpayments/callback/53db1b00-6d50-4eb0-991c-03538f17a4ca",
                                             "returnOrigin": "",
                                             "originHint": "",
                                             "callbackHint": "",
@@ -2615,6 +2625,7 @@
                                                     "label": "API Key",
                                                     "placeholder": "XXXXXXX-XXXXXXX-XXXXXXX-XXXXXXX",
                                                     "required": true,
+                                                    "max": 255,
                                                     "secret": true,
                                                     "showCallback": false,
                                                     "mode": "",
@@ -2626,6 +2637,7 @@
                                                     "label": "IPN Secret Key",
                                                     "placeholder": "",
                                                     "required": true,
+                                                    "max": 255,
                                                     "secret": true,
                                                     "showCallback": true,
                                                     "mode": "",
@@ -2654,7 +2666,7 @@
                                             "tagline": "Accept cards on your checkout, paid into your Stripe account.",
                                             "accent": "#635bff",
                                             "site": "https://dashboard.stripe.com/apikeys",
-                                            "callbackUrl": "http://localhost:8000/api/payments/stripe/callback/b8a95d27-7627-4ada-b95b-8e729a6a1330",
+                                            "callbackUrl": "http://localhost:8000/api/payments/stripe/callback/53db1b00-6d50-4eb0-991c-03538f17a4ca",
                                             "returnOrigin": "",
                                             "originHint": "",
                                             "callbackHint": "",
@@ -2674,6 +2686,7 @@
                                                     "label": "Secret Key",
                                                     "placeholder": "sk_live_... or rk_live_...",
                                                     "required": true,
+                                                    "max": 255,
                                                     "secret": true,
                                                     "showCallback": false,
                                                     "mode": "",
@@ -2685,6 +2698,7 @@
                                                     "label": "Publishable Key",
                                                     "placeholder": "pk_live_...",
                                                     "required": true,
+                                                    "max": 255,
                                                     "secret": false,
                                                     "showCallback": false,
                                                     "mode": "",
@@ -3203,7 +3217,7 @@
                                     "code": null,
                                     "data": {
                                         "store": {
-                                            "id": "b8a95d27-7627-4ada-b95b-8e729a6a1330",
+                                            "id": "53db1b00-6d50-4eb0-991c-03538f17a4ca",
                                             "name": "Northwind Keys",
                                             "slug": "northwind"
                                         },
@@ -3884,7 +3898,7 @@
                                     "code": null,
                                     "data": {
                                         "store": {
-                                            "id": "b8a95d27-7627-4ada-b95b-8e729a6a1330",
+                                            "id": "53db1b00-6d50-4eb0-991c-03538f17a4ca",
                                             "name": "Northwind Keys",
                                             "slug": "northwind"
                                         },
@@ -4641,15 +4655,15 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "ab3e5769-757f-47e2-8937-e050501de502",
+                                            "id": "c95e3e18-7f82-41a9-a4a8-7ac1528005b8",
                                             "name": "Autumn look",
                                             "theme": "keystone",
                                             "themeVersion": "2.5.0",
                                             "published": false,
                                             "publishedAt": null,
                                             "live": false,
-                                            "createdAt": "2026-10-16T11:18:29Z",
-                                            "updatedAt": "2026-10-16T11:18:29Z",
+                                            "createdAt": "2026-10-16T21:09:49Z",
+                                            "updatedAt": "2026-10-16T21:09:49Z",
                                             "code": true,
                                             "engine": "files",
                                             "codeOnCopy": null,
@@ -4909,15 +4923,15 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "ab3e5769-757f-47e2-8937-e050501de502",
+                                            "id": "c95e3e18-7f82-41a9-a4a8-7ac1528005b8",
                                             "name": "Autumn look",
                                             "theme": "keystone",
                                             "themeVersion": "2.5.0",
                                             "published": false,
                                             "publishedAt": null,
                                             "live": false,
-                                            "createdAt": "2026-10-16T11:18:29Z",
-                                            "updatedAt": "2026-10-16T11:18:29Z",
+                                            "createdAt": "2026-10-16T21:09:49Z",
+                                            "updatedAt": "2026-10-16T21:09:49Z",
                                             "code": true,
                                             "engine": "files",
                                             "codeOnCopy": null,
@@ -5430,7 +5444,7 @@
                                         "storefront": {
                                             "kind": "shoply-storefront",
                                             "format": 1,
-                                            "exportedAt": "2026-10-16T11:18:29Z",
+                                            "exportedAt": "2026-10-16T21:09:49Z",
                                             "name": "Autumn look, second go",
                                             "theme": "keystone",
                                             "design": {
@@ -6048,15 +6062,15 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "ab3e5769-757f-47e2-8937-e050501de502",
+                                            "id": "c95e3e18-7f82-41a9-a4a8-7ac1528005b8",
                                             "name": "Autumn look, second go",
                                             "theme": "keystone",
                                             "themeVersion": "2.5.0",
                                             "published": false,
                                             "publishedAt": null,
                                             "live": false,
-                                            "createdAt": "2026-10-16T11:18:29Z",
-                                            "updatedAt": "2026-10-16T11:18:29Z",
+                                            "createdAt": "2026-10-16T21:09:49Z",
+                                            "updatedAt": "2026-10-16T21:09:49Z",
                                             "code": true,
                                             "engine": "files",
                                             "codeOnCopy": null,
@@ -6650,6 +6664,15 @@
                                                                 "dynamicUrl": {
                                                                     "type": "string"
                                                                 },
+                                                                "customFieldsOn": {
+                                                                    "type": "boolean"
+                                                                },
+                                                                "customFields": {
+                                                                    "type": [
+                                                                        "array",
+                                                                        "object"
+                                                                    ]
+                                                                },
                                                                 "sort": {
                                                                     "type": "integer"
                                                                 },
@@ -6695,8 +6718,8 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "6dc4c191-d578-4209-be7f-e0e39873820d",
-                                            "storeId": "b8a95d27-7627-4ada-b95b-8e729a6a1330",
+                                            "id": "a34b38bc-9c2a-4bbb-8f68-c4520f9f917d",
+                                            "storeId": "53db1b00-6d50-4eb0-991c-03538f17a4ca",
                                             "name": "Northwind Pro",
                                             "slug": "northwind-pro",
                                             "description": "A licence for Northwind Pro, sent the moment you pay.",
@@ -6736,10 +6759,10 @@
                                             "salesWindow": "all",
                                             "saleNotifications": false,
                                             "metadata": "{\"sku\":\"NW-PRO\"}",
-                                            "dateCreated": "2026-10-16T11:18:29Z",
-                                            "updatedAt": "2026-10-16T11:18:29.000Z",
+                                            "dateCreated": "2026-10-16T21:09:48Z",
+                                            "updatedAt": "2026-10-16T21:09:48.000Z",
                                             "categoryIds": [
-                                                "3281d034-690c-4eaf-a386-e5a10072469b"
+                                                "59d8ee60-fb80-4731-8146-56b3a7ec0814"
                                             ],
                                             "unitsSold": 0,
                                             "revenue": 0,
@@ -6751,7 +6774,7 @@
                                             "images": [],
                                             "variants": [
                                                 {
-                                                    "id": "be4c0776-2e9a-40de-8f76-09037a70b19f",
+                                                    "id": "c8ded555-8a35-473c-b059-8116c076ea45",
                                                     "label": "1 month",
                                                     "price": 9.99,
                                                     "duration": "1 month",
@@ -6767,11 +6790,13 @@
                                                     "deliveryType": "license_keys",
                                                     "deliveryInstructions": "",
                                                     "dynamicUrl": "",
+                                                    "customFieldsOn": false,
+                                                    "customFields": [],
                                                     "sort": 0,
                                                     "blockedPaymentMethods": []
                                                 },
                                                 {
-                                                    "id": "014a509b-4ff6-48dd-983d-269bd3c33d77",
+                                                    "id": "efcc80a7-fd9b-4c93-bc90-8fc1c42c5f70",
                                                     "label": "1 year",
                                                     "price": 79,
                                                     "duration": "1 year",
@@ -6788,6 +6813,8 @@
                                                     "deliveryType": "license_keys",
                                                     "deliveryInstructions": "Paste the key under Help, Activate.",
                                                     "dynamicUrl": "",
+                                                    "customFieldsOn": false,
+                                                    "customFields": [],
                                                     "sort": 1,
                                                     "blockedPaymentMethods": []
                                                 }
@@ -6942,6 +6969,65 @@
                                                 "dynamicUrl": {
                                                     "type": "string",
                                                     "description": "The https address Shoply asks for the goods when the order is paid. Needed for the `dynamic` method. It cannot point at a private network."
+                                                },
+                                                "customFieldsOn": {
+                                                    "type": "boolean",
+                                                    "description": "Whether the buyer is asked `customFields` before they pay. Left out, it stays as it is."
+                                                },
+                                                "customFields": {
+                                                    "type": "array",
+                                                    "description": "Questions the buyer answers before they pay, up to 10, in the order they are asked. Kept while `customFieldsOn` is false. The answers are on the order, as `customFields`, and in the request to your server for dynamic delivery. Left out, they stay as they are.",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "label": {
+                                                                "type": "string",
+                                                                "description": "What the buyer reads over the box, up to 80 characters.",
+                                                                "example": "Discord Username"
+                                                            },
+                                                            "key": {
+                                                                "type": "string",
+                                                                "description": "What the answer is called on the order and in the request to your server: small letters, digits and underscores, starting with a letter, up to 40. No two of a variant share one. Left out, it is made from the label.",
+                                                                "example": "discord_username"
+                                                            },
+                                                            "type": {
+                                                                "type": "string",
+                                                                "description": "`text` is one line of up to 200 characters, `long_text` up to 2,000, `number` a number, `dropdown` and `choice` one of `options`, and `tick` a box the buyer ticks.",
+                                                                "enum": [
+                                                                    "text",
+                                                                    "long_text",
+                                                                    "number",
+                                                                    "dropdown",
+                                                                    "choice",
+                                                                    "tick"
+                                                                ],
+                                                                "default": "text"
+                                                            },
+                                                            "required": {
+                                                                "type": "boolean",
+                                                                "description": "Whether the buyer can pay without answering. A required `tick` has to be ticked.",
+                                                                "default": false
+                                                            },
+                                                            "placeholder": {
+                                                                "type": "string",
+                                                                "description": "Shown in the box until something is typed, up to 120 characters. For `text`, `long_text` and `number`."
+                                                            },
+                                                            "hint": {
+                                                                "type": "string",
+                                                                "description": "A line under the box, up to 200 characters."
+                                                            },
+                                                            "options": {
+                                                                "type": "array",
+                                                                "description": "What the buyer picks from, 1 to 25, each up to 80 characters. For `dropdown` and `choice`.",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "label"
+                                                        ]
+                                                    }
                                                 },
                                                 "blockedPaymentMethods": {
                                                     "type": "array",
@@ -7305,6 +7391,15 @@
                                                             "dynamicUrl": {
                                                                 "type": "string"
                                                             },
+                                                            "customFieldsOn": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "customFields": {
+                                                                "type": [
+                                                                    "array",
+                                                                    "object"
+                                                                ]
+                                                            },
                                                             "sort": {
                                                                 "type": "integer"
                                                             },
@@ -7326,8 +7421,8 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "6dc4c191-d578-4209-be7f-e0e39873820d",
-                                        "storeId": "b8a95d27-7627-4ada-b95b-8e729a6a1330",
+                                        "id": "a34b38bc-9c2a-4bbb-8f68-c4520f9f917d",
+                                        "storeId": "53db1b00-6d50-4eb0-991c-03538f17a4ca",
                                         "name": "Northwind Pro",
                                         "slug": "northwind-pro",
                                         "description": "A licence for Northwind Pro, sent the moment you pay.",
@@ -7367,10 +7462,10 @@
                                         "salesWindow": "all",
                                         "saleNotifications": false,
                                         "metadata": "{\"sku\":\"NW-PRO\"}",
-                                        "dateCreated": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.000Z",
+                                        "dateCreated": "2026-10-16T21:09:48Z",
+                                        "updatedAt": "2026-10-16T21:09:48.000Z",
                                         "categoryIds": [
-                                            "3281d034-690c-4eaf-a386-e5a10072469b"
+                                            "59d8ee60-fb80-4731-8146-56b3a7ec0814"
                                         ],
                                         "unitsSold": 0,
                                         "revenue": 0,
@@ -7382,7 +7477,7 @@
                                         "images": [],
                                         "variants": [
                                             {
-                                                "id": "be4c0776-2e9a-40de-8f76-09037a70b19f",
+                                                "id": "c8ded555-8a35-473c-b059-8116c076ea45",
                                                 "label": "1 month",
                                                 "price": 9.99,
                                                 "duration": "1 month",
@@ -7398,11 +7493,13 @@
                                                 "deliveryType": "license_keys",
                                                 "deliveryInstructions": "",
                                                 "dynamicUrl": "",
+                                                "customFieldsOn": false,
+                                                "customFields": [],
                                                 "sort": 0,
                                                 "blockedPaymentMethods": []
                                             },
                                             {
-                                                "id": "014a509b-4ff6-48dd-983d-269bd3c33d77",
+                                                "id": "efcc80a7-fd9b-4c93-bc90-8fc1c42c5f70",
                                                 "label": "1 year",
                                                 "price": 79,
                                                 "duration": "1 year",
@@ -7419,6 +7516,8 @@
                                                 "deliveryType": "license_keys",
                                                 "deliveryInstructions": "Paste the key under Help, Activate.",
                                                 "dynamicUrl": "",
+                                                "customFieldsOn": false,
+                                                "customFields": [],
                                                 "sort": 1,
                                                 "blockedPaymentMethods": []
                                             }
@@ -7687,6 +7786,15 @@
                                                             "dynamicUrl": {
                                                                 "type": "string"
                                                             },
+                                                            "customFieldsOn": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "customFields": {
+                                                                "type": [
+                                                                    "array",
+                                                                    "object"
+                                                                ]
+                                                            },
                                                             "sort": {
                                                                 "type": "integer"
                                                             },
@@ -7772,8 +7880,8 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "6dc4c191-d578-4209-be7f-e0e39873820d",
-                                        "storeId": "b8a95d27-7627-4ada-b95b-8e729a6a1330",
+                                        "id": "a34b38bc-9c2a-4bbb-8f68-c4520f9f917d",
+                                        "storeId": "53db1b00-6d50-4eb0-991c-03538f17a4ca",
                                         "name": "Northwind Pro",
                                         "slug": "northwind-pro",
                                         "description": "A licence for Northwind Pro, sent the moment you pay.",
@@ -7813,10 +7921,10 @@
                                         "salesWindow": "all",
                                         "saleNotifications": false,
                                         "metadata": "{\"sku\":\"NW-PRO\"}",
-                                        "dateCreated": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.000Z",
+                                        "dateCreated": "2026-10-16T21:09:48Z",
+                                        "updatedAt": "2026-10-16T21:09:48.000Z",
                                         "categoryIds": [
-                                            "3281d034-690c-4eaf-a386-e5a10072469b"
+                                            "59d8ee60-fb80-4731-8146-56b3a7ec0814"
                                         ],
                                         "unitsSold": 0,
                                         "revenue": 0,
@@ -7828,7 +7936,7 @@
                                         "images": [],
                                         "variants": [
                                             {
-                                                "id": "be4c0776-2e9a-40de-8f76-09037a70b19f",
+                                                "id": "c8ded555-8a35-473c-b059-8116c076ea45",
                                                 "label": "1 month",
                                                 "price": 9.99,
                                                 "duration": "1 month",
@@ -7844,11 +7952,13 @@
                                                 "deliveryType": "license_keys",
                                                 "deliveryInstructions": "",
                                                 "dynamicUrl": "",
+                                                "customFieldsOn": false,
+                                                "customFields": [],
                                                 "sort": 0,
                                                 "blockedPaymentMethods": []
                                             },
                                             {
-                                                "id": "014a509b-4ff6-48dd-983d-269bd3c33d77",
+                                                "id": "efcc80a7-fd9b-4c93-bc90-8fc1c42c5f70",
                                                 "label": "1 year",
                                                 "price": 79,
                                                 "duration": "1 year",
@@ -7865,6 +7975,8 @@
                                                 "deliveryType": "license_keys",
                                                 "deliveryInstructions": "Paste the key under Help, Activate.",
                                                 "dynamicUrl": "",
+                                                "customFieldsOn": false,
+                                                "customFields": [],
                                                 "sort": 1,
                                                 "blockedPaymentMethods": []
                                             }
@@ -7873,8 +7985,8 @@
                                     "meta": {
                                         "categories": [
                                             {
-                                                "id": "3281d034-690c-4eaf-a386-e5a10072469b",
-                                                "storeId": "b8a95d27-7627-4ada-b95b-8e729a6a1330",
+                                                "id": "59d8ee60-fb80-4731-8146-56b3a7ec0814",
+                                                "storeId": "53db1b00-6d50-4eb0-991c-03538f17a4ca",
                                                 "name": "Software",
                                                 "slug": "software",
                                                 "visibility": "public",
@@ -7886,11 +7998,11 @@
                                                 "imageUrl": null,
                                                 "sort": 0,
                                                 "productIds": [
-                                                    "6dc4c191-d578-4209-be7f-e0e39873820d"
+                                                    "a34b38bc-9c2a-4bbb-8f68-c4520f9f917d"
                                                 ],
                                                 "productCount": 1,
-                                                "dateCreated": "2026-10-16T11:18:29Z",
-                                                "updatedAt": "2026-10-16T11:18:29.000Z"
+                                                "dateCreated": "2026-10-16T21:09:48Z",
+                                                "updatedAt": "2026-10-16T21:09:48.000Z"
                                             }
                                         ]
                                     }
@@ -8043,6 +8155,65 @@
                                                 "dynamicUrl": {
                                                     "type": "string",
                                                     "description": "The https address Shoply asks for the goods when the order is paid. Needed for the `dynamic` method. It cannot point at a private network."
+                                                },
+                                                "customFieldsOn": {
+                                                    "type": "boolean",
+                                                    "description": "Whether the buyer is asked `customFields` before they pay. Left out, it stays as it is."
+                                                },
+                                                "customFields": {
+                                                    "type": "array",
+                                                    "description": "Questions the buyer answers before they pay, up to 10, in the order they are asked. Kept while `customFieldsOn` is false. The answers are on the order, as `customFields`, and in the request to your server for dynamic delivery. Left out, they stay as they are.",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "label": {
+                                                                "type": "string",
+                                                                "description": "What the buyer reads over the box, up to 80 characters.",
+                                                                "example": "Discord Username"
+                                                            },
+                                                            "key": {
+                                                                "type": "string",
+                                                                "description": "What the answer is called on the order and in the request to your server: small letters, digits and underscores, starting with a letter, up to 40. No two of a variant share one. Left out, it is made from the label.",
+                                                                "example": "discord_username"
+                                                            },
+                                                            "type": {
+                                                                "type": "string",
+                                                                "description": "`text` is one line of up to 200 characters, `long_text` up to 2,000, `number` a number, `dropdown` and `choice` one of `options`, and `tick` a box the buyer ticks.",
+                                                                "enum": [
+                                                                    "text",
+                                                                    "long_text",
+                                                                    "number",
+                                                                    "dropdown",
+                                                                    "choice",
+                                                                    "tick"
+                                                                ],
+                                                                "default": "text"
+                                                            },
+                                                            "required": {
+                                                                "type": "boolean",
+                                                                "description": "Whether the buyer can pay without answering. A required `tick` has to be ticked.",
+                                                                "default": false
+                                                            },
+                                                            "placeholder": {
+                                                                "type": "string",
+                                                                "description": "Shown in the box until something is typed, up to 120 characters. For `text`, `long_text` and `number`."
+                                                            },
+                                                            "hint": {
+                                                                "type": "string",
+                                                                "description": "A line under the box, up to 200 characters."
+                                                            },
+                                                            "options": {
+                                                                "type": "array",
+                                                                "description": "What the buyer picks from, 1 to 25, each up to 80 characters. For `dropdown` and `choice`.",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "label"
+                                                        ]
+                                                    }
                                                 },
                                                 "blockedPaymentMethods": {
                                                     "type": "array",
@@ -8410,6 +8581,15 @@
                                                             "dynamicUrl": {
                                                                 "type": "string"
                                                             },
+                                                            "customFieldsOn": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "customFields": {
+                                                                "type": [
+                                                                    "array",
+                                                                    "object"
+                                                                ]
+                                                            },
                                                             "sort": {
                                                                 "type": "integer"
                                                             },
@@ -8431,8 +8611,8 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "6dc4c191-d578-4209-be7f-e0e39873820d",
-                                        "storeId": "b8a95d27-7627-4ada-b95b-8e729a6a1330",
+                                        "id": "a34b38bc-9c2a-4bbb-8f68-c4520f9f917d",
+                                        "storeId": "53db1b00-6d50-4eb0-991c-03538f17a4ca",
                                         "name": "Northwind Pro",
                                         "slug": "northwind-pro",
                                         "description": "A licence for Northwind Pro, sent the moment you pay.",
@@ -8472,10 +8652,10 @@
                                         "salesWindow": "all",
                                         "saleNotifications": false,
                                         "metadata": "",
-                                        "dateCreated": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.118Z",
+                                        "dateCreated": "2026-10-16T21:09:48Z",
+                                        "updatedAt": "2026-10-16T21:09:48.677Z",
                                         "categoryIds": [
-                                            "3281d034-690c-4eaf-a386-e5a10072469b"
+                                            "59d8ee60-fb80-4731-8146-56b3a7ec0814"
                                         ],
                                         "unitsSold": 0,
                                         "revenue": 0,
@@ -8487,7 +8667,7 @@
                                         "images": [],
                                         "variants": [
                                             {
-                                                "id": "be4c0776-2e9a-40de-8f76-09037a70b19f",
+                                                "id": "c8ded555-8a35-473c-b059-8116c076ea45",
                                                 "label": "1 month",
                                                 "price": 9.99,
                                                 "duration": "1 month",
@@ -8503,11 +8683,13 @@
                                                 "deliveryType": "license_keys",
                                                 "deliveryInstructions": "",
                                                 "dynamicUrl": "",
+                                                "customFieldsOn": false,
+                                                "customFields": [],
                                                 "sort": 0,
                                                 "blockedPaymentMethods": []
                                             },
                                             {
-                                                "id": "014a509b-4ff6-48dd-983d-269bd3c33d77",
+                                                "id": "efcc80a7-fd9b-4c93-bc90-8fc1c42c5f70",
                                                 "label": "1 year",
                                                 "price": 79,
                                                 "duration": "1 year",
@@ -8524,6 +8706,8 @@
                                                 "deliveryType": "license_keys",
                                                 "deliveryInstructions": "Paste the key under Help, Activate.",
                                                 "dynamicUrl": "",
+                                                "customFieldsOn": false,
+                                                "customFields": [],
                                                 "sort": 1,
                                                 "blockedPaymentMethods": []
                                             }
@@ -8713,7 +8897,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "6dc4c191-d578-4209-be7f-e0e39873820d",
+                                        "id": "a34b38bc-9c2a-4bbb-8f68-c4520f9f917d",
                                         "visibility": "unlisted"
                                     }
                                 }
@@ -9438,11 +9622,11 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "d4e34737-a252-4349-81ac-cdca050cd7bb",
+                                            "id": "e3ca1617-f14f-442d-9b53-922b77516492",
                                             "value": "NWPRO-7F3K-22LM-9QXA"
                                         },
                                         {
-                                            "id": "5cb29d7c-2629-458a-9ff7-7e8ec02610a3",
+                                            "id": "d02150d5-d948-4ae9-be12-93098fa9f6be",
                                             "value": "NWPRO-B81C-K0PD-44TZ"
                                         }
                                     ],
@@ -9454,7 +9638,7 @@
                                         "perPage": 100,
                                         "maxPage": 5000,
                                         "available": 3,
-                                        "stock": "a171746182ea08c16cddd8e6355daf463fc429d7"
+                                        "stock": "1302824ab1baddd0203b2fdd714e4a51753fdc74"
                                     }
                                 }
                             }
@@ -10394,8 +10578,8 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "3281d034-690c-4eaf-a386-e5a10072469b",
-                                            "storeId": "b8a95d27-7627-4ada-b95b-8e729a6a1330",
+                                            "id": "59d8ee60-fb80-4731-8146-56b3a7ec0814",
+                                            "storeId": "53db1b00-6d50-4eb0-991c-03538f17a4ca",
                                             "name": "Software",
                                             "slug": "software",
                                             "visibility": "public",
@@ -10407,11 +10591,11 @@
                                             "imageUrl": null,
                                             "sort": 0,
                                             "productIds": [
-                                                "6dc4c191-d578-4209-be7f-e0e39873820d"
+                                                "a34b38bc-9c2a-4bbb-8f68-c4520f9f917d"
                                             ],
                                             "productCount": 1,
-                                            "dateCreated": "2026-10-16T11:18:29Z",
-                                            "updatedAt": "2026-10-16T11:18:29.000Z"
+                                            "dateCreated": "2026-10-16T21:09:48Z",
+                                            "updatedAt": "2026-10-16T21:09:48.000Z"
                                         }
                                     ],
                                     "meta": {
@@ -10606,8 +10790,8 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "3281d034-690c-4eaf-a386-e5a10072469b",
-                                        "storeId": "b8a95d27-7627-4ada-b95b-8e729a6a1330",
+                                        "id": "59d8ee60-fb80-4731-8146-56b3a7ec0814",
+                                        "storeId": "53db1b00-6d50-4eb0-991c-03538f17a4ca",
                                         "name": "Software",
                                         "slug": "software",
                                         "visibility": "public",
@@ -10620,8 +10804,8 @@
                                         "sort": 0,
                                         "productIds": [],
                                         "productCount": 0,
-                                        "dateCreated": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.000Z"
+                                        "dateCreated": "2026-10-16T21:09:48Z",
+                                        "updatedAt": "2026-10-16T21:09:48.000Z"
                                     }
                                 }
                             }
@@ -10825,8 +11009,8 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "3281d034-690c-4eaf-a386-e5a10072469b",
-                                        "storeId": "b8a95d27-7627-4ada-b95b-8e729a6a1330",
+                                        "id": "59d8ee60-fb80-4731-8146-56b3a7ec0814",
+                                        "storeId": "53db1b00-6d50-4eb0-991c-03538f17a4ca",
                                         "name": "Software",
                                         "slug": "software",
                                         "visibility": "public",
@@ -10838,11 +11022,11 @@
                                         "imageUrl": null,
                                         "sort": 0,
                                         "productIds": [
-                                            "6dc4c191-d578-4209-be7f-e0e39873820d"
+                                            "a34b38bc-9c2a-4bbb-8f68-c4520f9f917d"
                                         ],
                                         "productCount": 1,
-                                        "dateCreated": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.140Z"
+                                        "dateCreated": "2026-10-16T21:09:48Z",
+                                        "updatedAt": "2026-10-16T21:09:48.696Z"
                                     }
                                 }
                             }
@@ -10937,7 +11121,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "3281d034-690c-4eaf-a386-e5a10072469b",
+                                        "id": "59d8ee60-fb80-4731-8146-56b3a7ec0814",
                                         "deleted": true
                                     }
                                 }
@@ -11455,7 +11639,7 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "7656eee2-906f-46ef-8d57-605039703876",
+                                            "id": "35d3f9e2-9d30-4c4d-9400-7e8744488e1f",
                                             "kind": "addon",
                                             "name": "Priority Setup",
                                             "enabled": true,
@@ -11483,15 +11667,15 @@
                                             "targets": [
                                                 {
                                                     "type": "product",
-                                                    "id": "6dc4c191-d578-4209-be7f-e0e39873820d",
+                                                    "id": "a34b38bc-9c2a-4bbb-8f68-c4520f9f917d",
                                                     "name": "Northwind Pro"
                                                 }
                                             ],
                                             "shown": 0,
                                             "taken": 0,
                                             "revenue": 0,
-                                            "dateCreated": "2026-10-16T11:18:29Z",
-                                            "updatedAt": "2026-10-16T11:18:29.147Z"
+                                            "dateCreated": "2026-10-16T21:09:48Z",
+                                            "updatedAt": "2026-10-16T21:09:48.702Z"
                                         }
                                     ],
                                     "meta": {
@@ -11858,7 +12042,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "7656eee2-906f-46ef-8d57-605039703876",
+                                        "id": "35d3f9e2-9d30-4c4d-9400-7e8744488e1f",
                                         "kind": "addon",
                                         "name": "Priority Setup",
                                         "enabled": true,
@@ -11886,15 +12070,15 @@
                                         "targets": [
                                             {
                                                 "type": "product",
-                                                "id": "6dc4c191-d578-4209-be7f-e0e39873820d",
+                                                "id": "a34b38bc-9c2a-4bbb-8f68-c4520f9f917d",
                                                 "name": "Northwind Pro"
                                             }
                                         ],
                                         "shown": 0,
                                         "taken": 0,
                                         "revenue": 0,
-                                        "dateCreated": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.147Z"
+                                        "dateCreated": "2026-10-16T21:09:48Z",
+                                        "updatedAt": "2026-10-16T21:09:48.702Z"
                                     }
                                 }
                             }
@@ -12485,7 +12669,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "7656eee2-906f-46ef-8d57-605039703876",
+                                        "id": "35d3f9e2-9d30-4c4d-9400-7e8744488e1f",
                                         "kind": "addon",
                                         "name": "Priority Setup",
                                         "enabled": true,
@@ -12513,15 +12697,15 @@
                                         "targets": [
                                             {
                                                 "type": "product",
-                                                "id": "6dc4c191-d578-4209-be7f-e0e39873820d",
+                                                "id": "a34b38bc-9c2a-4bbb-8f68-c4520f9f917d",
                                                 "name": "Northwind Pro"
                                             }
                                         ],
                                         "shown": 0,
                                         "taken": 0,
                                         "revenue": 0,
-                                        "dateCreated": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.154Z"
+                                        "dateCreated": "2026-10-16T21:09:48Z",
+                                        "updatedAt": "2026-10-16T21:09:48.710Z"
                                     }
                                 }
                             }
@@ -12616,7 +12800,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "7656eee2-906f-46ef-8d57-605039703876",
+                                        "id": "35d3f9e2-9d30-4c4d-9400-7e8744488e1f",
                                         "deleted": true
                                     }
                                 }
@@ -12834,7 +13018,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "7656eee2-906f-46ef-8d57-605039703876",
+                                        "id": "35d3f9e2-9d30-4c4d-9400-7e8744488e1f",
                                         "kind": "addon",
                                         "name": "Priority Setup",
                                         "enabled": false,
@@ -12862,15 +13046,15 @@
                                         "targets": [
                                             {
                                                 "type": "product",
-                                                "id": "6dc4c191-d578-4209-be7f-e0e39873820d",
+                                                "id": "a34b38bc-9c2a-4bbb-8f68-c4520f9f917d",
                                                 "name": "Northwind Pro"
                                             }
                                         ],
                                         "shown": 0,
                                         "taken": 0,
                                         "revenue": 0,
-                                        "dateCreated": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.158Z"
+                                        "dateCreated": "2026-10-16T21:09:48Z",
+                                        "updatedAt": "2026-10-16T21:09:48.713Z"
                                     }
                                 }
                             }
@@ -13187,6 +13371,12 @@
                                                     "note": {
                                                         "type": "string"
                                                     },
+                                                    "customFields": {
+                                                        "type": [
+                                                            "array",
+                                                            "object"
+                                                        ]
+                                                    },
                                                     "emailState": {
                                                         "type": "string"
                                                     },
@@ -13374,13 +13564,13 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "1aeba788-c0bb-47b7-ab7d-047fa629253c",
-                                            "dateCreated": "2026-10-16T11:18:29Z",
+                                            "id": "7fc3149a-8645-4644-af2d-56097ff8c62a",
+                                            "dateCreated": "2026-10-16T21:09:48Z",
                                             "email": "ada@example.com",
-                                            "customerId": "96308ea9-9798-425c-8fc9-c22adaa5d48b",
-                                            "productId": "6dc4c191-d578-4209-be7f-e0e39873820d",
+                                            "customerId": "58009654-e57e-4fbc-be2d-adf96a35df57",
+                                            "productId": "a34b38bc-9c2a-4bbb-8f68-c4520f9f917d",
                                             "productName": "Northwind Pro",
-                                            "variantId": "be4c0776-2e9a-40de-8f76-09037a70b19f",
+                                            "variantId": "c8ded555-8a35-473c-b059-8116c076ea45",
                                             "variantName": "1 month",
                                             "itemCount": 1,
                                             "subtotal": 9.99,
@@ -13411,6 +13601,7 @@
                                             "transactionId": null,
                                             "paidAt": null,
                                             "note": "",
+                                            "customFields": [],
                                             "emailState": "",
                                             "emailError": "",
                                             "emailAttempts": 0,
@@ -13422,10 +13613,10 @@
                                             "summary": "Northwind Pro (1 month)",
                                             "items": [
                                                 {
-                                                    "id": "203912",
-                                                    "productId": "6dc4c191-d578-4209-be7f-e0e39873820d",
+                                                    "id": "208953",
+                                                    "productId": "a34b38bc-9c2a-4bbb-8f68-c4520f9f917d",
                                                     "productName": "Northwind Pro",
-                                                    "variantId": "be4c0776-2e9a-40de-8f76-09037a70b19f",
+                                                    "variantId": "c8ded555-8a35-473c-b059-8116c076ea45",
                                                     "variantName": "1 month",
                                                     "amount": 9.99,
                                                     "unitPrice": 9.99,
@@ -13850,6 +14041,12 @@
                                                 "note": {
                                                     "type": "string"
                                                 },
+                                                "customFields": {
+                                                    "type": [
+                                                        "array",
+                                                        "object"
+                                                    ]
+                                                },
                                                 "emailState": {
                                                     "type": "string"
                                                 },
@@ -14092,6 +14289,12 @@
                                                 "review": {
                                                     "nullable": true
                                                 },
+                                                "requests": {
+                                                    "type": [
+                                                        "array",
+                                                        "object"
+                                                    ]
+                                                },
                                                 "customerTotals": {
                                                     "type": "object",
                                                     "properties": {
@@ -14144,13 +14347,13 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "1aeba788-c0bb-47b7-ab7d-047fa629253c",
-                                        "dateCreated": "2026-10-16T11:18:29Z",
+                                        "id": "7fc3149a-8645-4644-af2d-56097ff8c62a",
+                                        "dateCreated": "2026-10-16T21:09:48Z",
                                         "email": "ada@example.com",
-                                        "customerId": "96308ea9-9798-425c-8fc9-c22adaa5d48b",
-                                        "productId": "6dc4c191-d578-4209-be7f-e0e39873820d",
+                                        "customerId": "58009654-e57e-4fbc-be2d-adf96a35df57",
+                                        "productId": "a34b38bc-9c2a-4bbb-8f68-c4520f9f917d",
                                         "productName": "Northwind Pro",
-                                        "variantId": "be4c0776-2e9a-40de-8f76-09037a70b19f",
+                                        "variantId": "c8ded555-8a35-473c-b059-8116c076ea45",
                                         "variantName": "1 month",
                                         "itemCount": 1,
                                         "subtotal": 9.99,
@@ -14179,8 +14382,9 @@
                                         "userAgent": null,
                                         "source": "storefront",
                                         "transactionId": "bank-transfer-1042",
-                                        "paidAt": "2026-10-16T11:18:29Z",
+                                        "paidAt": "2026-10-16T21:09:48Z",
                                         "note": "",
+                                        "customFields": [],
                                         "emailState": "",
                                         "emailError": "",
                                         "emailAttempts": 0,
@@ -14192,10 +14396,10 @@
                                         "summary": "Northwind Pro (1 month)",
                                         "items": [
                                             {
-                                                "id": "203912",
-                                                "productId": "6dc4c191-d578-4209-be7f-e0e39873820d",
+                                                "id": "208953",
+                                                "productId": "a34b38bc-9c2a-4bbb-8f68-c4520f9f917d",
                                                 "productName": "Northwind Pro",
-                                                "variantId": "be4c0776-2e9a-40de-8f76-09037a70b19f",
+                                                "variantId": "c8ded555-8a35-473c-b059-8116c076ea45",
                                                 "variantName": "1 month",
                                                 "amount": 9.99,
                                                 "unitPrice": 9.99,
@@ -14244,32 +14448,33 @@
                                         "productSlug": "northwind-pro",
                                         "imageUrl": null,
                                         "customer": {
-                                            "id": "96308ea9-9798-425c-8fc9-c22adaa5d48b",
+                                            "id": "58009654-e57e-4fbc-be2d-adf96a35df57",
                                             "emailAddress": "ada@example.com",
-                                            "dateCreated": "2026-10-16T11:18:29Z"
+                                            "dateCreated": "2026-10-16T21:09:48Z"
                                         },
                                         "visit": null,
                                         "affiliate": null,
                                         "timeline": [
                                             {
-                                                "id": "85438",
+                                                "id": "95130",
                                                 "kind": "paid",
                                                 "detail": "Marked paid by the seller, transaction bank-transfer-1042.",
                                                 "actor": "merchant",
-                                                "at": "2026-10-16T11:18:29Z"
+                                                "at": "2026-10-16T21:09:48Z"
                                             },
                                             {
-                                                "id": "85439",
+                                                "id": "95131",
                                                 "kind": "delivered",
                                                 "detail": "1 item delivered.",
                                                 "actor": "system",
-                                                "at": "2026-10-16T11:18:29Z"
+                                                "at": "2026-10-16T21:09:48Z"
                                             }
                                         ],
                                         "testPayment": false,
                                         "payments": [],
                                         "invoice": null,
                                         "review": null,
+                                        "requests": [],
                                         "customerTotals": {
                                             "totalOrders": 1,
                                             "totalSpend": 9.99,
@@ -14277,13 +14482,13 @@
                                         },
                                         "customerOrders": [
                                             {
-                                                "id": "1aeba788-c0bb-47b7-ab7d-047fa629253c",
+                                                "id": "7fc3149a-8645-4644-af2d-56097ff8c62a",
                                                 "productName": "Northwind Pro",
                                                 "variantName": "1 month",
                                                 "itemCount": 1,
                                                 "amount": 9.99,
                                                 "status": "completed",
-                                                "dateCreated": "2026-10-16T11:18:29Z"
+                                                "dateCreated": "2026-10-16T21:09:48Z"
                                             }
                                         ]
                                     }
@@ -14524,7 +14729,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "1aeba788-c0bb-47b7-ab7d-047fa629253c",
+                                        "id": "7fc3149a-8645-4644-af2d-56097ff8c62a",
                                         "status": "completed",
                                         "dynamic": []
                                     }
@@ -14665,7 +14870,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "1aeba788-c0bb-47b7-ab7d-047fa629253c",
+                                        "id": "7fc3149a-8645-4644-af2d-56097ff8c62a",
                                         "status": "refunded",
                                         "destination": "record"
                                     }
@@ -14820,10 +15025,10 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "1aeba788-c0bb-47b7-ab7d-047fa629253c",
+                                        "id": "7fc3149a-8645-4644-af2d-56097ff8c62a",
                                         "items": [
                                             {
-                                                "id": 203912,
+                                                "id": 208953,
                                                 "productName": "Northwind Pro",
                                                 "variantName": "1 month",
                                                 "keys": [
@@ -15105,7 +15310,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "1aeba788-c0bb-47b7-ab7d-047fa629253c"
+                                        "id": "7fc3149a-8645-4644-af2d-56097ff8c62a"
                                     }
                                 }
                             }
@@ -15415,7 +15620,7 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "orderId": "fffc51ad-341c-4271-b0fc-8386d89fe7c0",
+                                            "orderId": "6e2b6b22-3e9e-4b3b-bcef-15045828a2ce",
                                             "number": 1,
                                             "label": "INV-0001",
                                             "recipientName": "",
@@ -15423,12 +15628,12 @@
                                             "gateways": [
                                                 "stripe"
                                             ],
-                                            "dueAt": "2026-10-23T11:18:29Z",
+                                            "dueAt": "2026-10-23T21:09:49Z",
                                             "overdue": false,
                                             "sentAt": null,
                                             "sendCount": 0,
-                                            "dateCreated": "2026-10-16T11:18:29Z",
-                                            "payUrl": "http://localhost:3002/checkout/fffc51ad-341c-4271-b0fc-8386d89fe7c0",
+                                            "dateCreated": "2026-10-16T21:09:49Z",
+                                            "payUrl": "http://localhost:3002/checkout/6e2b6b22-3e9e-4b3b-bcef-15045828a2ce",
                                             "kind": "link",
                                             "title": "Logo design deposit",
                                             "uses": null,
@@ -15986,7 +16191,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "orderId": "fffc51ad-341c-4271-b0fc-8386d89fe7c0",
+                                        "orderId": "6e2b6b22-3e9e-4b3b-bcef-15045828a2ce",
                                         "number": 1,
                                         "label": "INV-0001",
                                         "recipientName": "",
@@ -15994,12 +16199,12 @@
                                         "gateways": [
                                             "stripe"
                                         ],
-                                        "dueAt": "2026-10-23T11:18:29Z",
+                                        "dueAt": "2026-10-23T21:09:49Z",
                                         "overdue": false,
                                         "sentAt": null,
                                         "sendCount": 0,
-                                        "dateCreated": "2026-10-16T11:18:29Z",
-                                        "payUrl": "http://localhost:3002/checkout/fffc51ad-341c-4271-b0fc-8386d89fe7c0",
+                                        "dateCreated": "2026-10-16T21:09:49Z",
+                                        "payUrl": "http://localhost:3002/checkout/6e2b6b22-3e9e-4b3b-bcef-15045828a2ce",
                                         "kind": "link",
                                         "title": "Logo design deposit",
                                         "uses": null,
@@ -16356,31 +16561,31 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "f008426d-fdf1-4598-912c-8a417cdbfb84",
+                                            "id": "31237f4d-a654-4fd4-8b94-ea44fed3d956",
                                             "rating": 2,
                                             "message": "The key took an hour to arrive.",
                                             "automatic": false,
-                                            "dateCreated": "2026-10-16T11:18:29Z",
+                                            "dateCreated": "2026-10-16T21:09:49Z",
                                             "items": [
                                                 {
-                                                    "productId": "6dc4c191-d578-4209-be7f-e0e39873820d",
+                                                    "productId": "a34b38bc-9c2a-4bbb-8f68-c4520f9f917d",
                                                     "productName": "Northwind Pro",
                                                     "variantName": "1 month"
                                                 }
                                             ],
-                                            "orderId": "1aeba788-c0bb-47b7-ab7d-047fa629253c",
-                                            "customerId": "96308ea9-9798-425c-8fc9-c22adaa5d48b",
+                                            "orderId": "7fc3149a-8645-4644-af2d-56097ff8c62a",
+                                            "customerId": "58009654-e57e-4fbc-be2d-adf96a35df57",
                                             "email": "ada@example.com",
                                             "orderAmount": 9.99,
                                             "currencyCode": "USD",
                                             "flag": {
-                                                "id": "f93ecb89-2312-4b5b-a149-d72fc0700ece",
+                                                "id": "6e5046cd-2d15-49cc-b7a0-9f9deff4b5fd",
                                                 "status": "open",
                                                 "reason": "unrelated",
                                                 "reasonLabel": "Not about this order",
                                                 "note": "This is about another shop's delivery, not ours.",
                                                 "answer": "",
-                                                "dateCreated": "2026-10-16T11:18:29Z",
+                                                "dateCreated": "2026-10-16T21:09:49Z",
                                                 "dateDecided": null
                                             }
                                         }
@@ -16631,9 +16836,9 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "e1e6981b-781a-4752-895f-0550daec3fac",
-                                            "storeId": "b8a95d27-7627-4ada-b95b-8e729a6a1330",
-                                            "categoryId": "b07c90ca-a01a-4633-84f5-d8f0e0c28cb8",
+                                            "id": "a6bcba50-d797-4015-9283-31efacda74e6",
+                                            "storeId": "53db1b00-6d50-4eb0-991c-03538f17a4ca",
+                                            "categoryId": "389cb018-9b70-4c64-8428-6b901f3fe1a6",
                                             "code": "WELCOME10",
                                             "discountType": "percent",
                                             "value": 10,
@@ -16648,8 +16853,8 @@
                                             "sort": 0,
                                             "discountGiven": 0,
                                             "revenue": 0,
-                                            "dateCreated": "2026-10-16T11:18:29Z",
-                                            "updatedAt": "2026-10-16T11:18:29.188Z"
+                                            "dateCreated": "2026-10-16T21:09:48Z",
+                                            "updatedAt": "2026-10-16T21:09:48.739Z"
                                         }
                                     ],
                                     "pages": 1,
@@ -16901,9 +17106,9 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "e1e6981b-781a-4752-895f-0550daec3fac",
-                                        "storeId": "b8a95d27-7627-4ada-b95b-8e729a6a1330",
-                                        "categoryId": "b07c90ca-a01a-4633-84f5-d8f0e0c28cb8",
+                                        "id": "a6bcba50-d797-4015-9283-31efacda74e6",
+                                        "storeId": "53db1b00-6d50-4eb0-991c-03538f17a4ca",
+                                        "categoryId": "389cb018-9b70-4c64-8428-6b901f3fe1a6",
                                         "code": "WELCOME10",
                                         "discountType": "percent",
                                         "value": 10,
@@ -16918,8 +17123,8 @@
                                         "sort": 0,
                                         "discountGiven": 0,
                                         "revenue": 0,
-                                        "dateCreated": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.188Z"
+                                        "dateCreated": "2026-10-16T21:09:48Z",
+                                        "updatedAt": "2026-10-16T21:09:48.739Z"
                                     }
                                 }
                             }
@@ -17172,9 +17377,9 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "e1e6981b-781a-4752-895f-0550daec3fac",
-                                        "storeId": "b8a95d27-7627-4ada-b95b-8e729a6a1330",
-                                        "categoryId": "b07c90ca-a01a-4633-84f5-d8f0e0c28cb8",
+                                        "id": "a6bcba50-d797-4015-9283-31efacda74e6",
+                                        "storeId": "53db1b00-6d50-4eb0-991c-03538f17a4ca",
+                                        "categoryId": "389cb018-9b70-4c64-8428-6b901f3fe1a6",
                                         "code": "WELCOME10",
                                         "discountType": "percent",
                                         "value": 15,
@@ -17189,8 +17394,8 @@
                                         "sort": 0,
                                         "discountGiven": 0,
                                         "revenue": 0,
-                                        "dateCreated": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.194Z"
+                                        "dateCreated": "2026-10-16T21:09:48Z",
+                                        "updatedAt": "2026-10-16T21:09:48.745Z"
                                     }
                                 }
                             }
@@ -17285,7 +17490,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "e1e6981b-781a-4752-895f-0550daec3fac",
+                                        "id": "a6bcba50-d797-4015-9283-31efacda74e6",
                                         "deleted": true
                                     }
                                 }
@@ -17519,23 +17724,8 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "0be3c8bd-debd-4343-8e99-4edf96f030f9",
-                                            "storeId": "b8a95d27-7627-4ada-b95b-8e729a6a1330",
-                                            "name": "Default",
-                                            "slug": "default",
-                                            "description": "Coupons without another category.",
-                                            "sort": 0,
-                                            "systemKey": "default",
-                                            "couponCount": 0,
-                                            "activeCount": 0,
-                                            "uses": 0,
-                                            "discountGiven": 0,
-                                            "dateCreated": "2026-10-16T11:18:29Z",
-                                            "updatedAt": "2026-10-16T11:18:29.199Z"
-                                        },
-                                        {
-                                            "id": "b07c90ca-a01a-4633-84f5-d8f0e0c28cb8",
-                                            "storeId": "b8a95d27-7627-4ada-b95b-8e729a6a1330",
+                                            "id": "389cb018-9b70-4c64-8428-6b901f3fe1a6",
+                                            "storeId": "53db1b00-6d50-4eb0-991c-03538f17a4ca",
                                             "name": "Partners",
                                             "slug": "partners",
                                             "description": "Codes handed to partners.",
@@ -17545,8 +17735,23 @@
                                             "activeCount": 1,
                                             "uses": 0,
                                             "discountGiven": 0,
-                                            "dateCreated": "2026-10-16T11:18:29Z",
-                                            "updatedAt": "2026-10-16T11:18:29.183Z"
+                                            "dateCreated": "2026-10-16T21:09:48Z",
+                                            "updatedAt": "2026-10-16T21:09:48.734Z"
+                                        },
+                                        {
+                                            "id": "f402cc52-b937-4326-9820-465312284ab2",
+                                            "storeId": "53db1b00-6d50-4eb0-991c-03538f17a4ca",
+                                            "name": "Default",
+                                            "slug": "default",
+                                            "description": "Coupons without another category.",
+                                            "sort": 0,
+                                            "systemKey": "default",
+                                            "couponCount": 0,
+                                            "activeCount": 0,
+                                            "uses": 0,
+                                            "discountGiven": 0,
+                                            "dateCreated": "2026-10-16T21:09:48Z",
+                                            "updatedAt": "2026-10-16T21:09:48.750Z"
                                         }
                                     ]
                                 }
@@ -17687,8 +17892,8 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "b07c90ca-a01a-4633-84f5-d8f0e0c28cb8",
-                                        "storeId": "b8a95d27-7627-4ada-b95b-8e729a6a1330",
+                                        "id": "389cb018-9b70-4c64-8428-6b901f3fe1a6",
+                                        "storeId": "53db1b00-6d50-4eb0-991c-03538f17a4ca",
                                         "name": "Partners",
                                         "slug": "partners",
                                         "description": "Codes handed to partners.",
@@ -17698,8 +17903,8 @@
                                         "activeCount": 0,
                                         "uses": 0,
                                         "discountGiven": 0,
-                                        "dateCreated": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.183Z"
+                                        "dateCreated": "2026-10-16T21:09:48Z",
+                                        "updatedAt": "2026-10-16T21:09:48.734Z"
                                     }
                                 }
                             }
@@ -17852,8 +18057,8 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "b07c90ca-a01a-4633-84f5-d8f0e0c28cb8",
-                                        "storeId": "b8a95d27-7627-4ada-b95b-8e729a6a1330",
+                                        "id": "389cb018-9b70-4c64-8428-6b901f3fe1a6",
+                                        "storeId": "53db1b00-6d50-4eb0-991c-03538f17a4ca",
                                         "name": "Partners",
                                         "slug": "partners",
                                         "description": "Codes handed to partners and creators.",
@@ -17863,8 +18068,8 @@
                                         "activeCount": 0,
                                         "uses": 0,
                                         "discountGiven": 0,
-                                        "dateCreated": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.203Z"
+                                        "dateCreated": "2026-10-16T21:09:48Z",
+                                        "updatedAt": "2026-10-16T21:09:48.754Z"
                                     }
                                 }
                             }
@@ -17962,7 +18167,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "b07c90ca-a01a-4633-84f5-d8f0e0c28cb8",
+                                        "id": "389cb018-9b70-4c64-8428-6b901f3fe1a6",
                                         "deleted": true,
                                         "moved": 0
                                     }
@@ -18356,9 +18561,9 @@
                                     "code": null,
                                     "data": {
                                         "enabled": false,
-                                        "couponId": "e1e6981b-781a-4752-895f-0550daec3fac",
+                                        "couponId": "a6bcba50-d797-4015-9283-31efacda74e6",
                                         "coupon": {
-                                            "id": "e1e6981b-781a-4752-895f-0550daec3fac",
+                                            "id": "a6bcba50-d797-4015-9283-31efacda74e6",
                                             "code": "WELCOME10",
                                             "discountType": "percent",
                                             "value": 15,
@@ -18374,7 +18579,7 @@
                                         "opens": "delay",
                                         "delaySeconds": 5,
                                         "frequency": "visit",
-                                        "updatedAt": "2026-10-16T11:18:29.209Z"
+                                        "updatedAt": "2026-10-16T21:09:48.759Z"
                                     }
                                 }
                             }
@@ -18522,7 +18727,7 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "79e23963-1fbd-4f23-9818-8562df286086",
+                                            "id": "29fc2701-092b-49df-8b54-8d4afa18efc0",
                                             "name": "Autumn sale",
                                             "enabled": true,
                                             "status": "scheduled",
@@ -18530,15 +18735,15 @@
                                             "value": 20,
                                             "appliesTo": "all",
                                             "targets": [],
-                                            "startsAt": "2026-10-17T11:18:29Z",
-                                            "endsAt": "2026-10-23T11:18:29Z",
+                                            "startsAt": "2026-10-17T21:09:48Z",
+                                            "endsAt": "2026-10-23T21:09:48Z",
                                             "couponRule": "rest",
                                             "exceptions": [],
                                             "showBar": true,
                                             "orders": 0,
                                             "revenue": 0,
-                                            "dateCreated": "2026-10-16T11:18:29Z",
-                                            "updatedAt": "2026-10-16T11:18:29.213Z"
+                                            "dateCreated": "2026-10-16T21:09:48Z",
+                                            "updatedAt": "2026-10-16T21:09:48.763Z"
                                         }
                                     ],
                                     "meta": {
@@ -18807,7 +19012,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "79e23963-1fbd-4f23-9818-8562df286086",
+                                        "id": "29fc2701-092b-49df-8b54-8d4afa18efc0",
                                         "name": "Autumn sale",
                                         "enabled": true,
                                         "status": "scheduled",
@@ -18815,15 +19020,15 @@
                                         "value": 20,
                                         "appliesTo": "all",
                                         "targets": [],
-                                        "startsAt": "2026-10-17T11:18:29Z",
-                                        "endsAt": "2026-10-23T11:18:29Z",
+                                        "startsAt": "2026-10-17T21:09:48Z",
+                                        "endsAt": "2026-10-23T21:09:48Z",
                                         "couponRule": "rest",
                                         "exceptions": [],
                                         "showBar": true,
                                         "orders": 0,
                                         "revenue": 0,
-                                        "dateCreated": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.213Z"
+                                        "dateCreated": "2026-10-16T21:09:48Z",
+                                        "updatedAt": "2026-10-16T21:09:48.763Z"
                                     }
                                 }
                             }
@@ -18968,7 +19173,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "79e23963-1fbd-4f23-9818-8562df286086",
+                                        "id": "29fc2701-092b-49df-8b54-8d4afa18efc0",
                                         "name": "Autumn sale",
                                         "enabled": true,
                                         "status": "scheduled",
@@ -18976,15 +19181,15 @@
                                         "value": 20,
                                         "appliesTo": "all",
                                         "targets": [],
-                                        "startsAt": "2026-10-17T11:18:29Z",
-                                        "endsAt": "2026-10-23T11:18:29Z",
+                                        "startsAt": "2026-10-17T21:09:48Z",
+                                        "endsAt": "2026-10-23T21:09:48Z",
                                         "couponRule": "rest",
                                         "exceptions": [],
                                         "showBar": true,
                                         "orders": 0,
                                         "revenue": 0,
-                                        "dateCreated": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.213Z"
+                                        "dateCreated": "2026-10-16T21:09:48Z",
+                                        "updatedAt": "2026-10-16T21:09:48.763Z"
                                     }
                                 }
                             }
@@ -19272,7 +19477,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "79e23963-1fbd-4f23-9818-8562df286086",
+                                        "id": "29fc2701-092b-49df-8b54-8d4afa18efc0",
                                         "deleted": true
                                     }
                                 }
@@ -19440,7 +19645,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "79e23963-1fbd-4f23-9818-8562df286086",
+                                        "id": "29fc2701-092b-49df-8b54-8d4afa18efc0",
                                         "name": "Autumn sale",
                                         "enabled": false,
                                         "status": "off",
@@ -19448,15 +19653,15 @@
                                         "value": 20,
                                         "appliesTo": "all",
                                         "targets": [],
-                                        "startsAt": "2026-10-17T11:18:29Z",
-                                        "endsAt": "2026-10-23T11:18:29Z",
+                                        "startsAt": "2026-10-17T21:09:48Z",
+                                        "endsAt": "2026-10-23T21:09:48Z",
                                         "couponRule": "rest",
                                         "exceptions": [],
                                         "showBar": true,
                                         "orders": 0,
                                         "revenue": 0,
-                                        "dateCreated": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.222Z"
+                                        "dateCreated": "2026-10-16T21:09:48Z",
+                                        "updatedAt": "2026-10-16T21:09:48.771Z"
                                     }
                                 }
                             }
@@ -19629,7 +19834,7 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "91ab54f1-6984-42a9-bfe8-6127f116f026",
+                                            "id": "0f1b943b-3d70-4248-a66b-37221c1eceef",
                                             "name": "Guides",
                                             "slug": "guides",
                                             "path": "/blog/guides/",
@@ -19637,16 +19842,16 @@
                                             "imageUrl": null,
                                             "posts": [
                                                 {
-                                                    "id": "16384519-f67b-414e-af27-44ec6f03bb12",
-                                                    "categoryId": "91ab54f1-6984-42a9-bfe8-6127f116f026",
+                                                    "id": "fca455f8-63ca-4c14-a6cb-8ffe757736ff",
+                                                    "categoryId": "0f1b943b-3d70-4248-a66b-37221c1eceef",
                                                     "title": "Activating Northwind Pro",
                                                     "slug": "activating-northwind-pro",
                                                     "path": "/blog/guides/activating-northwind-pro/",
                                                     "status": "published",
                                                     "coverUrl": null,
                                                     "views": 0,
-                                                    "publishedAt": "2026-10-16 11:18:29",
-                                                    "updatedAt": "2026-10-16 11:18:29.239"
+                                                    "publishedAt": "2026-10-16 21:09:48",
+                                                    "updatedAt": "2026-10-16 21:09:48.788"
                                                 }
                                             ]
                                         }
@@ -19792,7 +19997,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "91ab54f1-6984-42a9-bfe8-6127f116f026",
+                                        "id": "0f1b943b-3d70-4248-a66b-37221c1eceef",
                                         "name": "Guides",
                                         "slug": "guides",
                                         "path": "/blog/guides/",
@@ -19935,7 +20140,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "91ab54f1-6984-42a9-bfe8-6127f116f026",
+                                        "id": "0f1b943b-3d70-4248-a66b-37221c1eceef",
                                         "name": "Guides",
                                         "slug": "guides",
                                         "path": "/blog/guides/",
@@ -20035,7 +20240,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "91ab54f1-6984-42a9-bfe8-6127f116f026",
+                                        "id": "0f1b943b-3d70-4248-a66b-37221c1eceef",
                                         "deleted": true
                                     }
                                 }
@@ -20471,8 +20676,8 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "16384519-f67b-414e-af27-44ec6f03bb12",
-                                        "categoryId": "91ab54f1-6984-42a9-bfe8-6127f116f026",
+                                        "id": "fca455f8-63ca-4c14-a6cb-8ffe757736ff",
+                                        "categoryId": "0f1b943b-3d70-4248-a66b-37221c1eceef",
                                         "title": "Activating Northwind Pro",
                                         "slug": "activating-northwind-pro",
                                         "path": "/blog/guides/activating-northwind-pro/",
@@ -20480,7 +20685,7 @@
                                         "coverUrl": null,
                                         "views": 0,
                                         "publishedAt": null,
-                                        "updatedAt": "2026-10-16 11:18:29.231",
+                                        "updatedAt": "2026-10-16 21:09:48.780",
                                         "body": "",
                                         "coverAlt": "",
                                         "seoTitle": "",
@@ -20692,16 +20897,16 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "16384519-f67b-414e-af27-44ec6f03bb12",
-                                        "categoryId": "91ab54f1-6984-42a9-bfe8-6127f116f026",
+                                        "id": "fca455f8-63ca-4c14-a6cb-8ffe757736ff",
+                                        "categoryId": "0f1b943b-3d70-4248-a66b-37221c1eceef",
                                         "title": "Activating Northwind Pro",
                                         "slug": "activating-northwind-pro",
                                         "path": "/blog/guides/activating-northwind-pro/",
                                         "status": "published",
                                         "coverUrl": null,
                                         "views": 0,
-                                        "publishedAt": "2026-10-16 11:18:29",
-                                        "updatedAt": "2026-10-16 11:18:29.239",
+                                        "publishedAt": "2026-10-16 21:09:48",
+                                        "updatedAt": "2026-10-16 21:09:48.788",
                                         "body": "## Before you start\n\nHave your licence key to hand.\n\n1. Open **Help**.\n2. Choose **Activate**.\n3. Paste the key.",
                                         "coverAlt": "",
                                         "seoTitle": "",
@@ -20942,8 +21147,8 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "16384519-f67b-414e-af27-44ec6f03bb12",
-                                        "categoryId": "91ab54f1-6984-42a9-bfe8-6127f116f026",
+                                        "id": "fca455f8-63ca-4c14-a6cb-8ffe757736ff",
+                                        "categoryId": "0f1b943b-3d70-4248-a66b-37221c1eceef",
                                         "title": "Activating Northwind Pro",
                                         "slug": "activating-northwind-pro",
                                         "path": "/blog/guides/activating-northwind-pro/",
@@ -20951,7 +21156,7 @@
                                         "coverUrl": null,
                                         "views": 0,
                                         "publishedAt": null,
-                                        "updatedAt": "2026-10-16 11:18:29.235",
+                                        "updatedAt": "2026-10-16 21:09:48.785",
                                         "body": "## Before you start\n\nHave your licence key to hand.\n\n1. Open **Help**.\n2. Choose **Activate**.\n3. Paste the key.",
                                         "coverAlt": "",
                                         "seoTitle": "",
@@ -21066,7 +21271,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "16384519-f67b-414e-af27-44ec6f03bb12",
+                                        "id": "fca455f8-63ca-4c14-a6cb-8ffe757736ff",
                                         "deleted": true
                                     }
                                 }
@@ -21211,16 +21416,16 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "16384519-f67b-414e-af27-44ec6f03bb12",
-                                        "categoryId": "91ab54f1-6984-42a9-bfe8-6127f116f026",
+                                        "id": "fca455f8-63ca-4c14-a6cb-8ffe757736ff",
+                                        "categoryId": "0f1b943b-3d70-4248-a66b-37221c1eceef",
                                         "title": "Activating Northwind Pro",
                                         "slug": "activating-northwind-pro",
                                         "path": "/blog/guides/activating-northwind-pro/",
                                         "status": "published",
                                         "coverUrl": null,
                                         "views": 0,
-                                        "publishedAt": "2026-10-16 11:18:29",
-                                        "updatedAt": "2026-10-16 11:18:29.239"
+                                        "publishedAt": "2026-10-16 21:09:48",
+                                        "updatedAt": "2026-10-16 21:09:48.788"
                                     }
                                 }
                             }
@@ -21935,11 +22140,11 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "8aa61de4-ce52-4826-bc44-7de99ad45d8e",
+                                            "id": "ae725d3d-1945-44b3-818e-4a82ad01db66",
                                             "from": "/old-pricing",
                                             "to": "/products/",
                                             "hits": 0,
-                                            "createdAt": "2026-10-16T11:18:29Z",
+                                            "createdAt": "2026-10-16T21:09:48Z",
                                             "live": false
                                         }
                                     ],
@@ -22088,11 +22293,11 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "8aa61de4-ce52-4826-bc44-7de99ad45d8e",
+                                            "id": "ae725d3d-1945-44b3-818e-4a82ad01db66",
                                             "from": "/old-pricing",
                                             "to": "/products/",
                                             "hits": 0,
-                                            "createdAt": "2026-10-16T11:18:29Z",
+                                            "createdAt": "2026-10-16T21:09:48Z",
                                             "live": false
                                         }
                                     ],
@@ -22255,11 +22460,11 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "8aa61de4-ce52-4826-bc44-7de99ad45d8e",
+                                            "id": "ae725d3d-1945-44b3-818e-4a82ad01db66",
                                             "from": "/old-pricing",
                                             "to": "/",
                                             "hits": 0,
-                                            "createdAt": "2026-10-16T11:18:29Z",
+                                            "createdAt": "2026-10-16T21:09:48Z",
                                             "live": false
                                         }
                                     ],
@@ -22686,7 +22891,7 @@
                                                 "changefreq": "weekly",
                                                 "entries": [
                                                     {
-                                                        "ref": "3281d034-690c-4eaf-a386-e5a10072469b",
+                                                        "ref": "59d8ee60-fb80-4731-8146-56b3a7ec0814",
                                                         "name": "Software",
                                                         "path": "/products/?category=software",
                                                         "changed": "2026-10-16",
@@ -22937,7 +23142,7 @@
                                                 "changefreq": "weekly",
                                                 "entries": [
                                                     {
-                                                        "ref": "3281d034-690c-4eaf-a386-e5a10072469b",
+                                                        "ref": "59d8ee60-fb80-4731-8146-56b3a7ec0814",
                                                         "name": "Software",
                                                         "path": "/products/?category=software",
                                                         "changed": "2026-10-16",
@@ -23287,9 +23492,9 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "96308ea9-9798-425c-8fc9-c22adaa5d48b",
+                                            "id": "58009654-e57e-4fbc-be2d-adf96a35df57",
                                             "emailAddress": "ada@example.com",
-                                            "dateCreated": "2026-10-16T11:18:29Z",
+                                            "dateCreated": "2026-10-16T21:09:48Z",
                                             "totalOrders": 0,
                                             "totalSpend": 0,
                                             "paidOrders": 0,
@@ -23433,9 +23638,9 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "96308ea9-9798-425c-8fc9-c22adaa5d48b",
+                                        "id": "58009654-e57e-4fbc-be2d-adf96a35df57",
                                         "emailAddress": "ada@example.com",
-                                        "dateCreated": "2026-10-16T11:18:29Z",
+                                        "dateCreated": "2026-10-16T21:09:48Z",
                                         "totalOrders": 0,
                                         "totalSpend": 0,
                                         "paidOrders": 0,
@@ -24001,15 +24206,15 @@
                                         "balanceAtCheckout": true,
                                         "balanceHistory": [
                                             {
-                                                "id": "8143c3dd-5f54-4a43-85cd-55b42b7300e2",
+                                                "id": "d7f99e73-eec6-4d2c-983b-3cbe6ad5c653",
                                                 "kind": "add",
                                                 "amount": 5,
                                                 "balanceAfter": 5,
                                                 "currencyCode": "USD",
                                                 "note": "Goodwill credit",
                                                 "orderId": null,
-                                                "by": "api-docs-2209db30@noblecheats.net",
-                                                "dateCreated": "2026-10-16T11:18:29Z"
+                                                "by": "api-docs-5068803a@noblecheats.net",
+                                                "dateCreated": "2026-10-16T21:09:48Z"
                                             }
                                         ],
                                         "affiliate": null,
@@ -24017,9 +24222,9 @@
                                         "blacklistedBy": [],
                                         "blacklistRules": 0,
                                         "knownAddresses": 0,
-                                        "id": "96308ea9-9798-425c-8fc9-c22adaa5d48b",
+                                        "id": "58009654-e57e-4fbc-be2d-adf96a35df57",
                                         "emailAddress": "ada@example.com",
-                                        "dateCreated": "2026-10-16T11:18:29Z",
+                                        "dateCreated": "2026-10-16T21:09:48Z",
                                         "totalOrders": 0,
                                         "totalSpend": 0,
                                         "paidOrders": 0,
@@ -24211,15 +24416,15 @@
                                         "balanceAtCheckout": true,
                                         "balanceHistory": [
                                             {
-                                                "id": "8143c3dd-5f54-4a43-85cd-55b42b7300e2",
+                                                "id": "d7f99e73-eec6-4d2c-983b-3cbe6ad5c653",
                                                 "kind": "add",
                                                 "amount": 5,
                                                 "balanceAfter": 5,
                                                 "currencyCode": "USD",
                                                 "note": "Goodwill credit",
                                                 "orderId": null,
-                                                "by": "api-docs-2209db30@noblecheats.net",
-                                                "dateCreated": "2026-10-16T11:18:29Z"
+                                                "by": "api-docs-5068803a@noblecheats.net",
+                                                "dateCreated": "2026-10-16T21:09:48Z"
                                             }
                                         ],
                                         "affiliate": null,
@@ -24418,22 +24623,22 @@
                                         "balanceAtCheckout": true,
                                         "balanceHistory": [
                                             {
-                                                "id": "8143c3dd-5f54-4a43-85cd-55b42b7300e2",
+                                                "id": "d7f99e73-eec6-4d2c-983b-3cbe6ad5c653",
                                                 "kind": "add",
                                                 "amount": 5,
                                                 "balanceAfter": 5,
                                                 "currencyCode": "USD",
                                                 "note": "Goodwill credit",
                                                 "orderId": null,
-                                                "by": "api-docs-2209db30@noblecheats.net",
-                                                "dateCreated": "2026-10-16T11:18:29Z"
+                                                "by": "api-docs-5068803a@noblecheats.net",
+                                                "dateCreated": "2026-10-16T21:09:48Z"
                                             }
                                         ],
                                         "affiliate": null,
                                         "blacklisted": true,
                                         "blacklistedBy": [
                                             {
-                                                "id": "2e29de65-6369-438b-bdde-c6d4f2c24804",
+                                                "id": "9884069b-5252-4a42-842c-3701ed694288",
                                                 "type": "email",
                                                 "value": "ada@example.com",
                                                 "part": "theirs"
@@ -24606,15 +24811,15 @@
                                         "balanceAtCheckout": true,
                                         "balanceHistory": [
                                             {
-                                                "id": "8143c3dd-5f54-4a43-85cd-55b42b7300e2",
+                                                "id": "d7f99e73-eec6-4d2c-983b-3cbe6ad5c653",
                                                 "kind": "add",
                                                 "amount": 5,
                                                 "balanceAfter": 5,
                                                 "currencyCode": "USD",
                                                 "note": "Goodwill credit",
                                                 "orderId": null,
-                                                "by": "api-docs-2209db30@noblecheats.net",
-                                                "dateCreated": "2026-10-16T11:18:29Z"
+                                                "by": "api-docs-5068803a@noblecheats.net",
+                                                "dateCreated": "2026-10-16T21:09:48Z"
                                             }
                                         ],
                                         "affiliate": null,
@@ -24859,8 +25064,8 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "f7d0190b-12c4-41bd-aabf-b8abefb63865",
-                                            "customerId": "96308ea9-9798-425c-8fc9-c22adaa5d48b",
+                                            "id": "24b52060-6f7a-40a9-881f-279059d69b96",
+                                            "customerId": "58009654-e57e-4fbc-be2d-adf96a35df57",
                                             "email": "ada@example.com",
                                             "code": "ada",
                                             "link": "https://northwind.myshoply.gg/?ref=ada",
@@ -24876,7 +25081,7 @@
                                             "paidOut": 0,
                                             "paidAsCredit": 0,
                                             "joinedThemselves": false,
-                                            "dateCreated": "2026-10-16T11:18:29Z"
+                                            "dateCreated": "2026-10-16T21:09:48Z"
                                         }
                                     ],
                                     "meta": {
@@ -25182,8 +25387,8 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "f7d0190b-12c4-41bd-aabf-b8abefb63865",
-                                        "customerId": "96308ea9-9798-425c-8fc9-c22adaa5d48b",
+                                        "id": "24b52060-6f7a-40a9-881f-279059d69b96",
+                                        "customerId": "58009654-e57e-4fbc-be2d-adf96a35df57",
                                         "email": "ada@example.com",
                                         "code": "ada",
                                         "link": "https://northwind.myshoply.gg/?ref=ada",
@@ -25199,7 +25404,7 @@
                                         "paidOut": 0,
                                         "paidAsCredit": 0,
                                         "joinedThemselves": false,
-                                        "dateCreated": "2026-10-16T11:18:29Z"
+                                        "dateCreated": "2026-10-16T21:09:48Z"
                                     },
                                     "meta": {
                                         "totals": {
@@ -25510,8 +25715,8 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "f7d0190b-12c4-41bd-aabf-b8abefb63865",
-                                        "customerId": "96308ea9-9798-425c-8fc9-c22adaa5d48b",
+                                        "id": "24b52060-6f7a-40a9-881f-279059d69b96",
+                                        "customerId": "58009654-e57e-4fbc-be2d-adf96a35df57",
                                         "email": "ada@example.com",
                                         "code": "ada",
                                         "link": "https://northwind.myshoply.gg/?ref=ada",
@@ -25527,7 +25732,7 @@
                                         "paidOut": 0,
                                         "paidAsCredit": 0,
                                         "joinedThemselves": false,
-                                        "dateCreated": "2026-10-16T11:18:29Z"
+                                        "dateCreated": "2026-10-16T21:09:48Z"
                                     },
                                     "meta": {
                                         "totals": {
@@ -26064,8 +26269,8 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "f7d0190b-12c4-41bd-aabf-b8abefb63865",
-                                        "customerId": "96308ea9-9798-425c-8fc9-c22adaa5d48b",
+                                        "id": "24b52060-6f7a-40a9-881f-279059d69b96",
+                                        "customerId": "58009654-e57e-4fbc-be2d-adf96a35df57",
                                         "email": "ada@example.com",
                                         "code": "ada",
                                         "link": "https://northwind.myshoply.gg/?ref=ada",
@@ -26081,7 +26286,7 @@
                                         "paidOut": 0,
                                         "paidAsCredit": 0,
                                         "joinedThemselves": false,
-                                        "dateCreated": "2026-10-16T11:18:29Z"
+                                        "dateCreated": "2026-10-16T21:09:48Z"
                                     },
                                     "meta": {
                                         "totals": {
@@ -26247,15 +26452,15 @@
                                     "data": {
                                         "changes": [
                                             {
-                                                "id": "35309560-ca3d-4601-9e54-4a09cb3a5271",
+                                                "id": "52fa356f-8979-4f09-bc62-44fa2f63a0ac",
                                                 "kind": "add",
                                                 "amount": 12.5,
                                                 "balanceAfter": 12.5,
                                                 "currencyCode": "USD",
-                                                "dateCreated": "2026-10-16T11:18:29Z",
+                                                "dateCreated": "2026-10-16T21:09:48Z",
                                                 "note": "Commission from before the programme",
                                                 "orderId": null,
-                                                "by": "api-docs-2209db30@noblecheats.net"
+                                                "by": "api-docs-5068803a@noblecheats.net"
                                             }
                                         ],
                                         "payouts": []
@@ -27347,7 +27552,7 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "1a491cab-5b3a-4cac-8de2-464307377bf1",
+                                            "id": "8ba2f673-f8b0-4b13-928f-b0e3990c5724",
                                             "type": "domain",
                                             "value": "mailinator.com",
                                             "label": "mailinator.com",
@@ -27358,8 +27563,8 @@
                                             "orderId": null,
                                             "hits": 0,
                                             "lastHitAt": null,
-                                            "dateCreated": "2026-10-16T11:18:29Z",
-                                            "updatedAt": "2026-10-16T11:18:29.477Z"
+                                            "dateCreated": "2026-10-16T21:09:49Z",
+                                            "updatedAt": "2026-10-16T21:09:49.022Z"
                                         }
                                     ],
                                     "pages": 1,
@@ -27529,7 +27734,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "1a491cab-5b3a-4cac-8de2-464307377bf1",
+                                        "id": "8ba2f673-f8b0-4b13-928f-b0e3990c5724",
                                         "type": "domain",
                                         "value": "mailinator.com",
                                         "label": "mailinator.com",
@@ -27540,8 +27745,8 @@
                                         "orderId": null,
                                         "hits": 0,
                                         "lastHitAt": null,
-                                        "dateCreated": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.477Z"
+                                        "dateCreated": "2026-10-16T21:09:49Z",
+                                        "updatedAt": "2026-10-16T21:09:49.022Z"
                                     }
                                 }
                             }
@@ -27819,7 +28024,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "1a491cab-5b3a-4cac-8de2-464307377bf1",
+                                        "id": "8ba2f673-f8b0-4b13-928f-b0e3990c5724",
                                         "type": "domain",
                                         "value": "mailinator.com",
                                         "label": "mailinator.com",
@@ -27830,8 +28035,8 @@
                                         "orderId": null,
                                         "hits": 0,
                                         "lastHitAt": null,
-                                        "dateCreated": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.483Z"
+                                        "dateCreated": "2026-10-16T21:09:49Z",
+                                        "updatedAt": "2026-10-16T21:09:49.027Z"
                                     }
                                 }
                             }
@@ -27923,7 +28128,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "1a491cab-5b3a-4cac-8de2-464307377bf1"
+                                        "id": "8ba2f673-f8b0-4b13-928f-b0e3990c5724"
                                     }
                                 }
                             }
@@ -28072,7 +28277,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "1a491cab-5b3a-4cac-8de2-464307377bf1",
+                                        "id": "8ba2f673-f8b0-4b13-928f-b0e3990c5724",
                                         "type": "domain",
                                         "value": "mailinator.com",
                                         "label": "mailinator.com",
@@ -28083,8 +28288,8 @@
                                         "orderId": null,
                                         "hits": 0,
                                         "lastHitAt": null,
-                                        "dateCreated": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.487Z"
+                                        "dateCreated": "2026-10-16T21:09:49Z",
+                                        "updatedAt": "2026-10-16T21:09:49.030Z"
                                     }
                                 }
                             }
@@ -28366,7 +28571,7 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "16001599-a8b9-4dcb-9254-daccbce0cd74",
+                                            "id": "1d25d415-d24f-4095-90ad-1d868be6507b",
                                             "reason": "settings",
                                             "orderId": null,
                                             "email": "",
@@ -28379,30 +28584,30 @@
                                             "attempts": 1,
                                             "by": {
                                                 "name": "",
-                                                "email": "api-docs-2209db30@noblecheats.net"
+                                                "email": "api-docs-5068803a@noblecheats.net"
                                             },
-                                            "dateCreated": "2026-10-16T11:18:29Z",
-                                            "lastAt": "2026-10-16T11:18:29Z",
+                                            "dateCreated": "2026-10-16T21:09:49Z",
+                                            "lastAt": "2026-10-16T21:09:49Z",
                                             "network": null
                                         },
                                         {
-                                            "id": "f0cb0631-d596-4877-b7dc-151ae8163254",
+                                            "id": "54ada6bc-41af-41db-9e59-788d58cbd545",
                                             "reason": "rule_changed",
                                             "orderId": null,
                                             "email": "",
                                             "ip": "",
                                             "country": "",
-                                            "ruleId": "1a491cab-5b3a-4cac-8de2-464307377bf1",
+                                            "ruleId": "8ba2f673-f8b0-4b13-928f-b0e3990c5724",
                                             "ruleType": "domain",
                                             "ruleValue": "mailinator.com",
                                             "detail": "Switched off the rule for email domain mailinator.com.",
                                             "attempts": 1,
                                             "by": {
                                                 "name": "",
-                                                "email": "api-docs-2209db30@noblecheats.net"
+                                                "email": "api-docs-5068803a@noblecheats.net"
                                             },
-                                            "dateCreated": "2026-10-16T11:18:29Z",
-                                            "lastAt": "2026-10-16T11:18:29Z",
+                                            "dateCreated": "2026-10-16T21:09:49Z",
+                                            "lastAt": "2026-10-16T21:09:49Z",
                                             "network": null
                                         }
                                     ],
@@ -29334,13 +29539,13 @@
                                         ],
                                         "products": [
                                             {
-                                                "id": "6dc4c191-d578-4209-be7f-e0e39873820d",
+                                                "id": "a34b38bc-9c2a-4bbb-8f68-c4520f9f917d",
                                                 "name": "Northwind Pro",
                                                 "image": null,
                                                 "expenses": 0,
                                                 "variants": [
                                                     {
-                                                        "id": "be4c0776-2e9a-40de-8f76-09037a70b19f",
+                                                        "id": "c8ded555-8a35-473c-b059-8116c076ea45",
                                                         "label": "1 month",
                                                         "price": 9.99,
                                                         "costAmount": 2.5,
@@ -29352,7 +29557,7 @@
                                                         "profit": 0
                                                     },
                                                     {
-                                                        "id": "014a509b-4ff6-48dd-983d-269bd3c33d77",
+                                                        "id": "efcc80a7-fd9b-4c93-bc90-8fc1c42c5f70",
                                                         "label": "1 year",
                                                         "price": 79,
                                                         "costAmount": null,
@@ -29963,7 +30168,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "variantId": "be4c0776-2e9a-40de-8f76-09037a70b19f",
+                                        "variantId": "c8ded555-8a35-473c-b059-8116c076ea45",
                                         "costAmount": 2.5,
                                         "costPercent": null,
                                         "stamped": 0,
@@ -35158,12 +35363,12 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "8948e746-d537-4953-a449-b1cf9b221fc7",
+                                            "id": "7253efe7-ae66-4928-9bb2-e1560bfb6dee",
                                             "spentOn": "2026-10-16",
                                             "payee": "Hetzner",
                                             "note": "",
                                             "category": {
-                                                "id": "06ea72a5-17c6-411f-ac5e-9ec375533378",
+                                                "id": "1ef77403-8d5d-438b-9cc0-e3bda8213de4",
                                                 "name": "Hosting and domains",
                                                 "icon": "server"
                                             },
@@ -35175,8 +35380,8 @@
                                             "recurring": false,
                                             "source": "api",
                                             "receipt": null,
-                                            "createdAt": "2026-10-16T11:18:29Z",
-                                            "updatedAt": "2026-10-16T11:18:29.582Z"
+                                            "createdAt": "2026-10-16T21:09:49Z",
+                                            "updatedAt": "2026-10-16T21:09:49.125Z"
                                         }
                                     ],
                                     "meta": {
@@ -35194,7 +35399,7 @@
                                         },
                                         "groups": [
                                             {
-                                                "id": "06ea72a5-17c6-411f-ac5e-9ec375533378",
+                                                "id": "1ef77403-8d5d-438b-9cc0-e3bda8213de4",
                                                 "name": "Hosting and domains",
                                                 "icon": "server",
                                                 "total": 12.5,
@@ -35404,12 +35609,12 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "8948e746-d537-4953-a449-b1cf9b221fc7",
+                                        "id": "7253efe7-ae66-4928-9bb2-e1560bfb6dee",
                                         "spentOn": "2026-10-16",
                                         "payee": "Hetzner",
                                         "note": "",
                                         "category": {
-                                            "id": "06ea72a5-17c6-411f-ac5e-9ec375533378",
+                                            "id": "1ef77403-8d5d-438b-9cc0-e3bda8213de4",
                                             "name": "Hosting and domains",
                                             "icon": "server"
                                         },
@@ -35421,8 +35626,8 @@
                                         "recurring": false,
                                         "source": "api",
                                         "receipt": null,
-                                        "createdAt": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.582Z"
+                                        "createdAt": "2026-10-16T21:09:49Z",
+                                        "updatedAt": "2026-10-16T21:09:49.125Z"
                                     }
                                 }
                             }
@@ -35885,16 +36090,16 @@
                                         "currencies": [],
                                         "categories": [
                                             {
-                                                "id": "06ea72a5-17c6-411f-ac5e-9ec375533378",
+                                                "id": "1ef77403-8d5d-438b-9cc0-e3bda8213de4",
                                                 "name": "Hosting and domains",
                                                 "icon": "server",
-                                                "updatedAt": "2026-10-16T11:18:29.572Z"
+                                                "updatedAt": "2026-10-16T21:09:49.116Z"
                                             },
                                             {
-                                                "id": "1664a1cb-25b2-48e5-8bb1-61dba0ccae01",
+                                                "id": "8ca8cef3-c145-4f1e-b63d-d3f76cc374e0",
                                                 "name": "Advertising",
                                                 "icon": "megaphone",
-                                                "updatedAt": "2026-10-16T11:18:29.565Z"
+                                                "updatedAt": "2026-10-16T21:09:49.108Z"
                                             }
                                         ],
                                         "icons": [
@@ -35904,7 +36109,7 @@
                                         "payees": [
                                             {
                                                 "payee": "Hetzner",
-                                                "categoryId": "06ea72a5-17c6-411f-ac5e-9ec375533378",
+                                                "categoryId": "1ef77403-8d5d-438b-9cc0-e3bda8213de4",
                                                 "method": "card"
                                             }
                                         ],
@@ -36302,12 +36507,12 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "8948e746-d537-4953-a449-b1cf9b221fc7",
+                                        "id": "7253efe7-ae66-4928-9bb2-e1560bfb6dee",
                                         "spentOn": "2026-10-16",
                                         "payee": "Hetzner",
                                         "note": "Two servers",
                                         "category": {
-                                            "id": "06ea72a5-17c6-411f-ac5e-9ec375533378",
+                                            "id": "1ef77403-8d5d-438b-9cc0-e3bda8213de4",
                                             "name": "Hosting and domains",
                                             "icon": "server"
                                         },
@@ -36319,8 +36524,8 @@
                                         "recurring": false,
                                         "source": "api",
                                         "receipt": null,
-                                        "createdAt": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.596Z"
+                                        "createdAt": "2026-10-16T21:09:49Z",
+                                        "updatedAt": "2026-10-16T21:09:49.139Z"
                                     }
                                 }
                             }
@@ -36415,7 +36620,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "8948e746-d537-4953-a449-b1cf9b221fc7",
+                                        "id": "7253efe7-ae66-4928-9bb2-e1560bfb6dee",
                                         "deleted": true
                                     }
                                 }
@@ -36802,16 +37007,16 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "1664a1cb-25b2-48e5-8bb1-61dba0ccae01",
+                                            "id": "8ca8cef3-c145-4f1e-b63d-d3f76cc374e0",
                                             "name": "Advertising",
                                             "icon": "megaphone",
-                                            "updatedAt": "2026-10-16T11:18:29.565Z"
+                                            "updatedAt": "2026-10-16T21:09:49.108Z"
                                         },
                                         {
-                                            "id": "725b07d6-e0b9-46e5-a7f0-d5208fbfe1e6",
+                                            "id": "edae681d-c805-42f4-8438-a30c62524062",
                                             "name": "Hosting and servers",
                                             "icon": "server",
-                                            "updatedAt": "2026-10-16T11:18:29.566Z"
+                                            "updatedAt": "2026-10-16T21:09:49.108Z"
                                         }
                                     ],
                                     "meta": {
@@ -36929,10 +37134,10 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "06ea72a5-17c6-411f-ac5e-9ec375533378",
+                                        "id": "1ef77403-8d5d-438b-9cc0-e3bda8213de4",
                                         "name": "Hosting",
                                         "icon": "server",
-                                        "updatedAt": "2026-10-16T11:18:29.567Z"
+                                        "updatedAt": "2026-10-16T21:09:49.111Z"
                                     }
                                 }
                             }
@@ -37058,10 +37263,10 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "06ea72a5-17c6-411f-ac5e-9ec375533378",
+                                        "id": "1ef77403-8d5d-438b-9cc0-e3bda8213de4",
                                         "name": "Hosting and domains",
                                         "icon": "server",
-                                        "updatedAt": "2026-10-16T11:18:29.572Z"
+                                        "updatedAt": "2026-10-16T21:09:49.116Z"
                                     }
                                 }
                             }
@@ -37159,7 +37364,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "06ea72a5-17c6-411f-ac5e-9ec375533378",
+                                        "id": "1ef77403-8d5d-438b-9cc0-e3bda8213de4",
                                         "deleted": true,
                                         "moved": 0
                                     }
@@ -37412,7 +37617,7 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "48394a7b-acbb-4243-8074-581728ea5ba1",
+                                            "id": "4068ec64-6756-47fd-8770-610819111dc9",
                                             "payee": "Cloudflare",
                                             "note": "",
                                             "category": null,
@@ -37425,7 +37630,7 @@
                                             "asks": false,
                                             "paused": false,
                                             "waiting": false,
-                                            "updatedAt": "2026-10-16T11:18:29.599Z"
+                                            "updatedAt": "2026-10-16T21:09:49.142Z"
                                         }
                                     ],
                                     "meta": {
@@ -37614,7 +37819,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "48394a7b-acbb-4243-8074-581728ea5ba1",
+                                        "id": "4068ec64-6756-47fd-8770-610819111dc9",
                                         "payee": "Cloudflare",
                                         "note": "",
                                         "category": null,
@@ -37627,7 +37832,7 @@
                                         "asks": false,
                                         "paused": false,
                                         "waiting": false,
-                                        "updatedAt": "2026-10-16T11:18:29.599Z"
+                                        "updatedAt": "2026-10-16T21:09:49.142Z"
                                     }
                                 }
                             }
@@ -37822,7 +38027,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "48394a7b-acbb-4243-8074-581728ea5ba1",
+                                        "id": "4068ec64-6756-47fd-8770-610819111dc9",
                                         "payee": "Cloudflare",
                                         "note": "",
                                         "category": null,
@@ -37835,7 +38040,7 @@
                                         "asks": false,
                                         "paused": false,
                                         "waiting": false,
-                                        "updatedAt": "2026-10-16T11:18:29.604Z"
+                                        "updatedAt": "2026-10-16T21:09:49.147Z"
                                     }
                                 }
                             }
@@ -37930,7 +38135,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "48394a7b-acbb-4243-8074-581728ea5ba1",
+                                        "id": "4068ec64-6756-47fd-8770-610819111dc9",
                                         "deleted": true
                                     }
                                 }
@@ -38140,7 +38345,7 @@
                                     "code": null,
                                     "data": {
                                         "recurring": {
-                                            "id": "48394a7b-acbb-4243-8074-581728ea5ba1",
+                                            "id": "4068ec64-6756-47fd-8770-610819111dc9",
                                             "payee": "Cloudflare",
                                             "note": "",
                                             "category": null,
@@ -38153,7 +38358,7 @@
                                             "asks": false,
                                             "paused": false,
                                             "waiting": false,
-                                            "updatedAt": "2026-10-16T11:18:29.607Z"
+                                            "updatedAt": "2026-10-16T21:09:49.150Z"
                                         },
                                         "expense": null
                                     }
@@ -38266,10 +38471,10 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "14c77447-29bc-4495-a12d-10f072cdd749",
+                                            "id": "f397ff0a-bdf1-4fbb-a1cf-9300d95c67bf",
                                             "phrase": "hetzner",
                                             "category": {
-                                                "id": "06ea72a5-17c6-411f-ac5e-9ec375533378",
+                                                "id": "1ef77403-8d5d-438b-9cc0-e3bda8213de4",
                                                 "name": "Hosting and domains",
                                                 "icon": "server"
                                             }
@@ -38398,10 +38603,10 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "14c77447-29bc-4495-a12d-10f072cdd749",
+                                        "id": "f397ff0a-bdf1-4fbb-a1cf-9300d95c67bf",
                                         "phrase": "hetzner",
                                         "category": {
-                                            "id": "06ea72a5-17c6-411f-ac5e-9ec375533378",
+                                            "id": "1ef77403-8d5d-438b-9cc0-e3bda8213de4",
                                             "name": "Hosting and domains",
                                             "icon": "server"
                                         }
@@ -38501,7 +38706,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "14c77447-29bc-4495-a12d-10f072cdd749",
+                                        "id": "f397ff0a-bdf1-4fbb-a1cf-9300d95c67bf",
                                         "deleted": true
                                     }
                                 }
@@ -38713,9 +38918,9 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "36abe556-e1b9-4a33-a912-7baf37bc24d0",
+                                            "id": "dbd27e54-915c-446c-bb55-5118c225673f",
                                             "method": "GET",
-                                            "path": "/v1/stores/b8a95d27-7627-4ada-b95b-8e729a6a1330/webhook-deliveries",
+                                            "path": "/v1/stores/53db1b00-6d50-4eb0-991c-03538f17a4ca/webhook-deliveries",
                                             "query": "",
                                             "operation": "webhookDeliveries.list",
                                             "status": 200,
@@ -38724,29 +38929,29 @@
                                             "ip": "127.0.0.1",
                                             "userAgent": "",
                                             "apiKey": {
-                                                "id": "5e943aac-9877-43e1-a222-e138c206b077",
+                                                "id": "415e38a0-1de2-424a-b05a-ac735fa34bc8",
                                                 "name": "Order sync",
                                                 "prefix": "shoply_sk_3f9a1c"
                                             },
-                                            "createdAt": "2026-10-16T11:18:29.743Z"
+                                            "createdAt": "2026-10-16T21:09:49.269Z"
                                         },
                                         {
-                                            "id": "d82600b3-4643-4356-95c5-4be6fa14d87b",
+                                            "id": "d8933008-9e7a-4370-8f4b-1887f0bf2828",
                                             "method": "PUT",
-                                            "path": "/v1/stores/b8a95d27-7627-4ada-b95b-8e729a6a1330/webhooks/6705dfa8-fd8d-4c63-996f-24314d7eddb1",
+                                            "path": "/v1/stores/53db1b00-6d50-4eb0-991c-03538f17a4ca/webhooks/6d1e3111-7e60-4efb-b3be-1f5957d673a1",
                                             "query": "",
                                             "operation": "webhooks.update",
                                             "status": 200,
                                             "code": null,
-                                            "durationMs": 4,
+                                            "durationMs": 3,
                                             "ip": "127.0.0.1",
                                             "userAgent": "",
                                             "apiKey": {
-                                                "id": "5e943aac-9877-43e1-a222-e138c206b077",
+                                                "id": "415e38a0-1de2-424a-b05a-ac735fa34bc8",
                                                 "name": "Order sync",
                                                 "prefix": "shoply_sk_3f9a1c"
                                             },
-                                            "createdAt": "2026-10-16T11:18:29.740Z"
+                                            "createdAt": "2026-10-16T21:09:49.266Z"
                                         }
                                     ],
                                     "pages": 65,
@@ -38891,9 +39096,9 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "36abe556-e1b9-4a33-a912-7baf37bc24d0",
+                                        "id": "dbd27e54-915c-446c-bb55-5118c225673f",
                                         "method": "GET",
-                                        "path": "/v1/stores/b8a95d27-7627-4ada-b95b-8e729a6a1330/webhook-deliveries",
+                                        "path": "/v1/stores/53db1b00-6d50-4eb0-991c-03538f17a4ca/webhook-deliveries",
                                         "query": "",
                                         "operation": "webhookDeliveries.list",
                                         "status": 200,
@@ -38902,11 +39107,11 @@
                                         "ip": "127.0.0.1",
                                         "userAgent": "",
                                         "apiKey": {
-                                            "id": "5e943aac-9877-43e1-a222-e138c206b077",
+                                            "id": "415e38a0-1de2-424a-b05a-ac735fa34bc8",
                                             "name": "Order sync",
                                             "prefix": "shoply_sk_3f9a1c"
                                         },
-                                        "createdAt": "2026-10-16T11:18:29.743Z",
+                                        "createdAt": "2026-10-16T21:09:49.269Z",
                                         "requestBody": null,
                                         "responseBody": "{\"success\":true,\"message\":null,\"code\":null,\"data\":[],\"pages\":1,\"total\":0,\"meta\":{\"keptDays\":30,\"perPageMax\":100}}"
                                     }
@@ -39072,7 +39277,7 @@
                                     "code": null,
                                     "data": [
                                         {
-                                            "id": "6705dfa8-fd8d-4c63-996f-24314d7eddb1",
+                                            "id": "6d1e3111-7e60-4efb-b3be-1f5957d673a1",
                                             "url": "https://example.com/webhooks/shoply",
                                             "description": "Order sync",
                                             "events": [
@@ -39084,8 +39289,8 @@
                                             "failures": 0,
                                             "lastDeliveryAt": null,
                                             "lastStatus": null,
-                                            "dateCreated": "2026-10-16T11:18:29Z",
-                                            "updatedAt": "2026-10-16T11:18:29.724Z",
+                                            "dateCreated": "2026-10-16T21:09:49Z",
+                                            "updatedAt": "2026-10-16T21:09:49.253Z",
                                             "recentDeliveries": []
                                         }
                                     ],
@@ -39269,7 +39474,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "6705dfa8-fd8d-4c63-996f-24314d7eddb1",
+                                        "id": "6d1e3111-7e60-4efb-b3be-1f5957d673a1",
                                         "url": "https://example.com/webhooks/shoply",
                                         "description": "Order sync",
                                         "events": [
@@ -39281,8 +39486,8 @@
                                         "failures": 0,
                                         "lastDeliveryAt": null,
                                         "lastStatus": null,
-                                        "dateCreated": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.724Z",
+                                        "dateCreated": "2026-10-16T21:09:49Z",
+                                        "updatedAt": "2026-10-16T21:09:49.253Z",
                                         "secret": "shoply_whsec_3f9a…"
                                     }
                                 }
@@ -39407,7 +39612,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "6705dfa8-fd8d-4c63-996f-24314d7eddb1",
+                                        "id": "6d1e3111-7e60-4efb-b3be-1f5957d673a1",
                                         "url": "https://example.com/webhooks/shoply",
                                         "description": "Order sync",
                                         "events": [
@@ -39419,8 +39624,8 @@
                                         "failures": 0,
                                         "lastDeliveryAt": null,
                                         "lastStatus": null,
-                                        "dateCreated": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.724Z"
+                                        "dateCreated": "2026-10-16T21:09:49Z",
+                                        "updatedAt": "2026-10-16T21:09:49.253Z"
                                     }
                                 }
                             }
@@ -39582,7 +39787,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "6705dfa8-fd8d-4c63-996f-24314d7eddb1",
+                                        "id": "6d1e3111-7e60-4efb-b3be-1f5957d673a1",
                                         "url": "https://example.com/webhooks/shoply",
                                         "description": "",
                                         "events": [
@@ -39593,8 +39798,8 @@
                                         "failures": 0,
                                         "lastDeliveryAt": null,
                                         "lastStatus": null,
-                                        "dateCreated": "2026-10-16T11:18:29Z",
-                                        "updatedAt": "2026-10-16T11:18:29.740Z"
+                                        "dateCreated": "2026-10-16T21:09:49Z",
+                                        "updatedAt": "2026-10-16T21:09:49.266Z"
                                     }
                                 }
                             }
@@ -39689,7 +39894,7 @@
                                     "message": null,
                                     "code": null,
                                     "data": {
-                                        "id": "6705dfa8-fd8d-4c63-996f-24314d7eddb1",
+                                        "id": "6d1e3111-7e60-4efb-b3be-1f5957d673a1",
                                         "deleted": true
                                     }
                                 }
