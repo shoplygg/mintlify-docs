@@ -14,7 +14,7 @@ Upselling is under **Catalogue**, then **Upselling**. Every upsell is in one lis
 | **An Extra with a Product** | A tick on the product's page, like Priority Setup. |
 | **Something in the Cart** | Another product, suggested under what the buyer chose. |
 | **A Better Version** | Swap what is in the cart for an upgrade. |
-| **A Last Offer at Checkout** | One tick above **Pay**. |
+| **A Last Offer at Checkout** | One box under the order, with **Add**. |
 | **Bought Together** | Products shown under another, to add in one press. |
 
 **Continue** opens a short form for the one you picked, with a drawing of what the buyer sees under it that changes as you fill it in. What you rarely need is under **More Options**, whose closed line says what it is set to. Pressing an upsell in the list opens its form.
@@ -47,7 +47,7 @@ Left empty, the words over an offer are "Goes well with it" or "Upgrade and save
 
 ## A last offer at checkout
 
-One offer, with a tick above **Pay** on Shoply's checkout and in the [Checkout Kit](/guides/checkout-kit). It is not in the [embed](/guides/embeds), which sells the one product it was opened on. It asks what a cart offer asks, and its **More Options** has two switches of its own, since the checkout is the one place that knows who is buying:
+One offer, in a box under the order's items on Shoply's checkout, with **Add**, and in the [Checkout Kit](/guides/checkout-kit)'s `summary` piece. On a phone it is under the folded order, where it is seen as the page opens. It is not in the [embed](/guides/embeds), which sells the one product it was opened on. It asks what a cart offer asks, and its **More Options** has two switches of its own, since the checkout is the one place that knows who is buying:
 
 | | |
 | - | - |
@@ -81,7 +81,7 @@ Each row has its own Taken and Revenue. A store holds up to 200 upsells of every
 
 Every theme draws extras, the cart's offers and bought together. A storefront whose code you have changed in the code studio keeps its own files: it shows none of these until its files do. An extra that is **Always In** is in the order whatever the storefront shows, and the checkout lists it.
 
-On a site of your own, the [storefront SDK](/sdk/overview) answers a product's extras and what is bought together with it, and has calls for the cart's offers.
+On a site of your own, the [storefront SDK](/sdk/overview) answers a product's extras and what is bought together with it, and has calls for the cart's offers. The [embed](/guides/embeds) offers a product's extras in a box under it, and the [Checkout Kit](/guides/checkout-kit#what-it-sells) takes what the buyer chose on your page.
 
 ## With the API
 

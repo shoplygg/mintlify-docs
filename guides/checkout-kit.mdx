@@ -50,7 +50,7 @@ Or all of it in one place: `<div data-shoply-piece="checkout"></div>`.
 | - | - |
 | `checkout` | All of it, in one piece. |
 | `payment` | The payment methods, and once Pay is pressed the payment itself and then the paid order. |
-| `summary` | What is being bought, its quantity, and what it comes to. |
+| `summary` | What is being bought, its quantity, and what it comes to, with your [offer at checkout](/guides/upselling#a-last-offer-at-checkout) under the items. |
 | `coupon` | The box a discount code goes in. |
 | `email` | Where the order is sent. |
 | `billing` | The billing address, for a method that asks for one. |
@@ -76,6 +76,19 @@ shoplyKit({
 ```
 
 A line that names no variant is given its product's first. When your own basket changes, name the cart again: `kit.set({ items: [...] })`.
+
+A line can carry what the buyer chose on your page from your [upsells](/guides/upselling): `addons`, the IDs of the product's extras they added, and `offer`, the ID of the offer they added the product through. The [storefront SDK](/sdk/reference) gives you both.
+
+```javascript
+shoplyKit({
+  items: [
+    { product: "PRODUCT_ID", variant: "VARIANT_ID", addons: ["ADDON_ID"] },
+    { product: "OFFERED_PRODUCT_ID", offer: "OFFER_ID" },
+  ],
+});
+```
+
+The checkout prices them: an extra the product no longer has is left out, and an offer whose condition the cart no longer meets is charged at the product's own price. An extra you include is in the order whether it is named or not.
 
 ## How it looks
 
@@ -106,6 +119,9 @@ shoplyKit({
 | `.shoply-kit-method-name` | Its name. |
 | `.shoply-kit-button` | Pay. |
 | `.shoply-kit-line` | A product in the order, with `-line-name` and `-line-price`. |
+| `.shoply-kit-addons` | The extras under a product, a tick each. |
+| `.shoply-kit-add` | The box of your offer at checkout, under the items. |
+| `.shoply-kit-add-button` | Its **Add**. `[aria-pressed="true"]` once it is added. |
 | `.shoply-kit-row` | A line of the totals. |
 | `.shoply-kit-total` | The total. |
 | `.shoply-kit-apply` | The coupon's Apply. |
@@ -118,10 +134,10 @@ With `:hover`, `:focus`, `:focus-within`, `:disabled`, `::placeholder` and `@med
 | - | - |
 | `kit.place("summary", "#order")` | Put a piece in an element, or move it there. |
 | `kit.remove("summary")` | Take a piece away. |
-| `kit.set({ items, quantity, coupon, theme, look })` | Change what it sells or how it looks. |
+| `kit.set({ items, quantity, addons, offer, coupon, theme, look })` | Change what it sells or how it looks. `quantity`, `addons` and `offer` are for a cart of one product. |
 | `kit.pay()` | Press Pay from a button of your own. |
 | `kit.on("ready", fn)` | The checkout is drawn. |
-| `kit.on("change", fn)` | `fn({ state, total, currency, items, method, coupon })` |
+| `kit.on("change", fn)` | `fn({ state, total, currency, items, method, coupon })`. Each item is `{ product, variant, quantity }`, with `addons` and `offer` where it has them. |
 | `kit.on("problem", fn)` | `fn({ code, message })`: something the buyer has to put right, or that went wrong. |
 | `kit.on("paid", fn)` | The order is paid. |
 | `kit.destroy()` | Take the whole kit off the page. |
