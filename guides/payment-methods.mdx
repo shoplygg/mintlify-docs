@@ -19,12 +19,13 @@ Buyers pay **you**, through an account of your own with a payment provider. You 
 | Cards, Skrill wallets and local methods | Skrill | No. A refund is store credit, or yours to make in Skrill. |
 | Cards, wallets and local methods | Pandabase, as the seller of record | Yes |
 | Cards, Shop Pay and wallets | Shopify, through your own store | Yes |
+| Cards | Tagada, through the processors you connect there | Yes |
 | Cards, wallets and local methods | Whop | Yes |
 | PayPal | PayPal | Yes |
 | Crypto | NOWPayments, Cryptomus, Heleket, OxaPay | No. A refund is store credit. |
 | CS2 and Rust skins | Skinloop | No. A refund is store credit. |
 
-A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp, Square, Revolut Business, Lemon Squeezy, Amazon Payment Services, Skrill, Pandabase, Shopify and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
+A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp, Square, Revolut Business, Lemon Squeezy, Amazon Payment Services, Skrill, Pandabase, Shopify, Tagada and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
 
 ## NMI
 
@@ -243,6 +244,28 @@ At the checkout the buyer presses Pay and your Shopify checkout opens in a new t
 - A chargeback Shopify reports makes the order a chargeback.
 - An order Shopify calls a test (its Bogus Gateway, or a payment provider in test mode) is delivered, and says no money moved.
 - Each draft order stays in your Shopify admin, and the paid ones become orders there.
+
+## Tagada
+
+Take card payments through your Tagada account, which charges each one through the processors you have connected in Tagada. Your Tagada store needs a payment flow with at least one processor in it: that is what charges the card.
+
+Connect it with two things:
+
+| Box | What goes in it |
+| - | - |
+| Store ID | Your store's ID in Tagada, which starts with `store_`. It is in your store's settings in Tagada. |
+| API Key | A secret API key, made under **Settings**, **API Keys** in Tagada. A public key (`tp_pk_`) is refused. |
+
+Saving asks Tagada about the key, which says whether it is a live key or a sandbox one, and for your store with it, which proves the two belong together and says which currencies your store charges in. It also sets up the webhook that tells Shoply about refunds. You paste nothing into Tagada for it. **Test Connection** names the store and its currencies.
+
+At the checkout the buyer presses Pay and types their card into boxes on the checkout itself. The card goes from their browser straight to Tagada's card vault, and Shoply is only handed a token for it. Their bank may want to check it is them: its page opens over the checkout, or, for a processor that runs the check itself, on the processor's own page in a new tab. Approved, the order completes on the same page and is delivered.
+
+- An order priced in a currency your Tagada store doesn't charge in is charged in one it does, at the day's rate, and the buyer sees that figure before they pay.
+- A declined card can be tried again, or another card used.
+- A bank check the buyer never finishes is given up after 30 minutes, and the order can be paid again. The buyer can also give it up themselves and use another card.
+- **Refund Order** in the dashboard sends the payment back through Tagada. A refund you make in Tagada reaches the order by its webhook.
+- A dispute does not show on the order: Tagada's webhook does not report one. Answer it in Tagada.
+- A sandbox key charges nothing. Test with the card number 4242 4242 4242 4242, any future expiry date and any three-digit code. The order is delivered, and says no money moved.
 
 ## Whop
 
