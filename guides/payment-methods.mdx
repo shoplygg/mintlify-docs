@@ -1,6 +1,6 @@
 ---
 title: "Payment methods"
-description: "How buyers pay you: cards, PayPal, crypto and skins, through accounts of your own"
+description: "How buyers pay you: cards, PayPal, crypto, skins and vouchers, through accounts of your own"
 ---
 
 Buyers pay **you**, through an account of your own with a payment provider. You connect it under **Payment Methods**, and Shoply's checkout takes the payment with it.
@@ -24,6 +24,7 @@ Buyers pay **you**, through an account of your own with a payment provider. You 
 | PayPal | PayPal | Yes |
 | Crypto | NOWPayments, Cryptomus, Heleket, OxaPay | No. A refund is store credit. |
 | CS2 and Rust skins | Skinloop | No. A refund is store credit. |
+| Rewarble vouchers | Rewarble | No. A refund is store credit. |
 
 A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp, Square, Revolut Business, Lemon Squeezy, Amazon Payment Services, Skrill, Pandabase, Shopify, Tagada and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
 
@@ -333,6 +334,27 @@ At the checkout the buyer presses Pay and Skinloop's page opens in a new tab, fo
 - A buyer may send skins worth more than the order. The order completes as usual, for the same order.
 - A trade Skinloop reverses after the order completed makes the order a chargeback. It reaches the order only by the webhook, which is why `payment.reverted` is one of the two events.
 - Skins cannot be sent back. **Refund Order** puts the amount on the buyer's store balance.
+
+## Rewarble
+
+Buyers pay with Rewarble vouchers: they type each voucher's code on the checkout, and it is redeemed into your Rewarble account. Under **Add a payment method** it is under **Other**.
+
+| Setting | What it is |
+| - | - |
+| API Key | A key from the **Client API** page of your Rewarble account. Rewarble gives one only to an account with 500 EUR of deposits over its life. Leave the key's **IP whitelist** empty: Shoply's address is not one you can list. |
+
+Saving asks Rewarble whether it knows the key, in a way that redeems nothing, and refuses one it does not know. **Test Connection** does the same.
+
+At the checkout the buyer presses Pay, types a voucher's code and presses **Redeem Voucher**. A voucher is used up whole, and what it is worth is known only once it is redeemed, so:
+
+- A voucher worth less than the order is counted toward it, and the buyer adds another code, then another, until the order is covered. The checkout lists each one and what is left to pay.
+- The voucher that covers the order completes it, and it is delivered. Anything the vouchers paid beyond the total goes on the buyer's [store balance](/guides/customers-and-balance), to spend at your store.
+- A buyer who stops short, pays the rest another way, or lets the order run out loses nothing either: what their vouchers paid goes on their store balance.
+- A voucher in another currency than the order's is counted at the day's rate.
+- A code Rewarble refuses (unknown, already used, expired) counts nothing, and the buyer is told why.
+- An order takes ten codes an hour, so nobody can try codes against your account without end.
+- Each voucher redeemed is in the order's timeline, with what it was worth, the last four characters of its code and Rewarble's transaction number. The whole code is never kept.
+- Rewarble cannot send a voucher back. **Refund Order** puts the amount on the buyer's store balance.
 
 ## Unpaid orders
 
