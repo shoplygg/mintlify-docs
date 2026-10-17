@@ -17,12 +17,13 @@ Buyers pay **you**, through an account of your own with a payment provider. You 
 | Cards, PayPal, Apple Pay, Google Pay | Lemon Squeezy, as the seller of record | Yes |
 | Cards | Amazon Payment Services | Yes |
 | Cards, Skrill wallets and local methods | Skrill | No. A refund is store credit, or yours to make in Skrill. |
+| Cards, wallets and local methods | Pandabase, as the seller of record | Yes |
 | Cards, wallets and local methods | Whop | Yes |
 | PayPal | PayPal | Yes |
 | Crypto | NOWPayments, Cryptomus, Heleket, OxaPay | No. A refund is store credit. |
 | CS2 and Rust skins | Skinloop | No. A refund is store credit. |
 
-A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp, Square, Revolut Business, Lemon Squeezy, Amazon Payment Services, Skrill and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
+A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp, Square, Revolut Business, Lemon Squeezy, Amazon Payment Services, Skrill, Pandabase and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
 
 ## NMI
 
@@ -192,6 +193,26 @@ At the checkout the buyer presses Pay and Skrill's own page opens in a new tab, 
 - A Skrill payment **cannot be sent back from Shoply**: Skrill takes refund requests only from server addresses you list in your Skrill account. Refund it in Skrill and record the refund on the order, or refund it as store credit. A refund you make in Skrill does not reach the order by itself.
 - A chargeback Skrill reports makes the order a chargeback.
 - Skrill's own test merchant, `demoqco@sun-fish.com` with the secret word `skrill`, takes Skrill's test cards. An order paid to it is delivered with no money moving, and says so.
+
+## Pandabase
+
+Connect your Pandabase store with two things:
+
+| Box | What goes in it |
+| - | - |
+| Store ID | Your store's ID in Pandabase, which starts with `shp_`. |
+| API Token | A token made under **Settings**, **Developers**, **API Tokens** in Pandabase: its secret, which starts with `sk_`, not its ID. Give it Store, Orders and Webhooks read, and Orders, Refunds and Webhooks write. |
+
+Saving asks Pandabase for your store with the token, which proves the two belong together and says the one currency your store charges in, and sets up the webhook that tells Shoply about your payments. You paste nothing into Pandabase for it. **Test Connection** names the store and its currency.
+
+At the checkout the buyer presses Pay and Pandabase's own page opens in a new tab, for exactly the order's total. Pandabase is the seller of record: it sells to the buyer, adds any tax their country wants, and pays you. When they have paid, the order completes on the page they left open and is delivered.
+
+- Your Pandabase store charges in **one currency**. An order priced in another is charged in your store's, at the day's rate, and the buyer sees that figure before they pay.
+- Pandabase takes payments from 1.00 to 10,000.00. A buyer whose order is outside that is told so at Pay, and pays another way.
+- Pandabase's page takes a payment for six hours after Pay is pressed. After that the checkout offers Pay again, which starts a new one.
+- A payment a bank has not finished waits, and the order is delivered when Pandabase says it is paid.
+- **Refund Order** in the dashboard sends the whole order back through Pandabase, which takes a refund within 30 days of the order and while no dispute is open. A refund you make in Pandabase reaches the order by its webhook.
+- A chargeback Pandabase reports makes the order a chargeback. An open dispute does not show on the order: answer it in Pandabase.
 
 ## Whop
 
