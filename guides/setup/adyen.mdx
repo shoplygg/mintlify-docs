@@ -1,0 +1,56 @@
+---
+title: "Set up Adyen"
+sidebarTitle: "Adyen"
+icon: "/images/brands/adyen.svg"
+description: "Your Adyen API key, merchant account and webhook, and a live account's prefix"
+---
+
+Adyen takes cards, and the other payment methods you switch on in your merchant account, on its own payment page. You need an Adyen account: a test account to try it, and a live one to take real payments.
+
+## In Adyen
+
+### The API key
+
+1. Log in to your Customer Area ([ca-test.adyen.com](https://ca-test.adyen.com) for a test account, [ca-live.adyen.com](https://ca-live.adyen.com) for a live one) and select your **Company** account.
+2. Go to **Developers**, then **API credentials**, and select the **Payments** tab.
+3. Select a credential's username. To make one instead, select **Create new credential**, choose **Web service user** and select **Create credential**.
+4. Under **Server settings**, **Authentication**, select the **API key** tab, then **Generate API key**.
+5. Copy the key with its copy icon: Adyen does not show it again once you leave the page. Then select **Save changes**.
+
+### The merchant account
+
+Its name is in the account switcher in the upper left of your Customer Area: select your company's name there to see your merchant accounts. Switched to it, check under **Payments**, **Payment methods** that it has at least one payment method. The ones you add there are the ones Adyen's page offers.
+
+### The webhook
+
+1. Open Shoply's Adyen dialog and copy the **Callback URL** it shows over **HMAC Key**.
+2. In your Customer Area, go to **Developers**, then **Webhooks**. Select **Create new webhook**, then **Add** next to **Standard webhook**.
+3. Under **General**, leave it **Enabled** and choose your merchant account. Under **Server configuration**, paste the Callback URL as its **URL**, and choose **JSON** as its **Method**.
+4. Under **Security**, generate an **HMAC Key** and copy it.
+5. Select **Save configuration**.
+
+Refunds and disputes are in the Standard webhook by default: there is nothing to switch on for them.
+
+### A live account
+
+- Copy its live URL prefix from **Developers**, **API URLs**, **Prefix** in your live Customer Area. It looks like `1797a841fbb37ca7-AdyenDemo`.
+- Before its first payment, add the address of your terms and conditions under **Payments**, **Payment link settings**, **Terms and conditions URL**. Adyen shows it on its payment page, and asks for it before a live link is made.
+
+Adyen captures a payment as soon as it is authorised, unless your merchant account is set to capture by hand. Leave it so: Shoply delivers an order once Adyen says it is paid, and a payment captured by hand is yours to capture in Adyen.
+
+## In Shoply
+
+1. In your Shoply dashboard, open **Settings**, then **Payment Methods**.
+2. Under **Add a payment method**, find **Adyen** and press **Connect**.
+3. Paste the key into **API Key**, and your merchant account's name into **Merchant Account**.
+4. For a live account, paste its prefix into **Live URL Prefix**. The whole live address is taken too. Leave it empty for a test account.
+5. Paste the webhook's key into **HMAC Key**.
+6. Press **Test Connection** to try what you pasted, then **Connect App**.
+
+Saving asks Adyen which payment methods your merchant account has, which proves the key, the account and the address go together, and refuses an account with none. **Test Connection** says whether it is a test account and how many payment methods it has.
+
+Back on your webhook in Adyen, **Test configuration** sends Shoply a test. If it fails, the **HMAC Key** in Shoply is not that webhook's.
+
+A live account cannot be made a test one by emptying **Live URL Prefix**: disconnect it and connect it again.
+
+How Adyen works once it is connected, at the checkout and on an order, is in [Payment methods](/guides/payment-methods#adyen).

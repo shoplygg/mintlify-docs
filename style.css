@@ -135,6 +135,29 @@
   gap: 4px !important;
 }
 
+/*
+ * As much room under the chips as over them (the user, 2026-10-17: "add a bit more space
+ * under button and section ... looks a bit odd"). They stood 15px under the search and 5px
+ * over the panel: their strip is Mintlify's 40px with the chips in its middle. The strip is
+ * 10px taller with the chips kept at its head, and the sidebar is told the bar ends 10px
+ * lower (Mintlify's own variable, 6rem where none is set), or it would slide under the bar.
+ * A phone has no tab row.
+ */
+@media (min-width: 1024px) {
+  :root {
+    --mintlify-slot-header-height: 106px;
+  }
+
+  div:has(> .nav-tabs) {
+    height: 50px !important;
+    align-items: flex-start;
+  }
+
+  .nav-tabs {
+    height: 40px !important;
+  }
+}
+
 .nav-tabs-item {
   height: 30px !important;
   padding: 0 12px;

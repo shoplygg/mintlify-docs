@@ -21,13 +21,14 @@ Buyers pay **you**, through an account of your own with a payment provider. You 
 | Cards, wallets and local methods | [Pandabase](/guides/setup/pandabase), as the seller of record | Yes |
 | Cards, Shop Pay and wallets | [Shopify](/guides/setup/shopify), through your own store | Yes |
 | Cards | [Tagada](/guides/setup/tagada), through the processors you connect there | Yes |
+| Cards and the methods of your merchant account | [Adyen](/guides/setup/adyen) | Yes |
 | Cards, wallets and local methods | [Whop](/guides/setup/whop) | Yes |
 | PayPal | [PayPal](/guides/setup/paypal) | Yes |
 | Crypto | [NOWPayments](/guides/setup/nowpayments), [Cryptomus](/guides/setup/cryptomus), [Heleket](/guides/setup/heleket), [OxaPay](/guides/setup/oxapay) | No. A refund is store credit. |
 | CS2 and Rust skins | [Skinloop](/guides/setup/skinloop) | No. A refund is store credit. |
 | Rewarble vouchers | [Rewarble](/guides/setup/rewarble) | No. A refund is store credit. |
 
-A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp, Square, Revolut Business, Lemon Squeezy, Amazon Payment Services, Skrill, Pandabase, Shopify, Tagada and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
+A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp, Square, Revolut Business, Lemon Squeezy, Amazon Payment Services, Skrill, Pandabase, Shopify, Tagada, Adyen and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
 
 ## NMI
 
@@ -268,6 +269,32 @@ At the checkout the buyer presses Pay and types their card into boxes on the che
 - **Refund Order** in the dashboard sends the payment back through Tagada. A refund you make in Tagada reaches the order by its webhook.
 - A dispute does not show on the order: Tagada's webhook does not report one. Answer it in Tagada.
 - A sandbox key charges nothing. Test with the card number 4242 4242 4242 4242, any future expiry date and any three-digit code. The order is delivered, and says no money moved.
+
+## Adyen
+
+Take payments through your Adyen merchant account, on Adyen's own payment page. It offers cards, and the payment methods you have switched on in the merchant account for the buyer's currency.
+
+Connect it with four things:
+
+| Box | What goes in it |
+| - | - |
+| API Key | A key of one of your API credentials, made under **Developers**, **API credentials** in your Customer Area. |
+| Merchant Account | Your merchant account's name, as the account switcher in the upper left of your Customer Area shows it. |
+| Live URL Prefix | For a live account, the prefix under **Developers**, **API URLs** in your live Customer Area. Left empty, the account is a test one. |
+| HMAC Key | The key of the Standard webhook you add in your Customer Area for the **Callback URL** Shoply shows you, under **Developers**, **Webhooks**. |
+
+Saving asks Adyen which payment methods your merchant account has, which proves the key, the account and the address go together. A key Adyen does not know is refused, and so are an account the key cannot take payments for and an account with no payment method. **Test Connection** says whether it is a test account and how many payment methods it has.
+
+At the checkout the buyer presses Pay and Adyen's payment page opens in a new tab, for exactly the order's total, with their email given to it. When they have paid, the order completes on the page they left open and is delivered.
+
+- Adyen's link to its page lasts a day. Past it the buyer presses Pay again, which makes another.
+- Adyen takes every currency Shoply prices in but the Bulgarian lev. A buyer shown prices in the lev is charged your store's own figure in your store's currency, and a store that prices in the lev is charged in euros at the day's rate. The buyer sees that figure before they pay.
+- A payment is confirmed by asking Adyen about its link. The webhook brings it sooner, and is the only way Adyen says which payment paid the link, which **Refund Order** needs.
+- **Refund Order** in the dashboard sends the payment back through Adyen: the whole of it, cancelled if it was not captured yet. If Adyen then does not send it, the order and your notifications say so, and the money is yours to send in Adyen.
+- A refund you make in Adyen reaches the order by the webhook, and a partial one is noted on it.
+- A chargeback Adyen reports makes the order a chargeback, and a notice of one opens a dispute on it.
+- What the webhook says of a refund or a chargeback is believed only under your HMAC Key. A webhook that does not match is turned away, so Adyen sends it again and shows it failing on your webhook, and you are told once a day.
+- A test account completes and delivers orders with no money moving, and the order says so.
 
 ## Whop
 
