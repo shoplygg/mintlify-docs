@@ -1,0 +1,38 @@
+---
+title: "Set up Mercado Pago"
+sidebarTitle: "Mercado Pago"
+icon: "/images/brands/mercadopago.svg"
+description: "Where your Mercado Pago access token is, and the optional webhook secret"
+---
+
+Mercado Pago takes the payment methods of your account's country on its own page: cards, and where your country has them, Pix, boleto and Mercado Pago balances. Shoply connects accounts in Argentina, Brazil, Mexico, Chile and Colombia. Your account charges in its country's currency.
+
+## In Mercado Pago
+
+1. Log in to [Mercado Pago Developers](https://www.mercadopago.com/developers/panel/app) with your Mercado Pago account and open **Your integrations**.
+2. Open your application, or create one.
+3. In the menu on the left, open **Production**, then **Production credentials**.
+4. The first time, activate them: choose your **Industry**, enter your business's **Website**, accept the terms, and press **Activate production credentials**.
+5. Copy the **Access Token**. It starts with `APP_USR-`.
+
+Checkout Pro has no test credentials. To try it without real money, use the production access token of a test account, from **Test accounts** in your application, and pay as a test buyer with Mercado Pago's test cards.
+
+### The webhook secret (optional)
+
+Every payment Shoply makes tells Mercado Pago where to send its notifications, so you set nothing up for them. If you also add Shoply's address to your application's webhooks, its secret lets Shoply check that a notification came from Mercado Pago:
+
+1. Open Shoply's Mercado Pago dialog and copy the **Callback URL** it shows over **Webhook Secret**.
+2. In your application, open **Webhooks**, then **Configure notifications**.
+3. In the **Production mode** tab, paste the Callback URL, select the **Payments** event, and press **Save configuration**.
+4. Reveal the **secret key** Mercado Pago made for it, and copy it.
+
+## In Shoply
+
+1. In your Shoply dashboard, open **Settings**, then **Payment Methods**.
+2. Under **Add a payment method**, find **Mercado Pago** and press **Connect**.
+3. Paste the token into **Access Token**, and the secret into **Webhook Secret** if you copied one.
+4. Press **Test Connection** to try what you pasted, then **Connect App**.
+
+Saving asks Mercado Pago which account the token is for. A test credential (`TEST-`) is refused, and so is an account in Peru or Uruguay: Shoply can't price in their currencies yet. **Test Connection** says which currency your account charges in.
+
+How Mercado Pago works once it is connected, at the checkout and on an order, is in [Payment methods](/guides/payment-methods#mercado-pago).

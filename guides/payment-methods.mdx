@@ -22,13 +22,14 @@ Buyers pay **you**, through an account of your own with a payment provider. You 
 | Cards, Shop Pay and wallets | [Shopify](/guides/setup/shopify), through your own store | Yes |
 | Cards | [Tagada](/guides/setup/tagada), through the processors you connect there | Yes |
 | Cards and the methods of your merchant account | [Adyen](/guides/setup/adyen) | Yes |
+| Cards, Pix, boleto and Mercado Pago balances | [Mercado Pago](/guides/setup/mercadopago) | Yes |
 | Cards, wallets and local methods | [Whop](/guides/setup/whop) | Yes |
 | PayPal | [PayPal](/guides/setup/paypal) | Yes |
 | Crypto | [NOWPayments](/guides/setup/nowpayments), [Cryptomus](/guides/setup/cryptomus), [Heleket](/guides/setup/heleket), [OxaPay](/guides/setup/oxapay) | No. A refund is store credit. |
 | CS2 and Rust skins | [Skinloop](/guides/setup/skinloop) | No. A refund is store credit. |
 | Rewarble vouchers | [Rewarble](/guides/setup/rewarble) | No. A refund is store credit. |
 
-A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp, Square, Revolut Business, Lemon Squeezy, Amazon Payment Services, Skrill, Pandabase, Shopify, Tagada, Adyen and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
+A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp, Square, Revolut Business, Lemon Squeezy, Amazon Payment Services, Skrill, Pandabase, Shopify, Tagada, Adyen, Mercado Pago and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
 
 ## NMI
 
@@ -295,6 +296,27 @@ At the checkout the buyer presses Pay and Adyen's payment page opens in a new ta
 - A chargeback Adyen reports makes the order a chargeback, and a notice of one opens a dispute on it.
 - What the webhook says of a refund or a chargeback is believed only under your HMAC Key. A webhook that does not match is turned away, so Adyen sends it again and shows it failing on your webhook, and you are told once a day.
 - A test account completes and delivers orders with no money moving, and the order says so.
+
+## Mercado Pago
+
+Take payments through your Mercado Pago account, on Mercado Pago's own checkout page. It offers the payment methods of your account's country: cards, and where your country has them, Pix, boleto and Mercado Pago balances.
+
+| Box | What goes in it |
+| - | - |
+| Access Token | Your application's production access token, from **Production credentials** in **Your integrations**. It starts with `APP_USR-`. |
+| Webhook Secret | Optional. The secret of a webhook you add for Shoply's **Callback URL** under **Webhooks** in your application. |
+
+Saving asks Mercado Pago which account the token is for, which says its country and so its currency. Shoply connects accounts in Argentina, Brazil, Mexico, Chile and Colombia. A test credential is refused: Checkout Pro is tried with a test account's production token.
+
+At the checkout the buyer presses Pay and Mercado Pago's page opens in a new tab, for exactly the order's total, with their email given to it. When they have paid, the order completes on the page they left open and is delivered. A declined card, or a payment that is declined after it was on its way, leads them back to the same page to try again.
+
+- Your account charges in **one currency**, its country's. An order priced in another is charged in it, at the day's rate, and the buyer sees that figure before they pay.
+- Every payment tells Mercado Pago where to send its notifications, so there is nothing to set up for them. The **Webhook Secret** only lets Shoply check a notification's signature.
+- Mercado Pago's page takes a payment for as long as the order waits to be paid: the time under **Unpaid Orders**, below.
+- A purchase paid two ways counts both payments.
+- **Refund Order** in the dashboard sends the payment back through Mercado Pago, within 180 days and while your Mercado Pago balance covers it. A refund you make in Mercado Pago reaches the order, and a partial one is noted on it.
+- A payment Mercado Pago charges back makes the order a chargeback.
+- A payment made by a test account is delivered, and the order says no money moved. Mercado Pago sends no notifications for test payments: Shoply finds them by asking.
 
 ## Whop
 
