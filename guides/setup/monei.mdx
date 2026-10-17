@@ -1,0 +1,37 @@
+---
+title: "Set up MONEI"
+sidebarTitle: "MONEI"
+icon: "/images/brands/monei.png"
+description: "Where your MONEI API key is, and the optional webhook for refunds you make in MONEI"
+---
+
+MONEI takes the payment methods you have switched on in your MONEI account on its own hosted payment page: cards, Apple Pay and Google Pay, and where you have them, Bizum, PayPal and others.
+
+## In MONEI
+
+1. Log in to your [MONEI Dashboard](https://dashboard.monei.com).
+2. Open **Settings**, then **Payment methods**, and check what your account takes. Cards, Apple Pay and Google Pay are activated once MONEI has approved your account; the others are set up from that page.
+3. Open **Settings**, then **API Access**, and copy your API key, or generate one there. A live key starts with `pk_live_`.
+
+To try MONEI without real money, use the switch in the header of the MONEI Dashboard to go into test mode, and copy the test API key from the same page. It starts with `pk_test_`. Test mode has an API key and payment method settings of its own, and takes only MONEI's [test cards](https://docs.monei.com/testing).
+
+### Refunds you make in MONEI (optional)
+
+Every payment Shoply makes tells MONEI where to send its result, so you set nothing up for payments. MONEI sends that once, when the payment first succeeds or fails. A refund you make in your MONEI Dashboard is sent only to the webhooks you add, so to have it show on the order when you make it:
+
+1. Open Shoply's MONEI dialog and copy the **Callback URL** it shows over **API Key**.
+2. In the MONEI Dashboard, open **Settings**, then **Webhooks**, and add a webhook.
+3. Paste the Callback URL as its endpoint URL, select the events `charge.refunded` and `charge.partially_refunded`, and enable it.
+
+Add it in the mode your API key is for: test mode and live mode have webhooks of their own. Without it, a refund you make in MONEI is still found when you press **Refund Order** on that order.
+
+## In Shoply
+
+1. In your Shoply dashboard, open **Settings**, then **Payment Methods**.
+2. Under **Add a payment method**, find **MONEI** and press **Connect**.
+3. Paste the key into **API Key**.
+4. Press **Test Connection** to try what you pasted, then **Connect App**.
+
+Saving asks MONEI which payment methods your account allows, which proves the key and says whether it is a test key. An account with no payment method switched on is refused. **Test Connection** says how many payment methods your account allows.
+
+How MONEI works once it is connected, at the checkout and on an order, is in [Payment methods](/guides/payment-methods#monei).

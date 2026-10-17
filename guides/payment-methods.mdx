@@ -23,13 +23,14 @@ Buyers pay **you**, through an account of your own with a payment provider. You 
 | Cards | [Tagada](/guides/setup/tagada), through the processors you connect there | Yes |
 | Cards and the methods of your merchant account | [Adyen](/guides/setup/adyen) | Yes |
 | Cards, Pix, boleto and Mercado Pago balances | [Mercado Pago](/guides/setup/mercadopago) | Yes |
+| Cards, Bizum, PayPal, Apple Pay, Google Pay and more | [MONEI](/guides/setup/monei) | Yes |
 | Cards, wallets and local methods | [Whop](/guides/setup/whop) | Yes |
 | PayPal | [PayPal](/guides/setup/paypal) | Yes |
 | Crypto | [NOWPayments](/guides/setup/nowpayments), [Cryptomus](/guides/setup/cryptomus), [Heleket](/guides/setup/heleket), [OxaPay](/guides/setup/oxapay) | No. A refund is store credit. |
 | CS2 and Rust skins | [Skinloop](/guides/setup/skinloop) | No. A refund is store credit. |
 | Rewarble vouchers | [Rewarble](/guides/setup/rewarble) | No. A refund is store credit. |
 
-A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp, Square, Revolut Business, Lemon Squeezy, Amazon Payment Services, Skrill, Pandabase, Shopify, Tagada, Adyen, Mercado Pago and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
+A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp, Square, Revolut Business, Lemon Squeezy, Amazon Payment Services, Skrill, Pandabase, Shopify, Tagada, Adyen, Mercado Pago, MONEI and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
 
 ## NMI
 
@@ -317,6 +318,26 @@ At the checkout the buyer presses Pay and Mercado Pago's page opens in a new tab
 - **Refund Order** in the dashboard sends the payment back through Mercado Pago, within 180 days and while your Mercado Pago balance covers it. A refund you make in Mercado Pago reaches the order, and a partial one is noted on it.
 - A payment Mercado Pago charges back makes the order a chargeback.
 - A payment made by a test account is delivered, and the order says no money moved. Mercado Pago sends no notifications for test payments: Shoply finds them by asking.
+
+## MONEI
+
+Take payments through your MONEI account, on MONEI's own hosted payment page. It offers the payment methods switched on in your account: cards, Apple Pay and Google Pay, and where you have them, Bizum, PayPal and others.
+
+| Box | What goes in it |
+| - | - |
+| API Key | Your API key, from **Settings**, **API Access** in your MONEI Dashboard. A live key starts with `pk_live_`, a test key with `pk_test_`. |
+
+Saving asks MONEI which payment methods your account allows, which proves the key and says whether it is a test key. An account with no payment method switched on is refused.
+
+At the checkout the buyer presses Pay and MONEI's page opens in a new tab, for exactly the order's total, with their email given to it. When they have paid, the order completes on the page they left open and is delivered. A payment MONEI declines ends there: the buyer presses Pay again, which makes another.
+
+- Which currencies your account takes is MONEI's to say. A payment in one it does not take is refused at Pay, the buyer is asked to choose another way to pay, and you are told what MONEI said.
+- Every payment tells MONEI where to send its result, so there is nothing to set up for payments.
+- MONEI's page takes a payment for as long as the order waits to be paid: the time under **Unpaid Orders**, below.
+- **Refund Order** in the dashboard sends the payment back through MONEI: the whole of it, or what is left after a refund made in MONEI.
+- A refund you make in MONEI reaches the order when you make it if you add the **Callback URL** as a webhook in MONEI for `charge.refunded` and `charge.partially_refunded` ([how](/guides/setup/monei#refunds-you-make-in-monei-optional)). Without it, it is found when you press **Refund Order**. A partial one is noted on the order.
+- A chargeback MONEI reports does not reach the order.
+- A test key completes and delivers orders with no money moving, and the order says so.
 
 ## Whop
 
