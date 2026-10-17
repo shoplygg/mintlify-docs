@@ -16,12 +16,13 @@ Buyers pay **you**, through an account of your own with a payment provider. You 
 | Cards, Revolut Pay, Apple Pay, Google Pay | Revolut Business | Yes |
 | Cards, PayPal, Apple Pay, Google Pay | Lemon Squeezy, as the seller of record | Yes |
 | Cards | Amazon Payment Services | Yes |
+| Cards, Skrill wallets and local methods | Skrill | No. A refund is store credit, or yours to make in Skrill. |
 | Cards, wallets and local methods | Whop | Yes |
 | PayPal | PayPal | Yes |
 | Crypto | NOWPayments, Cryptomus, Heleket, OxaPay | No. A refund is store credit. |
 | CS2 and Rust skins | Skinloop | No. A refund is store credit. |
 
-A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp, Square, Revolut Business, Lemon Squeezy, Amazon Payment Services and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
+A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp, Square, Revolut Business, Lemon Squeezy, Amazon Payment Services, Skrill and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
 
 ## NMI
 
@@ -170,6 +171,27 @@ At the checkout the buyer presses Pay and Amazon Payment Services' own page open
 - **Refund Order** in the dashboard sends the payment back through Amazon Payment Services. A refund made in its back office reaches the order the next time Shoply asks about it, which Refund Order does first, so money that already went back is never sent twice.
 - A dispute does not reach the order. Answer it in Amazon Payment Services.
 - A sandbox account completes and delivers orders with no money moving, and the order says so.
+
+## Skrill
+
+Connect your Skrill business account with three things:
+
+| Box | What goes in it |
+| - | - |
+| Merchant Email | The email address your Skrill business account signs in with. |
+| Secret Word | The secret word set under **Settings**, **Developer Settings** in Skrill. |
+| Account Currency | The currency your Skrill account holds, as three letters: EUR, USD, GBP. |
+
+Saving checks with Skrill that it takes payments for that email address, and **Test Connection** does the same. The secret word and the currency are proved by the first payment: Skrill signs every payment it confirms with your secret word, and one that does not match it completes nothing and is reported to you. So the word has to be exactly the one in Skrill.
+
+At the checkout the buyer presses Pay and Skrill's own page opens in a new tab, for exactly the order's total, with their email already filled in. It takes cards, a buyer's Skrill wallet and the local methods of their country. When they have paid, Skrill tells Shoply, and the order completes on the page they left open and is delivered. You paste nothing into Skrill for this: every payment carries the address Skrill tells.
+
+- Your account holds **one currency**, the one you typed. Every order is charged in it, at the day's rate where it is priced in another, and the buyer sees that figure before they pay.
+- Skrill's page has to be opened within 15 minutes of pressing Pay. After that the checkout offers Pay again, which starts a new one.
+- A bank transfer can take a few days to reach Skrill. The order waits for it and is delivered when Skrill confirms it.
+- A Skrill payment **cannot be sent back from Shoply**: Skrill takes refund requests only from server addresses you list in your Skrill account. Refund it in Skrill and record the refund on the order, or refund it as store credit. A refund you make in Skrill does not reach the order by itself.
+- A chargeback Skrill reports makes the order a chargeback.
+- Skrill's own test merchant, `demoqco@sun-fish.com` with the secret word `skrill`, takes Skrill's test cards. An order paid to it is delivered with no money moving, and says so.
 
 ## Whop
 
