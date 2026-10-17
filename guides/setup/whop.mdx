@@ -1,0 +1,26 @@
+---
+title: "Set up Whop"
+sidebarTitle: "Whop"
+icon: "/images/brands/whop.png"
+description: "Where your Whop API key and business ID are"
+---
+
+Whop takes payments on its own checkout page, into your Whop balance.
+
+## In Whop
+
+1. In your business's dashboard, open the [Developer](https://whop.com/dashboard/developer) page, and create an API key. Give it the Admin role, or the permissions to manage checkouts, payments and webhooks. Copy it when Whop shows it.
+2. Note your business's ID, which starts with `biz_`. It is in your dashboard's address: `whop.com/dashboard/biz_...`.
+
+There is nothing else to set up in Whop: saving puts Shoply's webhook in your business.
+
+Whop's sandbox is a separate environment with a dashboard and keys of its own. Its keys look like live ones, and Shoply works out which kind you pasted.
+
+## In Shoply
+
+1. In your Shoply dashboard, open **Settings**, then **Payment Methods**.
+2. Under **Add a payment method**, find **Whop** and press **Connect**.
+3. Paste the key into **API Key** and the ID into **Business ID**.
+4. Press **Test Connection** to try what you pasted, then **Connect App**.
+
+How Whop works once it is connected, at the checkout and on an order, is in [Payment methods](/guides/payment-methods#whop).

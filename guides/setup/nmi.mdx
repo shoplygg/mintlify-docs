@@ -1,0 +1,35 @@
+---
+title: "Set up NMI"
+sidebarTitle: "NMI"
+icon: "/images/brands/nmi.png"
+description: "Where your NMI security keys are, and the optional webhook"
+---
+
+NMI is a gateway, sold under its own name and by many providers under theirs. Each has the same Merchant Portal. Shoply needs two security keys from it.
+
+## In your gateway
+
+1. In the Merchant Portal, open **Settings**, then **Security Keys**, and press **Add a New Key**. On an older portal it is under **Options**, **Settings**, **Security Keys**.
+2. Make a private key: give it a name, pick the user it belongs to, and choose the **API** permission. If your portal lists **Query** on its own, choose it too.
+3. Make a public key with the **Tokenization** permission. If you will switch on 3D Secure or Kount in Shoply, give it **Checkout** as well.
+
+### The webhook (optional)
+
+With it, a payment you void in your gateway refunds the order in Shoply too.
+
+1. Open Shoply's NMI dialog and copy the **Callback URL** it shows.
+2. In the Merchant Portal, open **Settings**, then **Webhooks**, and press **Create**. Paste the Callback URL and pick the transaction events.
+3. The **Webhooks** settings page shows your signing key. Copy it.
+
+## In Shoply
+
+1. In your Shoply dashboard, open **Settings**, then **Payment Methods**.
+2. Under **Add a payment method**, find **NMI** and press **Connect**.
+3. Paste the public key into **Public Security Key** and the private key into **Private Security Key**.
+4. If your provider gave you a gateway address of its own, paste it into **Gateway Address**. Leave it empty for NMI's own.
+5. If you made the webhook, paste its signing key into **Webhook Signing Key**.
+6. Press **Test Connection** to try what you pasted, then **Connect App**.
+
+**Test Connection** asks the gateway whether it knows the private key. The public key can only be tried in a browser, so the first card window is its test. An account in the gateway's test mode approves every card and charges nothing, and Shoply cannot tell: switch it back before you sell.
+
+How NMI works once it is connected, at the checkout and on an order, is in [Payment methods](/guides/payment-methods#nmi).

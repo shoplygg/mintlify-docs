@@ -1,0 +1,28 @@
+---
+title: "Set up Shopify"
+sidebarTitle: "Shopify"
+icon: "/images/brands/shopify.png"
+description: "Making the app that connects your own Shopify store"
+---
+
+Shopify takes payments on your own Shopify checkout, through a draft order Shoply makes there when the buyer presses Pay. It connects through an app you make for your store in Shopify's Dev Dashboard.
+
+## In Shopify
+
+1. Open Shoply's Shopify dialog. It shows an **App URL** and an **Allowed Redirection URL** to copy.
+2. Open the [Dev Dashboard](https://dev.shopify.com/dashboard), signed in to the organization your store is in. Open **Apps**, press **Create app**, choose **Start from Dev Dashboard**, name it, and press **Create**.
+3. On the app's **Versions** page, create a version. Paste Shoply's **App URL** as its **App URL** and the **Allowed Redirection URL** as its redirect URL, exactly as Shoply shows them.
+4. In the version's **Scopes**, add `write_draft_orders` and `write_orders`, and set its webhooks API version to 2026-10. Then **Release** the version.
+5. In the app's settings, copy the **Client ID** and the **Client secret** from its **Credentials**.
+
+## In Shoply
+
+1. In your Shoply dashboard, open **Settings**, then **Payment Methods**.
+2. Under **Add a payment method**, find **Shopify** and press **Connect**.
+3. Paste your store's myshopify.com address into **Store Address**, such as `mystore.myshopify.com`. Its address in the Shopify admin works too.
+4. Paste the **Client ID** and the **Client Secret**. The secret is the app's, not an access token.
+5. Press **Test Connection** to try what you pasted, then **Connect App**.
+
+Saving sends you to Shopify to install the app on your store. Install it, and Shopify sends you back with Shopify connected. Until then its card says **Not Installed**, and buyers are not offered it.
+
+How Shopify works once it is connected, at the checkout and on an order, is in [Payment methods](/guides/payment-methods#shopify).

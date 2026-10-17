@@ -1,0 +1,28 @@
+---
+title: "Set up Pandabase"
+sidebarTitle: "Pandabase"
+icon: "/images/brands/pandabase.png"
+description: "Where your Pandabase API token is, and which permissions it needs"
+---
+
+Pandabase is the seller of record: it sells to the buyer, adds any tax their country wants, and pays you.
+
+## In Pandabase
+
+1. In your store's dashboard, open **Settings**, **Developers**, then **API Tokens**, and make a token.
+2. Give it read access to the store, orders and webhooks, and write access to orders, refunds and webhooks.
+3. Copy the token's secret, which starts with `sk_`. Its ID, which starts with `stk_`, is not the one.
+4. Note your store's ID, which starts with `shp_`.
+
+There is nothing else to set up in Pandabase: saving puts Shoply's webhook in your store.
+
+## In Shoply
+
+1. In your Shoply dashboard, open **Settings**, then **Payment Methods**.
+2. Under **Add a payment method**, find **Pandabase** and press **Connect**.
+3. Paste the store's ID into **Store ID** and the secret into **API Token**.
+4. Press **Test Connection** to try what you pasted, then **Connect App**.
+
+A token without a permission Shoply needs is refused at the save, and Shoply says which permission it lacks.
+
+How Pandabase works once it is connected, at the checkout and on an order, is in [Payment methods](/guides/payment-methods#pandabase).

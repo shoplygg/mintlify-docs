@@ -1,0 +1,28 @@
+---
+title: "Set up Tagada"
+sidebarTitle: "Tagada"
+icon: "/images/brands/tagada.png"
+description: "Where your Tagada store ID and API key are"
+---
+
+Tagada charges cards through the processors you connect in it. Your Tagada store needs an approved processor in its payment flow before it can charge a card.
+
+## In Tagada
+
+1. In your [Tagada dashboard](https://app.tagada.io/), open **Settings**, then **API Keys**, and make a secret key. Its ID starts with `sk_crm_`, or is a long code of letters and digits with dashes. A public key, which starts with `tp_pk_`, is refused.
+2. Note your store's ID, which starts with `store_`.
+
+There is nothing else to set up in Tagada: saving puts Shoply's webhook in your store.
+
+Tagada's sandbox ([app.tagada.dev](https://app.tagada.dev/)) has keys of its own. A sandbox key charges nothing: test with the card number 4242 4242 4242 4242, any future expiry date and any three-digit code.
+
+## In Shoply
+
+1. In your Shoply dashboard, open **Settings**, then **Payment Methods**.
+2. Under **Add a payment method**, find **Tagada** and press **Connect**.
+3. Paste the store's ID into **Store ID** and the key into **API Key**.
+4. Press **Test Connection** to try what you pasted, then **Connect App**.
+
+Saving tries the key as a live one and then as a sandbox one, and asks Tagada for your store with it. **Test Connection** names the store and the currencies it charges in.
+
+How Tagada works once it is connected, at the checkout and on an order, is in [Payment methods](/guides/payment-methods#tagada).

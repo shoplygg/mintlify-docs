@@ -1,0 +1,29 @@
+---
+title: "Set up Lemon Squeezy"
+sidebarTitle: "Lemon Squeezy"
+icon: "/images/brands/lemonsqueezy.png"
+description: "Your Lemon Squeezy API key, and the product your orders are sold as"
+---
+
+Lemon Squeezy is the seller of record: it sells to the buyer, handles sales tax and VAT, and pays you out. It sells only products of your Lemon Squeezy store, so Shoply sells each order as one product you make for it.
+
+## In Lemon Squeezy
+
+1. Make a product for your Shoply orders, with a one-time price of any amount, and publish it. Shoply sells each order as it, at the order's own total and under the order's name.
+2. Open **Settings**, then [API](https://app.lemonsqueezy.com/settings/api). Make a key, name it, and copy it as it is shown: you see it only once. A key made in test mode sees only your test data.
+3. If your key can see more than one store, find the store's ID under **Settings**, **Stores**.
+
+Lemon Squeezy's API keys last a year. Make a new one before yours runs out, and save it in Shoply, or payments stop.
+
+Lemon Squeezy's own docs do not say where its dashboard shows a product's ID. Shoply refuses a number that is not a product of your store when you save, so a wrong one cannot get through.
+
+## In Shoply
+
+1. In your Shoply dashboard, open **Settings**, then **Payment Methods**.
+2. Under **Add a payment method**, find **Lemon Squeezy** and press **Connect**.
+3. Paste the key into **API Key**, the product's ID into **Product ID**, and the store's ID into **Store ID** if you needed it.
+4. Press **Test Connection** to try what you pasted, then **Connect App**.
+
+Saving refuses a product that is not published, belongs to another store, or has only a subscription price. It sets up the webhook that tells Shoply about your payments too.
+
+How Lemon Squeezy works once it is connected, at the checkout and on an order, is in [Payment methods](/guides/payment-methods#lemon-squeezy).

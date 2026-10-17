@@ -1,0 +1,27 @@
+---
+title: "Set up SumUp"
+sidebarTitle: "SumUp"
+icon: "/images/brands/sumup.png"
+description: "Where your SumUp API key and merchant code are"
+---
+
+SumUp takes cards, Apple Pay and Google Pay on its own page.
+
+## In SumUp
+
+1. Open [API keys](https://me.sumup.com/settings/api-keys) in your SumUp dashboard: your profile's **Settings**, then the developer **Toolkit**, then **API Keys**.
+2. Press **Create**, name the key, and copy it as it is shown. SumUp does not keep it, so it cannot show it again. It starts with `sup_sk_`.
+3. Find your merchant code: a short code of letters and digits, such as `MK01A8C2`. Your SumUp dashboard shows it under your name, at the top left, as your **Merchant ID**.
+
+There is nothing else to set up in SumUp: each payment tells SumUp where to report.
+
+## In Shoply
+
+1. In your Shoply dashboard, open **Settings**, then **Payment Methods**.
+2. Under **Add a payment method**, find **SumUp** and press **Connect**.
+3. Paste the key into **API Key** and the code into **Merchant Code**.
+4. Press **Test Connection** to try what you pasted, then **Connect App**.
+
+Saving asks SumUp for that account with that key, so a code the key is not for is refused. **Test Connection** says whether the account is a sandbox one, and which currency it charges in.
+
+How SumUp works once it is connected, at the checkout and on an order, is in [Payment methods](/guides/payment-methods#sumup).

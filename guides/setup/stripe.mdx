@@ -1,0 +1,51 @@
+---
+title: "Set up Stripe"
+sidebarTitle: "Stripe"
+icon: "/images/brands/stripe.png"
+description: "Where your Stripe keys are, and the optional webhook"
+---
+
+Stripe takes card payments on your checkout, in Stripe's own card form. You need a Stripe account that can take live payments.
+
+## In Stripe
+
+### Your keys
+
+1. Open [API keys](https://dashboard.stripe.com/apikeys) in your Stripe Dashboard, and make sure it shows **live mode**, not a sandbox.
+2. Copy the **Publishable key**. It starts with `pk_live_`, and Stripe always shows it.
+3. Get a secret key, one of two ways:
+   - Beside the standard **Secret key**, press **Reveal live key** and copy it. It starts with `sk_live_`. Stripe reveals only a key it made for you.
+   - Or press **Create restricted key** and give it only what Shoply uses: **Write** for Payment Intents and Refunds, and **Read** for Balance and Disputes. Leave the rest at **None**. It starts with `rk_live_`.
+
+A live key you create yourself is shown once, as it is made. Copy it before you close Stripe's dialog.
+
+### The webhook (optional)
+
+Shoply asks Stripe about each payment while the buyer waits, so payments complete without a webhook. With one, a payment is confirmed even when the buyer closes the page the moment they pay, and disputes reach your orders sooner.
+
+1. Open Shoply's Stripe dialog and copy the **Callback URL** it shows over **Webhook Signing Secret**.
+2. In Stripe, open **Workbench**, then [Webhooks](https://dashboard.stripe.com/webhooks), and press **Create an event destination**. Choose **Your account**.
+3. For the payload, choose **Snapshot**, not **Thin**. Shoply reads the whole event, which a thin one leaves out.
+4. Select the `payment_intent` events and the `charge.dispute` events, press **Continue**, choose **Webhook endpoint**, and press **Continue** again.
+5. Paste the Callback URL as the **Endpoint URL**, and create the destination.
+6. On its page, press **Reveal secret** and copy the secret. It starts with `whsec_`.
+
+### Which payment methods buyers see (optional)
+
+Left empty, the checkout offers what your Stripe account's default configuration offers, which can include Klarna and other ways to pay later. To choose for yourself:
+
+1. Open [Payment methods](https://dashboard.stripe.com/settings/payment_methods) in Stripe's settings.
+2. In **Payment configurations**, open the menu (⋯), press **Create a configuration**, name it, switch on the methods you want, and press **Save configuration**.
+3. Copy the configuration's ID. It starts with `pmc_`.
+
+## In Shoply
+
+1. In your Shoply dashboard, open **Settings**, then **Payment Methods**.
+2. Under **Add a payment method**, find **Stripe** and press **Connect**.
+3. Paste the secret key into **Secret Key** and the publishable key into **Publishable Key**.
+4. If you made the webhook, paste its secret into **Webhook Signing Secret**. If you made a configuration, paste its ID into **Payment Method Configuration ID**.
+5. Press **Test Connection** to try what you pasted, then **Connect App**.
+
+**Test Connection** says whether the key is a live one. A sandbox key (`sk_test_`) works too: test cards complete and deliver orders, and no money moves. A key that does not start with `sk_` or `rk_` is refused.
+
+How Stripe works once it is connected, at the checkout and on an order, is in [Payment methods](/guides/payment-methods).

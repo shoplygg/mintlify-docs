@@ -1,0 +1,27 @@
+---
+title: "Set up Mollie"
+sidebarTitle: "Mollie"
+icon: "/images/brands/mollie.png"
+description: "Where your Mollie API key is"
+---
+
+Mollie takes cards and the local methods of your buyers' countries, on its own page.
+
+## In Mollie
+
+1. In your Mollie dashboard, open **Developers**, then **API keys**. Only the Admin and Developer roles can open it.
+2. Copy your live API key. It starts with `live_`. A key that starts with `test_` completes and delivers orders with no money moving.
+3. Switch on at least one payment method in your Mollie dashboard's payment methods settings. Cards, Klarna and some others need Mollie to verify you first, and a live key works once Mollie has approved your website profile.
+
+There is nothing else to set up in Mollie: each payment tells Mollie where to report.
+
+## In Shoply
+
+1. In your Shoply dashboard, open **Settings**, then **Payment Methods**.
+2. Under **Add a payment method**, find **Mollie** and press **Connect**.
+3. Paste the key into **API Key**.
+4. Press **Test Connection** to try what you pasted, then **Connect App**.
+
+Saving refuses a key Mollie does not know, and a profile with no payment method switched on. **Test Connection** says how many are on.
+
+How Mollie works once it is connected, at the checkout and on an order, is in [Payment methods](/guides/payment-methods#mollie).

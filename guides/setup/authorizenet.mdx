@@ -1,0 +1,30 @@
+---
+title: "Set up Authorize.net"
+sidebarTitle: "Authorize.net"
+icon: "/images/brands/authorizenet.png"
+description: "Where your Authorize.net API Login ID and keys are"
+---
+
+Authorize.net takes card payments in its own card window over your checkout. You need an Authorize.net account and its Merchant Interface, with an Administrator login for the last step.
+
+## In Authorize.net
+
+1. In the [Merchant Interface](https://account.authorize.net/), open **Account**, then **Settings**, **Security Settings**, **General Security Settings**, and **API Credentials and Keys**. Your **API Login ID** is shown there. Copy it.
+2. On the same page, choose **New Transaction Key** and press **Submit**. Authorize.net asks for a PIN it sends you. Copy the key it shows: it is not shown again.
+3. Do the same with **New Signature Key**. Shoply uses it to set up the webhook that tells it about voids, refunds and reviews, which Authorize.net sends only once a Signature Key exists.
+4. Back in **General Security Settings**, open **Manage Public Client Key**. If there is none, make one: Authorize.net asks your security question. You paste nothing from here. Shoply reads it itself, and its card window needs it.
+
+A new Transaction Key or Signature Key replaces the old one after 24 hours, unless you tick the box to disable the old one at once. If other software uses your current keys, it stops working when the old key does.
+
+Credentials from an Authorize.net sandbox account work the same way, and Shoply works out which kind they are.
+
+## In Shoply
+
+1. In your Shoply dashboard, open **Settings**, then **Payment Methods**.
+2. Under **Add a payment method**, find **Authorize.net** and press **Connect**.
+3. Paste the **API Login ID**, the **Transaction Key** and the **Signature Key**.
+4. Press **Test Connection** to try what you pasted, then **Connect App**.
+
+Saving is refused for an account with no Public Client Key, and says where to make one.
+
+How Authorize.net works once it is connected, at the checkout and on an order, is in [Payment methods](/guides/payment-methods).

@@ -1,0 +1,25 @@
+---
+title: "Set up Rewarble"
+sidebarTitle: "Rewarble"
+icon: "/images/brands/rewarble.svg"
+description: "Where your Rewarble Client API key is"
+---
+
+Rewarble vouchers are paid by typing their codes on your checkout, each redeemed into your Rewarble account.
+
+## In Rewarble
+
+1. Rewarble gives API access only to an account with 500 EUR of deposits over its life.
+2. Open the **Client API** page of your Rewarble account and make a key. Copy it.
+3. Leave the key's **IP whitelist** empty. Shoply's address is not one you can list.
+
+## In Shoply
+
+1. In your Shoply dashboard, open **Settings**, then **Payment Methods**.
+2. Under **Add a payment method**, find **Rewarble** and press **Connect**.
+3. Paste the key into **API Key**.
+4. Press **Test Connection** to try what you pasted, then **Connect App**.
+
+Saving asks Rewarble whether it knows the key, in a way that redeems no voucher. If Rewarble refuses Shoply's server, saving says to empty the key's IP whitelist.
+
+How Rewarble works once it is connected, at the checkout and on an order, is in [Payment methods](/guides/payment-methods#rewarble).

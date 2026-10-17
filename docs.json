@@ -72,6 +72,33 @@
                             "guides/storefronts",
                             "guides/custom-domain",
                             "guides/payment-methods",
+                            {
+                                "group": "Set up a payment method",
+                                "icon": "plug",
+                                "pages": [
+                                    "guides/setup/stripe",
+                                    "guides/setup/authorizenet",
+                                    "guides/setup/nmi",
+                                    "guides/setup/mollie",
+                                    "guides/setup/sumup",
+                                    "guides/setup/square",
+                                    "guides/setup/revolut",
+                                    "guides/setup/lemonsqueezy",
+                                    "guides/setup/amazonpaymentservices",
+                                    "guides/setup/skrill",
+                                    "guides/setup/pandabase",
+                                    "guides/setup/shopify",
+                                    "guides/setup/tagada",
+                                    "guides/setup/whop",
+                                    "guides/setup/paypal",
+                                    "guides/setup/nowpayments",
+                                    "guides/setup/cryptomus",
+                                    "guides/setup/heleket",
+                                    "guides/setup/oxapay",
+                                    "guides/setup/skinloop",
+                                    "guides/setup/rewarble"
+                                ]
+                            },
                             "guides/fraud-protection",
                             "guides/analytics",
                             "guides/settings"

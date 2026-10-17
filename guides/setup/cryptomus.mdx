@@ -1,0 +1,28 @@
+---
+title: "Set up Cryptomus"
+sidebarTitle: "Cryptomus"
+icon: "/images/brands/cryptomus.png"
+description: "Making a Cryptomus merchant, and where its keys are"
+---
+
+Cryptomus takes crypto on your checkout. Its keys come from a merchant, which Cryptomus has to approve first.
+
+## In Cryptomus
+
+1. Open **Business**, then **Merchants**, and create a merchant.
+2. In the merchant's settings, leave a request: enter your store's address and a description, and press **Submit**.
+3. Confirm that the address is yours, as Cryptomus asks. Its docs show the ways only in pictures, so follow what its dashboard shows.
+4. Once Cryptomus has approved the merchant, open its **Settings** tab and copy the **Merchant ID** and the payment API key.
+
+Use the payment key. The payout key, which Cryptomus keeps in your account's own settings, is for sending money out, and Shoply never asks for it.
+
+## In Shoply
+
+1. In your Shoply dashboard, open **Settings**, then **Payment Methods**.
+2. Under **Add a payment method**, find **Cryptomus** and press **Connect**.
+3. Paste the **Merchant ID** and the key into **Payment API Key**.
+4. Press **Test Connection** to try what you pasted, then **Connect App**.
+
+**Test Connection** says whether the keys work and how many coins the merchant takes.
+
+How Cryptomus works once it is connected, at the checkout and on an order, is in [Payment methods](/guides/payment-methods#crypto).

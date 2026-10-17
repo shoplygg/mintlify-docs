@@ -1,30 +1,31 @@
 ---
 title: "Payment methods"
+icon: "credit-card"
 description: "How buyers pay you: cards, PayPal, crypto, skins and vouchers, through accounts of your own"
 ---
 
-Buyers pay **you**, through an account of your own with a payment provider. You connect it under **Payment Methods**, and Shoply's checkout takes the payment with it.
+Buyers pay **you**, through an account of your own with a payment provider. You connect it under **Payment Methods**, and Shoply's checkout takes the payment with it. Each provider below has a page of its own that says where its keys are, step by step: press its name, or find it under **Set up a payment method** in the sidebar.
 
 | Method | Provider | Can a payment be sent back |
 | - | - | - |
-| Cards, Apple Pay, Google Pay | Stripe | Yes |
-| Cards | Authorize.net | Yes |
-| Cards | NMI, or a provider that resells it | Yes |
-| Cards, iDEAL, Bancontact, Klarna and more | Mollie | Yes |
-| Cards, Apple Pay, Google Pay | SumUp | Yes |
-| Cards, Apple Pay, Google Pay | Square | Yes |
-| Cards, Revolut Pay, Apple Pay, Google Pay | Revolut Business | Yes |
-| Cards, PayPal, Apple Pay, Google Pay | Lemon Squeezy, as the seller of record | Yes |
-| Cards | Amazon Payment Services | Yes |
-| Cards, Skrill wallets and local methods | Skrill | No. A refund is store credit, or yours to make in Skrill. |
-| Cards, wallets and local methods | Pandabase, as the seller of record | Yes |
-| Cards, Shop Pay and wallets | Shopify, through your own store | Yes |
-| Cards | Tagada, through the processors you connect there | Yes |
-| Cards, wallets and local methods | Whop | Yes |
-| PayPal | PayPal | Yes |
-| Crypto | NOWPayments, Cryptomus, Heleket, OxaPay | No. A refund is store credit. |
-| CS2 and Rust skins | Skinloop | No. A refund is store credit. |
-| Rewarble vouchers | Rewarble | No. A refund is store credit. |
+| Cards, Apple Pay, Google Pay | [Stripe](/guides/setup/stripe) | Yes |
+| Cards | [Authorize.net](/guides/setup/authorizenet) | Yes |
+| Cards | [NMI](/guides/setup/nmi), or a provider that resells it | Yes |
+| Cards, iDEAL, Bancontact, Klarna and more | [Mollie](/guides/setup/mollie) | Yes |
+| Cards, Apple Pay, Google Pay | [SumUp](/guides/setup/sumup) | Yes |
+| Cards, Apple Pay, Google Pay | [Square](/guides/setup/square) | Yes |
+| Cards, Revolut Pay, Apple Pay, Google Pay | [Revolut Business](/guides/setup/revolut) | Yes |
+| Cards, PayPal, Apple Pay, Google Pay | [Lemon Squeezy](/guides/setup/lemonsqueezy), as the seller of record | Yes |
+| Cards | [Amazon Payment Services](/guides/setup/amazonpaymentservices) | Yes |
+| Cards, Skrill wallets and local methods | [Skrill](/guides/setup/skrill) | No. A refund is store credit, or yours to make in Skrill. |
+| Cards, wallets and local methods | [Pandabase](/guides/setup/pandabase), as the seller of record | Yes |
+| Cards, Shop Pay and wallets | [Shopify](/guides/setup/shopify), through your own store | Yes |
+| Cards | [Tagada](/guides/setup/tagada), through the processors you connect there | Yes |
+| Cards, wallets and local methods | [Whop](/guides/setup/whop) | Yes |
+| PayPal | [PayPal](/guides/setup/paypal) | Yes |
+| Crypto | [NOWPayments](/guides/setup/nowpayments), [Cryptomus](/guides/setup/cryptomus), [Heleket](/guides/setup/heleket), [OxaPay](/guides/setup/oxapay) | No. A refund is store credit. |
+| CS2 and Rust skins | [Skinloop](/guides/setup/skinloop) | No. A refund is store credit. |
+| Rewarble vouchers | [Rewarble](/guides/setup/rewarble) | No. A refund is store credit. |
 
 A store can connect several, switch each on and off without losing its keys, and sort them: the first is the one most buyers take. Several of one kind too: Stripe, Authorize.net, NMI, Mollie, SumUp, Square, Revolut Business, Lemon Squeezy, Amazon Payment Services, Skrill, Pandabase, Shopify, Tagada and Whop can all be connected, and each is a row of its own at the checkout, as each crypto provider is. A buyer who starts with one can go on with another, and whichever the money arrives through completes the order. Each provider is connected once: one Stripe account a store, not two.
 
@@ -102,7 +103,7 @@ Connect your Square account with an access token, and if you like, which of your
 | Box | What goes in it |
 | - | - |
 | Access Token | Your app's access token, from **Credentials** in your app in the Square Developer Console. Make an app there if you have none. |
-| Location ID | Which location takes the money, from **Locations** in your Square dashboard. Left empty, your main location. |
+| Location ID | Which location takes the money, from **Locations** in your application in the Square Developer Console. Left empty, your main location. |
 | Webhook Signature Key | Optional, below. |
 
 Saving asks Square for that location with the token. A token Square does not know is refused, and so is a location the token has none of, one that is not active, and one that cannot take card payments yet. Square's answer also says whether the token is a sandbox one and which currency the location charges in, and **Test Connection** tells you both.
@@ -138,7 +139,7 @@ Lemon Squeezy is the seller of record: it sells to the buyer itself, handles sal
 | Box | Where it is in Lemon Squeezy |
 | - | - |
 | API Key | **Settings**, **API**. Make a key there; a key made in test mode is a test key. |
-| Product ID | The number in the product's address in your Lemon Squeezy dashboard. |
+| Product ID | The ID Lemon Squeezy gives the product. A number that is not a product of your store is refused when you save. |
 | Store ID | Only if the key can see more than one store: the number under **Settings**, **Stores**. Left empty, your only store. |
 
 Saving asks Lemon Squeezy about the three: a product that is not published, that belongs to another store, or that has only a subscription price is refused. It also says whether the key is a test one, and which currency your store charges in, and **Test Connection** tells you both. Saving sets up the webhook that tells Shoply about your payments too: you paste nothing into Lemon Squeezy for it.
@@ -158,7 +159,7 @@ Connect your Amazon Payment Services account (once PayFort) with what its back o
 
 | Box | Where it is |
 | - | - |
-| Merchant Identifier | **Integration Settings** in your Amazon Payment Services back office. |
+| Merchant Identifier | **Integration Settings**, **Security Settings** in your Amazon Payment Services back office. |
 | Access Code | The same page. |
 | SHA Request Phrase | The same page. |
 | SHA Response Phrase | The same page. |
@@ -166,7 +167,7 @@ Connect your Amazon Payment Services account (once PayFort) with what its back o
 
 Saving checks them with Amazon Payment Services, works out whether the account is a sandbox one and which SHA type you chose there (SHA-256, SHA-512, HMAC-256 or HMAC-512), and **Test Connection** tells you both. A merchant identifier, an access code or a phrase it does not take is refused at its box.
 
-For payments to be confirmed sooner, add the **Callback URL** Shoply shows you under **Integration Settings**, as both the **Direct Transaction Feedback URL** and the **Notification Feedback URL**. Without it every payment is still followed, a little later.
+For payments to be confirmed sooner, open **Technical Settings** in your back office, press **Add New Technical Settings** with **Redirection** as the **Integration Type**, and add the **Callback URL** Shoply shows you as both the **Notification URL** and the **Direct Transaction Feedback**, with **Send Response Parameters** set to **Yes**. Without it every payment is still followed, a little later.
 
 At the checkout the buyer presses Pay and Amazon Payment Services' own page opens in a new tab, for exactly the order's total. When they have paid they are sent back to the order, which completes and is delivered.
 

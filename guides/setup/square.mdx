@@ -1,0 +1,38 @@
+---
+title: "Set up Square"
+sidebarTitle: "Square"
+icon: "/images/brands/square.png"
+description: "Where your Square access token is, and the optional webhook"
+---
+
+Square takes cards, Apple Pay and Google Pay, and Cash App Pay and Afterpay where your account offers them, on its own page. You need a Square account activated for payments ([squareup.com/activation](https://squareup.com/activation)).
+
+## In Square
+
+1. Open the [Square Developer Console](https://developer.squareup.com/apps), signed in with your Square account. If it lists no application, create one: any name will do.
+2. Open the application, and in the left pane open **Credentials**.
+3. At the top, choose **Production**. In the **Production Access token** box, press **Show** and copy the token.
+4. Optional: to take the money at a location other than your main one, open **Locations** in the same left pane and copy that location's ID.
+
+### The webhook (optional)
+
+With it, payments are confirmed sooner and refunds you make in Square reach your orders. Without it, Shoply still follows each payment, a little later.
+
+1. Open Shoply's Square dialog and copy the **Callback URL** it shows over **Webhook Signature Key**.
+2. In your application in the Developer Console, open **Webhooks**, then **Subscriptions**, and press **Add subscription**.
+3. Name it, paste the Callback URL as its notification URL, choose the events `payment.created` and `payment.updated`, and press **Save**.
+4. In **Endpoint Details**, press **Show** in the **Signature Key** box and copy it.
+
+A **Sandbox** token, on the same Credentials page, completes and delivers orders with no money moving.
+
+## In Shoply
+
+1. In your Shoply dashboard, open **Settings**, then **Payment Methods**.
+2. Under **Add a payment method**, find **Square** and press **Connect**.
+3. Paste the token into **Access Token**, and the location's ID into **Location ID** if you copied one.
+4. If you made the webhook, paste its key into **Webhook Signature Key**.
+5. Press **Test Connection** to try what you pasted, then **Connect App**.
+
+Saving refuses a location that is not active, or that cannot take card payments yet. **Test Connection** says whether the token is a sandbox one, and which currency the location charges in.
+
+How Square works once it is connected, at the checkout and on an order, is in [Payment methods](/guides/payment-methods#square).

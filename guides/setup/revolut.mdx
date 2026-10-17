@@ -1,0 +1,28 @@
+---
+title: "Set up Revolut Business"
+sidebarTitle: "Revolut Business"
+icon: "/images/brands/revolut.png"
+description: "Where your Revolut Merchant API secret key is"
+---
+
+Revolut takes cards, Revolut Pay, Apple Pay and Google Pay on its own page. You need a Revolut Business account with a Merchant account, which you apply for in Revolut Business.
+
+## In Revolut Business
+
+1. Once your Merchant account is approved, open **APIs**, then **Merchant API**, in your Revolut Business account.
+2. Generate the **Production** API keys, and copy the **Secret** key. The public key beside it is not the one.
+
+A sandbox account is made separately, through Revolut's sandbox sign-up, and is approved at once. Its **Merchant API** page has sandbox keys of its own, which work only in the sandbox.
+
+There is nothing else to set up in Revolut: saving puts Shoply's webhook in your account.
+
+## In Shoply
+
+1. In your Shoply dashboard, open **Settings**, then **Payment Methods**.
+2. Under **Add a payment method**, find **Revolut Business** and press **Connect**.
+3. Paste the secret key into **Secret Key**.
+4. Press **Test Connection** to try what you pasted, then **Connect App**.
+
+Revolut keeps at most ten webhooks an account. If yours already has ten, saving says so: remove one you no longer use in Revolut and save again.
+
+How Revolut Business works once it is connected, at the checkout and on an order, is in [Payment methods](/guides/payment-methods#revolut-business).

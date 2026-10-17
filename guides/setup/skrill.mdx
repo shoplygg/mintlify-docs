@@ -1,0 +1,29 @@
+---
+title: "Set up Skrill"
+sidebarTitle: "Skrill"
+icon: "/images/brands/skrill.png"
+description: "Your Skrill merchant email, secret word and currency"
+---
+
+Skrill takes cards, a buyer's Skrill wallet and the local methods of their country, on its own page. You need a Skrill merchant account.
+
+## In Skrill
+
+1. Note the email address your Skrill merchant account signs in with.
+2. Open **Settings**, then **Developer Settings**, and set your secret word. Note it exactly: Skrill signs every payment it confirms with it, and a payment whose signature does not match completes nothing.
+3. Note the currency your Skrill account holds.
+
+There is nothing else to set up in Skrill: each payment carries the address Skrill reports to.
+
+Skrill's own test merchant takes Skrill's test cards with no money moving: the email `demoqco@sun-fish.com` and the secret word `skrill`.
+
+## In Shoply
+
+1. In your Shoply dashboard, open **Settings**, then **Payment Methods**.
+2. Under **Add a payment method**, find **Skrill** and press **Connect**.
+3. Paste the email into **Merchant Email** and the word into **Secret Word**, and type the currency into **Account Currency** as three letters: `EUR`, `USD`, `GBP`.
+4. Press **Test Connection** to try what you pasted, then **Connect App**.
+
+Saving checks with Skrill that it takes payments for that email address. The secret word and the currency are proved by your first payment.
+
+How Skrill works once it is connected, at the checkout and on an order, is in [Payment methods](/guides/payment-methods#skrill).

@@ -1,0 +1,29 @@
+---
+title: "Set up Skinloop"
+sidebarTitle: "Skinloop"
+icon: "/images/brands/skinloop.png"
+description: "Your Skinloop API key, checkout origin and webhook"
+---
+
+Skinloop takes CS2 and Rust skins, traded from the buyer's Steam inventory on Skinloop's own page.
+
+## In Skinloop
+
+1. Make an API key under **API & Webhooks**, with the scopes `checkout:create` and `checkout:read`, and the games you take: CS2, Rust or both. Scopes cannot be added to a key afterwards: for more, make a new key.
+2. Open Shoply's Skinloop dialog. It shows a **Checkout Address** and a **Callback URL** to copy.
+3. In Skinloop, under **Checkout Configuration**, add the Checkout Address to **Checkout Redirect Origins**. Without it Skinloop refuses every checkout, and buyers cannot pay.
+4. Under **API & Webhooks**, add the Callback URL as a webhook endpoint, for `payment.completed` and `payment.reverted`. Copy the signing secret it shows as it is made: it starts with `whsec_`.
+
+Keep your test and live keys apart: a test key's checkouts are tests.
+
+## In Shoply
+
+1. In your Shoply dashboard, open **Settings**, then **Payment Methods**.
+2. Under **Add a payment method**, find **Skinloop** and press **Connect**.
+3. Paste the key into **API Key** and the secret into **Webhook Signing Secret**.
+4. Switch on **Take CS2 Skins**, **Take Rust Skins**, or both, as your key allows.
+5. Press **Test Connection** to try what you pasted, then **Connect App**.
+
+Whether the key may make checkouts, for which games, and whether the address is approved, Skinloop says only when a buyer pays. Make one small payment of your own before you sell.
+
+How Skinloop works once it is connected, at the checkout and on an order, is in [Payment methods](/guides/payment-methods#skinloop).

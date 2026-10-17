@@ -1,0 +1,35 @@
+---
+title: "Set up Amazon Payment Services"
+sidebarTitle: "Amazon Payment Services"
+icon: "/images/brands/amazonpaymentservices.png"
+description: "Where your Amazon Payment Services credentials are, and its feedback addresses"
+---
+
+Amazon Payment Services (once PayFort) takes cards on its own page. Its accounts are opened through its sales team.
+
+## In Amazon Payment Services
+
+1. In your back office, open **Integration Settings**, then **Security Settings**. Copy the **Merchant Identifier**, the **Access Code**, the **SHA Request Phrase** and the **SHA Response Phrase**. Leave the **SHA Type** as it is: Shoply works out which one you chose.
+2. Note the one currency your account charges in.
+
+### The feedback addresses (optional)
+
+With them, payments are confirmed sooner. Without them, Shoply still follows each payment, a little later.
+
+1. Open Shoply's Amazon Payment Services dialog and copy the **Callback URL** it shows.
+2. In your back office, open the **Technical Settings** tab and press **Add New Technical Settings**. Choose **Redirection** as the **Integration Type**, and press **Activate**.
+3. Paste the Callback URL as both the **Notification URL** and the **Direct Transaction Feedback**.
+4. Set **Send Response Parameters** to **Yes**, and press **Save Changes**.
+
+Shoply sends the address a buyer comes back to with each payment, so what you put in **Redirection URL** is not used.
+
+## In Shoply
+
+1. In your Shoply dashboard, open **Settings**, then **Payment Methods**.
+2. Under **Add a payment method**, find **Amazon Payment Services** and press **Connect**.
+3. Paste the four values into the boxes of the same names, and type your account's currency into **Currency**, as three letters: `AED`, `SAR`, `USD`.
+4. Press **Test Connection** to try what you pasted, then **Connect App**.
+
+Saving checks them with Amazon Payment Services and refuses one it does not take, at its box. **Test Connection** says whether the account is a sandbox one, and which SHA type it uses. An account that charges only in KWD, QAR, BHD, OMR or JOD cannot be connected.
+
+How Amazon Payment Services works once it is connected, at the checkout and on an order, is in [Payment methods](/guides/payment-methods#amazon-payment-services).

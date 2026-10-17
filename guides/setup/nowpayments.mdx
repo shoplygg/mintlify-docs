@@ -1,0 +1,28 @@
+---
+title: "Set up NOWPayments"
+sidebarTitle: "NOWPayments"
+icon: "/images/brands/nowpayments.png"
+description: "Where your NOWPayments API key and IPN secret are"
+---
+
+NOWPayments takes crypto on your checkout: the buyer picks a coin and pays to an address shown there.
+
+## In NOWPayments
+
+1. In your NOWPayments dashboard, open **Store settings** and enter the wallet address your coins are paid out to. Press save.
+2. Scroll up to **API keys**, press **Add new key**, and copy the key.
+3. In the same **Store settings**, make your IPN secret key and copy it. NOWPayments shows it once.
+4. In the coin settings, choose which coins buyers may pay in.
+
+NOWPayments' payment notifications go to an address Shoply sends with each payment, so there is no address to paste into NOWPayments.
+
+## In Shoply
+
+1. In your Shoply dashboard, open **Settings**, then **Payment Methods**.
+2. Under **Add a payment method**, find **NOWPayments** and press **Connect**.
+3. Paste the key into **API Key** and the secret into **IPN Secret Key**.
+4. Press **Test Connection** to try what you pasted, then **Connect App**.
+
+**Test Connection** says whether the key works and how many coins the account takes. An account with no coin switched on is refused, since no buyer could pay with it.
+
+How NOWPayments works once it is connected, at the checkout and on an order, is in [Payment methods](/guides/payment-methods#crypto).

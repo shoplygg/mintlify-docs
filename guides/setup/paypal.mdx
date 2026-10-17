@@ -1,0 +1,40 @@
+---
+title: "Set up PayPal"
+sidebarTitle: "PayPal"
+icon: "/images/brands/paypal.png"
+description: "Connecting PayPal with API keys or with your email address"
+---
+
+PayPal connects two ways. With API keys, Shoply makes each payment in your PayPal account and can always ask PayPal about it. With your email address alone, PayPal's notification is the only word Shoply gets.
+
+## API Keys
+
+You need a verified Business or Premier PayPal account.
+
+1. Sign in to the [PayPal Developer Dashboard](https://developer.paypal.com/dashboard/applications/live) with your PayPal account and open **Apps & Credentials**.
+2. Switch the toggle to **Live**.
+3. Under **REST API apps**, open the default app, or press **Create App** and name one.
+4. Copy its **Client ID** and its **Secret**.
+
+Saving puts Shoply's webhook in that app, so refunds and disputes you make in PayPal reach your orders. You set nothing up for it.
+
+In Shoply's PayPal dialog, choose **API Keys**, and paste the two into **Client ID** and **Secret**.
+
+## Email Only
+
+There is nothing to make in PayPal. Paste the email address your PayPal account receives payments at into **PayPal Email**.
+
+PayPal tells Shoply about each payment with an instant payment notification, sent to an address that goes with the payment. PayPal sends them unless you have switched them off: if you have, switch them back on under your PayPal account's settings, in **Notifications**, **Instant payment notifications**.
+
+This way uses PayPal's older checkout, which PayPal may retire after 2026.
+
+## In Shoply
+
+1. In your Shoply dashboard, open **Settings**, then **Payment Methods**.
+2. Under **Add a payment method**, find **PayPal** and press **Connect**.
+3. Choose **API Keys** or **Email Only**, and paste what that way asks for.
+4. Press **Test Connection** to try what you pasted, then **Connect App**.
+
+With **Email Only** there is nothing to test: the first payment is the test.
+
+How PayPal works once it is connected, at the checkout and on an order, is in [Payment methods](/guides/payment-methods).
